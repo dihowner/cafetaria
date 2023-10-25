@@ -22,13 +22,13 @@ const Mostvisited = () => {
           <MostVisteedItem scrollref={scrollref} scroll={scroll} />
           <div className='w-full flex justify-between absolute items-center bottom-[60%]'>
             <div
-              className='bg-[black] rounded-full text-lg flex justify-center items-center w-[40px] h-[40px] text-white'
+              className='bg-[#FF9C06] rounded-full text-lg flex justify-center items-center w-[40px] h-[40px] text-white'
               onClick={() => scroll('left')}
             >
               <FaArrowLeft className='text-[1.5rem]' />
             </div>
             <div
-              className='bg-[black] rounded-full text-lg flex justify-center items-center w-[40px] h-[40px] text-white'
+              className='bg-[#FF9C06] rounded-full text-lg flex justify-center items-center w-[40px] h-[40px] text-white'
               onClick={() => scroll('right')}
             >
               <FaArrowRight className='text-[1.5rem]' />
