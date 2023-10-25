@@ -15,6 +15,37 @@ p,
 h1 {
   font-family: 'Inter';
 }
-.width{
-    width: 95%;
+.width {
+  width: 90%;
+}
+.mediumscreen {
+  align-items: center;
+  background-color: #ff9c06;
+  border-radius: 3px;
+  box-shadow: 0 1px 50px 0 rgba(33, 51, 67, 0.12);
+  flex-direction: column;
+  justify-content: center;
+  left: 10px;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 4vh;
+  transition: all 0.5s linear;
+  width: calc(100% - 20px);
+  z-index: 2;
+  height: 200px;
+  font-family: Montserrat;
+  color: black;
+  text-transform: capitalize;
+  padding: 1.3rem;
+}
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  margin: 0.5rem;
+  font-size: 27px;
+  color: #000000;
+  cursor: pointer;
 }
