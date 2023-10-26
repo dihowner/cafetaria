@@ -39,7 +39,7 @@ const Header = () => {
           </li>
           <li>
             <Link
-              href='/exhibitors'
+              href='/stores'
               className='font-medium hover:font-bold ease-in duration-300'
             >
               Stores

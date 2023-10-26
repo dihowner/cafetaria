@@ -2,7 +2,7 @@
 import React, { useRef } from 'react'
 import MostVisteedItem from './MostVisteedItem'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
-const Mostvisited = () => {
+const Mostvisited = ({}) => {
   const scrollref = useRef(null)
   const scroll = (direction) => {
     const { current } = scrollref
@@ -19,7 +19,7 @@ const Mostvisited = () => {
           Mostly visited this week
         </h1>
         <div className='w-[100%] relative'>
-          <MostVisteedItem scrollref={scrollref} scroll={scroll} />
+          <MostVisteedItem scrollref={scrollref} scroll={scroll}  />
           <div className='w-full flex justify-between absolute items-center bottom-[60%]'>
             <div
               className='bg-[#FF9C06] rounded-full text-lg flex justify-center items-center w-[40px] h-[40px] text-white'
