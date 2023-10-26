@@ -2,7 +2,7 @@ import React from 'react'
 import { CgSortAz } from 'react-icons/cg'
 const CustomFilter = ({title,data}) => {
     return (
-        <div className='flex flex-col gap-y-4 w-[20%]'>
+        <div className='flex flex-col gap-y-4 w-[100%] lg:w-[20%]'>
             <div className=" flex flex-col gap-y-4 w-full">
                 <h1 className='font-[600] text-2xl'>All {title}</h1>
                 <p className='font-[600] text-xl text-[#5B5B5B]'>({data})</p>
