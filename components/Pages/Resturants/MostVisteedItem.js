@@ -5,12 +5,12 @@ import { mostVisited } from '@/components/Utilis/Dummy'
 const MostVisteedItem = ({ scrollref, scroll }) => {
   return (
     <div
-      className='flex gap-x-4 max-w-max overflow-hidden scrollbar-none relative'
+      className='flex  max-w-max overflow-hidden scrollbar-none relative gap-x-6 gap-y-6'
       ref={scrollref}
     >
       {mostVisited.map((item, index) => (
         <div
-          className='min-w-[240px] md:min-w-[301px] h-[400px] bg-cover bg-center bg-no-repeat rounded-[20px] flex flex-col  scrollbar-none gap-x-4'
+          className='min-w-[240px] md:min-w-[301px] bg-cover bg-center bg-no-repeat rounded-[20px] flex flex-col  scrollbar-none gap-x-4'
           key={index}
         >
           <div className='w-full'>
@@ -19,7 +19,7 @@ const MostVisteedItem = ({ scrollref, scroll }) => {
 
           <h3 className='font-[600] text-lg'>{item.name}</h3>
           <div className=' flex flex-col  gap-y-4 '>
-            <p>{item.descpription}</p>
+            <p className='font-[500] text-[#5B5B5B]'>{item.descpription}</p>
             <div className='flex gap-x-2 items-center'>
               <span className='text-[#218B07]'>{item.ratings}</span>
               <span>{item.Reviews}</span>

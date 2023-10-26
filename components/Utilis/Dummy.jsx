@@ -134,3 +134,629 @@ export const mostVisited = [
 
     },
 ]
+export const AllResturants = [
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(1).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Amala Sky',
+        image: '/Images/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+]
+
+export const AllStores =[
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86(3).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86(3).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86(3).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86(2).png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+    {
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
+        link: '',
+        ratings: < AiFillStar />,
+        Reviews: '4.8 (300 Reviews)'
+
+    },
+]

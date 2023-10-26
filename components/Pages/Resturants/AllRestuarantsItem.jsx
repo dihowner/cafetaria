@@ -1,0 +1,39 @@
+import React from 'react'
+// import { AllResturants } from '@/components/Utilis/Dummy'
+const AllRestuarantsItem = ({title,data}) => {
+    return (
+        <div className='flex flex-col gap-y-4 w-[80%]'>
+            <div className=" flex gap-x-4 ">
+                <h1 className='font-[600] text-2xl'>All {title}</h1>
+                <div className="bg-[#C9C9C9] rounded-full h-[50px] w-[300px]">
+                    <input type="text" className='w-full p-3 capitalize bg-[#C9C9C9] rounded-full border-none outline-none h-[100%]' placeholder='search restuarants' />
+                </div>
+            </div>
+
+            <div className=" grid grid-cols-3 gap-x-6 gap-y-6 overflow-y-auto max-h-[600px] ">
+                {data.map((item, index) => (
+                    <div
+                        className='flex flex-col gap-y-2 scrollbar-none '
+                        key={index}
+                    >
+                        <div className='w-full'>
+                            <img src={item.image} alt='' className='object-fit w-[100%]' />
+                        </div>
+
+                        <h3 className='font-[600] text-lg'>{item.name}</h3>
+                        <div className=' flex flex-col  gap-y-4 '>
+                            <p className='font-[500] text-[#5B5B5B]'>{item.descpription}</p>
+                            <div className='flex gap-x-2 items-center'>
+                                <span className='text-[#218B07]'>{item.ratings}</span>
+                                <span>{item.Reviews}</span>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+        </div>
+    )
+}
+
+export default AllRestuarantsItem
