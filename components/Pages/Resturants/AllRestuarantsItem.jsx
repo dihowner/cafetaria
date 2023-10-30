@@ -10,7 +10,7 @@ const AllRestuarantsItem = ({title,data}) => {
                 </div> */}
             </div>
 
-            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 overflow-y-auto max-h-[600px] ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 overflow-y-auto max-h-[600px] ">
                 {data.map((item, index) => (
                     <div
                         className='flex flex-col gap-y-2 scrollbar-none '

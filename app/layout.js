@@ -3,6 +3,8 @@ import './globals.css'
 import Header from '@/components/Headerr/Header'
 // import Footer from '@/components/Footer'
 import Footer from '@/components/Footer'
+import { SidebarContext } from '@/context/Sidebar/SideBarContext'
+// import { SidebarContext } from '@/context/Sidebar/SideBarContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,11 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <SidebarContext>
+        <body className={inter.className}>{children}</body>
+      </SidebarContext>
     </html>
   )
 }

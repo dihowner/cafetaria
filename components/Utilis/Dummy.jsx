@@ -1,5 +1,8 @@
 
-import { AiFillStar } from 'react-icons/ai'
+import { AiFillStar, AiFillMessage } from 'react-icons/ai'
+import { MdDashboard, MdNotifications, MdOutlineSettings, MdReviews } from 'react-icons/md'
+import { FaCartShopping } from 'react-icons/fa6'
+import { BiMoneyWithdraw, BiSolidUserRectangle } from 'react-icons/bi'
 
 
 export const gettingstarted = [
@@ -677,7 +680,7 @@ export const AllResturants = [
     },
 ]
 
-export const AllStores =[
+export const AllStores = [
     {
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86(3).png',
@@ -759,4 +762,55 @@ export const AllStores =[
         Reviews: '4.8 (300 Reviews)'
 
     },
+]
+
+export const SideBarFirstLinks = [
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        icon: <MdDashboard />,
+    },
+    {
+        path: '/orders',
+        name: 'Orders',
+        icon: <FaCartShopping />,
+    },
+    {
+        path: '/items',
+        name: 'items',
+        icon: <AiFillBulb />,
+    },
+    {
+        path: '/messages',
+        name: 'messages',
+        icon: <AiFillMessage />,
+    },
+    {
+        path: '/notification',
+        name: 'notification',
+        icon: <MdNotifications />,
+    },
+]
+export const SideBarSecondLinks = [
+    {
+        path: '/withdraw',
+        name: 'withdraw',
+        icon: <BiMoneyWithdraw />,
+    },
+    {
+        path: '/settings',
+        name: 'settings',
+        icon: <MdOutlineSettings />,
+    },
+    {
+        path: '/helpcenter',
+        name: 'Help center',
+        icon: <BiSolidUserRectangle />,
+    },
+    {
+        path: '/reviews',
+        name: 'Reviews',
+        icon: <MdReviews />,
+    },
+
 ]
