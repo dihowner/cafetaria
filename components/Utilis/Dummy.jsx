@@ -1,6 +1,6 @@
 
-import { AiFillStar, AiFillMessage, AiFillBulb } from 'react-icons/ai'
-import { MdDashboard, MdNotifications, MdOutlineSettings, MdReviews } from 'react-icons/md'
+import { AiFillStar, AiFillMessage } from 'react-icons/ai'
+import { MdDashboard, MdNotifications, MdOutlineSettings, MdReviews, MdSwipeDownAlt } from 'react-icons/md'
 import { FaCartShopping } from 'react-icons/fa6'
 import { BiMoneyWithdraw, BiSolidUserRectangle } from 'react-icons/bi'
 
@@ -649,7 +649,7 @@ export const SideBarFirstLinks = [
     {
         path: '/items',
         name: 'items',
-        icon: <AiFillBulb />,
+        icon: <MdSwipeDownAlt />,
     },
     {
         path: '/messages',
