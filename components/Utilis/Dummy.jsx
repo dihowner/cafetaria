@@ -1,5 +1,5 @@
 
-import { AiFillStar, AiFillMessage } from 'react-icons/ai'
+import { AiFillStar, AiFillMessage, AiFillBulb } from 'react-icons/ai'
 import { MdDashboard, MdNotifications, MdOutlineSettings, MdReviews } from 'react-icons/md'
 import { FaCartShopping } from 'react-icons/fa6'
 import { BiMoneyWithdraw, BiSolidUserRectangle } from 'react-icons/bi'
@@ -139,15 +139,17 @@ export const mostVisited = [
 ]
 export const AllResturants = [
     {
+        id: 1,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
+        link: '/',
         ratings: < AiFillStar />,
         Reviews: '4.8 (300 Reviews)'
 
     },
     {
+        id: 2,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -157,6 +159,7 @@ export const AllResturants = [
 
     },
     {
+        id: 3,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -166,6 +169,7 @@ export const AllResturants = [
 
     },
     {
+        id: 4,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -175,6 +179,7 @@ export const AllResturants = [
 
     },
     {
+        id: 5,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -184,6 +189,7 @@ export const AllResturants = [
 
     },
     {
+        id: 6,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -193,6 +199,7 @@ export const AllResturants = [
 
     },
     {
+        id: 7,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -202,6 +209,7 @@ export const AllResturants = [
 
     },
     {
+        id: 8,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -211,6 +219,7 @@ export const AllResturants = [
 
     },
     {
+        id: 9,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -220,6 +229,7 @@ export const AllResturants = [
 
     },
     {
+        id: 10,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -229,6 +239,7 @@ export const AllResturants = [
 
     },
     {
+        id: 11,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -238,6 +249,7 @@ export const AllResturants = [
 
     },
     {
+        id: 12,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -247,6 +259,7 @@ export const AllResturants = [
 
     },
     {
+        id: 13,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -256,6 +269,7 @@ export const AllResturants = [
 
     },
     {
+        id: 14,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -265,6 +279,7 @@ export const AllResturants = [
 
     },
     {
+        id: 16,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -274,6 +289,7 @@ export const AllResturants = [
 
     },
     {
+        id: 15,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -283,6 +299,7 @@ export const AllResturants = [
 
     },
     {
+        id: 17,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -292,6 +309,7 @@ export const AllResturants = [
 
     },
     {
+        id: 18,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -301,6 +319,7 @@ export const AllResturants = [
 
     },
     {
+        id: 19,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -310,6 +329,7 @@ export const AllResturants = [
 
     },
     {
+        id: 20,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -319,6 +339,7 @@ export const AllResturants = [
 
     },
     {
+        id: 21,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -328,6 +349,7 @@ export const AllResturants = [
 
     },
     {
+        id: 22,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -337,6 +359,7 @@ export const AllResturants = [
 
     },
     {
+        id: 23,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -346,6 +369,7 @@ export const AllResturants = [
 
     },
     {
+        id: 24,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -355,6 +379,7 @@ export const AllResturants = [
 
     },
     {
+        id: 25,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -364,6 +389,7 @@ export const AllResturants = [
 
     },
     {
+        id: 26,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -373,6 +399,7 @@ export const AllResturants = [
 
     },
     {
+        id: 27,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -382,6 +409,7 @@ export const AllResturants = [
 
     },
     {
+        id: 28,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -391,6 +419,7 @@ export const AllResturants = [
 
     },
     {
+        id: 29,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -400,6 +429,7 @@ export const AllResturants = [
 
     },
     {
+        id: 30,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -409,6 +439,7 @@ export const AllResturants = [
 
     },
     {
+        id: 31,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -418,6 +449,7 @@ export const AllResturants = [
 
     },
     {
+        id: 32,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -427,6 +459,7 @@ export const AllResturants = [
 
     },
     {
+        id: 33,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -436,6 +469,7 @@ export const AllResturants = [
 
     },
     {
+        id: 34,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -445,6 +479,7 @@ export const AllResturants = [
 
     },
     {
+        id: 35,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -454,6 +489,7 @@ export const AllResturants = [
 
     },
     {
+        id: 36,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -463,6 +499,7 @@ export const AllResturants = [
 
     },
     {
+        id: 37,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -472,6 +509,7 @@ export const AllResturants = [
 
     },
     {
+        id: 38,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -481,15 +519,17 @@ export const AllResturants = [
 
     },
     {
+        id: 39,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
+
         ratings: < AiFillStar />,
         Reviews: '4.8 (300 Reviews)'
 
     },
     {
+        id: 40,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86(1).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -499,6 +539,7 @@ export const AllResturants = [
 
     },
     {
+        id: 41,
         name: 'Amala Sky',
         image: '/Images/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -507,177 +548,7 @@ export const AllResturants = [
         Reviews: '4.8 (300 Reviews)'
 
     },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(2).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
 
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(1).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86.png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(2).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(1).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86.png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(2).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(1).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86.png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(2).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(1).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86.png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(2).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(1).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86.png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(2).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(1).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86.png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
-    {
-        name: 'Amala Sky',
-        image: '/Images/Rectangle 86(2).png',
-        descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
-        link: '',
-        ratings: < AiFillStar />,
-        Reviews: '4.8 (300 Reviews)'
-
-    },
 ]
 
 export const AllStores = [
@@ -814,3 +685,13 @@ export const SideBarSecondLinks = [
     },
 
 ]
+export const restuarantsDetails = {
+    id: 1,
+    name: 'Amala Sky',
+    image: '/Images/Rectangle 86(1).png',
+    descpription: 'Amala, jollof rice, fried rice and dodo',
+    location: '19 joke plaza bodija, ibadan Oyo state',
+    ratings: < AiFillStar />,
+    Reviews: '4.8 (300 Reviews)'
+
+}

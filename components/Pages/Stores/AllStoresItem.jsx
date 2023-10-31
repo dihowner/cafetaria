@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { AllResturants } from '@/components/Utilis/Dummy'
+import { AllStores } from '@/components/Utilis/Dummy'
 const AllRestuarantsItem = ({ title }) => {
     return (
         <div className='flex flex-col gap-y-4 w-[100%] lg:w-[80%]'>
@@ -12,8 +12,8 @@ const AllRestuarantsItem = ({ title }) => {
             </div>
 
             <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 overflow-y-auto max-h-[600px] ">
-                {AllResturants.map((item, index) => (
-                    <Link href={`/restuarant/${item.id}`}
+                {AllStores.map((item, index) => (
+                    <Link href={item.link}
                         className='flex flex-col gap-y-2 scrollbar-none '
                         key={index}
                     >
