@@ -6,6 +6,7 @@ import React from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
+import Link from 'next/link'
 const page = () => {
   return (
     <div className='flex justify-center bg-[#F6F6F6] items-center w-[100%] py-8'>
