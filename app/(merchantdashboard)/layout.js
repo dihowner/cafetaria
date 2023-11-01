@@ -17,14 +17,14 @@ const layout = ({children}) => {
         SideBarSecondLinks={SideBarSecondLinks}
       />
       <main
-        className={`  w-[100%] ${
+        className={`  w-[100%] bg-[#FAFAFA] ${
           isSidebarOpen
             ? 'pl-[220px]'
-            : 'pl-0 md:pl-[80px] lg:pl-[220px] h-[100%] '
+            : 'pl-0 md:pl-[80px] lg:pl-[220px] h-[100%]  '
         }`}
       >
         <DashboardHeader />
-        {children}
+        <div className='p-8'>{children}</div>
       </main>
     </div>
   )

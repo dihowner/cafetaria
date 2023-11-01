@@ -2,7 +2,7 @@ import React from 'react'
 import { MdOutlineLocationOn, MdDelete } from 'react-icons/md'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { FaGreaterThan } from 'react-icons/fa6'
-import { AllResturants } from '@/components/Utilis/Dummy'
+import { EachRests } from '@/components/Utilis/Dummy'
 import Link from 'next/link'
 import CustomButton from '@/components/CustomButton'
 const EachRest = ({ restuarantsDetails, open }) => {
@@ -34,7 +34,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                         <div className="flex justify-between items-center">
                             <CustomButton
                                 title='Cart'
-                                containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[18px] gap-x-4 border bg-[#218B07]'
+                                containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[18px] gap-x-4  bg-[#218B07]'
                                 Icon={<AiOutlineShoppingCart />}
 
                             />
@@ -60,7 +60,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                             <span className='text-3xl'><MdDelete /></span>
                             <CustomButton
                                 title='Check Out'
-                                containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[18px] gap-x-4 border bg-[#218B07]'
+                                containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[18px] gap-x-4 bg-[#218B07]'
 
                             />
                         </div>
@@ -75,110 +75,24 @@ const EachRest = ({ restuarantsDetails, open }) => {
                         <h1 className='font-[700] text-3xl'>All Delicacies</h1>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
-
-                        <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
-                            <div className="flex-col flex gap-y-16 w-[60%]">
-                                <h1 className='font-[600] text-xl'>Jollof rice & Chicken</h1>
-                                <div className="">
-                                    <p>Initial Menu: <span className='text-[#218B07]'> #3500</span></p>
-                                    <CustomButton
-                                        title='Buy menu'
-                                        containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border bg-[#218B07]'
-                                        handleClick={open}
-                                    />
+                        {EachRests.map((item, index) => (
+                            <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
+                                <div className="flex-col flex gap-y-16 w-[60%]">
+                                    <h1 className='font-[600] text-xl'>{item.name}</h1>
+                                    <div className="">
+                                        <p>Initial Menu: <span className='text-[#218B07]'> {item.price}</span></p>
+                                        <CustomButton
+                                            title='Buy menu'
+                                            containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4  bg-[#218B07]'
+                                            handleClick={open}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="w-[40%] flex justify-center items-center h-[100%]">
+                                    <img src={item.image} alt="" srcset="" className='w-[100%] h-[100%]' />
                                 </div>
                             </div>
-                            <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                <img src="/Images/Rectangle 84.png" alt="" srcset="" className='w-[100%] h-[100%]' />
-                            </div>
-                        </div>
-                        <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
-                            <div className="flex-col flex gap-y-16 w-[60%]">
-                                <h1 className='font-[600] text-xl'>Jollof rice & Chicken</h1>
-                                <div className="">
-                                    <p>Initial Menu: <span className='text-[#218B07]'> #3500</span></p>
-                                    <CustomButton
-                                        title='Buy menu'
-                                        containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border bg-[#218B07]'
-                                        handleClick={open}
-
-                                    />
-                                </div>
-                            </div>
-                            <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                <img src="/Images/Rectangle 84.png" alt="" srcset="" className='w-[100%] h-[100%]' />
-                            </div>
-                        </div>
-                        <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
-                            <div className="flex-col flex gap-y-16 w-[60%]">
-                                <h1 className='font-[600] text-xl'>Jollof rice & Chicken</h1>
-                                <div className="">
-                                    <p>Initial Menu: <span className='text-[#218B07]'> #3500</span></p>
-                                    <CustomButton
-                                        title='Buy menu'
-                                        containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border bg-[#218B07]'
-                                        handleClick={open}
-
-                                    />
-                                </div>
-                            </div>
-                            <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                <img src="/Images/Rectangle 84.png" alt="" srcset="" className='w-[100%] h-[100%]' />
-                            </div>
-                        </div>
-                        <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
-                            <div className="flex-col flex gap-y-16 w-[60%]">
-                                <h1 className='font-[600] text-xl'>Jollof rice & Chicken</h1>
-                                <div className="">
-                                    <p>Initial Menu: <span className='text-[#218B07]'> #3500</span></p>
-                                    <CustomButton
-                                        title='Buy menu'
-                                        containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border bg-[#218B07]'
-                                        handleClick={open}
-
-                                    />
-                                </div>
-                            </div>
-                            <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                <img src="/Images/Rectangle 84.png" alt="" srcset="" className='w-[100%] h-[100%]' />
-                            </div>
-                        </div>
-                        <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
-                            <div className="flex-col flex gap-y-16 w-[60%]">
-                                <h1 className='font-[600] text-xl'>Jollof rice & Chicken</h1>
-                                <div className="">
-                                    <p>Initial Menu: <span className='text-[#218B07]'> #3500</span></p>
-                                    <CustomButton
-                                        title='Buy menu'
-                                        containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border bg-[#218B07]'
-                                        handleClick={open}
-
-                                    />
-                                </div>
-                            </div>
-                            <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                <img src="/Images/Rectangle 84.png" alt="" srcset="" className='w-[100%] h-[100%]' />
-                            </div>
-                        </div>
-                        <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
-                            <div className="flex-col flex gap-y-16 w-[60%]">
-                                <h1 className='font-[600] text-xl'>Jollof rice & Chicken</h1>
-                                <div className="">
-                                    <p>Initial Menu: <span className='text-[#218B07]'> #3500</span></p>
-                                    <CustomButton
-                                        title='Buy menu'
-                                        containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border bg-[#218B07]'
-                                        handleClick={open}
-
-                                    />
-                                </div>
-                            </div>
-                            <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                <img src="/Images/Rectangle 84.png" alt="" srcset="" className='w-[100%] h-[100%]' />
-                            </div>
-                        </div>
-
-
+                        ))}
                     </div>
 
                 </div>
