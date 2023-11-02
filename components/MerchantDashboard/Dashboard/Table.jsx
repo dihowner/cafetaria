@@ -4,11 +4,11 @@ import CustomButton from '@/components/CustomButton'
 const Table = () => {
     return (
         <div className='width flex flex-col gap-y-4'>
-          <div className="flex gap-x-4 items-center">
-                <h1 className='text-[#000000B5] font-bold text-2xl'>Pending Orders</h1>
+          <div className="flex gap-x-4 items-center sm:justify-between">
+                <h1 className='text-[#000000B5] font-bold text-base md:text-2xl  w-[50%] sm:w-[100%]'>Pending Orders</h1>
                 <CustomButton
                     title='View All Orders'
-                    containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[10px] gap-x-4  bg-[#218B07]'
+                    containerStyles='text-[white] flex justify-center items-center py-2 px-4 md:px-8 rounded-[10px] gap-x-4  bg-[#218B07] w-[50%] sm:w-[100%]'
 
                 />
           </div>
