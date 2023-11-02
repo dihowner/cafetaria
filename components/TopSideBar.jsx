@@ -18,7 +18,7 @@ const TopSideBar = ({ SideBarFirstLinks }) => {
                     <div className='flex items-center text-lg  w-[100%]  gap-x-4 capitalize'>
                         <div className='text-xl'>{item.icon}</div>
                         <div
-                            className={`${isSidebarOpen ? 'block' : 'hidden lg:block'
+                            className={`${isSidebarOpen ? 'block' : 'block md:hidden lg:block'
                                 }`}
                         >
                             {item.name}

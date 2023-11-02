@@ -54,3 +54,28 @@ h1 {
   height: 200px;
   /* background-color: red; */
 }
+.smallside {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 1000;
+  /* background-color: white; */
+  /* width: 70%; */
+  /* height: 100vh; */
+
+  animation: showmenu 300ms ease forwards;
+}
+@keyframes showmenu {
+  to {
+    left: 0;
+  }
+}
+.closee {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  font-size: 20px;
+  /* color:#8695A0; */
+  cursor: pointer;
+}

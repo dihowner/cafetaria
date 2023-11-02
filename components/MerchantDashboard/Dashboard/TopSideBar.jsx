@@ -3,7 +3,7 @@ import { AiFillAccountBook, AiOutlineStar, AiOutlineShoppingCart } from 'react-i
 
 const TopSideBar = () => {
     return (
-        <div className='width grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-x-8 gapy-4  '>
+        <div className='width grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 gap-x-8 gap-y-4  '>
             <div className="bg-[white] py-6 px-4 flex justify-center items-center flex-col gap-y-4 rounded-[16px]">
                 <div className="flex justify-center items-center gap-x-4">
                     <span className='bg-[#E1510D] text-[white] p-2 text-3xl'><AiFillAccountBook /></span>

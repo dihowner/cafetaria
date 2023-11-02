@@ -10,14 +10,14 @@ import Link from 'next/link'
 
 const page = () => {
   return (
-    <div className='flex justify-center bg-[#F6F6F6] items-center w-[100%] py-8'>
+    <div className='flex justify-center bg-[#F6F6F6] min-h-[100svh] w-[100%] py-8'>
       <div className='flex flex-col  justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
-        <div className='bg-[#FF9C06] flex flex-col px-6 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[80%] lg:w-[50%] py-16 h-full'>
-          <div className='w-[70%] flex flex-col justify-center items-center gap-y-3'>
+        <div className='bg-[#FF9C06] flex flex-col px-6 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[90%] lg:w-[50%] py-16 h-full'>
+          <div className='w-[80%] flex flex-col justify-center items-center gap-y-3'>
             <h1 className='text-4xl lg:text-6xl text-center font-bold'>
               You Made the right choice
             </h1>
-            <div className='w-[70%] flex justify-center items-center'>
+            <div className='w-[80%] flex justify-center items-center'>
               <img src='/Images/Rectangle 84 (1).png' />
             </div>
             <p className='text-center'>
