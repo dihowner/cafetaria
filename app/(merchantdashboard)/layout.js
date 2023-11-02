@@ -34,7 +34,7 @@ const layout = ({ children }) => {
           SideBarSecondLinks={SideBarSecondLinks}
         />
         <DashboardHeader />
-        <div className='p-8'>{children}</div>
+        <div className='p-8 pt-[90px]'>{children}</div>
       </main>
     </div>
   )
