@@ -695,3 +695,226 @@ export const restuarantsDetails = {
     Reviews: '4.8 (300 Reviews)'
 
 }
+export const EachRests = [
+    {
+        id: 1,
+        image: '/Images/Rectangle 84.png',
+        price: '3500',
+        name: 'Jollof rice & Chicken'
+    },
+    {
+        id: 2,
+        image: '/Images/Rectangle 84.png',
+        price: '3500',
+        name: 'Jollof rice & Chicken'
+    },
+    {
+        id: 3,
+        image: '/Images/Rectangle 84.png',
+        price: '3500',
+        name: 'Jollof rice & Chicken'
+    },
+    {
+        id: 4,
+        image: '/Images/Rectangle 84.png',
+        price: '3500',
+        name: 'Jollof rice & Chicken'
+    },
+    {
+        id: 5,
+        image: '/Images/Rectangle 84.png',
+        price: '3500',
+        name: 'Jollof rice & Chicken'
+    },
+    {
+        id: 6,
+        image: '/Images/Rectangle 84.png',
+        price: '3500',
+        name: 'Jollof rice & Chicken'
+    }
+]
+
+
+export const DashboardTableData = [
+    {
+        id: 1,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 2,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 3,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 4,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    }
+]
+export const OrdersTableData = [
+    {
+        id: 1,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 2,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 3,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 4,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 1,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 2,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 3,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 4,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 1,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 2,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 3,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 4,
+        name: 'Abayomi Daniels',
+        address: 'Adenuga estate bodija ibadan',
+        item: 'Nivea bathing soap',
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    }
+]
+
+export const ItemsTableData = [
+    {
+        id: 1,
+        name: 'bucket',
+        TotalOrder: 17,
+        TotalReview: 17,
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 2,
+        name: 'bucket',
+        TotalOrder: 17,
+        TotalReview: 17,
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 3,
+        name: 'bucket',
+        TotalOrder: 17,
+        TotalReview: 17,
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 4,
+        name: 'bucket',
+        TotalOrder: 17,
+        TotalReview: 17,
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 5,
+        name: 'bucket',
+        TotalOrder: 17,
+        TotalReview: 17,
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+    {
+        id: 6,
+        name: 'bucket',
+        TotalOrder: 17,
+        TotalReview: 17,
+        image: '/Images/Rectangle 86.png',
+        status: 'In prgress'
+    },
+]
