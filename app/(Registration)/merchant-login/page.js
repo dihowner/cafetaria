@@ -13,7 +13,7 @@ const page = () => {
   const router = useRouter()
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 h-[100svh]'>
-      <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 h-full '>
+      <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2'>
         <div className='bg-[#218B07] flex flex-col px-4 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[90%] lg:w-[50%] py-16 h-full'>
           <div className='w-[80%] flex flex-col justify-center items-center gap-y-3'>
             <h1 className='text-4xl lg:text-6xl  text-center font-bold'>
