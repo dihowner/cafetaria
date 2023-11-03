@@ -7,7 +7,10 @@ import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 const page = () => {
+  const router = useRouter()
+
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col  justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
@@ -25,7 +28,7 @@ const page = () => {
             </p>
           </div>
         </div>
-        <div className='w-[100%] lg:w-[50%] h-full flex flex-col gap-y-6'>
+        <div className='w-[100%] lg:w-[50%] h-full justify-center flex flex-col gap-y-6'>
           <div className='flex flex-col gap-y-3'>
             <h3 className='text-2xl font-bold'>Sign Up</h3>
             <span>
@@ -47,6 +50,7 @@ const page = () => {
                 title='Merchant'
                 containerStyles='text-[#00000087] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border'
                 Icon={<BiRadioCircle />}
+                handleClick={() => router.push('/merchant-signup')}
               />
             </div>
             <form

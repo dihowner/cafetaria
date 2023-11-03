@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 const data = [
     {
@@ -46,32 +46,44 @@ const data = [
     },
 ];
 
+
 const Graph = () => {
+    const [isClient, setIsClient] = useState(false)
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
     return (
-        <div className='w-full'>
-            {/* <ResponsiveContainer width="100%" height="100%"> */}
-            <BarChart
-                width={500}
-                height={300}
-                data={data}
-                margin={{
-                    top: 20,
-                    right: 30,
-                    left: 20,
-                    bottom: 5,
-                }}
-            >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis yAxisId="left" orientation="left" stroke="#FF9C06" />
-                <YAxis yAxisId="right" orientation="right" stroke="#5f8357" />
-                <Tooltip />
-                <Legend />
-                <Bar yAxisId="left" dataKey="pv" fill="#FF9C06" />
-                <Bar yAxisId="right" dataKey="uv" fill="#5f8357" />
-            </BarChart>
-            {/* </ResponsiveContainer> */}
+
+        <div className='w-[60%]'>
+            {
+                isClient ?
+                <div className="w-[100%]">
+                        <BarChart
+                            width={500}
+                            height={300}
+                            data={data}
+                            margin={{
+                                top: 20,
+                                right: 30,
+                                left: 20,
+                                bottom: 5,
+                            }
+                            }
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="name" />
+                            <YAxis yAxisId="left" orientation="left" stroke="#FF9C06" />
+                            <YAxis yAxisId="right" orientation="right" stroke="#5f8357" />
+                            <Tooltip />
+                            {/* <Legend /> */}
+                            <Bar yAxisId="left" dataKey="pv" fill="#FF9C06" />
+                            <Bar yAxisId="right" dataKey="uv" fill="#5f8357" />
+                        </BarChart >
+                </div>
+                 : null}
         </div>
+
+
     )
 }
 

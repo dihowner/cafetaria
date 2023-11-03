@@ -6,10 +6,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { ImCancelCircle } from 'react-icons/im'
+import { usePathname } from 'next/navigation'
 const Header = () => {
   const [toggle, setToggle] = useState(false)
+  const pathname =usePathname()
   return (
-    <div className='w-[100%] flex justify-center items-center bg-[#F6F6F6] '>
+    <div className='w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3'>
       <div className='flex width justify-between items-center'>
         <Link href='/' className='logo w-[20%]'>
           <Image
@@ -20,11 +22,11 @@ const Header = () => {
             className='object-contain'
           />
         </Link>
-        <ul className=' gap-x-3 hidden md:flex'>
+        <ul className=' gap-x-3 text-lg hidden md:flex'>
           <li>
             <Link
               href='/'
-              className='font-medium hover:font-bold ease-in duration-300'
+              className={`${pathname === '/' ? 'font-bold' : 'font-medium hover:font-bold ease-in duration-300'}`}
             >
               Home
             </Link>
@@ -32,7 +34,7 @@ const Header = () => {
           <li>
             <Link
               href='/restuarant'
-              className='font-medium hover:font-bold ease-in duration-300'
+              className={`${pathname === '/restuarant' ? 'font-bold' : 'font-medium hover:font-bold ease-in duration-300'}`}
             >
               Resturants
             </Link>
@@ -40,15 +42,15 @@ const Header = () => {
           <li>
             <Link
               href='/stores'
-              className='font-medium hover:font-bold ease-in duration-300'
+              className={`${pathname === '/stores' ? 'font-bold' : 'font-medium hover:font-bold ease-in duration-300'}`}
             >
-              Stores
+              Groceries
             </Link>
           </li>
           <li>
             <Link
-              href='/'
-              className='font-medium hover:font-bold ease-in duration-300'
+              href='/about'
+              className={`${pathname === '/about' ? 'font-bold' : 'font-medium hover:font-bold ease-in duration-300'}`}
             >
               About
             </Link>
@@ -56,7 +58,7 @@ const Header = () => {
         </ul>
         <div className='loginandsigup hidden md:flex gap-x-4 justify-center items-center'>
           <Link href='/login' className='login font-semibold text-lg'>Login</Link>
-          <Link href='/signup' className='signup bg-[#FF9C06] flex justify-center align-center text-white rounded-full py-2 w-[100px]'>
+          <Link href='/signup' className='signup bg-[#FF9C06] flex justify-center items-center text-white rounded-[8px] py-2 w-[100px]'>
             Sign up
           </Link>
         </div>
@@ -68,7 +70,7 @@ const Header = () => {
         />{' '}
         {toggle && (
           <div className="mediumscreen flex justify-center">
-            <ul className='flex gap-y-2 flex-col items-center justify-center'>
+            <ul className='flex gap-y-2 flex-col text-lg items-center justify-center'>
               <ImCancelCircle
                 onClick={() => {
                   setToggle(false)

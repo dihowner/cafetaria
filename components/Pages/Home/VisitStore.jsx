@@ -10,7 +10,7 @@ const VisitStore = () => {
                  
                     <p className='font-[500]'>There are over a thousand groceries store to order from with the
                         ability to deliver fast.</p>
-                    <Link href='' className='bg-[#FF9C06] w-[200px] p-2 flex justify-center items-center rounded-full text-white'>
+                    <Link href='' className='bg-[#FF9C06] w-[200px] p-2 flex justify-center items-center rounded-[8px] text-lg text-white'>
                         Visit stores
                     </Link>
                 </div> 
