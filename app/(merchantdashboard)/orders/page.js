@@ -1,7 +1,17 @@
 import React from 'react'
 import { OrdersTableData } from '@/components/Utilis/Dummy'
 import { BiSortAlt2 } from 'react-icons/bi'
+import Link from 'next/link'
+import { AiOutlineArrowRight } from 'react-icons/ai'
+// import CustomButton from '@/components/CustomButton'
 const page = () => {
+     const maxLength = 25
+     const truncate = (str) => {
+       if (typeof str === 'string' && str.length > maxLength) {
+         return str.slice(0, maxLength) + '.....'
+       }
+       return str
+     }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
       <div className='width'>
@@ -14,7 +24,7 @@ const page = () => {
             <span>Filter order</span>
           </div>
         </div>
-
+{/* <CustomButton */}
         <div className=' w-[100%] overflow-x-auto bg-[white] rounded-[20px]'>
           <div className='py-2 inline-block min-w-full sm:px-6 lg:px-8'>
             <div className='overflow-hidden'>
