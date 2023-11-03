@@ -14,7 +14,7 @@ const page = () => {
      }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
-      <div className='width'>
+      <div className='width flex flex-col gap-y-4'>
         <div className='flex justify-between items-center'>
           <h3 className='text-2xl font-medium'>Item order</h3>
           <div className='flex gap-x-2 items-center text-[#0000007D] border p-2'>
