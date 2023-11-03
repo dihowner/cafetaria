@@ -814,99 +814,133 @@ export const DashboardTableData = [
 export const OrdersTableData = [
     {
         id: 1,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
     },
     {
         id: 2,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 3,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 4,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 1,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
     },
     {
         id: 2,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 3,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 4,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
-    },
-    {
-        id: 1,
-        name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
-        item: 'Nivea bathing soap',
-        image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
-    },
-    {
-        id: 2,
-        name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
-        item: 'Nivea bathing soap',
-        image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
-    },
-    {
-        id: 3,
-        name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
-        item: 'Nivea bathing soap',
-        image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
-    },
-    {
-        id: 4,
-        name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
-        item: 'Nivea bathing soap',
-        image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     }
 ]
 
