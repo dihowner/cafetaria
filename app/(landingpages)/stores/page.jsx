@@ -1,9 +1,11 @@
+import Headerandsearch from '@/components/Headerandsearch'
 import AllStore from '@/components/Pages/Stores/AllStores'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className='py-4'>
+      <Headerandsearch />
       <AllStore/>
     </div>
   )

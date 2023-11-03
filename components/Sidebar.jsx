@@ -13,22 +13,16 @@ const Sidebar = ({ SideBarFirstLinks,
     return (
         <div className={`${isSidebarOpen
             ? 'hidden  w-[220px] lg:block lg:w-[220px] bg-[#218B07] fixed overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] h-[100vh] transition-[all] ease duration-[.3s] z-[10] md:block'
-            : 'hidden w-[100%] md:w-[80px] lg:w-[220px] bg-[#218B07] fixed  h-[100vh] overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] transition-[all] z-[10]  md:block pt-12'
+            : 'hidden w-[100%] md:w-[80px] lg:w-[220px] bg-[#218B07] fixed  h-[100vh] overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] transition-[all] z-[10] md:block py-4'
             }`}>
-
-            <div className='flex flex-col justify-center items-center gap-y-4 w-[100%] h-[100%]  '>
-                <div
-                    className='md:flex items-center w-[100%]  gap-x-4 capitalize pl-3 py-2 text-xl lg:hidden '
-                    onClick={() => {
-                        !toggleSidebar()
-                    }}
-                >
-                    <FaBars />
+            <div className='flex flex-col justify-center items-center gap-y-8 w-[100%] h-[100%]  '>
+                <div className={`${isSidebarOpen ? 'block' : 'block md:hidden lg:block'
+                    }`}>
+                    <img src="/logo2.png" alt="" srcset="" />
                 </div>
-                <div className="flex w-[90%] flex-col justify-cente items-center gap-y-4 h-[100%]  overflow-auto">
+                <div className="flex w-[90%] flex-col py-4 items-center gap-y-4 h-[100%]  overflow-auto">
                     <TopSideBar SideBarFirstLinks={SideBarFirstLinks} />
                     <div className='border-b-2 w-full  border-[white] '></div>
-
                     <SecondSideBar SideBarSecondLinks={SideBarSecondLinks} />
                     {/* <SecondSideBar SideBarSecondLinks={SideBarSecondLinks} /> */}
 

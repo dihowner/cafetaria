@@ -26,7 +26,7 @@ const page = () => {
             </p>
           </div>
         </div>
-        <div className='w-[100%] lg:w-[50%] h-full flex flex-col gap-y-6'>
+        <div className='w-[100%] lg:w-[50%] h-full justify-center flex flex-col gap-y-6'>
           <div className='flex flex-col gap-y-3'>
             <h3 className='text-2xl font-bold'>Enter new Password</h3>
           </div>

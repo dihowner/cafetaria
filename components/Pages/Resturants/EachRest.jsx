@@ -7,17 +7,19 @@ import Link from 'next/link'
 import CustomButton from '@/components/CustomButton'
 const EachRest = ({ restuarantsDetails, open }) => {
     return (
-        <div className='w-full flex justify-center items-center flex-col'>
-            <div className="w-full eachrest flex justify-center items-center"
-            //  style={{
-            //     // backgroundImage: `url(${restuarantsDetails.image})`,
-            //     // backgroundImage: 'url(./Images/Rectangle 86(1).png)',
-            //     backgroundSize: 'cover', // Optional: Adjust the background image size
-            //     backgroundPosition: 'center center',
-            //     backgroundRepeat: 'no-repeat'
-            // }}
+        <div className='w-full flex justify-center items-center flex-col gap-y-8 pb-8'>
+            <div className="w-full eachrest flex flex-col justify-center items-center min-h-[300px] p-6 "
+             style={{
+                backgroundSize: 'cover', // Optional: Adjust the background image size
+                backgroundPosition: 'center center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment:'fixed'
+            }}
             >
-                <div className="width flex justify-between items-center border gap-x-4 ">
+                <h1 className='font-[700] text-4xl text-white'>Currently Open</h1>
+            </div>
+            {/* <div className="relative w-full flex flex-col justify-center items-center">
+                <div className="width flex justify-between items-center gap-x-4 absolute top-[-180px]">
                     <div className="w-[70%] shadow-md bg-[white] rounded-md flex flex-col p-4 gap-y-4 ">
                         <h1>{restuarantsDetails.name}</h1>
                         <p>{restuarantsDetails.description}</p>
@@ -68,8 +70,36 @@ const EachRest = ({ restuarantsDetails, open }) => {
 
                 </div>
             </div>
+            */}
+            <div className="width mt-8">
+                <div className='flex flex-col gap-y-4 w-[100%]'>
+                    <div className=" flex gap-x-4 ">
+                        <h1 className='font-[700] text-3xl'>All Delicacies</h1>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
+                        {EachRests.map((item, index) => (
+                            <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
+                                <div className="flex-col flex gap-y-16 w-[60%]">
+                                    <h1 className='font-[600] text-xl'>{item.name}</h1>
+                                    <div className="">
+                                        <p>Initial Menu: <span className='text-[#218B07]'> {item.price}</span></p>
+                                        <CustomButton
+                                            title='Buy menu'
+                                            containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4  bg-[#218B07]'
+                                            handleClick={open}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="w-[40%] flex justify-center items-center h-[100%]">
+                                    <img src={item.image} alt="" srcset="" className='w-[100%] h-[100%]' />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
 
-            <div className="width">
+                </div>
+            </div>
+            <div className="width mt-8">
                 <div className='flex flex-col gap-y-4 w-[100%]'>
                     <div className=" flex gap-x-4 ">
                         <h1 className='font-[700] text-3xl'>All Delicacies</h1>

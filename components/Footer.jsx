@@ -66,10 +66,10 @@ const Footer = () => {
       </div>
       <div className="flex justify-between items-center w-full flex-col lg:flex-row gap-y-4">
         <div className="flex gap-x-3">
-          <Link href='' className='bg-white p-2 flex justify-center items-center rounded-full font-semibold'>
+          <Link href='' className='bg-white p-2 flex justify-center items-center rounded-[5px] font-semibold'>
             Sign In
           </Link>
-          <Link href='' className='bg-[#218B07] p-2 flex justify-center items-center rounded-full text-white'>
+          <Link href='' className='bg-[#218B07] p-2 flex justify-center items-center rounded-[5px] text-white'>
             Sign up
           </Link>
         </div>

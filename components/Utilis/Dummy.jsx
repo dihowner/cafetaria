@@ -3,7 +3,7 @@ import { AiFillStar, AiFillMessage } from 'react-icons/ai'
 import { MdDashboard, MdNotifications, MdOutlineSettings, MdReviews, MdSwipeDownAlt } from 'react-icons/md'
 import { FaCartShopping } from 'react-icons/fa6'
 import { BiMoneyWithdraw, BiSolidUserRectangle } from 'react-icons/bi'
-
+import { IoIosAdd } from 'react-icons/io'
 
 export const gettingstarted = [
     {
@@ -553,6 +553,7 @@ export const AllResturants = [
 
 export const AllStores = [
     {
+        id: 1,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86(3).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -562,6 +563,7 @@ export const AllStores = [
 
     },
     {
+        id: 2,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -571,6 +573,7 @@ export const AllStores = [
 
     },
     {
+        id: 3,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -580,6 +583,7 @@ export const AllStores = [
 
     },
     {
+        id: 4,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86(3).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -589,6 +593,7 @@ export const AllStores = [
 
     },
     {
+        id: 5,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -598,6 +603,7 @@ export const AllStores = [
 
     },
     {
+        id: 6,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -607,6 +613,7 @@ export const AllStores = [
 
     },
     {
+        id: 7,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86(3).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -616,6 +623,7 @@ export const AllStores = [
 
     },
     {
+        id: 8,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86(2).png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -625,6 +633,7 @@ export const AllStores = [
 
     },
     {
+        id: 19,
         name: 'Shoprite Dugbe',
         image: '/Rectangle 86.png',
         descpription: 'Start placing orders for your groceries,meals from your favorite restaurants.',
@@ -738,133 +747,200 @@ export const EachRests = [
 export const DashboardTableData = [
     {
         id: 1,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone:'08032244772',
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date:'2/3/2020'
     },
     {
         id: 2,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 3,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 4,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     }
 ]
 export const OrdersTableData = [
     {
         id: 1,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
     },
     {
         id: 2,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 3,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 4,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 1,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
     },
     {
         id: 2,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 3,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'failed',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     },
     {
         id: 4,
+        order_id: '#245567',
         name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
+        address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
+        phone: '08032244772',
+
         item: 'Nivea bathing soap',
+        order: 'jollof rice',
+        type: 'take away',
         image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
-    },
-    {
-        id: 1,
-        name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
-        item: 'Nivea bathing soap',
-        image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
-    },
-    {
-        id: 2,
-        name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
-        item: 'Nivea bathing soap',
-        image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
-    },
-    {
-        id: 3,
-        name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
-        item: 'Nivea bathing soap',
-        image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
-    },
-    {
-        id: 4,
-        name: 'Abayomi Daniels',
-        address: 'Adenuga estate bodija ibadan',
-        item: 'Nivea bathing soap',
-        image: '/Images/Rectangle 86.png',
-        status: 'In prgress'
+        status: 'Successful',
+        amount: '#2000',
+        date: '2/3/2020'
+
+
     }
 ]
 
@@ -917,4 +993,154 @@ export const ItemsTableData = [
         image: '/Images/Rectangle 86.png',
         status: 'In prgress'
     },
+]
+
+export const StoresItem = [
+
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+    {
+        id: 19,
+        name: 'Shoprite Dugbe',
+        image: '/Rectangle 86.png',
+        price: '400',
+        Icon: <IoIosAdd />
+
+    },
+]
+export const chats =[
+    {
+        image: '/Images/Rectangle 86(1).png',
+        name:'Abayomi Daniels',
+        time:'2:30pm',
+        msg:'I just recieved the package, thanks',
+    },
+    {
+        image: '/Images/Rectangle 86(1).png',
+        name:'Abayomi Daniels',
+        time:'2:30pm',
+        msg:'I just recieved the package, thanks',
+    },
+    {
+        image: '/Images/Rectangle 86(1).png',
+        name:'Abayomi Daniels',
+        time:'2:30pm',
+        msg:'I just recieved the package, thanks',
+    },
+    {
+        image: '/Images/Rectangle 86(1).png',
+        name:'Abayomi Daniels',
+        time:'2:30pm',
+        msg:'I just recieved the package, thanks',
+    }
 ]

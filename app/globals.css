@@ -49,9 +49,10 @@ h1 {
   color: #000000;
   cursor: pointer;
 }
-.eachrest{
-  background-image: url(../public/ttttt.png);
-  height: 200px;
+.eachrest {
+  background-image:   linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url(/Rectangle\ 154.png)
+  ;
+  /* height: 200px; */
   /* background-color: red; */
 }
 .smallside {

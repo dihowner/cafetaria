@@ -6,12 +6,10 @@ const AllRestuarantsItem = ({ title }) => {
         <div className='flex flex-col gap-y-4 w-[100%] lg:w-[80%]'>
             <div className=" flex gap-x-4 ">
                 <h1 className='font-[600] text-2xl'>All {title}</h1>
-                {/* <div className="bg-[#C9C9C9] rounded-full h-[50px] w-[300px]">
-                    <input type="text" className='w-full p-3 capitalize bg-[#C9C9C9] rounded-full border-none outline-none h-[100%]' placeholder='search restuarants' />
-                </div> */}
             </div>
 
-            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6 overflow-y-auto max-h-[600px] ">
+            <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6  ">
+                {/* overflow-y-auto max-h-[600px] */}
                 {AllResturants.map((item, index) => (
                     <Link href={`/restuarant/${item.id}`}
                         className='flex flex-col gap-y-2 scrollbar-none '

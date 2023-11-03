@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CustomButton = ({ title, handleClick, containerStyles, type, Icon }) => {
+const CustomButton = ({ title, handleClick, containerStyles, type, Icon, disable_btn }) => {
 
     return (
 
@@ -8,6 +8,7 @@ const CustomButton = ({ title, handleClick, containerStyles, type, Icon }) => {
             onClick={handleClick}
             className={containerStyles}
             type={type || 'button'}
+            disabled={disable_btn || false}
         >
             {Icon && (
                 <div className='text-[1.5rem]'>

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React, { useContext } from 'react'
 import { usePathname } from 'next/navigation'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
+import { AiOutlinePoweroff } from 'react-icons/ai'
 // Link
 const SecondSideBar = ({ SideBarSecondLinks }) => {
     const pathname = usePathname()
@@ -27,7 +28,15 @@ const SecondSideBar = ({ SideBarSecondLinks }) => {
 
             ))}
             <button className={`w-[100%] hover:bg-[#E0F3F3] rounded-[10px] bg-[#F8F8F863] p-3 text-white capitalize`}>
-                Logout
+                <div className='flex items-center text-base  w-[100%]  gap-x-4 capitalize'>
+                    <div className='text-xl'><AiOutlinePoweroff /></div>
+                    <div
+                        className={`${isSidebarOpen ? 'block' : ' block md:hidden lg:block'
+                            }`}
+                    >
+                        Logout
+                    </div>
+                </div>
             </button>
         </div>
     )

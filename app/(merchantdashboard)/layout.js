@@ -18,23 +18,29 @@ const layout = ({ children }) => {
         SideBarFirstLinks={SideBarFirstLinks}
         SideBarSecondLinks={SideBarSecondLinks}
       />
-      <main
-        className={`  w-[100%] bg-[#FAFAFA] min-h-[100svh] ${
-          isSidebarOpen
-            ? 'pl-[220px]'
-            : 'pl-0 md:pl-[80px] lg:pl-[220px] h-[100%]  '
-        }`}
-      >
-        {/* <FaBars
-          className='hidden md:block lg:hidden text-xl '
-          onClick={toggleSidebar}
-        /> */}
+      <main className='w-[100%]'>
         <MHeader
           SideBarFirstLinks={SideBarFirstLinks}
           SideBarSecondLinks={SideBarSecondLinks}
         />
-        <DashboardHeader />
-        <div className='p-8 pt-[90px]'>{children}</div>
+        <DashboardHeader
+          isSidebarOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
+        />
+        <div
+          className={`${
+            isSidebarOpen
+              ? 'pl-[220px] w-[100%] bg-[#FAFAFA] min-h-[100svh]'
+              : 'pl-0 md:pl-[80px] lg:pl-[220px] pt-[90px] w-[100%] bg-[#FAFAFA] min-h-[100svh] '
+          }`}
+        >
+          {/* <FaBars
+          className='hidden md:block lg:hidden text-xl '
+          onClick={toggleSidebar}
+        /> */}
+
+          {children}
+        </div>
       </main>
     </div>
   )
