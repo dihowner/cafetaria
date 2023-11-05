@@ -89,7 +89,7 @@ const Table = () => {
                                             <div className={`w-[100px] ${item.status === 'Successful' ? 'text-[white] rounded-lg flex justify-center items-center p-2 bg-[#218B07]' : 'text-[white] rounded-lg flex justify-center items-center p-2 bg-[#ED1111]'}`}>
                                                 {item.status}
                                             </div>
-                                            <Link href='' className='text-[#218B07]  gap-x-1 mt-6 font-semibold flex items-center'>
+                                            <Link href={`/vendor/orders/${item.id}`} className='text-[#218B07]  gap-x-1 mt-6 font-semibold flex items-center'>
                                                 <p> view details </p><span><AiOutlineArrowRight/></span>
                                             </Link>
 

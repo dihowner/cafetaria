@@ -8,7 +8,7 @@ const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
             : 'pl-0 md:pl-[80px] lg:pl-[220px] hidden md:flex justify-center bg-[#218B07] w-[100%] fixed h-[70px] '
             }`}>
 
-            <div className="flex justify-between items-center py-4 w-[90%]">
+            <div className="flex justify-between items-center py-4 w-[95%]">
 
                 <div className="flex justify-center items-center gap-x-4">
                     <div className="flex gap-3 items-center">
@@ -20,9 +20,8 @@ const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
                         >
                             <FaBars />
                         </div>
-                        <div className="bg-[#C9C9C9] rounded-[8px] py-2 px-2 w-[160px] flex justify-center items-center text-[#FFFFFF]">
+                        <div className="bg-[#C9C9C9] rounded-[8px] py-2 px-2 w-[180px] flex justify-center items-center text-[#FFFFFF]">
                             <h4>Welcome Amala Sky </h4>
-
                         </div>
                     </div>
 
