@@ -73,8 +73,17 @@ const EachRest = ({ restuarantsDetails, open }) => {
             */}
             <div className="width mt-8">
                 <div className='flex flex-col gap-y-4 w-[100%]'>
-                    <div className=" flex gap-x-4 ">
+                    <div className=" flex flex-col md:flex-row gap-x-4 gap-y-4 ">
                         <h1 className='font-[700] text-3xl'>All Delicacies</h1>
+                        <div className="flex w-[100%] md:w-[50%]">
+                            <div className='bg-[#83838326] flex items-center justify-end gap-x-2 py-4 px-2 text-base w-[80%] rounded-[8px]'>
+                                <input
+                                    type='text'
+                                    placeholder='search anything here'
+                                    className='bg-[transparent] outline-none border-none w-[100%]'
+                                />
+                            </div>
+                        </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
                         {EachRests.map((item, index) => (

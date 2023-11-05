@@ -646,49 +646,49 @@ export const AllStores = [
 
 export const SideBarFirstLinks = [
     {
-        path: '/dashboard',
+        path: '/vendor/dashboard',
         name: 'dashboard',
         icon: <MdDashboard />,
     },
     {
-        path: '/orders',
+        path: '/vendor/orders',
         name: 'Orders',
         icon: <FaCartShopping />,
     },
     {
-        path: '/items',
+        path: '/vendor/items',
         name: 'items',
         icon: <MdSwipeDownAlt />,
     },
     {
-        path: '/messages',
+        path: '/vendor/messages',
         name: 'messages',
         icon: <AiFillMessage />,
     },
     {
-        path: '/notification',
+        path: '/vendor/notification',
         name: 'notification',
         icon: <MdNotifications />,
     },
 ]
 export const SideBarSecondLinks = [
     {
-        path: '/withdraw',
+        path: '/vendor/withdraw',
         name: 'withdraw',
         icon: <BiMoneyWithdraw />,
     },
     {
-        path: '/settings',
+        path: '/vendor/settings',
         name: 'settings',
         icon: <MdOutlineSettings />,
     },
     {
-        path: '/helpcenter',
+        path: '/vendor/helpcenter',
         name: 'Help center',
         icon: <BiSolidUserRectangle />,
     },
     {
-        path: '/reviews',
+        path: '/vendor/reviews',
         name: 'Reviews',
         icon: <MdReviews />,
     },
@@ -750,14 +750,14 @@ export const DashboardTableData = [
         order_id: '#245567',
         name: 'Abayomi Daniels',
         address: 'J and p bus-stop moniya ibadan, Fatokun street , Iyanu oluwa block industry| Oyo - AKINYELE | +234 8162567067',
-        phone:'08032244772',
+        phone: '08032244772',
         item: 'Nivea bathing soap',
         order: 'jollof rice',
         type: 'take away',
         image: '/Images/Rectangle 86.png',
         status: 'failed',
         amount: '#2000',
-        date:'2/3/2020'
+        date: '2/3/2020'
     },
     {
         id: 2,
@@ -1118,29 +1118,67 @@ export const StoresItem = [
 
     },
 ]
-export const chats =[
+export const chats = [
     {
         image: '/Images/Rectangle 86(1).png',
-        name:'Abayomi Daniels',
-        time:'2:30pm',
-        msg:'I just recieved the package, thanks',
+        name: 'Abayomi Daniels',
+        time: '2:30pm',
+        msg: 'I just recieved the package, thanks',
     },
     {
         image: '/Images/Rectangle 86(1).png',
-        name:'Abayomi Daniels',
-        time:'2:30pm',
-        msg:'I just recieved the package, thanks',
+        name: 'Abayomi Daniels',
+        time: '2:30pm',
+        msg: 'I just recieved the package, thanks',
     },
     {
         image: '/Images/Rectangle 86(1).png',
-        name:'Abayomi Daniels',
-        time:'2:30pm',
-        msg:'I just recieved the package, thanks',
+        name: 'Abayomi Daniels',
+        time: '2:30pm',
+        msg: 'I just recieved the package, thanks',
     },
     {
         image: '/Images/Rectangle 86(1).png',
-        name:'Abayomi Daniels',
-        time:'2:30pm',
-        msg:'I just recieved the package, thanks',
+        name: 'Abayomi Daniels',
+        time: '2:30pm',
+        msg: 'I just recieved the package, thanks',
+    }
+]
+export const reviews = [
+    {
+        image: '/Images/Rectangle 86(1).png',
+        reviews: < AiFillStar />,
+        name:'Moses Oluwole',
+        text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
+    },
+    {
+        image: '/Images/Rectangle 86(1).png',
+        reviews: < AiFillStar />,
+        name:'Moses Oluwole',
+        text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
+    },
+    {
+        image: '/Images/Rectangle 86(1).png',
+        reviews: < AiFillStar />,
+        name:'Moses Oluwole',
+        text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
+    },
+    {
+        image: '/Images/Rectangle 86(1).png',
+        reviews: < AiFillStar />,
+        name:'Moses Oluwole',
+        text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
+    },
+    {
+        image: '/Images/Rectangle 86(1).png',
+        reviews: < AiFillStar />,
+        name:'Moses Oluwole',
+        text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
+    },
+    {
+        image: '/Images/Rectangle 86(1).png',
+        reviews: < AiFillStar />,
+        name:'Moses Oluwole',
+        text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
     }
 ]

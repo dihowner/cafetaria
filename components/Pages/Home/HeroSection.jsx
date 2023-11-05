@@ -7,7 +7,7 @@ const HeroSection = () => {
         <div className='flex justify-center items-center bg-[#F6F6F6] w-[100%]'>
             <div className="width flex flex-col md:flex-row justify-between mt-6 gap-y-4 md:gap-y-0 ">
                 <div className="flex flex-col justify-center w-[100%] md:w-[45%] gap-y-6 py-6">
-                    <h1 className=' text-[2.5rem] sm:text-[3rem] md:text-[4.5rem] lg:text-[4.9rem] font-[800] '>One stop
+                    <h1 className=' text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[4.5rem] font-[800] '>One stop <br />
                         for all <span className='bg-[#218B07] text-white rounded-full p-2'>Kinds</span>
                         Of Delicacies.
                     </h1>

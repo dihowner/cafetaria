@@ -24,7 +24,7 @@ const page = () => {
             <span>Filter order</span>
           </div>
         </div>
-{/* <CustomButton */}
+        {/* <CustomButton */}
         <div className=' w-[100%] overflow-x-auto bg-[white] rounded-[20px]'>
           <div className='py-2 inline-block min-w-full sm:px-6 lg:px-8'>
             <div className='overflow-hidden'>
@@ -132,7 +132,7 @@ const page = () => {
                           {item.status}
                         </div>
                         <Link
-                          href=''
+                          href={`/vendor/orders/${item.id}`}
                           className='text-[#218B07]  gap-x-1 mt-6 font-semibold flex items-center'
                         >
                           <p> view details </p>

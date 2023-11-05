@@ -11,12 +11,11 @@ const page = () => {
     <div className='w-full justify-center items-center flex flex-col gap-y-8'>
       <TopSideBar />
       <Table />
-      <div className='flex flex-col lg:flex-row gap-x-6 width min-h-[300px]'>
+      {/* <div className='flex flex-col lg:flex-row gap-x-6 width min-h-[300px]'>
         <Graph /> 
         <Chat/>
-      </div>
+      </div> */}
     </div>
   )
 }
-
 export default page

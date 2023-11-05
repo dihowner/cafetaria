@@ -5,7 +5,7 @@ const layout = ({ children }) => {
   // const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       {children}
     </div>
   )
