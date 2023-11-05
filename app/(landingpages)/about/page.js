@@ -3,7 +3,6 @@ import GetStarted from '@/components/Pages/About/GetStarted'
 import HeroSectionAbout from '@/components/Pages/About/HeroSectionAbout'
 import Reviews from '@/components/Pages/About/Reviews'
 import Stress from '@/components/Pages/About/Stress'
-import ThirdSection from '@/components/Pages/About/thirdSection'
 import Link from 'next/link'
 import React from 'react'
 // Link
