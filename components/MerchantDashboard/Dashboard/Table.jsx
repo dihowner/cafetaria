@@ -3,6 +3,7 @@ import { DashboardTableData } from '@/components/Utilis/Dummy'
 import CustomButton from '@/components/CustomButton'
 import Link from 'next/link'
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import { FaCartShopping } from 'react-icons/fa6'
 // Link
 const Table = () => {
     const maxLength = 25
@@ -23,29 +24,36 @@ const Table = () => {
                 />
             </div>
             {/* sm:-mx-6 lg:-mx-8 */}
-            <div className=' w-[100%] overflow-x-auto bg-[white] rounded-[20px]'>
-                <div className='py-2 inline-block min-w-full sm:px-6 lg:px-8'>
+            <div className=' w-[100%] overflow-x-auto bg-[white]  border'>
+                <div className="flex justify-between items-center w-full min-w-full px-6 py-4">
+                    <div className="flex gap-x-2 items-center text-lg font-semibold">
+                        <span><FaCartShopping /></span>
+                        <span>Order</span>
+                    </div>
+                    <span>....</span>
+                </div>
+                <div className=' inline-block min-w-full '>
                     <div className='overflow-hidden'>
                         <table className='min-w-full'>
                             <thead className='border-b'>
-                                <tr className='capitalize'>
+                                <tr className='capitalize bg-[#218B07] text-white'>
                                     <td scope='col'
-                                        className='text-base font-bold text-[#000000] px-6 py-4 text-left'>#</td>
+                                        className='text-base font-bold text-white px-6 py-4 text-left'>#</td>
                                     <td scope='col'
-                                        className='text-base font-bold whitespace-nowrap text-[#000000] px-6 py-4 text-left'>Order ID</td>
+                                        className='text-base font-bold whitespace-nowrap text-white px-6 py-4 text-left'>Order ID</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-[#000000] px-6 py-4 text-left'>Order</td>
+                                        className='text-base font-bold text-white px-6 py-4 text-left'>Order</td>
 
                                     <td scope='col'
-                                        className='text-base font-bold text-[#000000] px-6 py-4 text-left'>Address</td>
+                                        className='text-base font-bold text-white px-6 py-4 text-left'>Address</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-[#000000] px-6 py-4 text-left'>Phone</td>
+                                        className='text-base font-bold text-white px-6 py-4 text-left'>Phone</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-[#000000] px-6 py-4 text-left'>Amount</td>
+                                        className='text-base font-bold text-white px-6 py-4 text-left'>Amount</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-[#000000] px-6 py-4 text-left'>Date</td>
+                                        className='text-base font-bold text-whitepx-6 py-4 text-left'>Date</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-[#000000] px-6 py-4 text-left'>Status</td>
+                                        className='text-base font-bold text-white px-6 py-4 text-left'>Status</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -90,7 +98,7 @@ const Table = () => {
                                                 {item.status}
                                             </div>
                                             <Link href={`/vendor/orders/${item.id}`} className='text-[#218B07]  gap-x-1 mt-6 font-semibold flex items-center'>
-                                                <p> view details </p><span><AiOutlineArrowRight/></span>
+                                                <p> view details </p><span><AiOutlineArrowRight /></span>
                                             </Link>
 
                                         </td>

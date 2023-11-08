@@ -660,11 +660,11 @@ export const SideBarFirstLinks = [
         name: 'items',
         icon: <MdSwipeDownAlt />,
     },
-    {
-        path: '/vendor/messages',
-        name: 'messages',
-        icon: <AiFillMessage />,
-    },
+    // {
+    //     path: '/vendor/messages',
+    //     name: 'messages',
+    //     icon: <AiFillMessage />,
+    // },
     {
         path: '/vendor/notification',
         name: 'notification',
@@ -687,11 +687,11 @@ export const SideBarSecondLinks = [
         name: 'Help center',
         icon: <BiSolidUserRectangle />,
     },
-    {
-        path: '/vendor/reviews',
-        name: 'Reviews',
-        icon: <MdReviews />,
-    },
+    // {
+    //     path: '/vendor/reviews',
+    //     name: 'Reviews',
+    //     icon: <MdReviews />,
+    // },
 
 ]
 export const restuarantsDetails = {
@@ -1180,5 +1180,49 @@ export const reviews = [
         reviews: < AiFillStar />,
         name:'Moses Oluwole',
         text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
+    }
+]
+export const withdrawData=[
+    {
+        bankname: 'Amala sky',
+        Accountholdername:'Fidelity bank',
+        amount:'10,000',
+        status:'completed',
+        DateTime:'12/08/2023'
+    },
+    {
+        bankname: 'Amala sky',
+        Accountholdername:'Fidelity bank',
+        amount:'10,000',
+        status:'completed',
+        DateTime:'12/08/2023'
+    },
+    {
+        bankname: 'Amala sky',
+        Accountholdername:'Fidelity bank',
+        amount:'10,000',
+        status:'completed',
+        DateTime:'12/08/2023'
+    },
+    {
+        bankname: 'Amala sky',
+        Accountholdername:'Fidelity bank',
+        amount:'10,000',
+        status:'completed',
+        DateTime:'12/08/2023'
+    },
+    {
+        bankname: 'Amala sky',
+        Accountholdername:'Fidelity bank',
+        amount:'10,000',
+        status:'completed',
+        DateTime:'12/08/2023'
+    },
+    {
+        bankname: 'Amala sky',
+        Accountholdername:'Fidelity bank',
+        amount:'10,000',
+        status:'completed',
+        DateTime:'12/08/2023'
     }
 ]
