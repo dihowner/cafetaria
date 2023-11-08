@@ -2,35 +2,44 @@ import CustomButton from '@/components/CustomButton'
 import React from 'react'
 import { IoIosAdd } from 'react-icons/io'
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa'
+import { MdSwipeDownAlt } from 'react-icons/md'
 import { ItemsTableData } from '@/components/Utilis/Dummy'
-import Switch from '@mui/material/Switch';
+import Switch from '@mui/material/Switch'
 const page = () => {
   return (
     <div className='flex justify-center flex-col items-center w-full'>
-      <div className='width flex flex-col gap-y-4'>
-        <div className='flex justify-between items-center'>
-          <div className='flex gap-x-4'>
-            <CustomButton
-              title='All Items 48'
-              containerStyles='text-[white] flex justify-center items-center py-2 px-4 rounded-[10px] gap-x-4  bg-[#218B07]'
-            />
-            <CustomButton
-              title='Active 31'
-              containerStyles='text-[#218B07] flex justify-center items-center py-2 px-4 rounded-[10px] gap-x-4 border-[#218B07] border'
-            />
-            <CustomButton
-              title='Not Active 17'
-              containerStyles='text-[#218B07] flex justify-center items-center py-2 px-4 rounded-[10px] gap-x-4 border-[#218B07] border'
-            />
+      <div className='width flex flex-col gap-y-4 border'>
+        <div className='flex justify-between  w-full md:items-center flex-col md:flex-row gap-y-6 p-4 '>
+          <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg'>
+            <span>
+              <MdSwipeDownAlt />
+            </span>
+            <span>Orders</span>
           </div>
           <CustomButton
             title='Add'
-            containerStyles='text-[#218B07] flex justify-center items-center py-2 px-4 rounded-[10px] gap-x-2  border-[#218B07] border'
+            containerStyles='text-[#218B07] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 border-[#218B07] border'
             Icon={<IoIosAdd />}
           />
         </div>
-        <div className='overflow-x-auto sm:-mx-6 lg:-mx-8 bg-[transparent] rounded-[20px]'>
-          <div className='py-2 inline-block min-w-full sm:px-6 lg:px-8'>
+        <div className='flex justify-between items-center bg-[#218B07] p-4'>
+          <div className='flex gap-x-4'>
+            <CustomButton
+              title='All Items 48'
+              containerStyles='text-[#218B07] flex justify-center items-center py-2 px-4 rounded-[5px] gap-x-4  bg-[white]'
+            />
+            <CustomButton
+              title='Active 31'
+              containerStyles='text-[white] flex justify-center items-center py-2 px-4 rounded-[5px] gap-x-4 border-[white] border'
+            />
+            <CustomButton
+              title='Not Active 17'
+              containerStyles='text-[white] flex justify-center items-center py-2 px-4 rounded-[5px] gap-x-4 border-[white] border'
+            />
+          </div>
+        </div>
+        <div className='overflow-x-auto  w-[100%]'>
+          <div className='inline-block min-w-full'>
             <div className='overflow-hidden'>
               <table className='min-w-full'>
                 <thead className='border-b'>

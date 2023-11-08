@@ -1,22 +1,28 @@
 import React from 'react'
 import { OrdersTableData } from '@/components/Utilis/Dummy'
 import { BiSortAlt2 } from 'react-icons/bi'
+import { FaCartShopping } from 'react-icons/fa6'
 import Link from 'next/link'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 // import CustomButton from '@/components/CustomButton'
 const page = () => {
-     const maxLength = 25
-     const truncate = (str) => {
-       if (typeof str === 'string' && str.length > maxLength) {
-         return str.slice(0, maxLength) + '.....'
-       }
-       return str
-     }
+  const maxLength = 25
+  const truncate = (str) => {
+    if (typeof str === 'string' && str.length > maxLength) {
+      return str.slice(0, maxLength) + '.....'
+    }
+    return str
+  }
   return (
-    <div className='flex justify-center flex-col items-center w-full'>
-      <div className='width flex flex-col gap-y-4'>
-        <div className='flex justify-between items-center'>
-          <h3 className='text-2xl font-medium'>Item order</h3>
+    <div className='flex justify-center flex-col items-center w-full '>
+      <div className='width flex flex-col gap-y-4 border'>
+        <div className='flex justify-between md:items-center flex-col md:flex-row gap-y-6 w-full p-4  '>
+          <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg'>
+            <span>
+              <FaCartShopping />
+            </span>
+            <span>Orders</span>
+          </div>
           <div className='flex gap-x-2 items-center text-[#0000007D] border p-2'>
             <span>
               <BiSortAlt2 />
@@ -25,58 +31,58 @@ const page = () => {
           </div>
         </div>
         {/* <CustomButton */}
-        <div className=' w-[100%] overflow-x-auto bg-[white] rounded-[20px]'>
-          <div className='py-2 inline-block min-w-full sm:px-6 lg:px-8'>
+        <div className=' w-[100%] overflow-x-auto bg-[white]'>
+          <div className='inline-block min-w-full'>
             <div className='overflow-hidden'>
               <table className='min-w-full'>
                 <thead className='border-b'>
-                  <tr className='capitalize'>
+                  <tr className='capitalize bg-[#218B07] text-white'>
                     <td
                       scope='col'
-                      className='text-base font-bold text-[#000000] px-6 py-4 text-left'
+                      className='text-base font-bold text-white px-6 py-4 text-left'
                     >
                       #
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold whitespace-nowrap text-[#000000] px-6 py-4 text-left'
+                      className='text-base font-bold whitespace-nowrap text-white px-6 py-4 text-left'
                     >
                       Order ID
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-[#000000] px-6 py-4 text-left'
+                      className='text-base font-bold text-white px-6 py-4 text-left'
                     >
                       Order
                     </td>
 
                     <td
                       scope='col'
-                      className='text-base font-bold text-[#000000] px-6 py-4 text-left'
+                      className='text-base font-bold text-white px-6 py-4 text-left'
                     >
                       Address
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-[#000000] px-6 py-4 text-left'
+                      className='text-base font-bold text-white px-6 py-4 text-left'
                     >
                       Phone
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-[#000000] px-6 py-4 text-left'
+                      className='text-base font-bold text-white px-6 py-4 text-left'
                     >
                       Amount
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-[#000000] px-6 py-4 text-left'
+                      className='text-base font-bold text-whitepx-6 py-4 text-left'
                     >
                       Date
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-[#000000] px-6 py-4 text-left'
+                      className='text-base font-bold text-white px-6 py-4 text-left'
                     >
                       Status
                     </td>
