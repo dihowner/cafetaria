@@ -10,8 +10,8 @@ const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
 
             <div className="flex justify-between items-center py-4 w-[95%]">
 
-                <div className="flex justify-center items-center gap-x-4">
-                    <div className="flex gap-3 items-center">
+                <div className="flex justify-center items-center gap-x-4 w-full">
+                    <div className="flex gap-3 items-center w-[40%] lg:w-[20%]">
                         <div
                             className='md:flex items-center gap-x-4 capitalize pl-3 py-2 text-xl lg:hidden '
                             onClick={() => {
@@ -20,16 +20,16 @@ const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
                         >
                             <FaBars />
                         </div>
-                        <div className="bg-[#C9C9C9] rounded-[8px] py-2 px-2 w-[180px] flex justify-center items-center text-[#FFFFFF]">
+                        <div className="bg-[#C9C9C9] rounded-[8px] py-2 px-2 w-[100%] flex justify-center items-center text-[#FFFFFF]">
                             <h4>Welcome Amala Sky </h4>
                         </div>
                     </div>
 
-                    <div className="bg-[#C9C9C9] rounded-[8px] py-2 px-2 w-[400px]">
+                    <div className="bg-[#C9C9C9] rounded-[8px] py-2 px-2 w-[60%] lg:w-[80%]">
                         <input type="text" className='w-full  capitalize bg-[#C9C9C9] rounded-full border-none outline-none text-[#FFFFFF]' placeholder='search restuarants' />
                     </div>
                 </div>
-                <div className="flex justify-center items-center gap-x-4">
+                <div className="flex justify-center items-center gap-x-4 w-[40%]">
                     <div className="flex justify-center items-center gap-x-2">
                         <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-lg text-[#FFFFFF]">
                             <BsWechat />

@@ -31,7 +31,7 @@ const ClientDashboaredHeader = ({ isSidebarOpen, toggleSidebar }) => {
 
                         <div className="flex justify-center items-center gap-x-4 w-[40%]">
                             <CustomButton
-                                title='cart 16' containerStyles='text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 bg-[#FF9C06]'
+                                title='16' containerStyles='text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 bg-[#FF9C06]'
                                 Icon={<AiOutlineShoppingCart />}
                             />
                             <div className="flex justify-center items-center gap-x-2">
