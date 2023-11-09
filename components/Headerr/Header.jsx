@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Link from 'next/link'
 // import Logo from '../../public/'
 import Image from 'next/image'
@@ -9,9 +9,26 @@ import { ImCancelCircle } from 'react-icons/im'
 import { usePathname } from 'next/navigation'
 const Header = () => {
   const [toggle, setToggle] = useState(false)
+  const [isFixed, setIsFixed] = useState(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const threshold = 100 // Adjust this value as needed
+      if (scrollTop > threshold) {
+        setIsFixed(true)
+      } else {
+        setIsFixed(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
   const pathname =usePathname()
   return (
-    <div className='w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3'>
+    <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999]' : 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 '}`}>
       <div className='flex width justify-between items-center'>
         <Link href='/' className='logo w-[20%]'>
           <Image

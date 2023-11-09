@@ -5,7 +5,7 @@ import {
   SideBarFirstLinks,
   SideBarSecondLinks,
 } from '@/components/Utilis/Dummy'
-import DashboardHeader from '@/components/DashboardHeader'
+import DashboardHeader from '@/components/MerchantDashboard/DashboardHeader'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
 import { useContext } from 'react'
 import { FaBars } from 'react-icons/fa'
@@ -17,6 +17,7 @@ const layout = ({ children }) => {
       <Sidebar
         SideBarFirstLinks={SideBarFirstLinks}
         SideBarSecondLinks={SideBarSecondLinks}
+        color='#218B07'
       />
       <main className='w-[100%]'>
         <MHeader

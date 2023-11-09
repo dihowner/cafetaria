@@ -3,6 +3,7 @@ import { AiFillStar, AiFillMessage } from 'react-icons/ai'
 import { MdDashboard, MdNotifications, MdOutlineSettings, MdReviews, MdSwipeDownAlt } from 'react-icons/md'
 import { FaCartShopping } from 'react-icons/fa6'
 import { BiMoneyWithdraw, BiSolidUserRectangle } from 'react-icons/bi'
+import { BsFillCreditCard2BackFill } from 'react-icons/bs'
 import { IoIosAdd } from 'react-icons/io'
 
 export const gettingstarted = [
@@ -1148,81 +1149,118 @@ export const reviews = [
     {
         image: '/Images/Rectangle 86(1).png',
         reviews: < AiFillStar />,
-        name:'Moses Oluwole',
+        name: 'Moses Oluwole',
         text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
     },
     {
         image: '/Images/Rectangle 86(1).png',
         reviews: < AiFillStar />,
-        name:'Moses Oluwole',
+        name: 'Moses Oluwole',
         text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
     },
     {
         image: '/Images/Rectangle 86(1).png',
         reviews: < AiFillStar />,
-        name:'Moses Oluwole',
+        name: 'Moses Oluwole',
         text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
     },
     {
         image: '/Images/Rectangle 86(1).png',
         reviews: < AiFillStar />,
-        name:'Moses Oluwole',
+        name: 'Moses Oluwole',
         text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
     },
     {
         image: '/Images/Rectangle 86(1).png',
         reviews: < AiFillStar />,
-        name:'Moses Oluwole',
+        name: 'Moses Oluwole',
         text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
     },
     {
         image: '/Images/Rectangle 86(1).png',
         reviews: < AiFillStar />,
-        name:'Moses Oluwole',
+        name: 'Moses Oluwole',
         text: 'Love this plugin! Does exactly what it is supposed to do and so far without any real issues.(You might want to review some Dummy Text generation '
     }
 ]
-export const withdrawData=[
+export const withdrawData = [
     {
         bankname: 'Amala sky',
-        Accountholdername:'Fidelity bank',
-        amount:'10,000',
-        status:'completed',
-        DateTime:'12/08/2023'
+        Accountholdername: 'Fidelity bank',
+        amount: '10,000',
+        status: 'completed',
+        DateTime: '12/08/2023'
     },
     {
         bankname: 'Amala sky',
-        Accountholdername:'Fidelity bank',
-        amount:'10,000',
-        status:'completed',
-        DateTime:'12/08/2023'
+        Accountholdername: 'Fidelity bank',
+        amount: '10,000',
+        status: 'completed',
+        DateTime: '12/08/2023'
     },
     {
         bankname: 'Amala sky',
-        Accountholdername:'Fidelity bank',
-        amount:'10,000',
-        status:'completed',
-        DateTime:'12/08/2023'
+        Accountholdername: 'Fidelity bank',
+        amount: '10,000',
+        status: 'completed',
+        DateTime: '12/08/2023'
     },
     {
         bankname: 'Amala sky',
-        Accountholdername:'Fidelity bank',
-        amount:'10,000',
-        status:'completed',
-        DateTime:'12/08/2023'
+        Accountholdername: 'Fidelity bank',
+        amount: '10,000',
+        status: 'completed',
+        DateTime: '12/08/2023'
     },
     {
         bankname: 'Amala sky',
-        Accountholdername:'Fidelity bank',
-        amount:'10,000',
-        status:'completed',
-        DateTime:'12/08/2023'
+        Accountholdername: 'Fidelity bank',
+        amount: '10,000',
+        status: 'completed',
+        DateTime: '12/08/2023'
     },
     {
         bankname: 'Amala sky',
-        Accountholdername:'Fidelity bank',
-        amount:'10,000',
-        status:'completed',
-        DateTime:'12/08/2023'
+        Accountholdername: 'Fidelity bank',
+        amount: '10,000',
+        status: 'completed',
+        DateTime: '12/08/2023'
     }
+]
+
+export const clientSideBarFirstLinks = [
+    {
+        path: '/client/dashboard',
+        name: 'dashboard',
+        icon: <MdDashboard />,
+    },
+    {
+        path: '/client/payment-history',
+        name: 'Payment History',
+        icon: <BsFillCreditCard2BackFill />,
+    },
+    {
+        path: '/vendor/notification',
+        name: 'notification',
+        icon: <MdNotifications />,
+    },
+]
+export const clientSideBarSecondLinks = [
+
+    {
+        path: '/client/settings',
+        name: 'settings',
+        icon: <MdOutlineSettings />,
+    },
+    {
+        path: '/client/helpcenter',
+        name: 'Help center',
+        icon: <BiSolidUserRectangle />,
+    },
+    // {
+    //     path: '/vendor/reviews',
+    //     name: 'Reviews',
+    //     icon: <MdReviews />,
+    // },
+
 ]

@@ -1,14 +1,27 @@
+'use client'
 import CustomButton from '@/components/CustomButton'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 const HeroSection = () => {
+    const [isFirstColor, setIsFirstColor] = useState(true);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsFirstColor((prevIsFirstColor) => !prevIsFirstColor);
+        }, 2000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const backgroundColorClass = isFirstColor ? 'bg-[#FF9C06]' : 'bg-[#218B07]';
+
     return (
         <div className='flex justify-center items-center bg-[#F6F6F6] w-[100%]'>
             <div className="width flex flex-col md:flex-row justify-between mt-6 gap-y-4 md:gap-y-0 ">
                 <div className="flex flex-col justify-center w-[100%] md:w-[45%] gap-y-6 py-6">
                     <h1 className=' text-[2.5rem] sm:text-[3rem] md:text-[4rem] lg:text-[4.5rem] font-[800] '>One stop <br />
-                        for all <span className='bg-[#218B07] text-white rounded-full p-2'>Kinds</span>
+                        for all <span className={` text-white rounded-full p-2 transition-background-color duration-1000 ${backgroundColorClass}`}>Kinds</span>
                         Of Delicacies.
                     </h1>
                     <p className='font-[500] w-[90%]'>
