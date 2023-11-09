@@ -4,12 +4,26 @@ import { Fragment, useRef, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 const Modal = ({ isOpen, close, children }) => {
-    if (!isOpen) return null
+    // if (!isOpen) return null
+    const handleClose = (event) => {
+        // Check if the cancel button was clicked
+        if (event.target === event.currentTarget) {
+            // If the click occurred on the backdrop (outside the modal), don't close the modal
+            return;
+        }
+
+        // If the cancel button was clicked, call the close function
+        if (close) {
+            close();
+        }
+    };
+    const cancelButtonRef = useRef(null)
+
     return (
         <>
             {' '}
             <Transition appear as={Fragment} show={isOpen}>
-                <Dialog as='div' className='relative z-10 ' onClose={close}>
+                <Dialog as='div' className='relative z-10 ' initialFocus={cancelButtonRef} onClose={handleClose}>
                     <Transition.Child
                         as={Fragment}
                         enter='ease-out duration-300'
@@ -32,7 +46,7 @@ const Modal = ({ isOpen, close, children }) => {
                                 leaveFrom='opacity-100 translate-y-0 sm:scale-100'
                                 leaveTo='opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95'
                             >
-                                <Dialog.Panel className='relative transform overflow-y-scroll rounded-lg bg-[#FAFAFA] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl p-4 flex flex-col gap-y-2 h-[700px] w-[100%]'>
+                                <Dialog.Panel className='relative transform overflow-y-scroll rounded-lg bg-[#FAFAFA] text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl p-4 flex flex-col gap-y-2 h-[500px] w-[100%]'>
                                     {children}
                                 </Dialog.Panel>
                             </Transition.Child>

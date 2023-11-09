@@ -66,7 +66,7 @@ const WithdrawSec = () => {
                             onchange=''
                             placeholder='Enter password'
                             Icon={<GiPadlock />} />
-                        <CustomButton title='Withdraw' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[40%]'
+                        <CustomButton title='Withdraw' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[55%]'
                             Icon={<BiMoneyWithdraw />} />
                     </form>
                 </div>

@@ -6,10 +6,10 @@ const MHeader = ({ SideBarFirstLinks,
   SideBarSecondLinks }) => {
   const [smallscreen, setSmallscreen] = useState(false)
   return (
-    <div className='md:hidden bg-[#218B07] flex items-center justify-between fixed z-[100] w-[100%] h-[70px] shadow-md rounded-ee-[30px] rounded-es-[30px] p-4'>
+    <div className='md:hidden bg-[#218B07] flex items-center justify-between fixed z-[100] w-[100%] h-[70px] shadow-md  p-4'>
       <FaBars
-        className='lg:hidden text-xl pointer'
-        onClick={() => setSmallscreen(true)}
+        className='lg:hidden text-xl pointer text-white'
+        onClick={() => setSmallscreen(!smallscreen)}
       />
       {smallscreen && <MSideBar close={setSmallscreen}
         SideBarFirstLinks={SideBarFirstLinks}

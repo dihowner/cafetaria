@@ -17,19 +17,18 @@ const MSideBar = ({ SideBarFirstLinks,
                     />
                 </div>
                 <div className="flex w-[90%] flex-col justify-cente items-center gap-y-4 h-[100%] overflow-auto">
-                    <TopSideBar SideBarFirstLinks={SideBarFirstLinks} close={() => {
+                    <TopSideBar SideBarFirstLinks={SideBarFirstLinks} closes={() => {
                         close(false)
                     }} />
-                    {/* <div className='border-b-2 w-full  border-[white] '></div> */}
 
-                    <SecondSideBar SideBarSecondLinks={SideBarSecondLinks} close={() => {
+
+                    <SecondSideBar SideBarSecondLinks={SideBarSecondLinks} closes={() => {
                         close(false)
                     }} />
-                    {/* <SecondSideBar SideBarSecondLinks={SideBarSecondLinks} /> */}
+
 
                 </div>
-                {/* <TopSideBar/>
-               <SecondSideBar/> */}
+
             </div>
         </div>
     )
