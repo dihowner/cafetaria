@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 
 import React, { useContext, useState, useEffect } from 'react'
@@ -68,7 +69,7 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
                     </div>
                 </div>
             </button>
-            {pathname.startsWith('/client') && <div className={`${isSidebarOpen ? 'block' : ' block md:hidden lg:block w-[100%] bgsideebar h-[120px] rounded-xl'
+            {pathname.startsWith('/client') && <div className={`bgsideebar h-[120px] ${isSidebarOpen ? 'block' : ' block md:hidden lg:block w-[100%] md:bgsideebar md:h-[120px] h-[120px] rounded-xl bgsideebar '
                 }`}  style={{
                 // backgroundImage: 'url(/Rectangle/ 87.png)',
                 backgroundSize: 'cover', // Optional: Adjust the background image size
