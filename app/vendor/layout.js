@@ -9,7 +9,7 @@ import DashboardHeader from '@/components/MerchantDashboard/DashboardHeader'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
 import { useContext } from 'react'
 import { FaBars } from 'react-icons/fa'
-import MHeader from '@/components/Headerr/MHeader'
+import MHeader from '@/components/MerchantDashboard/MHeader'
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
   return (
@@ -23,6 +23,7 @@ const layout = ({ children }) => {
         <MHeader
           SideBarFirstLinks={SideBarFirstLinks}
           SideBarSecondLinks={SideBarSecondLinks}
+          color='#218B07'
         />
         <DashboardHeader
           isSidebarOpen={isSidebarOpen}
@@ -31,7 +32,7 @@ const layout = ({ children }) => {
         <div
           className={`${
             isSidebarOpen
-              ? 'pl-[220px] w-[100%] bg-[white] min-h-[100svh]'
+              ? 'pl-[220px] w-[100%] bg-[white] min-h-[100svh] pt-[90px]'
               : 'pl-0 md:pl-[80px] lg:pl-[220px] pt-[90px] w-[100%] pb-6 bg-[white] min-h-[100svh] '
           }`}
         >

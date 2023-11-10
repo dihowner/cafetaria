@@ -9,6 +9,7 @@ import {
 } from '@/components/Utilis/Dummy'
 import { useContext } from 'react'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
+import MClientHeader from '@/components/ClientDasboard/MClientHeader'
 const layout = ({ children }) => {
     const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
   return (
@@ -19,6 +20,11 @@ const layout = ({ children }) => {
         color='#FF9C06'
       />
       <main className='w-[100%]'>
+        <MClientHeader
+          SideBarFirstLinks={clientSideBarFirstLinks}
+          SideBarSecondLinks={clientSideBarSecondLinks}
+          color='#FF9C06'
+        />
         <ClientDashboaredHeader
           isSidebarOpen={isSidebarOpen}
           toggleSidebar={toggleSidebar}
@@ -26,7 +32,7 @@ const layout = ({ children }) => {
         <div
           className={`${
             isSidebarOpen
-              ? 'pl-[220px] w-[100%] bg-[white] min-h-[100svh]'
+              ? 'pl-[220px] w-[100%] bg-[white] pt-[90px] min-h-[100svh]'
               : 'pl-0 md:pl-[80px] lg:pl-[220px] pt-[90px] w-[100%] pb-6 bg-[white] min-h-[100svh] '
           }`}
         >
