@@ -812,6 +812,71 @@ export const DashboardTableData = [
 
     }
 ]
+export const PaymentHistoryTableData =[
+ {
+        image: '/Images/Rectangle 86.png',
+        order: 'jollof rice',
+        type: 'take away',
+        date: '2/3/2020 12:30pm',
+        paymentType:'payStack',
+        status:'Successful',
+        amount:'3500'
+ },
+ {
+        image: '/Images/Rectangle 86.png',
+        order: 'jollof rice',
+        type: 'take away',
+        date: '2/3/2020 12:30pm',
+        paymentType:'payStack',
+        status:'Successful',
+        amount:'3500'
+ },
+ {
+        image: '/Images/Rectangle 86.png',
+        order: 'jollof rice',
+        type: 'take away',
+        date: '2/3/2020 12:30pm',
+        paymentType:'payStack',
+        status:'Successful',
+        amount:'3500'
+ },
+ {
+        image: '/Images/Rectangle 86.png',
+        order: 'jollof rice',
+        type: 'take away',
+        date: '2/3/2020 12:30pm',
+        paymentType:'payStack',
+        status:'Successful',
+        amount:'3500'
+ },
+ {
+        image: '/Images/Rectangle 86.png',
+        order: 'jollof rice',
+        type: 'take away',
+        date: '2/3/2020 12:30pm',
+        paymentType:'payStack',
+        status:'Successful',
+        amount:'3500'
+ },
+ {
+        image: '/Images/Rectangle 86.png',
+        order: 'jollof rice',
+        type: 'take away',
+        date: '2/3/2020 12:30pm',
+        paymentType:'payStack',
+        status:'Successful',
+        amount:'3500'
+ },
+ {
+        image: '/Images/Rectangle 86.png',
+        order: 'jollof rice',
+        type: 'take away',
+        date: '2/3/2020 12:30pm',
+        paymentType:'payStack',
+        status:'Successful',
+        amount:'3500'
+ }
+]
 export const OrdersTableData = [
     {
         id: 1,
