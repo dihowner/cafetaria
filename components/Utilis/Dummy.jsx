@@ -1305,7 +1305,7 @@ export const clientSideBarFirstLinks = [
         icon: <BsFillCreditCard2BackFill />,
     },
     {
-        path: '/vendor/notification',
+        path: '/client/notification',
         name: 'notification',
         icon: <MdNotifications />,
     },
@@ -1318,7 +1318,7 @@ export const clientSideBarSecondLinks = [
         icon: <MdOutlineSettings />,
     },
     {
-        path: '/client/helpcenter',
+        path: '/client/help-center',
         name: 'Help center',
         icon: <BiSolidUserRectangle />,
     },

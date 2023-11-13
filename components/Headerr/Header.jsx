@@ -74,8 +74,8 @@ const Header = () => {
           </li>
         </ul>
         <div className='loginandsigup hidden md:flex gap-x-4 justify-center items-center'>
-          <Link href='/login' className='login font-semibold text-lg'>Login</Link>
-          <Link href='/signup' className='signup bg-[#FF9C06] flex justify-center items-center text-white rounded-[8px] py-2 w-[100px]'>
+          <Link href='/client/login' className='login font-semibold text-lg'>Login</Link>
+          <Link href='/client/signup' className='signup bg-[#FF9C06] flex justify-center items-center text-white rounded-[8px] py-2 w-[100px]'>
             Sign up
           </Link>
         </div>
