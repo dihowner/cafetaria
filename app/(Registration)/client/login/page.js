@@ -16,7 +16,7 @@ const page = () => {
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
-        <div className='bg-[#FF9C06] flex flex-col px-4 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[90%] lg:w-[50%] py-16 h-full relative'>
+        <div className='bg-[#FF9C06] flex flex-col px-4 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[90%] md:w-[50%] py-16 h-full relative'>
           <div className='absolute top-0 left-0 p-4'>
             <FaBars className='text-3xl' />
           </div>
@@ -33,7 +33,7 @@ const page = () => {
             </p>
           </div>
         </div>
-        <div className='w-[100%] lg:w-[50%] h-full flex flex-col justify-center gap-y-6'>
+        <div className='w-[100%] md:w-[50%] h-full flex flex-col justify-center gap-y-6'>
           <div className='flex flex-col gap-y-3'>
             <h3 className='text-2xl font-bold'>Login</h3>
             <span>
