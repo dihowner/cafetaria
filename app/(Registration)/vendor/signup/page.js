@@ -37,94 +37,111 @@ const page = () => {
           </div>
         </div>
         <div className='w-[100%] md:w-[50%] h-full flex justify-center flex-col gap-y-6'>
-          <div className='flex flex-col gap-y-3'>
-            <h3 className='text-2xl font-bold'>Sign up</h3>
-            <span>
-              Don’t have an account?{' '}
-              <Link href='/vendor/login' className='text-[#218B07]'>
-                login
-              </Link>{' '}
-            </span>
+          <div className='flex justify-end'>
+            <Link href='/' className='logo w-[20%]'>
+              <Image
+                src='/cafetarialogo.png'
+                alt='logo'
+                width={118}
+                height={18}
+                className='object-contain'
+              />
+            </Link>
           </div>
-          <div className='flex flex-col gap-y-4'>
-            <p>Sign Up as</p>
-            <div className='flex gap-x-4 w-[100%] flex-col sm:flex-row gap-y-4 md:w-[50%]'>
-              <CustomButton
-                title='Customer'
-                containerStyles='text-[#00000087] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4  border'
-                Icon={<BiRadioCircle />}
-                handleClick={() => router.push('/client/login')}
-              />
-              <CustomButton
-                title='Merchant'
-                containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 bg-[#218B07]'
-                Icon={<BiRadioCircle />}
-              />
+          <div className='flex justify-center flex-col h-full'>
+            <div className='flex flex-col gap-y-3'>
+              <h3 className='text-2xl font-bold'>Sign up</h3>
+              <span>
+                Don’t have an account?{' '}
+                <Link href='/vendor/login' className='text-[#218B07]'>
+                  login
+                </Link>{' '}
+              </span>
             </div>
-            <form
-              action=''
-              className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
-            >
-              <InputsCustom
-                title='Email Address'
-                value=''
-                onchange=''
-                Icon={<HiOutlineEnvelope />}
-              />
-              <InputsCustom
-                title='Password'
-                value=''
-                onchange=''
-                Icon={<GiPadlock />}
-              />
-              <InputsCustom
-                title='Confirm Password'
-                value=''
-                onchange=''
-                Icon={<GiPadlock />}
-              />
-              <InputsCustom
-                title='Store Name'
-                value=''
-                onchange=''
-                Icon={<FaStore />}
-              />
-              <InputsCustom
-                title='Phone Number'
-                value=''
-                onchange=''
-                Icon={<FaSquarePhoneFlip />}
-                type='number'
-              />
-              <div className=''>
-                <p>Do you have a Physical Shop</p>
-                <RadioGroup
-                  row
-                  aria-labelledby='demo-row-radio-buttons-group-label'
-                  name='row-radio-buttons-group'
-                >
-                  <FormControlLabel
-                    value='Yes'
-                    control={<Radio />}
-                    label='Yes'
-                  />
-                  <FormControlLabel value='No' control={<Radio />} label='No' />
-                </RadioGroup>
-              </div>
-              <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>
+            <div className='flex flex-col gap-y-4'>
+              <p>Sign Up as</p>
+              <div className='flex gap-x-4 w-[100%] flex-col sm:flex-row gap-y-4 md:w-[50%]'>
                 <CustomButton
-                  title='Sign Up'
-                  containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
-                  type='submit'
+                  title='Customer'
+                  containerStyles='text-[#00000087] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4  border'
+                  Icon={<BiRadioCircle />}
+                  handleClick={() => router.push('/client/login')}
                 />
-                {/* <span>
+                <CustomButton
+                  title='Merchant'
+                  containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 bg-[#218B07]'
+                  Icon={<BiRadioCircle />}
+                />
+              </div>
+              <form
+                action=''
+                className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
+              >
+                <InputsCustom
+                  title='Email Address'
+                  value=''
+                  onchange=''
+                  Icon={<HiOutlineEnvelope />}
+                />
+                <InputsCustom
+                  title='Password'
+                  value=''
+                  onchange=''
+                  Icon={<GiPadlock />}
+                />
+                <InputsCustom
+                  title='Confirm Password'
+                  value=''
+                  onchange=''
+                  Icon={<GiPadlock />}
+                />
+                <InputsCustom
+                  title='Store Name'
+                  value=''
+                  onchange=''
+                  Icon={<FaStore />}
+                />
+                <InputsCustom
+                  title='Phone Number'
+                  value=''
+                  onchange=''
+                  Icon={<FaSquarePhoneFlip />}
+                  type='number'
+                />
+                <div className=''>
+                  <p>Do you have a Physical Shop</p>
+                  <RadioGroup
+                    row
+                    aria-labelledby='demo-row-radio-buttons-group-label'
+                    name='row-radio-buttons-group'
+                  >
+                    <FormControlLabel
+                      value='Yes'
+                      control={<Radio />}
+                      label='Yes'
+                    />
+                    <FormControlLabel
+                      value='No'
+                      control={<Radio />}
+                      label='No'
+                    />
+                  </RadioGroup>
+                </div>
+                <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>
+                  <CustomButton
+                    title='Sign Up'
+                    containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
+                    type='submit'
+                  />
+                  {/* <span>
                   Forgot password?{' '}
                   <Link href='/forgetpassword' className='text-[#218B07]'>
                     click here
                   </Link>{' '}
                 </span> */}
-              </div>
-            </form>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

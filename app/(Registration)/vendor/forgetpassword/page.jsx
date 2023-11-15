@@ -29,35 +29,48 @@ const page = () => {
                         </p> */}
                     </div>
                 </div>
-                <div className='w-[100%] md:w-[50%] h-full flex justify-center flex-col gap-y-6'>
-                    <div className='flex flex-col gap-y-3'>
-                        <h3 className='text-2xl font-bold'>Forgot password?</h3>
-                        {/* <span>Have an account? Log in</span> */}
-                    </div>
-                    <div className='flex flex-col gap-y-4'>
-
-                        <form action='' className='flex flex-col gap-y-6 w-[100%] md:w-[80%]'>
-                            <InputsCustom
-                                title='Email Address'
-                                value=''
-                                onchange=''
-                                Icon={<HiOutlineEnvelope />}
+                <div className='w-[100%] md:w-[50%] h-full flex justify-cente flex-col gap-y-6`'>
+                    <div className='flex justify-end'>
+                        <Link href='/' className='logo w-[20%]'>
+                            <Image
+                                src='/cafetarialogo.png'
+                                alt='logo'
+                                width={118}
+                                height={18}
+                                className='object-contain'
                             />
+                        </Link>
+                    </div>
+                    <div className=" flex justify-center h-full flex-col">
+                        <div className='flex flex-col gap-y-3'>
+                            <h3 className='text-2xl font-bold'>Forgot password?</h3>
+                            {/* <span>Have an account? Log in</span> */}
+                        </div>
+                        <div className='flex flex-col gap-y-4'>
 
-                            <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
-                                <CustomButton
-                                    title='Send Verification code'
-                                    containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
-                                    type='submit'
+                            <form action='' className='flex flex-col gap-y-6 w-[100%] md:w-[80%]'>
+                                <InputsCustom
+                                    title='Email Address'
+                                    value=''
+                                    onchange=''
+                                    Icon={<HiOutlineEnvelope />}
                                 />
-                                <span>
-                                    Get Back to{' '}
-                                    <Link href='/vendor/login' className='text-[#218B07]'>
-                                        log in
-                                    </Link>{' '}
-                                </span>
-                            </div>
-                        </form>
+
+                                <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
+                                    <CustomButton
+                                        title='Send Verification code'
+                                        containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
+                                        type='submit'
+                                    />
+                                    <span>
+                                        Get Back to{' '}
+                                        <Link href='/vendor/login' className='text-[#218B07]'>
+                                            log in
+                                        </Link>{' '}
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

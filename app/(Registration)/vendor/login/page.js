@@ -33,63 +33,76 @@ const page = () => {
           </div>
         </div>
         <div className='w-[100%] md:w-[50%] h-full justify-center flex flex-col gap-y-6'>
-          <div className='flex flex-col gap-y-3'>
-            <h3 className='text-2xl font-bold'>Login</h3>
-            <span>
-              Don’t have an account?{' '}
-              <Link href='/vendor/signup' className='text-[#218B07]'>
-                sign up
-              </Link>{' '}
-            </span>
+          <div className='flex justify-end'>
+            <Link href='/' className='logo w-[20%]'>
+              <Image
+                src='/cafetarialogo.png'
+                alt='logo'
+                width={118}
+                height={18}
+                className='object-contain'
+              />
+            </Link>
           </div>
-          <div className='flex flex-col gap-y-4'>
-            <p>Sign in as</p>
-            <div className='flex gap-x-4 w-[100%] flex-col sm:flex-row gap-y-4 md:w-[50%]'>
-              <CustomButton
-                title='Customer'
-                containerStyles='text-[#00000087] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4  border'
-                Icon={<BiRadioCircle />}
-                handleClick={() => router.push('/client/login')}
-              />
-              <CustomButton
-                title='Merchant'
-                containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border bg-[#218B07]'
-                Icon={<BiRadioCircle />}
-              />
+          <div className='flex justify-center h-full flex-col'>
+            <div className='flex flex-col gap-y-3'>
+              <h3 className='text-2xl font-bold'>Login</h3>
+              <span>
+                Don’t have an account?{' '}
+                <Link href='/vendor/signup' className='text-[#218B07]'>
+                  sign up
+                </Link>{' '}
+              </span>
             </div>
-            <form
-              action=''
-              className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
-            >
-              <InputsCustom
-                title='Email Address'
-                value=''
-                onchange=''
-                Icon={<HiOutlineEnvelope />}
-              />
-              <InputsCustom
-                title='Password'
-                value=''
-                onchange=''
-                Icon={<GiPadlock />}
-              />
-              <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>
+            <div className='flex flex-col gap-y-4'>
+              <p>Sign in as</p>
+              <div className='flex gap-x-4 w-[100%] flex-col sm:flex-row gap-y-4 md:w-[50%]'>
                 <CustomButton
-                  title='Login'
-                  containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
-                  type='submit'
+                  title='Customer'
+                  containerStyles='text-[#00000087] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4  border'
+                  Icon={<BiRadioCircle />}
+                  handleClick={() => router.push('/client/login')}
                 />
-                <span>
-                  Forgot password?{' '}
-                  <Link
-                    href='/vendor/forgetpassword'
-                    className='text-[#218B07]'
-                  >
-                    click here
-                  </Link>{' '}
-                </span>
+                <CustomButton
+                  title='Merchant'
+                  containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border bg-[#218B07]'
+                  Icon={<BiRadioCircle />}
+                />
               </div>
-            </form>
+              <form
+                action=''
+                className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
+              >
+                <InputsCustom
+                  title='Email Address'
+                  value=''
+                  onchange=''
+                  Icon={<HiOutlineEnvelope />}
+                />
+                <InputsCustom
+                  title='Password'
+                  value=''
+                  onchange=''
+                  Icon={<GiPadlock />}
+                />
+                <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>
+                  <CustomButton
+                    title='Login'
+                    containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
+                    type='submit'
+                  />
+                  <span>
+                    Forgot password?{' '}
+                    <Link
+                      href='/vendor/forgetpassword'
+                      className='text-[#218B07]'
+                    >
+                      click here
+                    </Link>{' '}
+                  </span>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

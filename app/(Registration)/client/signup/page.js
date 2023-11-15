@@ -33,58 +33,71 @@ const page = () => {
           </div>
         </div>
         <div className='w-[100%] md:w-[50%] h-full justify-center flex flex-col gap-y-6'>
-          <div className='flex flex-col gap-y-3'>
-            <h3 className='text-2xl font-bold'>Sign Up</h3>
-            <span>
-              Have an account?{' '}
-              <Link href='/client/login' className='text-[#FF9C06]'>
-                log in
-              </Link>{' '}
-            </span>
+          <div className='flex justify-end'>
+            <Link href='/' className='logo w-[20%]'>
+              <Image
+                src='/cafetarialogo.png'
+                alt='logo'
+                width={118}
+                height={18}
+                className='object-contain'
+              />
+            </Link>
           </div>
-          <div className='flex flex-col gap-y-4'>
-            <p>Register as</p>
-            <div className='flex gap-x-4 w-[100%] flex-col sm:flex-row gap-y-4 md:w-[50%]'>
-              <CustomButton
-                title='Customer'
-                containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
-                Icon={<BiRadioCircle />}
-              />
-              <CustomButton
-                title='Merchant'
-                containerStyles='text-[#00000087] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border'
-                Icon={<BiRadioCircle />}
-                handleClick={() => router.push('/vendor/signup')}
-              />
+          <div className='flex justify-center flex-col h-full'>
+            <div className='flex flex-col gap-y-3'>
+              <h3 className='text-2xl font-bold'>Sign Up</h3>
+              <span>
+                Have an account?{' '}
+                <Link href='/client/login' className='text-[#FF9C06]'>
+                  log in
+                </Link>{' '}
+              </span>
             </div>
-            <form
-              action=''
-              className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
-            >
-              <InputsCustom
-                title='Email Address'
-                value=''
-                onchange=''
-                Icon={<HiOutlineEnvelope />}
-              />
-              <InputsCustom
-                title='Password'
-                value=''
-                onchange=''
-                Icon={<GiPadlock />}
-              />
-              <InputsCustom
-                title='Confirm Password'
-                value=''
-                onchange=''
-                Icon={<GiPadlock />}
-              />
-              <CustomButton
-                title='Register'
-                containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
-                type='submit'
-              />
-            </form>
+            <div className='flex flex-col gap-y-4'>
+              <p>Register as</p>
+              <div className='flex gap-x-4 w-[100%] flex-col sm:flex-row gap-y-4 md:w-[50%]'>
+                <CustomButton
+                  title='Customer'
+                  containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
+                  Icon={<BiRadioCircle />}
+                />
+                <CustomButton
+                  title='Merchant'
+                  containerStyles='text-[#00000087] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 border'
+                  Icon={<BiRadioCircle />}
+                  handleClick={() => router.push('/vendor/signup')}
+                />
+              </div>
+              <form
+                action=''
+                className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
+              >
+                <InputsCustom
+                  title='Email Address'
+                  value=''
+                  onchange=''
+                  Icon={<HiOutlineEnvelope />}
+                />
+                <InputsCustom
+                  title='Password'
+                  value=''
+                  onchange=''
+                  Icon={<GiPadlock />}
+                />
+                <InputsCustom
+                  title='Confirm Password'
+                  value=''
+                  onchange=''
+                  Icon={<GiPadlock />}
+                />
+                <CustomButton
+                  title='Register'
+                  containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
+                  type='submit'
+                />
+              </form>
+            </div>
           </div>
         </div>
       </div>

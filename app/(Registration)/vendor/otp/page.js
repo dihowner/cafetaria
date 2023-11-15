@@ -30,24 +30,37 @@ const page = () => {
           </div>
         </div>
         <div className='w-[100%] md:w-[50%] h-full justify-center flex flex-col gap-y-6'>
-          <div className='flex flex-col gap-y-3'>
-            <h3 className='text-2xl font-bold'>Enter otp</h3>
+          <div className='flex justify-end'>
+            <Link href='/' className='logo w-[20%]'>
+              <Image
+                src='/cafetarialogo.png'
+                alt='logo'
+                width={118}
+                height={18}
+                className='object-contain'
+              />
+            </Link>
           </div>
-          <div className='flex flex-col gap-y-4'>
-            <form
-              action=''
-              className='flex flex-col gap-y-6 w-[100%] md:w-[80%]'
-            >
-              <InputsCustom title='Enter code sent' value='' onchange='' />
+          <div className='flex justify-center h-full flex-col'>
+            <div className='flex flex-col gap-y-3'>
+              <h3 className='text-2xl font-bold'>Enter otp</h3>
+            </div>
+            <div className='flex flex-col gap-y-4'>
+              <form
+                action=''
+                className='flex flex-col gap-y-6 w-[100%] md:w-[80%]'
+              >
+                <InputsCustom title='Enter code sent' value='' onchange='' />
 
-              <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
-                <CustomButton
-                  title='Verify code'
-                  containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
-                  type='submit'
-                />
-              </div>
-            </form>
+                <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
+                  <CustomButton
+                    title='Verify code'
+                    containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
+                    type='submit'
+                  />
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

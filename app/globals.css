@@ -15,29 +15,60 @@ p,
 h1 {
   font-family: 'Inter';
 }
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  border: 3px solid #f1f1f1;
+}
+
 .width {
   width: 95%;
 }
 .mediumscreen {
-  align-items: center;
   background-color: #ff9c06;
   border-radius: 3px;
   box-shadow: 0 1px 50px 0 rgba(33, 51, 67, 0.12);
   flex-direction: column;
-  justify-content: center;
-  left: 10px;
+  left: -100%;
   position: absolute;
   right: 0;
-  text-align: center;
-  top: 4vh;
+  top: 0;
   transition: all 0.5s linear;
-  width: calc(100% - 20px);
+  width: 50%;
   z-index: 2;
-  height: 200px;
+  height: 100svh;
   font-family: Montserrat;
-  color: black;
+  color: white;
   text-transform: capitalize;
   padding: 1.3rem;
+  animation: showmenu 300ms ease forwards;
+}
+.mediumscreenn {
+  background-color: #ff9c06;
+  border-radius: 3px;
+  box-shadow: 0 1px 50px 0 rgba(33, 51, 67, 0.12);
+  flex-direction: column;
+  left: -100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 0.5s linear;
+  width: 50%;
+  z-index: 2;
+  height: 100%;
+  font-family: Montserrat;
+  color: white;
+  text-transform: capitalize;
+  padding: 1.3rem;
+  animation: showmenu 300ms ease forwards;
 }
 .close {
   position: absolute;
@@ -46,7 +77,7 @@ h1 {
   z-index: 100;
   margin: 0.5rem;
   font-size: 27px;
-  color: #000000;
+  color: white;
   cursor: pointer;
 }
 .eachrest {

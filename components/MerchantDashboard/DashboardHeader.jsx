@@ -4,8 +4,8 @@ import { FaBars } from 'react-icons/fa'
 const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
     return (
         <div className={` ${isSidebarOpen
-            ? 'pl-[220px] hidden md:block bg-[#218B07] w-[100%] fixed h-[70px]'
-            : 'pl-0 md:pl-[80px] lg:pl-[220px] hidden md:flex justify-center bg-[#218B07] w-[100%] fixed h-[70px] '
+            ? 'pl-[260px] hidden md:block bg-[#218B07] w-[100%] fixed h-[70px]'
+            : 'pl-0 md:pl-[80px] lg:pl-[260px] hidden md:flex justify-center bg-[#218B07] w-[100%] fixed h-[70px] '
             }`}>
 
             <div className="flex justify-between items-center py-4 w-[95%]">
