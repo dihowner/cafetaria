@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { FaBars } from 'react-icons/fa'
 import { ImCancelCircle } from 'react-icons/im'
+import RegSidebar from '@/components/RegSidebar'
 // Link
 const page = () => {
   const router = useRouter()
@@ -26,86 +27,6 @@ const page = () => {
               }}
             />
           </div>
-          {toggle && (
-            <div className='mediumscreenn'>
-              <ul className='flex gap-y-6 flex-col text-lg'>
-                <ImCancelCircle
-                  onClick={() => {
-                    setToggle(false)
-                  }}
-                  className='close'
-                />
-                <li>
-                  <Link
-                    href='/'
-                    className='font-medium hover:font-bold ease-in duration-300'
-                    onClick={() => {
-                      setToggle(false)
-                    }}
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/restuarant'
-                    className='font-medium hover:font-bold ease-in duration-300'
-                    onClick={() => {
-                      setToggle(false)
-                    }}
-                  >
-                    Resturants
-                  </Link>
-                </li>
-
-                <li>
-                  <Link
-                    href='/'
-                    className='font-medium hover:font-bold ease-in duration-300'
-                    onClick={() => {
-                      setToggle(false)
-                    }}
-                  >
-                    stores
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/'
-                    className='font-medium hover:font-bold ease-in duration-300'
-                    onClick={() => {
-                      setToggle(false)
-                    }}
-                  >
-                    About
-                  </Link>
-                </li>
-                <li>
-                  {' '}
-                  <Link
-                    href='/client/login'
-                    className='login font-semibold text-lg'
-                    onClick={() => {
-                      setToggle(false)
-                    }}
-                  >
-                    Login
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/client/signup'
-                    className='signup bg-[#218B07] flex justify-center align-center text-white rounded-sm  w-[100px] py-4 '
-                    onClick={() => {
-                      setToggle(false)
-                    }}
-                  >
-                    Sign up
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          )}
           <div className='w-[80%] flex flex-col justify-center items-center gap-y-3'>
             <h1 className='text-4xl lg:text-6xl  text-center font-bold'>
               You Made the right choice
@@ -193,6 +114,7 @@ const page = () => {
           </div>
         </div>
       </div>
+      <RegSidebar setToggle={setToggle} toggle={toggle} />
     </div>
   )
 }

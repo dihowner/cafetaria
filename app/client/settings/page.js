@@ -8,9 +8,9 @@ import React from 'react'
 const page = () => {
   return (
     <div className='w-full justify-center items-center flex flex-col gap-y-8'>
-      <div className="grid grid-cols-2 width gap-x-4">
-        <Account/>
-        <Security/>
+      <div className='grid grid-cols-1 gap-y-4 md:grid-cols-2 width gap-x-4'>
+        <Account />
+        <Security />
       </div>
     </div>
   )

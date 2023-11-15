@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -14,14 +14,21 @@ import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import { FaBars } from 'react-icons/fa'
+import RegSidebar from '@/components/RegSidebar'
 const page = () => {
   const router = useRouter()
+    const [toggle, setToggle] = useState(false)
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col items-stretch md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
         <div className='bg-[#218B07] flex flex-col px-6 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[100%] md:w-[50%] py-16 h-[100%] relative'>
           <div className='absolute top-0 left-0 p-4'>
-            <FaBars className='text-3xl' />
+            <FaBars
+              className='text-3xl'
+              onClick={() => {
+                setToggle(true)
+              }}
+            />
           </div>
           <div className='w-[80%] flex flex-col justify-center items-center gap-y-3'>
             <h1 className='text-4xl lg:text-6xl  text-center font-bold'>
@@ -145,6 +152,7 @@ const page = () => {
           </div>
         </div>
       </div>
+      <RegSidebar setToggle={setToggle} toggle={toggle} />
     </div>
   )
 }

@@ -6,42 +6,43 @@ import { EachRests } from '@/components/Utilis/Dummy'
 import Link from 'next/link'
 import CustomButton from '@/components/CustomButton'
 const EachRest = ({ restuarantsDetails, open }) => {
+    
     return (
         <div className='w-full flex justify-center items-center flex-col gap-y-8 pb-8'>
             <div className="w-full eachrest flex flex-col justify-center items-center min-h-[300px] p-6 "
-             style={{
-                backgroundSize: 'cover', // Optional: Adjust the background image size
-                backgroundPosition: 'center center',
-                backgroundRepeat: 'no-repeat',
-                backgroundAttachment:'fixed'
-            }}
+                style={{
+                    backgroundSize: 'cover', // Optional: Adjust the background image size
+                    backgroundPosition: 'center center',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundAttachment: 'fixed'
+                }}
             >
                 <h1 className='font-[700] text-4xl text-white'>Currently Open</h1>
             </div>
-            {/* <div className="relative w-full flex flex-col justify-center items-center">
-                <div className="width flex justify-between items-center gap-x-4 absolute top-[-180px]">
-                    <div className="w-[70%] shadow-md bg-[white] rounded-md flex flex-col p-4 gap-y-4 ">
-                        <h1>{restuarantsDetails.name}</h1>
-                        <p>{restuarantsDetails.description}</p>
+            <div className="relative w-full flex flex-col justify-center items-center">
+                <div className="width grid grid-cols-3 gap-x-4 absolute">
+                    <div className="col-span-2 shadow-md bg-[white] rounded-md flex flex-col p-4 gap-y-2 ">
+                        <h1 className='text-[#474747] text-3xl font-bold'>{restuarantsDetails.name}</h1>
+                        <p className='text-[#929292]'>Amala, jollof rice, fried rice and dodo</p>
                         <div className='flex gap-x-2 items-center'>
-                            <span className='text-[#5f8357]'>{restuarantsDetails.ratings}</span>
+                            <span className='text-[#5f8357] font-bold'>{restuarantsDetails.ratings}</span>
                             <span>{restuarantsDetails.Reviews}</span>
                         </div>
-                        <div className="">
+                        <div className="text-[#00000099] flex items-center">
                             <span><MdOutlineLocationOn /></span>
                             {restuarantsDetails.location}
                         </div>
                     </div>
-                    <div className="w-[30%] bg-[white] shadow-md rounded-md flex flex-col p-4 gap-y-6">
+                    <div className=" col-span-1 bg-[white] shadow-md rounded-md flex flex-col p-4 gap-y-6">
                         <div className="flex justify-between items-center">
                             <CustomButton
                                 title='Cart'
-                                containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[18px] gap-x-4  bg-[#218B07]'
+                                containerStyles='text-[white] flex justify-center items-center py-2 px-6 rounded-[5px] gap-x-4  bg-[#218B07]'
                                 Icon={<AiOutlineShoppingCart />}
 
                             />
                             <div className="flex justify-center items-center">
-                                <p className='text-2xl'>view all</p>
+                                <p className='text-sm'>view all</p>
                                 <span><FaGreaterThan /></span>
                             </div>
                         </div>
@@ -67,11 +68,9 @@ const EachRest = ({ restuarantsDetails, open }) => {
                             />
                         </div>
                     </div>
-
                 </div>
             </div>
-            */}
-            <div className="width mt-8">
+            <div className="width mt-[160px]">
                 <div className='flex flex-col gap-y-4 w-[100%]'>
                     <div className=" flex flex-col md:flex-row gap-x-4 gap-y-4 ">
                         <h1 className='font-[700] text-3xl'>All Delicacies</h1>
