@@ -46,7 +46,7 @@ const TopSide = () => {
             <div className='w-full'>
               <CustomButton
                 title='View Transaction'
-                containerStyles='bg-[#218B07]  py-2 px-2 flex justify-center items-center text-white rounded-[8px] text-lg w-[100%] gap-x-2 '
+                containerStyles='bg-[#218B07]  py-2 px-2 flex justify-center items-center text-white rounded-[8px] text-sm w-[100%] gap-x-2 '
                 Icon={<FaMoneyBill />}
               />
             </div>
@@ -68,7 +68,7 @@ const TopSide = () => {
             <div className='w-full'>
               <CustomButton
                 title='View Cart'
-                containerStyles='bg-[#FF9C06]  py-2 px-2 flex justify-center items-center text-white rounded-[8px] text-lg w-[100%] gap-x-2 '
+                containerStyles='bg-[#FF9C06]  py-2 px-2 flex justify-center items-center text-white rounded-[8px] text-sm w-[100%] gap-x-2 '
                 Icon={<AiOutlineShoppingCart />}
               />
             </div>

@@ -812,70 +812,70 @@ export const DashboardTableData = [
 
     }
 ]
-export const PaymentHistoryTableData =[
- {
+export const PaymentHistoryTableData = [
+    {
         image: '/Images/Rectangle 86.png',
         order: 'jollof rice',
         type: 'take away',
         date: '2/3/2020 12:30pm',
-        paymentType:'payStack',
-        status:'Successful',
-        amount:'3500'
- },
- {
+        paymentType: 'payStack',
+        status: 'Successful',
+        amount: '3500'
+    },
+    {
         image: '/Images/Rectangle 86.png',
         order: 'jollof rice',
         type: 'take away',
         date: '2/3/2020 12:30pm',
-        paymentType:'payStack',
-        status:'Successful',
-        amount:'3500'
- },
- {
+        paymentType: 'payStack',
+        status: 'Successful',
+        amount: '3500'
+    },
+    {
         image: '/Images/Rectangle 86.png',
         order: 'jollof rice',
         type: 'take away',
         date: '2/3/2020 12:30pm',
-        paymentType:'payStack',
-        status:'Successful',
-        amount:'3500'
- },
- {
+        paymentType: 'payStack',
+        status: 'Successful',
+        amount: '3500'
+    },
+    {
         image: '/Images/Rectangle 86.png',
         order: 'jollof rice',
         type: 'take away',
         date: '2/3/2020 12:30pm',
-        paymentType:'payStack',
-        status:'Successful',
-        amount:'3500'
- },
- {
+        paymentType: 'payStack',
+        status: 'Successful',
+        amount: '3500'
+    },
+    {
         image: '/Images/Rectangle 86.png',
         order: 'jollof rice',
         type: 'take away',
         date: '2/3/2020 12:30pm',
-        paymentType:'payStack',
-        status:'Successful',
-        amount:'3500'
- },
- {
+        paymentType: 'payStack',
+        status: 'Successful',
+        amount: '3500'
+    },
+    {
         image: '/Images/Rectangle 86.png',
         order: 'jollof rice',
         type: 'take away',
         date: '2/3/2020 12:30pm',
-        paymentType:'payStack',
-        status:'Successful',
-        amount:'3500'
- },
- {
+        paymentType: 'payStack',
+        status: 'Successful',
+        amount: '3500'
+    },
+    {
         image: '/Images/Rectangle 86.png',
         order: 'jollof rice',
         type: 'take away',
         date: '2/3/2020 12:30pm',
-        paymentType:'payStack',
-        status:'Successful',
-        amount:'3500'
- }
+        paymentType: 'payStack',
+        status: 'Successful',
+        amount: '3500'
+    }
 ]
 export const OrdersTableData = [
     {
@@ -1305,7 +1305,7 @@ export const clientSideBarFirstLinks = [
         icon: <BsFillCreditCard2BackFill />,
     },
     {
-        path: '/vendor/notification',
+        path: '/client/notification',
         name: 'notification',
         icon: <MdNotifications />,
     },
@@ -1318,14 +1318,16 @@ export const clientSideBarSecondLinks = [
         icon: <MdOutlineSettings />,
     },
     {
-        path: '/client/helpcenter',
+        path: '/client/help-center',
         name: 'Help center',
         icon: <BiSolidUserRectangle />,
     },
-    // {
-    //     path: '/vendor/reviews',
-    //     name: 'Reviews',
-    //     icon: <MdReviews />,
-    // },
 
 ]
+// export const MenuList = [
+//     {
+//         food: [
+
+//         ]
+//     }
+// ]

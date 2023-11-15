@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 // import Logo from '../../public/'
 import Image from 'next/image'
@@ -26,9 +26,9 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
-  const pathname =usePathname()
+  const pathname = usePathname()
   return (
-    <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999]' : 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 '}`}>
+    <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999] shadow-md' : 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 shadow-md '}`}>
       <div className='flex width justify-between items-center'>
         <Link href='/' className='logo w-[20%]'>
           <Image
@@ -74,70 +74,93 @@ const Header = () => {
           </li>
         </ul>
         <div className='loginandsigup hidden md:flex gap-x-4 justify-center items-center'>
-          <Link href='/login' className='login font-semibold text-lg'>Login</Link>
-          <Link href='/signup' className='signup bg-[#FF9C06] flex justify-center items-center text-white rounded-[8px] py-2 w-[100px]'>
+          <Link href='/client/login' className='login font-semibold text-lg'>Login</Link>
+          <Link href='/client/signup' className='signup bg-[#FF9C06] flex justify-center items-center text-white rounded-[8px] py-2 w-[100px]'>
             Sign up
           </Link>
         </div>
-        <RxHamburgerMenu
-          className='inline-block md:hidden hamburger text-2xl '
-          onClick={() => {
-            setToggle(false)
-          }}
-        />{' '}
-        {toggle && (
-          <div className="mediumscreen flex justify-center">
-            <ul className='flex gap-y-2 flex-col text-lg items-center justify-center'>
-              <ImCancelCircle
+
+      </div>
+      <RxHamburgerMenu
+        className='inline-block md:hidden hamburger text-2xl '
+        onClick={() => {
+          setToggle(true)
+        }}
+      />{' '}
+      {toggle && (
+        <div className="mediumscreen">
+          <ul className='flex gap-y-6 flex-col text-lg'>
+            <ImCancelCircle
+              onClick={() => {
+                setToggle(false)
+              }}
+              className='close'
+            />
+            <li>
+              <Link
+                href='/'
+                className='font-medium hover:font-bold ease-in duration-300'
                 onClick={() => {
                   setToggle(false)
                 }}
-                className='close'
-              />
-              <li>
-                <Link
-                  href='/'
-                  className='font-medium hover:font-bold ease-in duration-300'
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/restuarant'
-                  className='font-medium hover:font-bold ease-in duration-300'
-                >
-                  Resturants
-                </Link>
-              </li>
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href='/restuarant'
+                className='font-medium hover:font-bold ease-in duration-300'
+                onClick={() => {
+                  setToggle(false)
+                }}
+              >
+                Resturants
+              </Link>
+            </li>
 
-              <li>
-                <Link
-                  href='/'
-                  className='font-medium hover:font-bold ease-in duration-300'
-                >
-                  stores
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href='/'
-                  className='font-medium hover:font-bold ease-in duration-300'
-                >
-                  About
-                </Link>
-              </li>
-            </ul>
-            <div className='loginandsigup gap-y-2 justify-center items-center '>
-              <Link href='' className='login font-semibold text-lg'>Login</Link>
-              <Link href='' className='signup bg-[#FF9C06] flex justify-center align-center text-white rounded-full  w-[100px]'>
+            <li>
+              <Link
+                href='/'
+                className='font-medium hover:font-bold ease-in duration-300'
+                onClick={() => {
+                  setToggle(false)
+                }}
+              >
+                stores
+              </Link>
+            </li>
+            <li>
+              <Link
+                href='/'
+                className='font-medium hover:font-bold ease-in duration-300'
+                onClick={() => {
+                  setToggle(false)
+                }}
+              >
+                About
+              </Link>
+            </li>
+            <li> <Link href='/client/login' className='login font-semibold text-lg'
+              onClick={() => {
+                setToggle(false)
+              }}>Login</Link></li>
+            <li>
+              <Link href='/client/signup' className='signup bg-[#218B07] flex justify-center align-center text-white rounded-sm  w-[100px] py-4 '
+                onClick={() => {
+                  setToggle(false)
+                }}>
                 Sign up
               </Link>
-            </div>
-          </div>
+            </li>
+          </ul>
 
-        )}
-      </div>
+
+
+
+        </div>
+
+      )}
     </div >
 
 
