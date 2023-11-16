@@ -13,7 +13,7 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      const threshold = 100 // Adjust this value as needed
+      const threshold = 90 // Adjust this value as needed
       if (scrollTop > threshold) {
         setIsFixed(true)
       } else {
@@ -28,7 +28,7 @@ const Header = () => {
   }, [])
   const pathname = usePathname()
   return (
-    <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999] shadow-md' : 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 shadow-md '}`}>
+    <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999] shadow-md' : 'w-[100%] flex justify-center items-center bg-[white] py-3 transition-all duration-75 shadow-md '}`}>
       <div className='flex width justify-between items-center'>
         <Link href='/' className='logo w-[20%]'>
           <Image
