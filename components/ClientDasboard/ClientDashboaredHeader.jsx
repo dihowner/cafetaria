@@ -3,7 +3,9 @@ import { FaBars } from 'react-icons/fa'
 import CustomButton from '../CustomButton'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsWechat, BsChatDots } from 'react-icons/bs'
+import { useRouter } from 'next/navigation'
 const ClientDashboaredHeader = ({ isSidebarOpen, toggleSidebar }) => {
+    const router=useRouter()
     return (
         <div className={` ${isSidebarOpen
             ? 'pl-[260px] hidden md:block w-[100%] fixed h-[70px] bg-[#FF9C06]'
@@ -33,6 +35,7 @@ const ClientDashboaredHeader = ({ isSidebarOpen, toggleSidebar }) => {
                             <CustomButton
                                 title='16' containerStyles='text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 border'
                                 Icon={<AiOutlineShoppingCart />}
+                                // handleClick={router.push('/client/cart')}
                             />
                             <div className="flex justify-center items-center gap-x-2">
                                 <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-lg text-[#FFFFFF]">

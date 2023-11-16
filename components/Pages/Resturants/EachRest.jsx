@@ -20,7 +20,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                 <h1 className='font-[700] text-4xl text-white'>Currently Open</h1>
             </div>
             <div className="relative w-full flex flex-col justify-center items-center">
-                <div className="width grid grid-cols-3 gap-x-4 absolute">
+                <div className="width grid  grid-cols-1 md:grid-cols-3 gap-x-4 absolute">
                     <div className="col-span-2 shadow-md bg-[white] rounded-md flex flex-col p-4 gap-y-2 ">
                         <h1 className='text-[#474747] text-3xl font-bold'>{restuarantsDetails.name}</h1>
                         <p className='text-[#929292]'>Amala, jollof rice, fried rice and dodo</p>
@@ -33,7 +33,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                             {restuarantsDetails.location}
                         </div>
                     </div>
-                    <div className=" col-span-1 bg-[white] shadow-md rounded-md flex flex-col p-4 gap-y-6">
+                    <div className=" col-span-1 bg-[white] hidden shadow-md rounded-md md:flex flex-col p-4 gap-y-6">
                         <div className="flex justify-between items-center">
                             <CustomButton
                                 title='Cart'
@@ -49,7 +49,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                         <div className="flex justify-between ">
                             <div className="flex w-[70%] gap-x-3">
                                 <div className="w-[50%]">
-                                    <img src="/Images/Rectangle 84.png" alt="" className='' />
+                                    <img src="/Images/Rectangle 86(1).png" alt="" className='' />
                                 </div>
                                 <div className=" flex flex-col">
                                     <span className='text-[#000000BA] text-xl'>Amala Sky</span>
@@ -70,7 +70,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                     </div>
                 </div>
             </div>
-            <div className="width mt-[160px]">
+            <div className="width mt-[90px]  md:mt-[160px]">
                 <div className='flex flex-col gap-y-4 w-[100%]'>
                     <div className=" flex flex-col md:flex-row gap-x-4 gap-y-4 ">
                         <h1 className='font-[700] text-3xl'>All Delicacies</h1>
