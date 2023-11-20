@@ -16,12 +16,18 @@ const page = () => {
       <div className=' width overflow-x-auto bg-[white] border'>
         <div className='inline-block min-w-full'>
           <div className='overflow-hidden'>
-            <table className='min-w-full'>
-              <thead className='border-b'>
+            <table className='min-w-full table-layout-fixed'>
+              <thead className='border-b sticky'>
                 <tr className='capitalize bg-[#FF9C06] text-white'>
                   <td
                     scope='col'
-                    className='text-base font-bold text-white px-6 py-4 text-left'
+                    className='text-base font-bold text-white px-6 py-4 text-left sticky left-0 top-0 z-10'
+                  >
+                    image
+                  </td>
+                  <td
+                    scope='col'
+                    className='text-base font-bold text-white px-6 py-4 text-left sticky left-0 top-0 z-10'
                   >
                     item
                   </td>
@@ -55,12 +61,15 @@ const page = () => {
                 {PaymentHistoryTableData.map((item, index) => (
                   <tr className='border-b capitalize my-8' key={index}>
                     <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                      <img
+                        className='w-12 h-12 rounded-[10px] object-cover'
+                        src={item.image}
+                        alt='image'
+                      />
+                    </td>
+                    <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 sticky left-0 top-0 bg-white z-10 '>
                       <div className='flex gap-x-4'>
-                        <img
-                          className='w-12 h-12 rounded-[10px] object-cover'
-                          src={item.image}
-                          alt='image'
-                        />
+                    
                         <div className=''>
                           <p className='text-base font-semibold'>
                             {item.order}

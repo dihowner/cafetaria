@@ -30,7 +30,7 @@ const SeconSide = () => {
           containerStyles='bg-[#FF9C06]  py-2 px-2 flex justify-center items-center text-white rounded-[5px] text-lg w-[40%] gap-x-2 '
         />
       </div>
-      <div className='flex sm:flex-row md:flex-col gap-x-4 flex-col gap-y-3 border'>
+      <div className='flex sm:flex-row md:flex-col gap-x-4 flex-col gap-y-3'>
         <div className='w-[100%] sm:w-[100%] border flex justify-center items-center py-4  px-3 h-full'>
           <div className='w-[95%] flex flex-col justify-center items-center gap-y-8'>
             <div className='flex justify-center items-center w-full gap-x-3'>
