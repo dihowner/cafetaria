@@ -10,19 +10,19 @@ export const UseAuth = () => {
   const { currentUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   // const navigate = useNavigate();
-  const useLogin = async (email, password) => {
+  const useLogin = async (email, password, roles) => {
     try {
-      const response = await login({ email, password })
-      if (response.status === 200) {
-        const userData = await response.json
-        dispatch(setCredentials({ ...response }));
-        toast.success(message)
-        console.log(userData)
-      } else {
-        const userData = await response.json
-        console.log(userData)
+      const response = await login({ email, password, roles }).unwrap()
+      // if (response.status === 200) {
+      // const userData = await response.json
+      dispatch(setCredentials({ ...response }));
+      toast.success(message)
+      console.log(userData)
+      // } else {
+      //   const userData = await response.json
+      //   console.log(userData)
 
-      }
+      // }
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
@@ -30,20 +30,48 @@ export const UseAuth = () => {
   const useSignUp = async (data) => {
     try {
 
-      const response = await register.mutateAsync(data)
-      console.log(response)
-      if (response.Status) {
-        const responseData = await response.json(); // Parse the JSON data
-        console.log('yessss', responseData)
-        // console.log('yess', response.json())
+      await register(data).unwrap()
+        // console.log(response)
+        .then((res) => {
+          toast.success('Registration successful')
+        })
+      // if (response.status) {
+      //   const responseData = await response.json(); // Parse the JSON data
+      //   console.log('yessss', responseData)
+      //   // console.log('yess', response.json())
 
-        toast.success('Registration successful')
-        console.log(userData)
-      } else {
-        const response = await response.json();
-        toast.error('registration failed' + "" + response.data.message)
-      }
+      //   toast.success('Registration successful')
+      //   console.log(userData)
+      // } else {
+      //   const response = await response.json();
+      //   toast.error('registration failed' + "" + response.data.message)
+      // }
     } catch (err) {
+      console.log(err)
+      toast.error(err?.data?.message || err.error);
+    }
+  }
+  const useCompleteRegistration = async (data) => {
+    try {
+
+      await register(data).unwrap()
+        // console.log(response)
+        .then((res) => {
+          toast.success('Registration successful')
+        })
+      // if (response.status) {
+      //   const responseData = await response.json(); // Parse the JSON data
+      //   console.log('yessss', responseData)
+      //   // console.log('yess', response.json())
+
+      //   toast.success('Registration successful')
+      //   console.log(userData)
+      // } else {
+      //   const response = await response.json();
+      //   toast.error('registration failed' + "" + response.data.message)
+      // }
+    } catch (err) {
+      console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }

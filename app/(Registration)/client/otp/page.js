@@ -12,7 +12,7 @@ import RegSidebar from '@/components/RegSidebar'
 
 const page = () => {
   const [toggle, setToggle] = useState(false)
-
+  const [otp, setOtp] = useState('')
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col  justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>

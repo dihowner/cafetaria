@@ -20,10 +20,11 @@ const page = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const { useLogin, isLoading } = UseAuth()
+  const roles='user'
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (isvalid) {
-      await useLogin(email, password)
+      await useLogin(email, password,roles)
     } else {
       toast.error('please fill out the field')
     }
