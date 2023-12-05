@@ -10,10 +10,41 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { toast } from 'react-toastify'
+import { useRegisterMutation } from '@/redux/userApiSlice'
 
 const page = () => {
   const router = useRouter()
   const [toggle, setToggle] = useState(false)
+  const [password, setPassword] = useState()
+  const [cPassword, setCpassword] = useState()
+  const [email, setEmail] = useState()
+  const [phone, setPhone] = useState()
+  const [name, setName] = useState()
+
+  const { useSignUp, registerLoading } = UseAuth()
+
+  const data = {
+    name: name,
+    mobile_number: phone,
+    email: email,
+    password: password,
+    roles: 'user',
+  }
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (password === cPassword) {
+      if (isvalid) {
+        await useSignUp(data)
+      } else {
+        toast.error('please fill out the field')
+      }
+    } else {
+      toast.error('password do not match')
+    }
+  }
+  const isvalid = email && password
 
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
@@ -80,27 +111,41 @@ const page = () => {
               <form
                 action=''
                 className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
+                onSubmit={handleSubmit}
               >
                 <InputsCustom
+                  title='Full Name'
+                  value={name}
+                  onchange={setName}
+                  Icon={<HiOutlineEnvelope />}
+                />
+                <InputsCustom
                   title='Email Address'
-                  value=''
-                  onchange=''
+                  value={email}
+                  onchange={setEmail}
+                  Icon={<HiOutlineEnvelope />}
+                />
+                <InputsCustom
+                  title='Phone Number'
+                  value={phone}
+                  onchange={setPhone}
+                  type='number'
                   Icon={<HiOutlineEnvelope />}
                 />
                 <InputsCustom
                   title='Password'
-                  value=''
-                  onchange=''
+                  value={password}
+                  onchange={setPassword}
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
                   title='Confirm Password'
-                  value=''
-                  onchange=''
+                  value={cPassword}
+                  onchange={setCpassword}
                   Icon={<GiPadlock />}
                 />
                 <CustomButton
-                  title='Register'
+                  title={registerLoading ? 'loading.....' : 'Register'}
                   containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                   type='submit'
                 />
