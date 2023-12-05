@@ -11,10 +11,24 @@ import { useRouter } from 'next/navigation'
 import { FaBars } from 'react-icons/fa'
 import { ImCancelCircle } from 'react-icons/im'
 import RegSidebar from '@/components/RegSidebar'
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { toast } from 'react-toastify'
 // Link
 const page = () => {
   const router = useRouter()
   const [toggle, setToggle] = useState(false)
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const { useLogin, isLoading } = UseAuth()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (isvalid) {
+      await useLogin(email, password)
+    } else {
+      toast.error('please fill out the field')
+    }
+  }
+  const isvalid = email && password
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
@@ -80,22 +94,24 @@ const page = () => {
               <form
                 action=''
                 className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
+                onSubmit={handleSubmit}
               >
                 <InputsCustom
                   title='Email Address'
-                  value=''
-                  onchange=''
+                  value={email}
+                  onchange={setEmail}
+                  type={'email'}
                   Icon={<HiOutlineEnvelope />}
                 />
                 <InputsCustom
                   title='Password'
-                  value=''
-                  onchange=''
+                  value={password}
+                  onchange={setPassword}
                   Icon={<GiPadlock />}
                 />
                 <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>
                   <CustomButton
-                    title='Login'
+                    title={isLoading ? 'loading....' : 'Login'}
                     containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                     type='submit'
                   />

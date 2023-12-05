@@ -4,8 +4,11 @@ import Header from '@/components/Headerr/Header'
 // import Footer from '@/components/Footer'
 import Footer from '@/components/Footer'
 import { SidebarContext } from '@/context/Sidebar/SideBarContext'
-// import { SidebarContext } from '@/context/Sidebar/SideBarContext'
-
+import Providers from '@/redux/Providers'
+// import { store } from '@/redux/store'
+// import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -16,9 +19,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <SidebarContext>
-        <body className={inter.className}>{children}</body>
-      </SidebarContext>
+      <Providers>
+        <SidebarContext>
+          <body className={inter.className}>
+            <ToastContainer />
+            {children}
+          </body>
+        </SidebarContext>
+      </Providers>
     </html>
   )
 }
