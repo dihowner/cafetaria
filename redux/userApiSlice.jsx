@@ -18,10 +18,19 @@ export const userApiSlice = apiSlice.injectEndpoints({
                 headers: { 'content-type': 'application/json' }
             }),
         }),
+        completeRegistration: builder.mutation({
+            query: (data) => ({
+                url: `${AUTH_URL}/verify/account`,
+                body: JSON.stringify(data),
+                method: 'POST',
+                headers: { 'content-type': 'application/json' }
+            }),
+        }),
     })
 })
 
 export const {
     useLoginMutation,
-    useRegisterMutation
+    useRegisterMutation,
+    useCompleteRegistrationMutation
 } = userApiSlice;

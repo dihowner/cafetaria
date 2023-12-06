@@ -1,4 +1,3 @@
-
 'use client'
 import ClientDashboaredHeader from '@/components/ClientDasboard/ClientDashboaredHeader'
 import Sidebar from '@/components/Sidebar'
@@ -10,10 +9,12 @@ import {
 import { useContext } from 'react'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
 import MClientHeader from '@/components/ClientDasboard/MClientHeader'
+import ProtectedRouteWrapper from '@/components/ProtectedRouteWrapper'
+
 const layout = ({ children }) => {
-    const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
+  const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
   return (
-    <div>
+    <ProtectedRouteWrapper>
       <Sidebar
         SideBarFirstLinks={clientSideBarFirstLinks}
         SideBarSecondLinks={clientSideBarSecondLinks}
@@ -39,7 +40,7 @@ const layout = ({ children }) => {
           {children}
         </div>
       </main>
-    </div>
+    </ProtectedRouteWrapper>
   )
 }
 
