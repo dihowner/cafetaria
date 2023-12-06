@@ -1,13 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 const isServer = typeof window === 'undefined'
 const initialState = {
-  // loading: false,
-  currentUser:
-    !isServer && localStorage.getItem('currentUser')
-      ? JSON.parse(localStorage.getItem('currentUser'))
-      : null,
-  // error: null,
-  // success: false,
+  currentUser: localStorage.getItem('currentUser')
+    ? JSON.parse(localStorage.getItem('currentUser'))
+    : null,
 }
 
 const authSlice = createSlice({

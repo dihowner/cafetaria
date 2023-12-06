@@ -13,13 +13,16 @@ import { ImCancelCircle } from 'react-icons/im'
 import RegSidebar from '@/components/RegSidebar'
 import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
 import { toast } from 'react-toastify'
+import { useSelector } from 'react-redux'
 // Link
 const page = () => {
   const router = useRouter()
   const [toggle, setToggle] = useState(false)
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const { useLogin, isLoading } = UseAuth()
+  const { useLogin, loginLoading } = UseAuth()
+  const { auth } = useSelector((state) => state.persistedReducer)
+
   // const router = useRouter()
   const roles = 'user'
   const handleSubmit = async (e) => {
@@ -31,9 +34,16 @@ const page = () => {
     }
   }
   const isvalid = email && password
-  useLayoutEffect(() => {
+  // useLayoutEffect(() => {
+  //   if (
+  //     currentUser &&
+  //     currentUser?.token &&
+  //     currentUser?.data?.roles === 'user'
+  //   ) {
+  //     router.push('/client/dashboard')
+  //   }
+  // }, [router, currentUser])
 
-  }, [])
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
@@ -116,7 +126,7 @@ const page = () => {
                 />
                 <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>
                   <CustomButton
-                    title={isLoading ? 'loading....' : 'Login'}
+                    title={loginLoading ? 'loading....' : 'Login'}
                     containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                     type='submit'
                   />
