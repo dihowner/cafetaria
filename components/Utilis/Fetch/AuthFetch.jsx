@@ -7,16 +7,16 @@ export const UseAuth = () => {
   const [login, { isLoading: loginLoading }] = useLoginMutation()
   const [register, { isLoading: registerLoading }] = useRegisterMutation()
   const [completeRegistration, { isLoading: completeRegistrationLoading }] = useCompleteRegistrationMutation()
-  const { currentUser } = useSelector((state) => state.auth);
+  const { auth } = useSelector((state) => state.persistedReducer);
+
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   const useLogin = async (email, password, roles) => {
     try {
       const response = await login({ email, password, roles }).unwrap()
-
+      console.log(response)
       dispatch(setCredentials({ ...response }));
       toast.success('Login successful')
-      console.log(currentUser)
 
     } catch (err) {
       toast.error(err?.data?.message || err.error);

@@ -1,16 +1,18 @@
-import { useRouter } from 'next/navigation';
+'use client'
+import { useRouter, redirect } from 'next/navigation';
 import React, { useLayoutEffect } from 'react'
 import { useSelector } from 'react-redux'
 const ProtectedRouteWrapper = ({ children }) => {
-    const { currentUser } = useSelector((state) => state.auth);
+    const { auth } = useSelector((state) => state.persistedReducer);
+
     const router = useRouter()
     useLayoutEffect(() => {
-        if (currentUser && currentUser.data.role === 'user') {
-            router.push('/client/dashboard')
+        if (!auth?.currentUser?.token) {
+            redirect('/client/login')
         }
-    }, [router, currentUser])
+    }, [router, auth])
     return (
-        <div>{currentUser && children}</div>
+        <div>{auth?.currentUser?.token && children}</div>
     )
 }
 
