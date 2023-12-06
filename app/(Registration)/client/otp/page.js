@@ -9,10 +9,21 @@ import { GiPadlock } from 'react-icons/gi'
 import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { toast } from 'react-toastify'
 
 const page = () => {
   const [toggle, setToggle] = useState(false)
   const [otp, setOtp] = useState('')
+  const { useCompleteRegistration, completeRegistrationLoading } = UseAuth()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (otp) {
+      await useCompleteRegistration(otp)
+    } else {
+      toast.error('please input the otp code')
+    }
+  }
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col  justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
@@ -58,8 +69,13 @@ const page = () => {
               <form
                 action=''
                 className='flex flex-col gap-y-6 w-[100%] md:w-[80%]'
+                onSubmit={handleSubmit}
               >
-                <InputsCustom title='Enter code sent' value='' onchange='' />
+                <InputsCustom
+                  title='Enter code sent'
+                  value={otp}
+                  onchange={setOtp}
+                />
 
                 <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
                   <CustomButton

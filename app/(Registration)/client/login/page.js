@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -20,16 +20,20 @@ const page = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const { useLogin, isLoading } = UseAuth()
-  const roles='user'
+  // const router = useRouter()
+  const roles = 'user'
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (isvalid) {
-      await useLogin(email, password,roles)
+      await useLogin(email, password, roles)
     } else {
       toast.error('please fill out the field')
     }
   }
   const isvalid = email && password
+  useLayoutEffect(() => {
+
+  }, [])
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
