@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
-import { useLoginMutation, useRegisterMutation, useCompleteRegistrationMutation } from "@/redux/userApiSlice";
+import { useLoginMutation, useRegisterMutation, useCompleteRegistrationMutation, useRequestResetpasswordMutation, useVerifypasswordTokenMutation } from "@/redux/userApiSlice";
 import { setToken } from "@/user/authSlice";
+// import { setEmail } from "@/user/forgotpassSlice";
 import { toast } from 'react-toastify';
 export const UseAuth = () => {
   const [login, { isLoading: loginLoading }] = useLoginMutation()
   const [register, { isLoading: registerLoading }] = useRegisterMutation()
   const [completeRegistration, { isLoading: completeRegistrationLoading }] = useCompleteRegistrationMutation()
+  const [RequestResetpassword, { isLoading: RequestResetpasswordLoading }] = useRequestResetpasswordMutation()
+  const [verifypasswordToken, { isLoading: verifypasswordTokenLoading }] = useVerifypasswordTokenMutation()
   const { auth } = useSelector((state) => state.persistedReducer);
 
   const dispatch = useDispatch();
@@ -48,7 +51,7 @@ export const UseAuth = () => {
       await completeRegistration({ 'token': data }).unwrap()
         .then((res) => {
           toast.success('Your account has been verified. Kindly proceed to login')
-          
+
         })
 
     } catch (err) {
@@ -56,5 +59,36 @@ export const UseAuth = () => {
       toast.error(err?.data?.message || err.error);
     }
   }
-  return { useLogin, loginLoading, useSignUp, registerLoading, useCompleteRegistration, completeRegistrationLoading }
+  const useRequestResetpassword = async (data) => {
+    try {
+
+      await RequestResetpassword(data).unwrap()
+        .then((res) => {
+          // dispatch(setEmail(
+
+          // ))
+          toast.success('An email has been sent to your email address containing your reset password guideline. Thank You')
+
+        })
+
+    } catch (err) {
+      console.log(err)
+      toast.error(err?.data?.message || err.error);
+    }
+  }
+  const verifyToken = async (data) => {
+    try {
+
+      await verifypasswordToken(data).unwrap()
+        .then((res) => {
+          // toast.success('Your account has been verified. Kindly proceed to login')
+
+        })
+
+    } catch (err) {
+      console.log(err)
+      toast.error(err?.data?.message || err.error);
+    }
+  }
+  return { useLogin, loginLoading, useSignUp, registerLoading, useCompleteRegistration, completeRegistrationLoading, useRequestResetpassword, RequestResetpasswordLoading, verifypasswordTokenLoading, verifyToken }
 }
