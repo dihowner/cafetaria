@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import authReducer from './user/authSlice'
 import { apiSlice } from './apiSlice'
+import authSlice from '@/user/authSlice'
 import {
   FLUSH,
   PAUSE,
@@ -11,23 +11,36 @@ import {
   persistReducer,
   persistStore,
 } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-
+// import storage from 'redux-persist/lib/storage'
+import createwebstorage from 'redux-persist/lib/storage/createwebstorage'
+const createnoopstorage = () => {
+  return {
+    getitem(_key) {
+      return promise.resolve(null)
+    },
+    setitem(_key, value) {
+      return promise.resolve(value)
+    },
+    removeitem(_key) {
+      return promise.resolve()
+    },
+  }
+}
+const storage =
+  typeof window !== 'undefined'
+    ? createwebstorage('local')
+    : createnoopstorage()
 const rootReducers = combineReducers({
-  auth: authReducer,
+  auth: authSlice,
 })
-const persistedReducer = persistReducer(
-  {
-    key: 'root',
-    version: 1,
-    storage: storage,
-  },
-  rootReducers
-)
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+const persistedReducer = persistReducer(persistConfig, rootReducers)
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
-    // auth: authReducer,
     persistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
@@ -36,6 +49,7 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }).concat(apiSlice.middleware),
+
   devTools: true,
 })
 export const persistor = persistStore(store)

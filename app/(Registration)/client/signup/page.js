@@ -37,7 +37,7 @@ const page = () => {
     if (password === cPassword) {
       if (isvalid) {
         await useSignUp(data)
-        router.push('/')
+        router.push('/client/otp')
       } else {
         toast.error('please fill out the field')
       }

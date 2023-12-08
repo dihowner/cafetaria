@@ -34,16 +34,12 @@ const page = () => {
     }
   }
   const isvalid = email && password
-  // useLayoutEffect(() => {
-  //   if (
-  //     currentUser &&
-  //     currentUser?.token &&
-  //     currentUser?.data?.roles === 'user'
-  //   ) {
-  //     router.push('/client/dashboard')
-  //   }
-  // }, [router, currentUser])
-
+  useLayoutEffect(() => {
+    if (auth && auth?.token && auth?.roles === 'user') {
+      router.push('/client/dashboard')
+    }
+  }, [router, auth])
+  console.log(auth)
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
