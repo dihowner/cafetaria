@@ -26,11 +26,29 @@ export const userApiSlice = apiSlice.injectEndpoints({
                 headers: { 'content-type': 'application/json' }
             }),
         }),
+        RequestResetpassword: builder.mutation({
+            query: (data) => ({
+                url: `${AUTH_URL}/passwordreset/request`,
+                body: JSON.stringify(data),
+                method: 'POST',
+                headers: { 'content-type': 'application/json' }
+            }),
+        }),
+        verifypasswordToken: builder.mutation({
+            query: (data) => ({
+                url: `${AUTH_URL}/passwordreset/verify`,
+                body: JSON.stringify(data),
+                method: 'POST',
+                headers: { 'content-type': 'application/json' }
+            }),
+        }),
     })
 })
 
 export const {
     useLoginMutation,
     useRegisterMutation,
-    useCompleteRegistrationMutation
+    useCompleteRegistrationMutation,
+    useRequestResetpasswordMutation,
+    useVerifypasswordTokenMutation
 } = userApiSlice;
