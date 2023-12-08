@@ -72,7 +72,7 @@ const page = () => {
                   title='Customer'
                   containerStyles='text-[#00000087] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4  border'
                   Icon={<BiRadioCircle />}
-                  handleClick={() => router.push('/client/login')}
+                  handleClick={() => router.push('/client/signup')}
                 />
                 <CustomButton
                   title='Merchant'

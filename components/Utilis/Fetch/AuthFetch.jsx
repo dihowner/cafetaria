@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useLoginMutation, useRegisterMutation, useCompleteRegistrationMutation } from "@/redux/userApiSlice";
-import { setCredentials } from "@/redux/user/authSlice";
+import { setToken } from "@/user/authSlice";
 import { toast } from 'react-toastify';
 export const UseAuth = () => {
   const [login, { isLoading: loginLoading }] = useLoginMutation()
@@ -15,7 +15,13 @@ export const UseAuth = () => {
     try {
       const response = await login({ email, password, roles }).unwrap()
       console.log(response)
-      dispatch(setCredentials({ ...response }));
+
+      dispatch(setToken(
+        {
+          token: response.token,
+          role: response.data.role
+        }
+      ));
       toast.success('Login successful')
 
     } catch (err) {
@@ -42,6 +48,7 @@ export const UseAuth = () => {
       await completeRegistration({ 'token': data }).unwrap()
         .then((res) => {
           toast.success('Your account has been verified. Kindly proceed to login')
+          
         })
 
     } catch (err) {

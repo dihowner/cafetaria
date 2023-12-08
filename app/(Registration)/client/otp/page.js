@@ -11,15 +11,17 @@ import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
 import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
 import { toast } from 'react-toastify'
-
+import { useRouter } from 'next/navigation'
 const page = () => {
   const [toggle, setToggle] = useState(false)
   const [otp, setOtp] = useState('')
   const { useCompleteRegistration, completeRegistrationLoading } = UseAuth()
+  const router = useRouter()
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (otp) {
       await useCompleteRegistration(otp)
+      router.push('/client/login')
     } else {
       toast.error('please input the otp code')
     }
@@ -79,7 +81,9 @@ const page = () => {
 
                 <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
                   <CustomButton
-                    title='Verify code'
+                    title={
+                      completeRegistrationLoading ? 'loading...' : 'Verify code'
+                    }
                     containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                     type='submit'
                   />

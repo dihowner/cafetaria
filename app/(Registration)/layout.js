@@ -9,7 +9,9 @@ const layout = ({ children }) => {
 
   return (
     <div>
-      <UnprotectedRouter>{children}</UnprotectedRouter>
+      <UnprotectedRouter>
+      {children}
+      </UnprotectedRouter>
     </div>
   )
 }
