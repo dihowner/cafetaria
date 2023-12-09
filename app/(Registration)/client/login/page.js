@@ -29,17 +29,18 @@ const page = () => {
     e.preventDefault()
     if (isvalid) {
       await useLogin(email, password, roles)
+      router.push('/client/dashboard')
     } else {
       toast.error('please fill out the field')
     }
   }
   const isvalid = email && password
   useLayoutEffect(() => {
-    if (auth && auth?.token && auth?.roles === 'user') {
+    if (auth && auth?.token && auth?.user === 'user') {
       router.push('/client/dashboard')
     }
   }, [router, auth])
-  console.log(auth)
+  // console.log(auth)
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>

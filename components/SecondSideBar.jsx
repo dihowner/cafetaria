@@ -2,19 +2,24 @@
 import Link from 'next/link'
 
 import React, { useContext, useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
 import { AiOutlinePoweroff } from 'react-icons/ai'
 import Modal from './Modal'
 import { LiaTimesSolid } from 'react-icons/lia'
 import CustomButton from './CustomButton'
 import bgsidebar from '../public/Rectangle 87.png'
+import { logout } from '../user/authSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { useLogoutMutation } from '@/redux/userApiSlice'
 // Link
 const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
     const pathname = usePathname()
+    const router = useRouter()
     const { isSidebarOpen } =
         useContext(SidebarCreateContext)
     const [isOpenModal, setIsOpenModal] = useState(false)
+    const [logoutapi] = useLogoutMutation()
     const openModal = () => {
 
         setIsOpenModal(true)
@@ -28,8 +33,11 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
         setIsOpenModal(true)
         // }
     };
-
-
+    const dispatch = useDispatch();
+    const handleLogoutFun = async () => {
+        dispatch(logout());
+        router.push('/client/login')
+    };
 
     return (
         <div className='flex flex-col gap-y-4 w-full h-full'>
@@ -70,13 +78,13 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
                 </div>
             </button>
             {pathname.startsWith('/client') && <div className={`bgsideebar h-[120px] ${isSidebarOpen ? 'block' : ' block md:hidden lg:block w-[100%] md:bgsideebar md:h-[120px] h-[120px] rounded-xl bgsideebar '
-                }`}  style={{
-                // backgroundImage: 'url(/Rectangle/ 87.png)',
-                backgroundSize: 'cover', // Optional: Adjust the background image size
-                backgroundPosition: 'center center',
-                backgroundRepeat: 'no-repeat',
+                }`} style={{
+                    // backgroundImage: 'url(/Rectangle/ 87.png)',
+                    backgroundSize: 'cover', // Optional: Adjust the background image size
+                    backgroundPosition: 'center center',
+                    backgroundRepeat: 'no-repeat',
 
-            }}>
+                }}>
                 <div className="w-full justify-center items-end flex py-4 h-full">
                     <p className='justify-center flex bg-[#FF9C06] w-[80%] py-3 capitalize text-white rounded-xl'>  earn with cafeteria</p>
                 </div>
@@ -91,9 +99,13 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
                     <div className="flex flex-col justify-center items-center w-full gap-y-6">
                         <h1 className='text-5xl text-center'>Are you sure you to log out?</h1>
                         <div className="flex justify-center items-center w-full gap-x-4">
-                            <CustomButton title='yes'
+                            {/* <CustomButton title='yes'
                                 containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[40%] capitalize'
-                            />
+                                // handleClick={handleLogoutFun}
+                            /> */}
+                            <button className='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[40%] capitalize' onClick={handleLogoutFun}>
+                                yes
+                            </button>
                             <CustomButton title='no'
                                 containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#FF9C06] w-[40%] capitalize'
                                 handleClick={() => setIsOpenModal(false)}

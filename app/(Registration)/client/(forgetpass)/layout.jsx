@@ -1,5 +1,5 @@
 'use client'
-import Passwordwrapper from '@/components/passwordwrapper';
+import Passwordwrapper from '@/components/Passwordwrapper';
 import { useRouter } from 'next/navigation';
 
 

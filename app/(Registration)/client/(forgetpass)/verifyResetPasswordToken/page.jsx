@@ -28,6 +28,7 @@ const page = () => {
             await verifyToken(data)
             Router.push('/client/resetpassword')
             localStorage.clear('email')
+            localStorage.setItem('token', token)
         } else {
             toast.error('check your mail for the code and input the code')
         }

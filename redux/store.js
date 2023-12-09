@@ -13,8 +13,9 @@ import {
   persistStore,
 } from 'redux-persist'
 // import storage from 'redux-persist/lib/storage'
-import createwebstorage from 'redux-persist/lib/storage/createwebstorage'
-const createnoopstorage = () => {
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
+
+const createNoopStorage = () => {
   return {
     getitem(_key) {
       return promise.resolve(null)
@@ -29,8 +30,8 @@ const createnoopstorage = () => {
 }
 const storage =
   typeof window !== 'undefined'
-    ? createwebstorage('local')
-    : createnoopstorage()
+    ? createWebStorage('local')
+    : createNoopStorage()
 const rootReducers = combineReducers({
   auth: authSlice,
 })
