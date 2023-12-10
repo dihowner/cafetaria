@@ -2,6 +2,7 @@
 import { useRouter, redirect } from 'next/navigation';
 import React, { useLayoutEffect } from 'react'
 import { useSelector } from 'react-redux'
+import Loader from './Loader';
 const ProtectedRouteWrapper = ({ children }) => {
     const { auth } = useSelector((state) => state.persistedReducer);
 

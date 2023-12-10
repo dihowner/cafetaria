@@ -9,9 +9,31 @@ import { GiPadlock } from 'react-icons/gi'
 import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
-
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 const page = () => {
   const [toggle, setToggle] = useState(false)
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmNewPassword, setConfirmNewPassword] = useState('')
+  const { verifyNewpasswordLoading, verifynewpassword } = UseAuth()
+  const token = localStorage.getItem('token')
+  const router = useRouter()
+  const data = {
+    token: token,
+    new_password: newPassword,
+    confirm_password: confirmNewPassword,
+  }
+  const confirm = newPassword === confirmNewPassword
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (confirm) {
+      await verifynewpassword(data)
+      router.push('/client/login')
+    } else {
+      toast.error('New Password and the Confirm Password does not match ')
+    }
+  }
   return (
     <div className='flex justify-center bg-[#F6F6F6] min-h-[100svh] w-[100%] py-8'>
       <div className='flex flex-col  justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
@@ -57,17 +79,18 @@ const page = () => {
               <form
                 action=''
                 className='flex flex-col gap-y-6 w-[100%] md:w-[80%]'
+                onSubmit={handleSubmit}
               >
                 <InputsCustom
-                  title='Password'
-                  value=''
-                  onchange=''
+                  title='New Password'
+                  value={newPassword}
+                  onchange={setNewPassword}
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
-                  title='Password'
-                  value=''
-                  onchange=''
+                  title='Confirm Password'
+                  value={confirmNewPassword}
+                  onchange={setConfirmNewPassword}
                   Icon={<GiPadlock />}
                 />
 
