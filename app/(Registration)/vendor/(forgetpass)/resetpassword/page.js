@@ -16,7 +16,8 @@ const page = () => {
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const { verifyNewpasswordLoading, verifynewpassword } = UseAuth()
-    const token = localStorage.getItem('token')
+    const ISSERVER = typeof window !== 'undefined'
+    const token = ISSERVER && localStorage.getItem('token')
     const router = useRouter()
     const data = {
       token: token,
