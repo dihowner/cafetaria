@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -16,40 +16,30 @@ const page = () => {
     const Router = useRouter()
     const [toggle, setToggle] = useState(false)
     const [token, setToken] = useState('')
+    const [email, setEmail] = useState('');
     const data = {
         token: token
     }
     const { verifyToken, verifypasswordTokenLoading, useRequestResetpassword, RequestResetpasswordLoading } = UseAuth()
     const ISSERVER = typeof window !== 'undefined'
-    const email = ISSERVER && localStorage.getItem('email')
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault()
-    //     if (token) {
-    //         await verifyToken(data)
-    //         localStorage.clear('email')
-    //         localStorage.setItem('token', token)
-    //     } else {
-    //         toast.error('check your mail for the code and input the code')
-    //     }
-    // }
     useEffect(() => {
-        if (email) {
-            // Additional logic if needed
+        if (ISSERVER) {
+            const storedEmail = localStorage.getItem('email');
+            setEmail(storedEmail || '');
         }
-    }, [email]);
+    }, [ISSERVER]);
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         if (token) {
-            await verifyToken({ token }); // Pass the token as an argument to the function
-            localStorage.clear('email');
-            localStorage.setItem('token', token);
+            await verifyToken(data)
+            ISSERVER &&  localStorage.clear('email')
+            ISSERVER && localStorage.setItem('token', token)
         } else {
-            toast.error('Check your mail for the code and input the code');
+            toast.error('check your mail for the code and input the code')
         }
-    };
-
+    }
     const sendCode = async () => {
         await useRequestResetpassword({ email: email })
     }
