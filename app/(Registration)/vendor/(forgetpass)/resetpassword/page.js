@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -10,13 +10,20 @@ import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
 import { useRouter } from 'next/navigation'
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
 
 const page = () => {
   const [toggle, setToggle] = useState(false)
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const { verifyNewpasswordLoading, verifynewpassword } = UseAuth()
-    const token = localStorage.getItem('token')
+    const ISSERVER = typeof window !== 'undefined'
+    let token 
+
+    useEffect(()=>{
+      token = ISSERVER && localStorage.getItem('token')
+    },[ISSERVER])
+    
     const router = useRouter()
     const data = {
       token: token,
@@ -28,7 +35,7 @@ const page = () => {
       e.preventDefault()
       if (confirm) {
         await verifynewpassword(data)
-      localStorage.clear('token')
+      ISSERVER && localStorage.clear('token')
 
       } else {
         toast.error('New Password and the Confirm Password does not match ')
@@ -86,11 +93,13 @@ const page = () => {
                   title='New Password'
                   value={newPassword}
                   onchange={setNewPassword}
+                  type='password'
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
                   title='Confirm Password'
                   value={confirmNewPassword}
+                  type='password'
                   onchange={setConfirmNewPassword}
                   Icon={<GiPadlock />}
                 />

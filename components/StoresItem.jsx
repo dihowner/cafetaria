@@ -39,16 +39,16 @@ const StoresItems = () => {
                     </div>
                 </div>
                 <div className="w-[100%] md:w-[80%] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-6 ">
-                    {StoresItem.map((item,index) => (
+                    {StoresItem.map((item, index) => (
                         <div className="border flex flex-col p-3 w-full gap-y-4">
                             <div className="w-full">
-                                <img src={item.image} alt="" srcset="" className='object-fit w-[100%]' />
+                                <img src={item.image} alt="" srcSet="" className='object-fit w-[100%]' />
                             </div>
                             <div className=" flex justify-between items-center">
                                 <p>{item.price}</p>
                                 <span className=" bg-[#222222D4] text-white justify-center items-center flex h-8 w-8 rounded-full text-lg">
-                                {item.Icon}
-                              </span>
+                                    {item.Icon}
+                                </span>
                             </div>
                             <p>{item.name}</p>
                         </div>

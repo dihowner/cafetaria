@@ -76,6 +76,7 @@ const page = () => {
                   title='Enter code sent'
                   value={otp}
                   onchange={setOtp}
+                  type='password'
                 />
 
                 <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>

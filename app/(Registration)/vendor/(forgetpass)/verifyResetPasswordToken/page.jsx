@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -16,18 +16,26 @@ const page = () => {
     const Router = useRouter()
     const [toggle, setToggle] = useState(false)
     const [token, setToken] = useState('')
+    const [email, setEmail] = useState('');
     const data = {
         token: token
     }
     const { verifyToken, verifypasswordTokenLoading, useRequestResetpassword, RequestResetpasswordLoading } = UseAuth()
-    const email = localStorage.getItem('email')
+    const ISSERVER = typeof window !== 'undefined'
+
+    useEffect(() => {
+        if (ISSERVER) {
+            const storedEmail = localStorage.getItem('email');
+            setEmail(storedEmail || '');
+        }
+    }, [ISSERVER]);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (token) {
             await verifyToken(data)
-            localStorage.clear('email')
-            localStorage.setItem('token', token)
+            ISSERVER && localStorage.clear('email')
+            ISSERVER && localStorage.setItem('token', token)
         } else {
             toast.error('check your mail for the code and input the code')
         }
@@ -80,6 +88,8 @@ const page = () => {
                                     title='Token'
                                     value={token}
                                     onchange={setToken}
+                                    type='password'
+
                                     Icon={<HiOutlineEnvelope />}
                                 />
 

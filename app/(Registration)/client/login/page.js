@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -14,6 +14,7 @@ import RegSidebar from '@/components/RegSidebar'
 import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
+import Loader from '@/components/Loader'
 // Link
 const page = () => {
   const router = useRouter()
@@ -34,7 +35,7 @@ const page = () => {
     }
   }
   const isvalid = email && password
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (auth && auth?.token && auth?.user === 'user') {
       router.push('/client/dashboard')
     }
@@ -118,6 +119,7 @@ const page = () => {
                   title='Password'
                   value={password}
                   onchange={setPassword}
+                  type='password'
                   Icon={<GiPadlock />}
                 />
                 <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>

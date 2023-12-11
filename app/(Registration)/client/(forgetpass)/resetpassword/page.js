@@ -17,7 +17,8 @@ const page = () => {
   const [newPassword, setNewPassword] = useState('')
   const [confirmNewPassword, setConfirmNewPassword] = useState('')
   const { verifyNewpasswordLoading, verifynewpassword } = UseAuth()
-  const token = localStorage.getItem('token')
+  const ISSERVER = typeof window !== 'undefined'
+  const token = ISSERVER && localStorage.getItem('token')
   const router = useRouter()
   const data = {
     token: token,
@@ -86,11 +87,13 @@ const page = () => {
                   title='New Password'
                   value={newPassword}
                   onchange={setNewPassword}
+                  type='password'
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
                   title='Confirm Password'
                   value={confirmNewPassword}
+                  type='password'
                   onchange={setConfirmNewPassword}
                   Icon={<GiPadlock />}
                 />

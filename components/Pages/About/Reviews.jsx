@@ -7,7 +7,7 @@ const Reviews = () => {
                 {reviews.map((item, index) => (
                     <div className="flex gap-x-4 justify-center border rounded-lg p-4 w-full">
                         <div className="w-12 h-12">
-                            <img src={item.image} alt="" srcset="" className='rounded-[100%] w-full h-full ' />
+                            <img src={item.image} alt="" srcSet="" className='rounded-[100%] w-full h-full ' />
                         </div>
                         <div className="flex flex-col gap-y-2 w-[80%]">
                             <h4 className='text-lg'>{item.name}</h4>

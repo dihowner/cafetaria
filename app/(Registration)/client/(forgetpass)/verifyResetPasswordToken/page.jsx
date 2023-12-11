@@ -20,7 +20,8 @@ const page = () => {
         token: token
     }
     const { verifyToken, verifypasswordTokenLoading, useRequestResetpassword, RequestResetpasswordLoading } = UseAuth()
-    const email = localStorage.getItem('email')
+    const ISSERVER = typeof window !== 'undefined'
+    const email = ISSERVER && localStorage.getItem('email')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -80,6 +81,8 @@ const page = () => {
                                     title='Token'
                                     value={token}
                                     onchange={setToken}
+                                    type='password'
+
                                     Icon={<HiOutlineEnvelope />}
                                 />
 

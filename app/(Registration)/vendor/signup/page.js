@@ -146,12 +146,14 @@ const page = () => {
                 <InputsCustom
                   title='Password'
                   value={password}
+                  type='password'
                   onchange={setPassword}
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
                   title='Confirm Password'
                   value={cPassword}
+                  type='password'
                   onchange={setCpassword}
                   Icon={<GiPadlock />}
                 />
