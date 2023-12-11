@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -11,11 +11,31 @@ import { useRouter } from 'next/navigation'
 // Link
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
-
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { toast } from 'react-toastify'
+import { useSelector } from 'react-redux'
 const page = () => {
   const router = useRouter()
   const [toggle, setToggle] = useState(false)
-
+  const [email, setEmail] = useState()
+  const [password, setPassword] = useState()
+  const { useLogin, loginLoading } = UseAuth()
+  const { auth } = useSelector((state) => state.rootReducers)
+  const roles = 'vendor'
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (isvalid) {
+      await useLogin(email, password, roles)
+    } else {
+      toast.error('please fill out the field')
+    }
+  }
+  const isvalid = email && password
+  useLayoutEffect(() => {
+    if (auth && auth?.token && auth?.user === 'vendor') {
+      router.push('/vendor/dashboard')
+    }
+  }, [router, auth])
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2'>
@@ -81,22 +101,24 @@ const page = () => {
               <form
                 action=''
                 className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
+                onSubmit={handleSubmit}
               >
                 <InputsCustom
                   title='Email Address'
-                  value=''
-                  onchange=''
+                  value={email}
+                  onchange={setEmail}
+                  type={'email'}
                   Icon={<HiOutlineEnvelope />}
                 />
                 <InputsCustom
                   title='Password'
-                  value=''
-                  onchange=''
+                  value={password}
+                  onchange={setPassword}
                   Icon={<GiPadlock />}
                 />
                 <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>
                   <CustomButton
-                    title='Login'
+                    title={loginLoading ? 'loading....' : 'Login'}
                     containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                     type='submit'
                   />

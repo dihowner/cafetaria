@@ -29,7 +29,8 @@ const page = () => {
     e.preventDefault()
     if (confirm) {
       await verifynewpassword(data)
-      router.push('/client/login')
+      localStorage.clear('token')
+      
     } else {
       toast.error('New Password and the Confirm Password does not match ')
     }
@@ -96,7 +97,11 @@ const page = () => {
 
                 <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
                   <CustomButton
-                    title='Verify password'
+                    title={
+                      verifyNewpasswordLoading
+                        ? 'loading...'
+                        : 'Verify password'
+                    }
                     containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                     type='submit'
                   />

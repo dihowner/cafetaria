@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLoginMutation, useRegisterMutation, useCompleteRegistrationMutation, useRequestResetpasswordMutation, useVerifypasswordTokenMutation, useVerifyNewpasswordMutation } from "@/redux/userApiSlice";
 import { setToken } from "@/user/authSlice";
 // import { setEmail } from "@/user/forgotpassSlice";
-import { useRouter } from 'next/navigation'
-
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation'
 export const UseAuth = () => {
   const [login, { isLoading: loginLoading }] = useLoginMutation()
   const [register, { isLoading: registerLoading }] = useRegisterMutation()
@@ -21,7 +20,7 @@ export const UseAuth = () => {
   const useLogin = async (email, password, roles) => {
     try {
       const response = await login({ email, password, roles }).unwrap()
-      console.log(response)
+      // console.log(response)
       // console.log(auth)
       dispatch(setToken(
         response
@@ -30,9 +29,9 @@ export const UseAuth = () => {
         //   user: response.data.role
         // }
       ));
-      toast.success('Login successful')
-      router.push('/client/dashboard')
+      router.push('/vendor/dashboard')
 
+      toast.success('Login successful')
 
     } catch (err) {
       toast.error(err?.data?.message || err.error);
@@ -43,10 +42,9 @@ export const UseAuth = () => {
 
       await register(data).unwrap()
         .then((res) => {
+          router.push('/vendor/otp')
 
           toast.success('Registration successful.... kindly check your email for verification process')
-          router.push('/client/otp')
-
         })
 
     } catch (err) {
@@ -60,7 +58,7 @@ export const UseAuth = () => {
       await completeRegistration({ 'token': data }).unwrap()
         .then((res) => {
           toast.success('Your account has been verified. Kindly proceed to login')
-          router.push('/client/login')
+          router.push('/vendor/login')
 
         })
 
@@ -73,14 +71,14 @@ export const UseAuth = () => {
     try {
 
       await RequestResetpassword(data).unwrap()
+        .then((res) => {
+          // dispatch(setEmail(
 
-      // dispatch(setEmail(
+          // ))
+          toast.success('An email has been sent to your email address containing your reset password guideline. Thank You')
+          router.push('/vendor/verifyResetPasswordToken')
 
-      // ))
-      toast.success('An email has been sent to your email address containing your reset password guideline. Thank You')
-      router.push('/client/verifyResetPasswordToken')
-
-
+        })
 
     } catch (err) {
       console.log(err)
@@ -93,7 +91,7 @@ export const UseAuth = () => {
       await verifypasswordToken(data).unwrap()
         .then((res) => {
           // toast.success('Your account has been verified. Kindly proceed to login')
-          router.push('/client/resetpassword')
+          router.push('/vendor/resetpassword')
 
         })
 
@@ -108,7 +106,7 @@ export const UseAuth = () => {
       await verifyNewpassword(data).unwrap()
         .then((res) => {
           // toast.success('Your account has been verified. Kindly proceed to login')
-          router.push('/client/login')
+          router.push('/vendor/login')
 
         })
 

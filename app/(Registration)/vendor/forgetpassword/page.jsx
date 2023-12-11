@@ -9,9 +9,30 @@ import { GiPadlock } from 'react-icons/gi'
 import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
-
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
 const page = () => {
     const [toggle, setToggle] = useState(false)
+    const [email, setEmail] = useState('')
+    const Router = useRouter()
+
+
+
+    const data = {
+        email: email
+    }
+    const { useRequestResetpassword, RequestResetpasswordLoading } = UseAuth()
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (email) {
+            await useRequestResetpassword(data)
+            localStorage.setItem('email', email)
+
+        } else {
+            toast.error('please input your email')
+        }
+    }
     return (
         <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
             <div className='flex flex-col  justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
@@ -53,17 +74,17 @@ const page = () => {
                         </div>
                         <div className='flex flex-col gap-y-4'>
 
-                            <form action='' className='flex flex-col gap-y-6 w-[100%] md:w-[80%]'>
+                            <form action='' className='flex flex-col gap-y-6 w-[100%] md:w-[80%]' onSubmit={handleSubmit}>
                                 <InputsCustom
                                     title='Email Address'
-                                    value=''
-                                    onchange=''
+                                    value={email}
+                                    onchange={setEmail}
                                     Icon={<HiOutlineEnvelope />}
                                 />
 
                                 <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
                                     <CustomButton
-                                        title='Send Verification code'
+                                        title={RequestResetpasswordLoading ? 'Loading....' : 'Send Verification code'}
                                         containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                                         type='submit'
                                     />

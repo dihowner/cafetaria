@@ -9,9 +9,31 @@ import { GiPadlock } from 'react-icons/gi'
 import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
+import { useRouter } from 'next/navigation'
 
 const page = () => {
   const [toggle, setToggle] = useState(false)
+    const [newPassword, setNewPassword] = useState('')
+    const [confirmNewPassword, setConfirmNewPassword] = useState('')
+    const { verifyNewpasswordLoading, verifynewpassword } = UseAuth()
+    const token = localStorage.getItem('token')
+    const router = useRouter()
+    const data = {
+      token: token,
+      new_password: newPassword,
+      confirm_password: confirmNewPassword,
+    }
+    const confirm = newPassword === confirmNewPassword
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      if (confirm) {
+        await verifynewpassword(data)
+      localStorage.clear('token')
+
+      } else {
+        toast.error('New Password and the Confirm Password does not match ')
+      }
+    }
 
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
@@ -58,23 +80,28 @@ const page = () => {
               <form
                 action=''
                 className='flex flex-col gap-y-6 w-[100%] md:w-[80%]'
+                onSubmit={handleSubmit}
               >
                 <InputsCustom
-                  title='Password'
-                  value=''
-                  onchange=''
+                  title='New Password'
+                  value={newPassword}
+                  onchange={setNewPassword}
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
-                  title='Password'
-                  value=''
-                  onchange=''
+                  title='Confirm Password'
+                  value={confirmNewPassword}
+                  onchange={setConfirmNewPassword}
                   Icon={<GiPadlock />}
                 />
 
                 <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
                   <CustomButton
-                    title='Verify password'
+                    title={
+                      verifyNewpasswordLoading
+                        ? 'loading...'
+                        : 'Verify password'
+                    }
                     containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                     type='submit'
                   />

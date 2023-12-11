@@ -3,42 +3,20 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { apiSlice } from './apiSlice'
 import authSlice from '@/user/authSlice'
 
-import {
-  FLUSH,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-  REHYDRATE,
-  persistReducer,
-  persistStore,
-} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-
 const rootReducers = combineReducers({
   auth: authSlice,
 })
-const persistConfig = {
-  key: 'root',
-  storage:  typeof window !== 'undefined' ? storage:null
-  
-}
-const persistedReducer = persistReducer(persistConfig, rootReducers)
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
-    persistedReducer,
+    rootReducers,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }).concat(apiSlice.middleware),
+    getDefaultMiddleware().concat(apiSlice.middleware),
 
   devTools: true,
 })
-export const persistor = persistStore(store)
+// export const persistor = persistStore(store)
 // import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
 // const createNoopStorage = () => {
