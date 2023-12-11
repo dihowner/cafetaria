@@ -92,7 +92,7 @@ export const UseAuth = () => {
 
       await verifypasswordToken(data).unwrap()
         .then((res) => {
-          // toast.success('Your account has been verified. Kindly proceed to login')
+          toast.success('Token Verified')
           router.push('/client/resetpassword')
 
         })
@@ -107,7 +107,7 @@ export const UseAuth = () => {
 
       await verifyNewpassword(data).unwrap()
         .then((res) => {
-          // toast.success('Your account has been verified. Kindly proceed to login')
+          toast.success('Success. Your password reset is successful. You can now login"')
           router.push('/client/login')
 
         })
