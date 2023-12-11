@@ -6,7 +6,7 @@ import { EachRests } from '@/components/Utilis/Dummy'
 import Link from 'next/link'
 import CustomButton from '@/components/CustomButton'
 const EachRest = ({ restuarantsDetails, open }) => {
-    
+
     return (
         <div className='w-full flex justify-center items-center flex-col gap-y-8 pb-8'>
             <div className="w-full eachrest flex flex-col justify-center items-center min-h-[300px] p-6 "
@@ -99,7 +99,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                                     </div>
                                 </div>
                                 <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                    <img src={item.image} alt="" srcset="" className='w-[100%] h-[100%]' />
+                                    <img src={item.image} alt="" srcSet="" className='w-[100%] h-[100%]' />
                                 </div>
                             </div>
                         ))}
@@ -127,7 +127,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                                     </div>
                                 </div>
                                 <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                    <img src={item.image} alt="" srcset="" className='w-[100%] h-[100%]' />
+                                    <img src={item.image} alt="" srcSet="" className='w-[100%] h-[100%]' />
                                 </div>
                             </div>
                         ))}

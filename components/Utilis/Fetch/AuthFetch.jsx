@@ -50,7 +50,7 @@ export const UseAuth = () => {
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
@@ -61,11 +61,10 @@ export const UseAuth = () => {
         .then((res) => {
           toast.success('Your account has been verified. Kindly proceed to login')
           router.push('/client/login')
-
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
@@ -83,7 +82,7 @@ export const UseAuth = () => {
 
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
@@ -98,7 +97,7 @@ export const UseAuth = () => {
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
@@ -113,7 +112,7 @@ export const UseAuth = () => {
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }

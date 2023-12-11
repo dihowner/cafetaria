@@ -134,6 +134,7 @@ const page = () => {
                 />
                 <InputsCustom
                   title='Password'
+                  type='password'
                   value={password}
                   onchange={setPassword}
                   Icon={<GiPadlock />}
@@ -141,6 +142,7 @@ const page = () => {
                 <InputsCustom
                   title='Confirm Password'
                   value={cPassword}
+                  type='password'
                   onchange={setCpassword}
                   Icon={<GiPadlock />}
                 />

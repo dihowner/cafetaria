@@ -77,6 +77,7 @@ const page = () => {
                   // title='Enter code sent'
                   title='Enter code sent'
                   value={otp}
+                  type='password'
                   onchange={setOtp}
                 />
 

@@ -81,6 +81,8 @@ const page = () => {
                                     title='Token'
                                     value={token}
                                     onchange={setToken}
+                                    type='password'
+
                                     Icon={<HiOutlineEnvelope />}
                                 />
 

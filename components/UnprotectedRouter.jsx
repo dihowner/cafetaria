@@ -1,14 +1,17 @@
-// 'use client'
+'use client'
 import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import Loader from './Loader';
 const UnprotectedRouter = ({ children }) => {
     const { auth } = useSelector((state) => state.rootReducers);
-    console.log(auth)
+    // console.log(auth)
+    const [isAuth, setIsAuth] = useState(true)
 
     const router = useRouter()
     useEffect(() => {
         if (auth?.token) {
+            setIsAuth(false)
             if (auth?.user === 'user') {
                 router.push('/client/dashboard')
             } else if (auth?.user === 'vendor') {
@@ -17,7 +20,7 @@ const UnprotectedRouter = ({ children }) => {
         }
     }, [router, auth])
     return (
-        <div>{!auth?.token && children}</div>
+        <div>{isAuth && children}</div>
     )
 }
 

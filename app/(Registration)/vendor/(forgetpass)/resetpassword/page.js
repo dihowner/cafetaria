@@ -93,11 +93,13 @@ const page = () => {
                   title='New Password'
                   value={newPassword}
                   onchange={setNewPassword}
+                  type='password'
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
                   title='Confirm Password'
                   value={confirmNewPassword}
+                  type='password'
                   onchange={setConfirmNewPassword}
                   Icon={<GiPadlock />}
                 />

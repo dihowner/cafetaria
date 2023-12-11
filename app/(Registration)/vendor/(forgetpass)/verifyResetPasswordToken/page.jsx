@@ -34,7 +34,7 @@ const page = () => {
         e.preventDefault()
         if (token) {
             await verifyToken(data)
-            ISSERVER &&  localStorage.clear('email')
+            ISSERVER && localStorage.clear('email')
             ISSERVER && localStorage.setItem('token', token)
         } else {
             toast.error('check your mail for the code and input the code')
@@ -88,6 +88,8 @@ const page = () => {
                                     title='Token'
                                     value={token}
                                     onchange={setToken}
+                                    type='password'
+
                                     Icon={<HiOutlineEnvelope />}
                                 />
 

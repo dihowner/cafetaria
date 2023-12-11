@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -21,6 +21,7 @@ const page = () => {
   const [password, setPassword] = useState()
   const { useLogin, loginLoading } = UseAuth()
   const { auth } = useSelector((state) => state.rootReducers)
+   const [loading, setLoading] = useState(true);
   const roles = 'vendor'
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -31,7 +32,7 @@ const page = () => {
     }
   }
   const isvalid = email && password
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (auth && auth?.token && auth?.user === 'vendor') {
       router.push('/vendor/dashboard')
     }
@@ -113,6 +114,7 @@ const page = () => {
                 <InputsCustom
                   title='Password'
                   value={password}
+                  type='password'
                   onchange={setPassword}
                   Icon={<GiPadlock />}
                 />
