@@ -18,13 +18,13 @@ const Header = () => {
   const [isFixed, setIsFixed] = useState(false)
   const { auth } = useSelector((state) => state.rootReducers)
   const [isAuth, setIsAuth] = useState(false)
-  const router =useRouter()
+  const router = useRouter()
   useEffect(() => {
     if (auth?.token) {
       setIsAuth(true)
     }
   }, [isAuth, auth])
-
+  const shouldDisableButton = true;
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -42,6 +42,7 @@ const Header = () => {
     }
   }, [])
   const pathname = usePathname()
+
   return (
     <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999] shadow-md' : 'w-[100%] flex justify-center items-center bg-[white] py-3 transition-all duration-75 shadow-md '}`}>
       <div className='flex width justify-between items-center'>
@@ -95,6 +96,8 @@ const Header = () => {
                 <CustomButton
                   title='Cart 16' containerStyles=' hidden md:flex text-[white] flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
                   Icon={<AiOutlineShoppingCart />}
+                  handleClick={() => router.push('/client/cart')}
+                  disable_btn={false}
 
                 // handleClick={router.push('/client/cart')}
                 />
@@ -122,21 +125,23 @@ const Header = () => {
                 </Link>
               </div>
             )}
+        <div className="flex gap-x-8 flex-row-reverse items-center md:hidden">
+          <RxHamburgerMenu
+            className='inline-block md:hidden hamburger text-4xl '
+            onClick={() => {
+              setToggle(true)
+            }}
+          />{' '}
+          <CustomButton
+            title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+            Icon={<AiOutlineShoppingCart />}
+            handleClick={() => router.push('/client/cart')}
+            disable_btn={false}
+          // handleClick={router.push('/client/cart')}
+          />
+        </div>
       </div>
-    <div className="flex gap-x-8 flex-row-reverse items-center">
-        <RxHamburgerMenu
-          className='inline-block md:hidden hamburger text-4xl '
-          onClick={() => {
-            setToggle(true)
-          }}
-        />{' '}
-        <CustomButton
-          title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
-          Icon={<AiOutlineShoppingCart />}
 
-        // handleClick={router.push('/client/cart')}
-        />
-    </div>
       {toggle && (
         <div className="mediumscreen block md:hidden">
           {/* {
@@ -215,9 +220,11 @@ const Header = () => {
 
                 <CustomButton
                   title='Dashboard' containerStyles='text-[#FF9C06] md:hidden  flex justify-center bg-[white] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
-                  // Icon={<AiOutlineShoppingCart />}
 
-                // handleClick={redirect('/client/dashboard')}
+                  handleClick={() => router.push('/client/dashboard')}
+
+                  disable_btn={false}
+
                 />
                 :
                 (
