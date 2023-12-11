@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+const ISSERVER = typeof window !== 'undefined'
 const initialState = {
-    token: typeof localStorage !== "undefined" && localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null,
-    user: typeof localStorage !== "undefined" &&  localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
+    token: ISSERVER && localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null,
+    user: ISSERVER && localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null
 }
 
 const authSlice = createSlice({
