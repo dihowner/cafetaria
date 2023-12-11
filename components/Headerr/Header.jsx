@@ -6,10 +6,25 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { ImCancelCircle } from 'react-icons/im'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { useSelector } from 'react-redux'
+import CustomButton from '../CustomButton'
+import { FaBars } from 'react-icons/fa'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { BsWechat, BsChatDots } from 'react-icons/bs'
+import { redirect } from 'next/navigation'
 const Header = () => {
   const [toggle, setToggle] = useState(false)
   const [isFixed, setIsFixed] = useState(false)
+  const { auth } = useSelector((state) => state.rootReducers)
+  const [isAuth, setIsAuth] = useState(false)
+  const router =useRouter()
+  useEffect(() => {
+    if (auth?.token) {
+      setIsAuth(true)
+    }
+  }, [isAuth, auth])
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -73,22 +88,76 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-        <div className='loginandsigup hidden md:flex gap-x-4 justify-center items-center'>
-          <Link href='/client/login' className='login font-semibold text-lg'>Login</Link>
-          <Link href='/client/signup' className='signup bg-[#FF9C06] flex justify-center items-center text-white rounded-[8px] py-2 w-[100px]'>
-            Sign up
-          </Link>
-        </div>
+        {
+          isAuth ?
+            <>
+              <div className="flex gap-x-6">
+                <CustomButton
+                  title='Cart 16' containerStyles=' hidden md:flex text-[white] flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+                  Icon={<AiOutlineShoppingCart />}
 
+                // handleClick={router.push('/client/cart')}
+                />
+                <div className="md:flex justify-center hidden items-center gap-x-2">
+                  <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-3xl h-12 w-12  text-[#FFFFFF]">
+                    <BsWechat />
+                  </div>
+                  <div className="bg-[#C9C9C9] rounded-[8px] text-lg h-12 w-12 text-[#FFFFFF]">
+                    <img src="/Rectangle 87.png" alt="" className='w-full h-full' />
+                  </div>
+                </div>
+                <div
+                  className='md:flex items-center gap-x-4 capitalize  text-4xl hidden  '
+
+                >
+                  <FaBars />
+                </div>
+              </div>
+            </> :
+            (
+              <div className='loginandsigup hidden md:flex gap-x-4 justify-center items-center'>
+                <Link href='/client/login' className='login font-semibold text-lg'>Login</Link>
+                <Link href='/client/signup' className='signup bg-[#FF9C06] flex justify-center items-center text-white rounded-[8px] py-2 w-[100px]'>
+                  Sign up
+                </Link>
+              </div>
+            )}
       </div>
-      <RxHamburgerMenu
-        className='inline-block md:hidden hamburger text-2xl '
-        onClick={() => {
-          setToggle(true)
-        }}
-      />{' '}
+    <div className="flex gap-x-8 flex-row-reverse items-center">
+        <RxHamburgerMenu
+          className='inline-block md:hidden hamburger text-4xl '
+          onClick={() => {
+            setToggle(true)
+          }}
+        />{' '}
+        <CustomButton
+          title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+          Icon={<AiOutlineShoppingCart />}
+
+        // handleClick={router.push('/client/cart')}
+        />
+    </div>
       {toggle && (
-        <div className="mediumscreen">
+        <div className="mediumscreen block md:hidden">
+          {/* {
+            isAuth ?
+              <>
+                <div className="flex gap-x-6 flex-row-reverse gap-y-4 justify-between items-center">
+             
+                  <div className="flex justify-center items-center gap-x-2 flex-row-reverse">
+                    <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-3xl h-16 w-16  text-[#FFFFFF]">
+                      <BsWechat />
+                    </div>
+                    <div className="bg-[#C9C9C9] rounded-[8px] text-lg h-16 w-16 text-[#FFFFFF]">
+                      <img src="/Rectangle 87.png" alt="" className='w-full h-full' />
+                    </div>
+                  </div>
+
+                </div>
+              </> :
+              (
+                ''
+              )} */}
           <ul className='flex gap-y-6 flex-col text-lg'>
             <ImCancelCircle
               onClick={() => {
@@ -141,23 +210,33 @@ const Header = () => {
                 About
               </Link>
             </li>
-            <li> <Link href='/client/login' className='login font-semibold text-lg'
-              onClick={() => {
-                setToggle(false)
-              }}>Login</Link></li>
-            <li>
-              <Link href='/client/signup' className='signup bg-[#218B07] flex justify-center align-center text-white rounded-sm  w-[100px] py-4 '
-                onClick={() => {
-                  setToggle(false)
-                }}>
-                Sign up
-              </Link>
-            </li>
+            {
+              isAuth ?
+
+                <CustomButton
+                  title='Dashboard' containerStyles='text-[#FF9C06] md:hidden  flex justify-center bg-[white] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+                  // Icon={<AiOutlineShoppingCart />}
+
+                // handleClick={redirect('/client/dashboard')}
+                />
+                :
+                (
+                  <>
+                    <li> <Link href='/client/login' className='login font-semibold text-lg'
+                      onClick={() => {
+                        setToggle(false)
+                      }}>Login</Link></li>
+                    <li>
+                      <Link href='/client/signup' className='signup bg-[#218B07] flex justify-center align-center text-white rounded-sm  w-[100px] py-4 '
+                        onClick={() => {
+                          setToggle(false)
+                        }}>
+                        Sign up
+                      </Link>
+                    </li></>
+                )}
+
           </ul>
-
-
-
-
         </div>
 
       )}

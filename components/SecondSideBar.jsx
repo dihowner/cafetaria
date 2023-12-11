@@ -19,7 +19,7 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
     const { isSidebarOpen } =
         useContext(SidebarCreateContext)
     const [isOpenModal, setIsOpenModal] = useState(false)
-    const [logoutapi] = useLogoutMutation()
+
     const openModal = () => {
 
         setIsOpenModal(true)
