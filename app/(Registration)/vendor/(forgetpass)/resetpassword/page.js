@@ -2,7 +2,7 @@
 import CustomButton from '@/components/CustomButton'
 import InputsCustom from '@/components/InputsCustom'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { BiRadioCircle } from 'react-icons/bi'
 import { HiOutlineEnvelope } from 'react-icons/hi2'
 import { GiPadlock } from 'react-icons/gi'
@@ -16,25 +16,53 @@ const page = () => {
     const [newPassword, setNewPassword] = useState('')
     const [confirmNewPassword, setConfirmNewPassword] = useState('')
     const { verifyNewpasswordLoading, verifynewpassword } = UseAuth()
-    const ISSERVER = typeof window !== 'undefined'
-    const token = ISSERVER && localStorage.getItem('token')
-    const router = useRouter()
-    const data = {
-      token: token,
-      new_password: newPassword,
-      confirm_password: confirmNewPassword,
-    }
-    const confirm = newPassword === confirmNewPassword
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      if (confirm) {
-        await verifynewpassword(data)
-      localStorage.clear('token')
+    // const ISSERVER = typeof window !== 'undefined'
+    // const token = ISSERVER && localStorage.getItem('token')
+    
+    // const router = useRouter()
+    // const data = {
+    //   token: token,
+    //   new_password: newPassword,
+    //   confirm_password: confirmNewPassword,
+    // }
+    // const confirm = newPassword === confirmNewPassword
+    // const handleSubmit = async (e) => {
+    //   e.preventDefault()
+    //   if (confirm) {
+    //     await verifynewpassword(data)
+    //   localStorage.clear('token')
 
-      } else {
-        toast.error('New Password and the Confirm Password does not match ')
-      }
-    }
+    //   } else {
+    //     toast.error('New Password and the Confirm Password does not match ')
+    //   }
+    // }
+     const router = useRouter()
+
+     const handleSubmitLogic = async () => {
+       const data = {
+         token: localStorage.getItem('token'),
+         new_password: newPassword,
+         confirm_password: confirmNewPassword,
+       }
+       const confirm = newPassword === confirmNewPassword
+
+       if (confirm) {
+         await verifynewpassword(data)
+         localStorage.clear('token')
+       } else {
+         toast.error('New Password and the Confirm Password do not match')
+       }
+     }
+
+     useEffect(() => {
+       // Move localStorage.clear('token') inside useEffect
+       handleSubmitLogic()
+     }, [handleSubmitLogic])
+
+     const handleSubmit = (e) => {
+       e.preventDefault()
+       handleSubmitLogic()
+     }
 
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>

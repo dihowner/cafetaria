@@ -23,16 +23,33 @@ const page = () => {
     const ISSERVER = typeof window !== 'undefined'
     const email = ISSERVER && localStorage.getItem('email')
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        if (token) {
-            await verifyToken(data)
-            localStorage.clear('email')
-            localStorage.setItem('token', token)
-        } else {
-            toast.error('check your mail for the code and input the code')
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault()
+    //     if (token) {
+    //         await verifyToken(data)
+    //         localStorage.clear('email')
+    //         localStorage.setItem('token', token)
+    //     } else {
+    //         toast.error('check your mail for the code and input the code')
+    //     }
+    // }
+    useEffect(() => {
+        if (email) {
+            // Additional logic if needed
         }
-    }
+    }, [email]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (token) {
+            await verifyToken({ token }); // Pass the token as an argument to the function
+            localStorage.clear('email');
+            localStorage.setItem('token', token);
+        } else {
+            toast.error('Check your mail for the code and input the code');
+        }
+    };
+
     const sendCode = async () => {
         await useRequestResetpassword({ email: email })
     }
