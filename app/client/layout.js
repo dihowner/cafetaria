@@ -14,8 +14,8 @@ import ProtectedRouteWrapper from '@/components/ProtectedRouteWrapper'
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
   return (
-    <ProtectedRouteWrapper>
-      <div>
+    <div>
+      <ProtectedRouteWrapper>
         <Sidebar
           SideBarFirstLinks={clientSideBarFirstLinks}
           SideBarSecondLinks={clientSideBarSecondLinks}
@@ -41,8 +41,8 @@ const layout = ({ children }) => {
             {children}
           </div>
         </main>
-      </div>
-    </ProtectedRouteWrapper>
+      </ProtectedRouteWrapper>
+    </div>
   )
 }
 

@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 const UnprotectedRouter = ({ children }) => {
-    const { auth } = useSelector((state) => state.persistedReducer);
+    const { auth } = useSelector((state) => state.rootReducers);
     console.log(auth)
 
     const router = useRouter()

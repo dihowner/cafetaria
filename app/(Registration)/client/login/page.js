@@ -21,7 +21,7 @@ const page = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
   const { useLogin, loginLoading } = UseAuth()
-  const { auth } = useSelector((state) => state.persistedReducer)
+  const { auth } = useSelector((state) => state.rootReducers)
 
   // const router = useRouter()
   const roles = 'user'
@@ -29,7 +29,6 @@ const page = () => {
     e.preventDefault()
     if (isvalid) {
       await useLogin(email, password, roles)
-      router.push('/client/dashboard')
     } else {
       toast.error('please fill out the field')
     }

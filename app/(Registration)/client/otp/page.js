@@ -21,7 +21,6 @@ const page = () => {
     e.preventDefault()
     if (otp) {
       await useCompleteRegistration(otp)
-      router.push('/client/login')
     } else {
       toast.error('please input the otp code')
     }

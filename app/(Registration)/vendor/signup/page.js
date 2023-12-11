@@ -15,9 +15,48 @@ import RadioGroup from '@mui/material/RadioGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetchVendor'
+import { toast } from 'react-toastify'
+import { useRegisterMutation } from '@/redux/userApiSlice'
 const page = () => {
   const router = useRouter()
-    const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(false)
+  const [password, setPassword] = useState()
+  const [cPassword, setCpassword] = useState()
+  const [email, setEmail] = useState()
+  const [phone, setPhone] = useState()
+  const [name, setName] = useState()
+  const [storeName, setStoreName] = useState()
+  const [physicalShopValue, setPhysicalShopValue] = useState(true)
+  const [address, setAddress] = useState()
+  const { useSignUp, registerLoading } = UseAuth()
+  const handlePhysicalShopChange = (event) => {
+    setPhysicalShopValue(event.target.value === 'true')
+  }
+  const data = {
+    name: name,
+    mobile_number: phone,
+    email: email,
+    password: password,
+    roles: 'vendor',
+    isPhysicalStore: physicalShopValue,
+    store_name: storeName,
+    ...(physicalShopValue === true && { store_address: address }),
+  }
+   const handleSubmit = async (e) => {
+     e.preventDefault()
+     if (password === cPassword) {
+       if (isvalid) {
+         await useSignUp(data)
+       } else {
+         toast.error('please fill out the field')
+       }
+     } else {
+       toast.error('password do not match')
+     }
+   }
+   const isvalid = email && password
+  console.log(data)
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
       <div className='flex flex-col items-stretch md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
@@ -83,60 +122,79 @@ const page = () => {
               <form
                 action=''
                 className='flex flex-col gap-y-6 w-[100%] md:w-[60%]'
+                onSubmit={handleSubmit}
               >
                 <InputsCustom
+                  title='Full Name'
+                  value={name}
+                  onchange={setName}
+                  Icon={<HiOutlineEnvelope />}
+                />
+                <InputsCustom
                   title='Email Address'
-                  value=''
-                  onchange=''
+                  value={email}
+                  onchange={setEmail}
+                  Icon={<HiOutlineEnvelope />}
+                />
+                <InputsCustom
+                  title='Phone Number'
+                  value={phone}
+                  onchange={setPhone}
+                  type='number'
                   Icon={<HiOutlineEnvelope />}
                 />
                 <InputsCustom
                   title='Password'
-                  value=''
-                  onchange=''
+                  value={password}
+                  onchange={setPassword}
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
                   title='Confirm Password'
-                  value=''
-                  onchange=''
+                  value={cPassword}
+                  onchange={setCpassword}
                   Icon={<GiPadlock />}
                 />
                 <InputsCustom
                   title='Store Name'
-                  value=''
-                  onchange=''
+                  value={storeName}
+                  onchange={setStoreName}
                   Icon={<FaStore />}
                 />
-                <InputsCustom
-                  title='Phone Number'
-                  value=''
-                  onchange=''
-                  Icon={<FaSquarePhoneFlip />}
-                  type='number'
-                />
+
                 <div className=''>
                   <p>Do you have a Physical Shop</p>
                   <RadioGroup
                     row
                     aria-labelledby='demo-row-radio-buttons-group-label'
                     name='row-radio-buttons-group'
+                    value={physicalShopValue}
+                    onChange={handlePhysicalShopChange}
                   >
                     <FormControlLabel
-                      value='Yes'
+                      value={true}
                       control={<Radio />}
                       label='Yes'
                     />
                     <FormControlLabel
-                      value='No'
+                      value={false}
                       control={<Radio />}
                       label='No'
                     />
                   </RadioGroup>
                 </div>
+                {physicalShopValue === true ? (
+                  <InputsCustom
+                    title='Store Address'
+                    value={address}
+                    onchange={setAddress}
+                    Icon={<FaStore />}
+                  />
+                ) : null}
+
                 <div className='flex gap-x-3 items-center flex-col lg:flex-row gap-y-2'>
                   <CustomButton
-                    title='Sign Up'
+                    title={registerLoading ? 'loading.....' : 'Register'}
                     containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                     type='submit'
                   />

@@ -12,26 +12,28 @@ import RegSidebar from '@/components/RegSidebar'
 import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
-import { useSelector } from 'react-redux'
 const page = () => {
     const Router = useRouter()
     const [toggle, setToggle] = useState(false)
-    const [email, setEmail] = useState('')
-
-   
+    const [token, setToken] = useState('')
     const data = {
-        email: email
+        token: token
     }
-    const { useRequestResetpassword, RequestResetpasswordLoading } = UseAuth()
+    const { verifyToken, verifypasswordTokenLoading, useRequestResetpassword, RequestResetpasswordLoading } = UseAuth()
+    const email = localStorage.getItem('email')
+
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (email) {
-            await useRequestResetpassword(data)
-            localStorage.setItem('email', email)
-
+        if (token) {
+            await verifyToken(data)
+            localStorage.clear('email')
+            localStorage.setItem('token', token)
         } else {
-            toast.error('please input your email')
+            toast.error('check your mail for the code and input the code')
         }
+    }
+    const sendCode = async () => {
+        await useRequestResetpassword({ email: email })
     }
     return (
         <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
@@ -70,20 +72,20 @@ const page = () => {
                     </div>
                     <div className="flex flex-col justify-center h-full">
                         <div className='flex flex-col gap-y-3'>
-                            <h3 className='text-2xl font-bold'>Forgot password?</h3>
+                            <h3 className='text-2xl font-bold'>Verify Token</h3>
                         </div>
                         <div className='flex flex-col gap-y-4'>
                             <form action='' className='flex flex-col gap-y-6 w-[100%] md:w-[80%]' onSubmit={handleSubmit}>
                                 <InputsCustom
-                                    title='Email Address'
-                                    value={email}
-                                    onchange={setEmail}
+                                    title='Token'
+                                    value={token}
+                                    onchange={setToken}
                                     Icon={<HiOutlineEnvelope />}
                                 />
 
                                 <div className='flex flex-col lg:flex-row gap-y-2 gap-x-3 items-center'>
                                     <CustomButton
-                                        title={RequestResetpasswordLoading ? 'Loading....' : 'Send Verification code'}
+                                        title={verifypasswordTokenLoading ? 'Loading....' : 'Verify Code'}
                                         containerStyles='bg-[#FF9C06] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4'
                                         type='submit'
                                     />
@@ -95,6 +97,13 @@ const page = () => {
                                     </span>
                                 </div>
                             </form>
+
+                            <CustomButton
+                                title={RequestResetpasswordLoading ? 'loading....' : 'Resend verification code'}
+                                containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 capitalize'
+                                handleClick={sendCode}
+                                type='button' />
+
                         </div>
                     </div>
                 </div>
