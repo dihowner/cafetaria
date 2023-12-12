@@ -9,7 +9,7 @@ import { GiPadlock } from 'react-icons/gi'
 import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
-import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetchVendor'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 const page = () => {

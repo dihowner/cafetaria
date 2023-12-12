@@ -9,7 +9,7 @@ export const changePassSlice = apiSlice.injectEndpoints({
                 body: data,
                 headers: {
                     // Add your headers here
-                    'Authorization': token,
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                     // You can add more headers if needed
                 },
