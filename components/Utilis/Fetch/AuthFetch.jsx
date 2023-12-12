@@ -21,7 +21,7 @@ export const UseAuth = () => {
   const useLogin = async (email, password, roles) => {
     try {
       const response = await login({ email, password, roles }).unwrap()
-      console.log(response)
+      // console.log(response)
       // console.log(auth)
       dispatch(setToken(
         response

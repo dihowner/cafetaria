@@ -40,6 +40,20 @@ const page = () => {
       router.push('/client/dashboard')
     }
   }, [router, auth])
+  // useEffect(() => {
+  //   if (auth && auth?.token && auth?.user === 'user') {
+  //     // router.push('/client/dashboard')
+  //     const expirationTime = auth.expirationTime
+  //     const currentTime = new Date().getTime()
+
+  //     if (currentTime > expirationTime) {
+  //       dispatch(logout())
+  //       toast.error('Session expired. Please log in again.')
+  //     } else {
+  //       router.push('/client/dashboard')
+  //     }
+  //   }
+  // }, [router, auth])
   // console.log(auth)
   return (
     <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>

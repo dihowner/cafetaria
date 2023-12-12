@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation'
 // Link
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
-import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetchVendor'
 import { toast } from 'react-toastify'
 import { useSelector } from 'react-redux'
 const page = () => {

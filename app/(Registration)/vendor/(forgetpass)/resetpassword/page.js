@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { FaBars } from 'react-icons/fa'
 import RegSidebar from '@/components/RegSidebar'
 import { useRouter } from 'next/navigation'
-import { UseAuth } from '@/components/Utilis/Fetch/AuthFetch'
+import { UseAuth } from '@/components/Utilis/Fetch/AuthFetchVendor'
 
 const page = () => {
   const [toggle, setToggle] = useState(false)
