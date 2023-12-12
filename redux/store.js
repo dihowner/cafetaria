@@ -1,7 +1,7 @@
 'use client'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { apiSlice } from './apiSlice'
-import authSlice, { authMiddleware } from '@/user/authSlice'
+import authSlice from '@/user/authSlice'
 
 const rootReducers = combineReducers({
   auth: authSlice,
