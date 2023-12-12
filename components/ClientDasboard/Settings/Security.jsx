@@ -19,9 +19,10 @@ const Security = () => {
     const handleCancelClick = () => {
         setEditMode(false);
     };
+    const token =  typeof window !== 'undefined' && localStorage.getItem('token') && JSON.parse(localStorage.getItem('token'))
+   
     const data = {
         current_passwor: currentPass,
-        token: typeof window !== 'undefined' && localStorage.getItem('token') && JSON.parse(localStorage.getItem('token')),
         new_password: NewPass,
         confirm_password: cNewPass
     }
@@ -29,7 +30,7 @@ const Security = () => {
         e.preventDefault()
         try {
             setSaveLoading(true);
-            await changePassword(data).unwrap()
+            await changePassword(data,token).unwrap()
             toast.success('PassWord Changed Successfully')
             setEditMode(false);
 
