@@ -2,7 +2,11 @@ import CustomButton from '@/components/CustomButton'
 import React from 'react'
 import { FaMoneyBill } from 'react-icons/fa6'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
+import { useSelector } from 'react-redux'
+
 const TopSide = () => {
+  const { stat } = useSelector((state) => state.rootReducers)
+
   return (
     <div className='width grid grid-cols-1  md:grid-cols-2 grid-rows-1 gap-x-8 gap-y-4 min-h-[150px]'>
       <div className='rounded-xl clientDashboard flex justify-center items-center h-full py-4 col-span-1'>
@@ -61,8 +65,12 @@ const TopSide = () => {
                 </span>
               </div>
               <div className='flex flex-col justify-center items-center gap-x-4 w-[80%]'>
-                <span className='text-sm text-[#0000004F] text-center'>Total Cart</span>
-                <span className='text-3xl text-[#FF9C06] '>16</span>
+                <span className='text-sm text-[#0000004F] text-center'>
+                  Total Cart
+                </span>
+                <span className='text-3xl text-[#FF9C06] '>
+                  {stat && stat?.allstat?.total_cart}
+                </span>
               </div>
             </div>
             <div className='w-full'>
