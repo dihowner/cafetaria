@@ -89,7 +89,6 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
                     <p className='justify-center flex bg-[#FF9C06] w-[80%] py-3 capitalize text-white rounded-xl'>  earn with cafeteria</p>
                 </div>
             </div>}
-
             <Modal isOpen={isOpenModal} close={() => setIsOpenModal(false)}>
                 <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
                     <span className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md absolute top-0 right-0 text-white'

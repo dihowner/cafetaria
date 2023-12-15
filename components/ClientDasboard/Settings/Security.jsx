@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { GiPadlock } from 'react-icons/gi'
 import Link from 'next/link'
 import CustomButton from '@/components/CustomButton';
-import { useChangePasswordMutation } from '@/redux/changePassSlice';
+import { useChangePasswordMutation } from '@/redux/changeApiPassSlice';
 import { toast } from 'react-toastify';
 const Security = () => {
     const [currentPass, setCurrentPass] = useState()

@@ -2,14 +2,21 @@ import React from 'react'
 import { mostVisited } from '@/components/Utilis/Dummy'
 import CustomButton from '@/components/CustomButton'
 import { BsClockHistory } from 'react-icons/bs'
+import { useSelector } from 'react-redux'
+
 const SeconSide = () => {
+  const { stat } = useSelector((state) => state.rootReducers)
+
   return (
     <div className='width grid grid-cols-1 md:grid-cols-3 grid-rows-1 gap-x-8 gap-y-4'>
       <div className='flex justify-center flex-col items-cent gap-x-3 gap-y-6 border border-[#0000000F] md:col-span-2 py-3 px-4 '>
         <h1 className='text-[#000000C2] text-3xl font-bold'>Recommended</h1>
         <div className='flex flex-col sm:flex-row justify-center items-center gap-x-3'>
           {mostVisited.slice(0, 2).map((item, index) => (
-            <div className=' rounded-[20px] flex flex-col gap-x-4 w-full' key={index}>
+            <div
+              className=' rounded-[20px] flex flex-col gap-x-4 w-full'
+              key={index}
+            >
               {/* min-w-[240px] md:min-w-[301px] */}
               <div className='w-full'>
                 <img src={item.image} alt='' className='object-fit w-[100%]' />
@@ -42,7 +49,9 @@ const SeconSide = () => {
                 <span className='text-sm text-[#000000CC] text-center font-bold'>
                   Total Order in Progress
                 </span>
-                <span className='text-3xl text-[#FF9C06] '>16</span>
+                <span className='text-3xl text-[#FF9C06] '>
+                  {stat && stat?.allstat?.total_order_progress}
+                </span>
               </div>
             </div>
             <div className='w-full'>
@@ -62,9 +71,11 @@ const SeconSide = () => {
 
               <div className='flex flex-col justify-center items-center gap-x-4 '>
                 <span className='text-sm text-[#000000CC] text-center font-bold'>
-                  Total Closed Order
+                  Total Order Recieved
                 </span>
-                <span className='text-3xl text-[#FF9C06] '>16</span>
+                <span className='text-3xl text-[#FF9C06] '>
+                  {stat && stat?.allstat?.total_order_received}
+                </span>
               </div>
             </div>
             <div className='w-full'>

@@ -1,8 +1,33 @@
+"use client"
 import SeconSide from '@/components/ClientDasboard/Dashboard/SeconSide'
 import TopSide from '@/components/ClientDasboard/Dashboard/TopSide'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MdDashboard } from 'react-icons/md'
+import { useStatisticMutation } from '@/redux/statiscsApiSlice'
+import { useDispatch } from 'react-redux'
+import { setStat } from '@/redux/DashBoard/StatisticSlice'
+import { useSelector } from 'react-redux'
 const page = () => {
+  const { auth } = useSelector((state) => state.rootReducers);
+  const { stat } = useSelector((state) => state.rootReducers)
+  const [statistic, { isLoading: staticLoading }] = useStatisticMutation()
+  const dispatch = useDispatch();
+  const id = typeof window !== 'undefined' && localStorage.getItem('userId') ? JSON.parse(localStorage.getItem('userId')) : null
+
+  const fetchstat = async () => {
+    try {
+      const response = await statistic(id).unwrap()
+      dispatch(setStat(response))
+    } catch (err) {
+      toast.error(err?.data?.message || err.error)
+    }
+  }
+  useEffect(() => {
+    if (auth?.token) {
+      fetchstat()
+    }
+  }, [auth?.token])
+  console.log(stat)
   return (
     <div className='w-full justify-center items-center flex flex-col gap-y-8'>
       <div className='flex justify-between width md:items-center flex-col md:flex-row gap-y-6 p-4'>
@@ -13,8 +38,8 @@ const page = () => {
           <span>dashboard</span>
         </div>
       </div>
-      <TopSide/>
-      <SeconSide/>
+      <TopSide />
+      <SeconSide />
     </div>
   )
 }

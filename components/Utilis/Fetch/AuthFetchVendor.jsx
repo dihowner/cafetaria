@@ -20,14 +20,10 @@ export const UseAuth = () => {
   const useLogin = async (email, password, roles) => {
     try {
       const response = await login({ email, password, roles }).unwrap()
-      // console.log(response)
-      // console.log(auth)
+
       dispatch(setToken(
         response
-        // {
-        //   token: response.token,
-        //   user: response.data.role
-        // }
+
       ));
       router.push('/vendor/dashboard')
 
@@ -48,7 +44,7 @@ export const UseAuth = () => {
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
@@ -63,7 +59,7 @@ export const UseAuth = () => {
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
@@ -81,7 +77,7 @@ export const UseAuth = () => {
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
@@ -96,7 +92,7 @@ export const UseAuth = () => {
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
@@ -111,7 +107,7 @@ export const UseAuth = () => {
         })
 
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message || err.error);
     }
   }
