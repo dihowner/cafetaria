@@ -7,6 +7,8 @@ import { useStatisticMutation } from '@/redux/statiscsApiSlice'
 import { useDispatch } from 'react-redux'
 import { setStat } from '@/redux/DashBoard/StatisticSlice'
 import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+// toast/
 const page = () => {
   const { auth } = useSelector((state) => state.rootReducers);
   const { stat } = useSelector((state) => state.rootReducers)
@@ -27,7 +29,7 @@ const page = () => {
       fetchstat()
     }
   }, [auth?.token])
-  console.log(stat)
+  // console.log(stat)
   return (
     <div className='w-full justify-center items-center flex flex-col gap-y-8'>
       <div className='flex justify-between width md:items-center flex-col md:flex-row gap-y-6 p-4'>

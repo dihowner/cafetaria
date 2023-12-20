@@ -98,8 +98,6 @@ const Header = () => {
                   Icon={<AiOutlineShoppingCart />}
                   handleClick={() => router.push('/client/cart')}
                   disable_btn={false}
-
-                // handleClick={router.push('/client/cart')}
                 />
                 <div className="md:flex justify-center hidden items-center gap-x-2">
                   <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-3xl h-12 w-12  text-[#FFFFFF]">
