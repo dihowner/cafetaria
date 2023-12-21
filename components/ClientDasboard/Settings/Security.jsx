@@ -19,26 +19,26 @@ const Security = () => {
     const handleCancelClick = () => {
         setEditMode(false);
     };
-    const token = typeof window !== 'undefined' && localStorage.getItem('token') && JSON.parse(localStorage.getItem('token'))
+
 
     const data = {
         current_passwor: currentPass,
         new_password: NewPass,
         confirm_password: cNewPass
     }
-    console.log(token, data)
+    // console.log(token, data)
     const handleSaveClick = async (e) => {
         e.preventDefault()
         try {
-         
-            await changePassword(data, token).unwrap()
+
+            await changePassword(data).unwrap()
             toast.success('PassWord Changed Successfully')
             setEditMode(false);
 
         } catch (err) {
             toast.error(err?.data?.message || err.error);
 
-        } 
+        }
         // Perform save logic here
     };
     return (

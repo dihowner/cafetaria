@@ -1,11 +1,17 @@
+"use client"
 import CustomButton from '@/components/CustomButton'
-import React from 'react'
+import React, { useState } from 'react'
 import { IoIosAdd } from 'react-icons/io'
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa'
 import { MdSwipeDownAlt } from 'react-icons/md'
 import { ItemsTableData } from '@/components/Utilis/Dummy'
 import Switch from '@mui/material/Switch'
+import AdditemModal from '@/components/MerchantDashboard/item/AdditemModal'
 const page = () => {
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const openModal = () => {
+    setIsOpenModal(true)
+  }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
       <div className='width flex flex-col gap-y-4 border'>
@@ -20,6 +26,9 @@ const page = () => {
             title='Add'
             containerStyles='text-[#218B07] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 border-[#218B07] border'
             Icon={<IoIosAdd />}
+            handleClick={() => {
+              openModal()
+            }}
           />
         </div>
         <div className='flex justify-between items-center bg-[#218B07] p-4'>
@@ -137,6 +146,7 @@ const page = () => {
           </div>
         </div>
       </div>
+      <AdditemModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
     </div>
   )
 }
