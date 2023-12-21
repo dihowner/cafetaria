@@ -20,7 +20,7 @@ const Security = () => {
     const handleCancelClick = () => {
         setEditMode(false);
     };
-    const token = typeof window !== 'undefined' && localStorage.getItem('token') && JSON.parse(localStorage.getItem('token'))
+    const { auth } = useSelector((state) => state.rootReducers)
 
     const data = {
         current_passwor: currentPass,
@@ -31,16 +31,19 @@ const Security = () => {
     const handleSaveClick = async (e) => {
         e.preventDefault()
         try {
-         
-            await changePassword(data, token).unwrap()
-            toast.success('PassWord Changed Successfully')
-            setEditMode(false);
+            if (isValid) {
+                await changePassword({ data, token: auth.token }).unwrap()
+                toast.success('PassWord Changed Successfully')
+                setEditMode(false);
+            } else {
+                toast.error('New passWord and Confirm Password does not match ')
+            }
+
 
         } catch (err) {
             toast.error(err?.data?.message || err.error);
 
-        } 
-        // Perform save logic here
+        }
     };
     const isValid = NewPass && cNewPass
     return (

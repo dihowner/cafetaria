@@ -20,7 +20,7 @@ const AdditemModal = ({ isOpenModal, setIsOpenModal }) => {
                         <span><FaShoppingCart /></span>
                         <p>Groceries</p>
                     </Link>
-                    <Link href='/vendor/items/add-Item'  className=" flex gap-x-4 items-center text-xl font-semibold cursor-pointer">
+                    <Link href='/vendor/items/add-restuarant-item'  className=" flex gap-x-4 items-center text-xl font-semibold cursor-pointer">
                         <span><IoRestaurant /></span>
                         <p>Restaurant</p>
                     </Link>
