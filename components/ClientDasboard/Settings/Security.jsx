@@ -5,6 +5,7 @@ import Link from 'next/link'
 import CustomButton from '@/components/CustomButton';
 import { useChangePasswordMutation } from '@/redux/changeApiPassSlice';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 const Security = () => {
     const [currentPass, setCurrentPass] = useState()
     const [NewPass, setNewPass] = useState()
@@ -19,7 +20,7 @@ const Security = () => {
     const handleCancelClick = () => {
         setEditMode(false);
     };
-
+    const { auth } = useSelector((state) => state.rootReducers)
 
     const data = {
         current_passwor: currentPass,
@@ -30,17 +31,21 @@ const Security = () => {
     const handleSaveClick = async (e) => {
         e.preventDefault()
         try {
+            if (isValid) {
+                await changePassword({ data, token: auth.token }).unwrap()
+                toast.success('PassWord Changed Successfully')
+                setEditMode(false);
+            } else {
+                toast.error('New passWord and Confirm Password does not match ')
+            }
 
-            await changePassword(data).unwrap()
-            toast.success('PassWord Changed Successfully')
-            setEditMode(false);
 
         } catch (err) {
             toast.error(err?.data?.message || err.error);
 
         }
-        // Perform save logic here
     };
+    const isValid = NewPass && cNewPass
     return (
         <div className='flex flex-col gap-y-4 border p-6'>
             <h1 className='font-semibold text-3xl'>Security</h1>
