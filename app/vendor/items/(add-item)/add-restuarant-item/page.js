@@ -2,6 +2,7 @@
 
 import React from 'react'
 import InputsCustom from '@/components/InputsCustom'
+import Upload from '@/components/Upload'
 const page = () => {
   const status = [
     { value: 1, status: 'True' },
@@ -11,8 +12,10 @@ const page = () => {
   const type = ['Meal', 'Groceries']
   return (
     <div className='flex justify-center flex-col items-center w-full'>
-      <div className='width grid grid-cols-2 gap-y-4'>
-        <input type='file' />
+      <div className='width grid grid-cols-2 gap-x-4'>
+        <div className=''>
+          <Upload />
+        </div>
         <div className=''>
           <InputsCustom title={'Meal Name'} type={'text'} />
           <InputsCustom title={'Description'} type={'text'} />
