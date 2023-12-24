@@ -24,7 +24,7 @@ const ProtectedRouteWrapper = ({ children }) => {
         )
     }
 
-    return <div>{children}</div>;
+    return <>{children}</>;
 }
 export default ProtectedRouteWrapper
 //     const { auth } = useSelector((state) => state.rootReducers);

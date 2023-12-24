@@ -4,6 +4,11 @@ import React, { useState } from 'react'
 import InputsCustom from '@/components/InputsCustom'
 import Upload from '@/components/Upload'
 import CustomButton from '@/components/CustomButton'
+import { useCreateMealMutation } from '@/redux/Vendor/CreateMealApiSlice'
+import { useDispatch } from 'react-redux'
+import { createMeal } from '@/redux/Vendor/Slices/createMealSlice'
+import { toast } from 'react-toastify'
+import { useSelector } from 'react-redux'
 const page = () => {
   const status = [
     { value: true, status: 'True' },
@@ -11,31 +16,46 @@ const page = () => {
   ]
 
   const type = ['Meal', 'Groceries']
-  const [formData, setFormData] = useState({
-    description: '',
-    mealImage: null,
-    name: '',
-    meal_type: null,
-    is_available: null,
-    unit_price: '',
-  })
+  const { auth } = useSelector((state) => state.rootReducers)
+  const [description, setDescription] = useState()
+  const [mealImage, setMealImage] = useState()
+  const [name, setName] = useState()
+  const [meal_type, setMeal_type] = useState(type[0])
+  const [is_available, setIs_available] = useState(true)
+  const [unit_price, setUnit_price] = useState()
+  const [CreateMeal, { isLoading: creatMealLoading }] = useCreateMealMutation()
+  // const handleImageUpload = (file) => {
+  //   const reader = new FileReader()
 
-  const handleImageUpload = (file) => {
-    const reader = new FileReader()
+  //   reader.onload = (e) => {
+  //     // Set the selected image data in the form data
+  //     setMealImage(e.target.result)
+  //   }
 
-    reader.onload = (e) => {
-      // Set the selected image data in the form data
-      setFormData({
-        ...formData,
-        mealImage: e.target.result,
-      })
-    }
+  //   reader.readAsDataURL(file)
+  // }
 
-    reader.readAsDataURL(file)
+  const dispatch = useDispatch()
+  const formData = {
+    description: description,
+    mealImage: mealImage,
+    name: name,
+    meal_type: meal_type,
+    is_available: is_available,
+    unit_price: unit_price,
   }
-
-  const handlesubmit = (e) => {
+  const handlesubmit = async (e) => {
     e.preventDefault()
+    try {
+      const response = await CreateMeal({
+        formData,
+        token: auth.token,
+      }).unwrap()
+      dispatch(createMeal(response))
+      toast.success()
+    } catch (err) {
+      toast.error(err?.data?.message || err.error)
+    }
     console.log('Form data to be sent:', formData)
   }
   return (
@@ -47,30 +67,23 @@ const page = () => {
       >
         <div className=' w-full grid grid-cols-2 gap-x-4'>
           <div className=''>
-            <Upload onImageUpload={handleImageUpload} />
+            <Upload
+              // onImageUpload={handleImageUpload}
+              mealImage={setMealImage}
+            />
           </div>
           <div className=''>
             <InputsCustom
               title={'Meal Name'}
               type={'text'}
-              value={formData.name}
-              onchange={(e) =>
-                setFormData({
-                  ...formData,
-                  name: e.target?.value,
-                })
-              }
+              value={name}
+              onchange={setName}
             />
             <InputsCustom
               title={'Description'}
               type={'text'}
-              value={formData.description}
-              onchange={(e) =>
-                setFormData({
-                  ...formData,
-                  description: e.target?.value,
-                })
-              }
+              value={description}
+              onchange={setDescription}
             />
             {/* <InputsCustom title={'Meal Pack'} type={'text'} /> */}
             <div className='flex flex-col w-full'>
@@ -78,13 +91,8 @@ const page = () => {
               <select
                 name=''
                 id=''
-                value={formData.meal_type || ''}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    meal_type: e.target?.value,
-                  })
-                }
+                value={meal_type}
+                onChange={(e) => setMeal_type(e.target.value)}
                 className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] outline-none'
               >
                 {type.map((item, index) => (
@@ -97,13 +105,8 @@ const page = () => {
             <div className='flex flex-col w-full'>
               <label htmlFor=''>Status</label>
               <select
-                value={formData.is_available || 'true'}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    is_available: e.target?.value,
-                  })
-                }
+                value={is_available}
+                onChange={(e) => setIs_available(e.target.value)}
                 className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] outline-none'
               >
                 {status.map((item, index) => (
@@ -116,13 +119,8 @@ const page = () => {
             <InputsCustom
               title={'Price'}
               type={'number'}
-              value={formData.unit_price}
-              onchange={(e) =>
-                setFormData({
-                  ...formData,
-                  unit_price: e.target?.value,
-                })
-              }
+              value={unit_price}
+              onchange={setUnit_price}
             />
           </div>
         </div>

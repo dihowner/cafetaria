@@ -31,13 +31,12 @@ const page = () => {
     if (confirm) {
       await verifynewpassword(data)
       localStorage.clear('token')
-      
     } else {
       toast.error('New Password and the Confirm Password does not match ')
     }
   }
   return (
-    <div className='flex justify-center bg-[#F6F6F6] min-h-[100svh] w-[100%] py-8'>
+    <div className='flex justify-center bg-[#F6F6F6] min-h-[100vh] w-[100%] py-8'>
       <div className='flex flex-col  justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
         <div className='bg-[#FF9C06] flex flex-col px-6 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[100%] md:w-[50%] py-16 h-full relative'>
           <div className='absolute top-0 left-0 p-4'>

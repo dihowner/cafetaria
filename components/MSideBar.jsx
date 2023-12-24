@@ -4,9 +4,9 @@ import SecondSideBar from './SecondSideBar'
 import { FaTimes } from 'react-icons/fa'
 
 const MSideBar = ({ SideBarFirstLinks,
-    SideBarSecondLinks, close,color }) => {
+    SideBarSecondLinks, close, color }) => {
     return (
-        <div className={`smallside h-[100svh] w-[70%] sm:w-[50%] py-8  bg-[${color}] overflow-auto`}>
+        <div className={`smallside h-[100vh] w-[70%] sm:w-[50%] py-8  bg-[${color}] overflow-auto`}>
             <div className='flex flex-col gap-y-4 w-[100%] h-[100%]  justify-center items-center'>
                 <div className='pl-3 py-2  '>
                     <FaTimes

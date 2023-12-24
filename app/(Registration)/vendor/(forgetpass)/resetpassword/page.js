@@ -14,36 +14,35 @@ import { UseAuth } from '@/components/Utilis/Fetch/AuthFetchVendor'
 
 const page = () => {
   const [toggle, setToggle] = useState(false)
-    const [newPassword, setNewPassword] = useState('')
-    const [confirmNewPassword, setConfirmNewPassword] = useState('')
-    const { verifyNewpasswordLoading, verifynewpassword } = UseAuth()
-    const ISSERVER = typeof window !== 'undefined'
-    let token 
+  const [newPassword, setNewPassword] = useState('')
+  const [confirmNewPassword, setConfirmNewPassword] = useState('')
+  const { verifyNewpasswordLoading, verifynewpassword } = UseAuth()
+  const ISSERVER = typeof window !== 'undefined'
+  let token
 
-    useEffect(()=>{
-      token = ISSERVER && localStorage.getItem('token')
-    },[ISSERVER])
-    
-    const router = useRouter()
-    const data = {
-      token: token,
-      new_password: newPassword,
-      confirm_password: confirmNewPassword,
-    }
-    const confirm = newPassword === confirmNewPassword
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      if (confirm) {
-        await verifynewpassword(data)
+  useEffect(() => {
+    token = ISSERVER && localStorage.getItem('token')
+  }, [ISSERVER])
+
+  const router = useRouter()
+  const data = {
+    token: token,
+    new_password: newPassword,
+    confirm_password: confirmNewPassword,
+  }
+  const confirm = newPassword === confirmNewPassword
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (confirm) {
+      await verifynewpassword(data)
       ISSERVER && localStorage.clear('token')
-
-      } else {
-        toast.error('New Password and the Confirm Password does not match ')
-      }
+    } else {
+      toast.error('New Password and the Confirm Password does not match ')
     }
+  }
 
   return (
-    <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
+    <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100vh]'>
       <div className='flex flex-col  justify-center items-center md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
         <div className='bg-[#218B07] flex flex-col px-4 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[100%] md:w-[50%] py-16 h-full relative'>
           <div className='absolute top-0 left-0 p-4'>

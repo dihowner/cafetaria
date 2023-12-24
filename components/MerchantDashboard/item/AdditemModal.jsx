@@ -9,7 +9,7 @@ import { LiaTimesSolid } from 'react-icons/lia'
 const AdditemModal = ({ isOpenModal, setIsOpenModal }) => {
     return (
         <div>
-            <Modal isOpen={isOpenModal} close={() => setIsOpenModal(false)}>
+            <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)}>
                 <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
                     <span className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
                         onClick={() => setIsOpenModal(false)}>
@@ -20,7 +20,7 @@ const AdditemModal = ({ isOpenModal, setIsOpenModal }) => {
                         <span><FaShoppingCart /></span>
                         <p>Groceries</p>
                     </Link>
-                    <Link href='/vendor/items/add-restuarant-item'  className=" flex gap-x-4 items-center text-xl font-semibold cursor-pointer">
+                    <Link href='/vendor/items/add-restuarant-item' className=" flex gap-x-4 items-center text-xl font-semibold cursor-pointer">
                         <span><IoRestaurant /></span>
                         <p>Restaurant</p>
                     </Link>

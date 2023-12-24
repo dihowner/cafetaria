@@ -13,7 +13,7 @@ const RestaurantMenu = ({ isOpen, setIsOpen, }) => {
     };
     return (
         <div>
-            <Modal isOpen={isOpen} close={() => setIsOpen(false)}>
+            <Modal isOpen={isOpen} close={() => setIsOpen(false)} height='800px'>
                 <div className="">
                     <span className='bg-[#FF9C06] p-2 h-12 justify-center flex items-center rounded-xl absolute top-0 right-0 text-white'
                         onClick={() => setIsOpen(false)}>
@@ -66,7 +66,81 @@ const RestaurantMenu = ({ isOpen, setIsOpen, }) => {
                                 <span>400</span>
                             </div>
                         </div>
-                     
+                        <div className="flex flex-col">
+                            <div className="bg-[white] py-4 px-2 rounded-xl shadow-xl">
+                                <h1>Extra    <span>(Can add up to 3 per takeaway)</span></h1>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                        </div>
+                        <div className="flex flex-col">
+                            <div className="bg-[white] py-4 px-2 rounded-xl shadow-xl">
+                                <h1>Extra    <span>(Can add up to 3 per takeaway)</span></h1>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                        </div>
+                        <div className="flex flex-col">
+                            <div className="bg-[white] py-4 px-2 rounded-xl shadow-xl">
+                                <h1>Extra    <span>(Can add up to 3 per takeaway)</span></h1>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
+                                <span>400</span>
+                            </div>
+                        </div> 
                     </div>
                     <div className="w-full flex justify-center items-center gap-x-6">
                         <div className="flex justify-center items-center gap-x-6 bg-white w-[50%] py-4 px-4 text-2xl">
@@ -86,78 +160,3 @@ const RestaurantMenu = ({ isOpen, setIsOpen, }) => {
 export default RestaurantMenu
 
 
-{/* <div className="flex flex-col">
-                            <div className="bg-[white] py-4 px-2 rounded-xl shadow-xl">
-                                <h1>Extra    <span>(Can add up to 3 per takeaway)</span></h1>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="bg-[white] py-4 px-2 rounded-xl shadow-xl">
-                                <h1>Extra    <span>(Can add up to 3 per takeaway)</span></h1>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="bg-[white] py-4 px-2 rounded-xl shadow-xl">
-                                <h1>Extra    <span>(Can add up to 3 per takeaway)</span></h1>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                                <FormControlLabel control={<Checkbox />} label="Jollof Rice" />
-                                <span>400</span>
-                            </div>
-                        </div> */}

@@ -34,8 +34,8 @@ const layout = ({ children }) => {
           <div
             className={`${
               isSidebarOpen
-                ? 'pl-[260px] w-[100%] bg-[white] pt-[90px] min-h-[100svh]'
-                : 'pl-0 md:pl-[80px] lg:pl-[260px] pt-[90px] w-[100%] pb-6 bg-[white] min-h-[100svh] '
+                ? 'pl-[260px] w-[100%] bg-[white] pt-[90px] min-h-[100vh]'
+                : 'pl-0 md:pl-[80px] lg:pl-[260px] pt-[90px] w-[100%] pb-6 bg-[white] min-h-[100vh] '
             }`}
           >
             {children}
