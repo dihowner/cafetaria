@@ -4,38 +4,54 @@ import { IoMdImages } from 'react-icons/io';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Upload = ({ onImageUpload }) => {
-
-    // const [selectedImage, setSelectedImage] = useState(null);
-    // // const fileInputRef = useRef(null);
-    // // const handleFileInputChange = (event) => {
-    // //     fileInputRef.current.click();
-    // //     const file = event.target.files[0];
-
-    // //     if (file) {
-    // //         const reader = new FileReader();
-    // //         reader.onload = (e) => {
-    // //             setSelectedImage(e.target.result);
-    // //         };
-    // //         reader.readAsDataURL(file);
-    // //     }
-    // // };
-
-    // const handleButtonClick = () => {
-    //     fileInputRef.current.click();
-    // };
+const Upload = ({ onImageUpload, mealImage }) => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleFileInputChange = (event) => {
         const file = event.target.files[0];
 
+        // if (file) {
+        //     const reader = new FileReader();
+
+        //     // Check if the file format is allowed
+        //     if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg') {
+        //         reader.onload = (e) => {
+        //             setSelectedImage(e.target.result);
+        //             onImageUpload(file); // Pass the selected file to the parent component
+        //         };  
+        //         reader.readAsDataURL(file);
+        //     } else {
+        //         // Display toast for invalid file format
+        //         toast.error('Invalid file format. Please select a PNG, JPEG, or JPG file.');
+        //     }
+        // }
         if (file) {
+            const maxSize = 10 * 1024 * 1024; // 10 MB in bytes
+            if (file.size > maxSize) {
+                // Display toast for exceeding file size limit
+                toast.error('File size exceeds the limit of 10 MB. Please choose a smaller file.');
+                return;
+            }
             const reader = new FileReader();
+
+            // Check if the file format is allowed
             reader.onload = (e) => {
-                setSelectedImage(e.target.result);
-                onImageUpload(file); // Pass the selected file to the parent component
+                const dataUrl = e.target.result;
+                const fileFormat = dataUrl.split(',')[0].split(':')[1].split(';')[0].split('/')[1];
+
+                if (['png', 'jpeg', 'jpg'].includes(fileFormat)) {
+                    setSelectedImage(dataUrl);
+                    mealImage(dataUrl)
+                    // onImageUpload(file); // Pass the selected file to the parent component
+                } else {
+                    // Display toast for invalid file format
+                    toast.error('Invalid file format. Please select a PNG, JPEG, or JPG file.');
+                }
             };
+
             reader.readAsDataURL(file);
         }
     };
@@ -82,7 +98,7 @@ const Upload = ({ onImageUpload }) => {
                         // ref={fileInputRef}
                         type="file"
                         accept=".png, .jpg, .jpeg"
-                        onChange={handleFileInputChange} 
+                        onChange={handleFileInputChange}
                     />
                 </Button>
             </div>
@@ -92,3 +108,21 @@ const Upload = ({ onImageUpload }) => {
 
 export default Upload;
 
+// const [selectedImage, setSelectedImage] = useState(null);
+// // const fileInputRef = useRef(null);
+// // const handleFileInputChange = (event) => {
+// //     fileInputRef.current.click();
+// //     const file = event.target.files[0];
+
+// //     if (file) {
+// //         const reader = new FileReader();
+// //         reader.onload = (e) => {
+// //             setSelectedImage(e.target.result);
+// //         };
+// //         reader.readAsDataURL(file);
+// //     }
+// // };
+
+// const handleButtonClick = () => {
+//     fileInputRef.current.click();
+// };

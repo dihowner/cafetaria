@@ -64,7 +64,7 @@ h1 {
   transition: all 0.5s linear;
   width: 40%;
   z-index: 2;
-  min-height: 100svh;
+  min-height: 100vh;
   font-family: Montserrat;
   row-gap: 1.6rem;
   color: black;

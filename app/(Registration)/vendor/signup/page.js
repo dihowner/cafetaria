@@ -43,22 +43,22 @@ const page = () => {
     store_name: storeName,
     ...(physicalShopValue === true && { store_address: address }),
   }
-   const handleSubmit = async (e) => {
-     e.preventDefault()
-     if (password === cPassword) {
-       if (isvalid) {
-         await useSignUp(data)
-       } else {
-         toast.error('please fill out the field')
-       }
-     } else {
-       toast.error('password do not match')
-     }
-   }
-   const isvalid = email && password
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (password === cPassword) {
+      if (isvalid) {
+        await useSignUp(data)
+      } else {
+        toast.error('please fill out the field')
+      }
+    } else {
+      toast.error('password do not match')
+    }
+  }
+  const isvalid = email && password
   // console.log(data)
   return (
-    <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100svh]'>
+    <div className='flex justify-center bg-[#F6F6F6] w-[100%] py-8 min-h-[100vh]'>
       <div className='flex flex-col items-stretch md:flex-row bg-[white] w-[80%] gap-x-6 gap-y-6 px-4 py-2 '>
         <div className='bg-[#218B07] flex flex-col px-6 justify-center items-center rounded-3xl text-white w-[100%] sm:w-[100%] md:w-[50%] py-16 h-[100%] relative'>
           <div className='absolute top-0 left-0 p-4'>
