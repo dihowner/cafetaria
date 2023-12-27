@@ -36,19 +36,27 @@ const page = () => {
   // }
 
   const dispatch = useDispatch()
-  const formData = {
-    description: description,
-    mealImage: mealImage,
-    name: name,
-    meal_type: meal_type,
-    is_available: is_available,
-    unit_price: unit_price,
-  }
+  // const formData = {
+  //   description: description,
+  //   mealImage: mealImage,
+  //   name: name,
+  //   meal_type: meal_type,
+  //   is_available: is_available,
+  //   unit_price: unit_price,
+  // }
   const handlesubmit = async (e) => {
     e.preventDefault()
+    const formData = new FormData()
+    formData.append('description', description)
+    formData.append('mealImage', mealImage) // A ssuming mealImage is a File object
+    formData.append('name', name)
+    formData.append('meal_type', meal_type)
+    formData.append('is_available', is_available)
+    formData.append('unit_price', unit_price)
+    console.log('Form data to be sent:', mealImage)
     try {
       const response = await CreateMeal({
-        formData,
+        data: formData,
         token: auth.token,
       }).unwrap()
       dispatch(createMeal(response))
@@ -56,7 +64,6 @@ const page = () => {
     } catch (err) {
       toast.error(err?.data?.message || err.error)
     }
-    console.log('Form data to be sent:', formData)
   }
   return (
     <div className='flex justify-center flex-col items-center w-full'>

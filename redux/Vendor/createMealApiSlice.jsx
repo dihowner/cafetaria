@@ -10,9 +10,10 @@ export const createMealApiSlice = apiSlice.injectEndpoints({
                 body: data,
                 headers: {
                     // Add your headers here
+                    'Accept': 'application/json',
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',
-                    // You can add more headers if needed0
+                    // You can add more headers if needed
                 },
             })
         })
