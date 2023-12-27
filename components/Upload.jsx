@@ -11,23 +11,8 @@ const Upload = ({ onImageUpload, mealImage }) => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleFileInputChange = (event) => {
-        const file = event.target.files[0];
-
-        // if (file) {
-        //     const reader = new FileReader();
-
-        //     // Check if the file format is allowed
-        //     if (file.type === 'image/png' || file.type === 'image/jpeg' || file.type === 'image/jpg') {
-        //         reader.onload = (e) => {
-        //             setSelectedImage(e.target.result);
-        //             onImageUpload(file); // Pass the selected file to the parent component
-        //         };  
-        //         reader.readAsDataURL(file);
-        //     } else {
-        //         // Display toast for invalid file format
-        //         toast.error('Invalid file format. Please select a PNG, JPEG, or JPG file.');
-        //     }
-        // }
+        const file = event.target.files[0]
+        mealImage(file)
         if (file) {
             const maxSize = 10 * 1024 * 1024; // 10 MB in bytes
             if (file.size > maxSize) {
@@ -44,7 +29,7 @@ const Upload = ({ onImageUpload, mealImage }) => {
 
                 if (['png', 'jpeg', 'jpg'].includes(fileFormat)) {
                     setSelectedImage(dataUrl);
-                    mealImage(dataUrl)
+                    // mealImage(dataUrl)
                     // onImageUpload(file); // Pass the selected file to the parent component
                 } else {
                     // Display toast for invalid file format
