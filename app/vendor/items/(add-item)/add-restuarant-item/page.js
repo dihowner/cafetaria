@@ -54,16 +54,16 @@ const page = () => {
     formData.append('is_available', is_available)
     formData.append('unit_price', unit_price)
     console.log('Form data to be sent:', mealImage)
-    // try {
-    //   const response = await CreateMeal({
-    //     data: formData,
-    //     token: auth.token,
-    //   }).unwrap()
-    //   dispatch(createMeal(response))
-    //   toast.success()
-    // } catch (err) {
-    //   toast.error(err?.data?.message || err.error)
-    // }
+    try {
+      const response = await CreateMeal({
+        data: formData,
+        token: auth.token,
+      }).unwrap()
+      dispatch(createMeal(response))
+      toast.success()
+    } catch (err) {
+      toast.error(err?.data?.message || err.error)
+    }
   }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
