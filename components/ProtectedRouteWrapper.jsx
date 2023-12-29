@@ -19,7 +19,6 @@ const ProtectedRouteWrapper = ({ children }) => {
     // Show loader while checking authentication
     if (loading) {
         return (
-            // console.log("Loadin"),
             <Loader />
         )
     }
@@ -27,6 +26,19 @@ const ProtectedRouteWrapper = ({ children }) => {
     return <>{children}</>;
 }
 export default ProtectedRouteWrapper
+
+
+
+
+
+
+
+
+
+
+
+
+
 //     const { auth } = useSelector((state) => state.rootReducers);
 //     const [isAuth, setIsAuth] = useState(true)
 // const router = useRouter()

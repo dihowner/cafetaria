@@ -64,7 +64,7 @@ const Upload = ({ onImageUpload, mealImage }) => {
                     </label>
                 )}
             </div>
-            <div className="w-1/2">
+            <form className="w-1/2">        
                 <Button
                     component="label"
                     variant="contained"
@@ -86,7 +86,7 @@ const Upload = ({ onImageUpload, mealImage }) => {
                         onChange={handleFileInputChange}
                     />
                 </Button>
-            </div>
+            </form>
         </div>
     );
 };
