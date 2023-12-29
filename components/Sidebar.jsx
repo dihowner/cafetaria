@@ -2,13 +2,33 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FaBars } from 'react-icons/fa'
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
 import TopSideBar from './TopSideBar'
 import SecondSideBar from './SecondSideBar'
+import { useSelector, useDispatch } from 'react-redux'
+import { setStat } from '@/redux/DashBoard/StatisticSlice'
+import { useStatisticMutation } from '@/redux/statiscsApiSlice'
 const Sidebar = ({ SideBarFirstLinks,
     SideBarSecondLinks, color }) => {
     const { isSidebarOpen, toggleSidebar, } = useContext(SidebarCreateContext)
+    const [statistic, data] = useStatisticMutation()
+    const dispatch = useDispatch();
+    // const id = typeof window !== 'undefined' && localStorage.getItem('userId') ? JSON.parse(localStorage.getItem('userId')) : null
+    // const fetchstat = async () => {
+    //     try {
+    //         const response = await statistic(id).unwrap()
+    //         dispatch(setStat(response))
+    //         console.log(response)
+    //     } catch (err) {
+    //         toast.error(err?.data?.message || err.error)
+    //     }
+    // }
+    // useEffect(() => {
+    //     fetchstat()
+    // }, [])
+    // console.log(data)
+
     return (
         <div className={`${isSidebarOpen
             ? `hidden  w-[250px] lg:block lg:w-[250px] bg-[${color}] fixed overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] h-[100vh] transition-[all] ease duration-[.3s] z-[10] md:block`

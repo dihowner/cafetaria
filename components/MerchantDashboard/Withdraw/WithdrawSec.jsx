@@ -12,6 +12,9 @@ const WithdrawSec = () => {
     const openModal = () => {
         setIsOpenModal(true)
     }
+
+
+    
     return (
         <div className='w-full md:w-[50%] border p-4 flex flex-col gap-y-8 '>
             <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
