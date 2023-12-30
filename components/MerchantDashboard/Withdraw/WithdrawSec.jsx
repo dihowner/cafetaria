@@ -1,20 +1,41 @@
 'use client'
 import CustomButton from '@/components/CustomButton'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsBank } from 'react-icons/bs'
 import { BiMoneyWithdraw } from 'react-icons/bi'
 import Modal from '@/components/Modal'
 import InputsCustom from '@/components/InputsCustom'
 import { GiPadlock } from 'react-icons/gi'
 import { LiaTimesSolid } from 'react-icons/lia'
+import { useFetchBankMutation } from '@/redux/Vendor/fetchBankApiSlice'
+import { setBanks } from '@/redux/Vendor/Slices/withdrawSlice'
+import { useDispatch, useSelector } from 'react-redux'
+// useDispatch
 const WithdrawSec = () => {
     const [isOpenModal, setIsOpenModal] = useState(false)
     const openModal = () => {
         setIsOpenModal(true)
     }
+    const dispatch = useDispatch();
+    const { banks } = useSelector((state) => state.rootReducers)
+    const [fetchBank, { isSuccess }] = useFetchBankMutation()
 
+    const Allbanks = async () => {
+        try {
 
-    
+            const response = await fetchBank().unwrap()
+            // if (isSuccess) {
+            dispatch(setBanks(response))
+            // }
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+        }
+    }
+
+    useEffect(() => {
+        Allbanks()
+    }, [])
+    // console.log(banks.banks)
     return (
         <div className='w-full md:w-[50%] border p-4 flex flex-col gap-y-8 '>
             <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
@@ -25,24 +46,24 @@ const WithdrawSec = () => {
             </div>
             <div className="flex flex-col gap-y-4">
                 <span className='text-[#218B07]'>Enter bank details</span>
-                <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-4 py-3 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-3 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-3  flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
-                    <select name="" id="" className='bg-[transparent] capitalize w-[80%]'>
-                        <option value="">gtb</option>
-                        <option value="">wema</option>
-                        <option value="">polaris</option>
-                        <option value="">uba</option>
+                    <select name="" id="" className='bg-[transparent] capitalize w-[80%]' defaultValue="defaultBank">
+                        <option value="defaultBank" disabled>Select your bank</option>
+                        {banks.banks && banks.banks.map((item, index) => (
+                            <option value="" key={index} >{item?.bank_name}</option>
+                        ))}
                     </select>
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
                     <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' />
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
@@ -55,8 +76,8 @@ const WithdrawSec = () => {
             </div>
             <Modal isOpen={isOpenModal} close={() => setIsOpenModal(false)}>
                 <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
-                    <span className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md absolute top-0 right-0 text-white' 
-                    onClick={()=>setIsOpenModal(false)}>
+                    <span className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md absolute top-0 right-0 text-white'
+                        onClick={() => setIsOpenModal(false)}>
                         <LiaTimesSolid className='text-xl' />
                     </span>
                     <div className="flex flex-col justify-center items-center w-full">
