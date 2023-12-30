@@ -10,6 +10,9 @@ const createMealSlice = createSlice({
     name: 'meal',
     initialState,
     reducers: {
+        set_Meals(state, action) {
+            state.meals = action.payload;
+        },
         createMeal(state, action) {
             const newMeal = action.payload;
             state.meals.push(newMeal);
