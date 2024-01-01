@@ -11,8 +11,29 @@ import { useContext } from 'react'
 import { FaBars } from 'react-icons/fa'
 import MHeader from '@/components/MerchantDashboard/MHeader'
 import ProtectedRouteWrapper from '@/components/ProtectedRouteWrapper'
+import { useSelector, useDispatch } from 'react-redux'
+import { useDetailsMutation } from '@/redux/Vendor/vendorsApiSlice'
+import { setVendorDetails } from '@/redux/Vendor/Slices/vendordetailsSlice'
+import { useEffect } from 'react'
+import { toast } from 'react-toastify'
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
+
+  const [details, data] = useDetailsMutation()
+  const dispatch = useDispatch()
+  const { auth } = useSelector((state) => state.rootReducers)
+
+  const fetchVendorDetails = async () => {
+    try {
+      const response = await details(auth?.vendor_id).unwrap()
+      dispatch(setVendorDetails(response))
+    } catch (err) {
+      toast.error(err?.data?.message || err.error)
+    }
+  }
+  useEffect(() => {
+    fetchVendorDetails()
+  }, [])
   return (
     <div>
       <ProtectedRouteWrapper>

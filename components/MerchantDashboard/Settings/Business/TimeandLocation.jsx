@@ -1,10 +1,12 @@
 import CustomButton from '@/components/CustomButton'
+import Map from '@/components/Map'
 import React from 'react'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 const TimeandLocation = () => {
     return (
         <div className='col-span-2 w-full capitalize flex flex-col gap-y-8 order-2 md:order-1'>
             <div className="flex w-full flex-col gap-y-2">
+                <Map />
                 <label htmlFor="" className='font-bold'>Business location</label>
                 <div className="bg-[#83838326] flex items-center gap-x-2 py-4 px-2 text-base w-[80%] sm:w-[70%] md:w-[70%] rounded-xl">
                     <span><HiOutlineLocationMarker /></span>
@@ -153,7 +155,7 @@ const TimeandLocation = () => {
 
                 </div>
             </div>
-          
+
         </div>
     )
 }

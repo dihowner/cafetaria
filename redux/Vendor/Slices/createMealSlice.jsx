@@ -31,5 +31,5 @@ const createMealSlice = createSlice({
     },
 });
 
-export const { createMeal, deleteMeal, updateMeal } = createMealSlice.actions;
+export const { createMeal, deleteMeal, updateMeal,set_Meals } = createMealSlice.actions;
 export default createMealSlice.reducer;

@@ -11,8 +11,8 @@ const ClientDashboaredHeader = ({ isSidebarOpen, toggleSidebar }) => {
     const { auth } = useSelector((state) => state.rootReducers);
     return (
         <div className={` ${isSidebarOpen
-            ? 'pl-[260px] hidden md:block w-[100%] fixed h-[70px] bg-[#FF9C06]'
-            : 'pl-0 md:pl-[80px] lg:pl-[260px] hidden md:flex justify-center w-[100%] fixed h-[70px] bg-[#FF9C06] '
+            ? 'pl-[260px] hidden md:block w-[100%] fixed h-[70px] bg-[#FF9C06] z-10'
+            : 'pl-0 md:pl-[80px] lg:pl-[260px] hidden md:flex justify-center w-[100%] fixed h-[70px] bg-[#FF9C06] z-10 '
             }`}>
             <div className="flex justify-center items-center py-4   width">
                 <div className="flex justify-center items-center w-full gap-x-6">

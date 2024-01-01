@@ -6,28 +6,10 @@ import React, { useContext, useEffect } from 'react'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
 import TopSideBar from './TopSideBar'
 import SecondSideBar from './SecondSideBar'
-import { useSelector, useDispatch } from 'react-redux'
-import { setStat } from '@/redux/DashBoard/StatisticSlice'
-import { useStatisticMutation } from '@/redux/statiscsApiSlice'
+
 const Sidebar = ({ SideBarFirstLinks,
     SideBarSecondLinks, color }) => {
     const { isSidebarOpen, toggleSidebar, } = useContext(SidebarCreateContext)
-    const [statistic, data] = useStatisticMutation()
-    const dispatch = useDispatch();
-    // const id = typeof window !== 'undefined' && localStorage.getItem('userId') ? JSON.parse(localStorage.getItem('userId')) : null
-    // const fetchstat = async () => {
-    //     try {
-    //         const response = await statistic(id).unwrap()
-    //         dispatch(setStat(response))
-    //         console.log(response)
-    //     } catch (err) {
-    //         toast.error(err?.data?.message || err.error)
-    //     }
-    // }
-    // useEffect(() => {
-    //     fetchstat()
-    // }, [])
-    // console.log(data)
 
     return (
         <div className={`${isSidebarOpen
