@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Switch from '@mui/material/Switch'
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa'
 
 const ResturantItems = ({ ItemsTableData }) => {
+    useEffect(() => {
+
+    }, [])
     return (
         <div className='overflow-x-auto w-[100%]'>
             <div className='inline-block min-w-full'>
