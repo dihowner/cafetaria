@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
 import Switch from '@mui/material/Switch'
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa'
+import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 
 const ResturantItems = ({ ItemsTableData }) => {
+    const { getMeals } = mealsfetch()
     useEffect(() => {
-
+        getMeals()
     }, [])
     return (
         <div className='overflow-x-auto w-[100%]'>

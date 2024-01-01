@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 export const mealsfetch = () => {
     const [getMeal] = useGetMealMutation()
     const dispatch = useDispatch();
-    const { auth } = useSelector((state) => state.RootReducers);
+    const { auth } = useSelector((state) => state.rootReducers);
     const getMeals = async () => {
         try {
             const response = await getMeal({ id: auth.vendor_id, token: auth.token }).unwrap()
