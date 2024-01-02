@@ -1,4 +1,6 @@
 const VENDORMEAL_URL = '/api/vendor';
+const VENDORMEALDETAILS_URL = '/api/meals';
+
 import { apiSlice } from "../apiSlice";
 
 export const getMealApiSlice = apiSlice.injectEndpoints({
@@ -15,6 +17,23 @@ export const getMealApiSlice = apiSlice.injectEndpoints({
             })
         })
     })
+});
+
+export const getMealDetailsApiSlice = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        getMealDetails: builder.mutation({
+            query: ({ token, params }) => ({
+                url: `${VENDORMEALDETAILS_URL}/${params}`,
+                method: 'GET',
+                headers: {
+                    // Add your headers here
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+        })
+    })
 })
 
 export const { useGetMealMutation } = getMealApiSlice
+export const { useGetMealDetailsMutation } = getMealDetailsApiSlice
