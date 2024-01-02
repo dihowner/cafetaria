@@ -3,39 +3,27 @@
 import React, { useState } from 'react'
 import InputsCustom from '@/components/InputsCustom'
 import Upload from '@/components/Upload'
-import CustomButton from '@/components/CustomButton'
-import { useCreateMealMutation } from '@/redux/Vendor/getMealApiSlice'
-import { useDispatch } from 'react-redux'
-import { createMeal } from '@/redux/Vendor/Slices/createMealSlice'
-import { toast } from 'react-toastify'
-import { useSelector } from 'react-redux'
-import axios from 'axios'
 import Button from '@mui/material/Button'
-import Checkbox from '@mui/material/Checkbox'
-import FormControlLabel from '@mui/material/FormControlLabel'
+import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 const page = () => {
   const status = [
-    { value: true, status: 'True' },
-    { value: false, status: 'False' },
+    { value: true, status: 'Active' },
+    { value: false, status: 'Not Active' },
   ]
   const [checked, setChecked] = React.useState(true)
 
   const handleChange = (event) => {
     setChecked(event.target.checked)
   }
-  const { auth } = useSelector((state) => state.rootReducers)
   const [description, setDescription] = useState()
   const [mealImage, setMealImage] = useState()
   const [name, setName] = useState()
-  // const [meal_category, setMeal_category] = useState()
   const [is_available, setIs_available] = useState(true)
   const [unit_price, setUnit_price] = useState()
   const [packaging, setPackaging] = useState({
-    styrofoam: { price: '', status: true },
-    plastic_plate: { price: '', status: true },
+    styrofoam: { price: '0', status: true },
+    plastic_plate: { price: '0', status: true },
   })
-  const [CreateMeal, { isLoading: creatMealLoading }] = useCreateMealMutation()
-  const dispatch = useDispatch()
   const handlePackagingChange = (category, field, value) => {
     setPackaging((prevPackaging) => ({
       ...prevPackaging,
@@ -45,6 +33,8 @@ const page = () => {
       },
     }))
   }
+
+  const { createMeal } = mealsfetch()
   const handlesubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData()
@@ -64,37 +54,7 @@ const page = () => {
       },
     }
     formData.append('packaging', JSON.stringify(packagingData))
-    console.log('Form data to be sent:', formData)
-
-    await axios
-      .post(
-        'https://cafeteria-ekep.onrender.com/api/meals/add-meal',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/formData',
-            Accept: 'Application/json',
-            Authorization: `Bearer ${auth.token}`,
-          },
-        }
-      )
-      .then((response) => {
-        console.log(response.data)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-
-    // try {
-    //   const response = await CreateMeal({
-    //      formData,
-    //     token: auth.token,
-    //   }).unwrap()
-    //   dispatch(createMeal(response))
-    //   toast.success()
-    // } catch (err) {
-    //   toast.error(err?.data?.message || err.error)
-    // }
+    await createMeal(formData)
   }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
@@ -121,7 +81,7 @@ const page = () => {
               onchange={setDescription}
             />
             <div className='flex flex-col w-full'>
-              <label htmlFor=''>Status</label>
+              <label htmlFor=''>Availability</label>
               <select
                 value={is_available}
                 onChange={(e) => setIs_available(e.target.value)}
@@ -225,7 +185,7 @@ const page = () => {
                     </div>
 
                     <div className='flex flex-col w-full'>
-                      <label htmlFor=''>Status</label>
+                      <label htmlFor=''>Avaliability</label>
                       <select
                         value={packaging.plastic_plate.status}
                         onChange={(e) =>
