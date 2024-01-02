@@ -12,7 +12,7 @@ const Security = () => {
     const [cNewPass, setCNewPass] = useState()
     const [editMode, setEditMode] = useState(false);
     const [changePassword, { isLoading: changePasswordLoading }] = useChangePasswordMutation()
-    const [saveLoading, setSaveLoading] = useState(false);
+
     const handleEditClick = () => {
         setEditMode(true);
     };

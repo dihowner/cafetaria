@@ -7,12 +7,11 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Upload = ({ onImageUpload, mealImage }) => {
+const Upload = ({  mealImage }) => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleFileInputChange = (event) => {
         const file = event.target.files[0]
-        mealImage(file)
         if (file) {
             const maxSize = 10 * 1024 * 1024; // 10 MB in bytes
             if (file.size > maxSize) {
@@ -20,24 +19,18 @@ const Upload = ({ onImageUpload, mealImage }) => {
                 toast.error('File size exceeds the limit of 10 MB. Please choose a smaller file.');
                 return;
             }
-            const reader = new FileReader();
+            const dataUrl = URL.createObjectURL(file);
 
-            // Check if the file format is allowed
-            reader.onload = (e) => {
-                const dataUrl = e.target.result;
-                const fileFormat = dataUrl.split(',')[0].split(':')[1].split(';')[0].split('/')[1];
+            const fileFormat = file.type.split('/')[1];
 
-                if (['png', 'jpeg', 'jpg'].includes(fileFormat)) {
-                    setSelectedImage(dataUrl);
-                    // mealImage(dataUrl)
-                    // onImageUpload(file); // Pass the selected file to the parent component
-                } else {
-                    // Display toast for invalid file format
-                    toast.error('Invalid file format. Please select a PNG, JPEG, or JPG file.');
-                }
-            };
 
-            reader.readAsDataURL(file);
+            if (['png', 'jpeg', 'jpg'].includes(fileFormat)) {
+                setSelectedImage(dataUrl);
+                mealImage(file)
+            } else {
+                // Display toast for invalid file format
+                toast.error('Invalid file format. Please select a PNG, JPEG, or JPG file.');
+            }
         }
     };
     const VisuallyHiddenInput = styled('input')({
@@ -64,7 +57,7 @@ const Upload = ({ onImageUpload, mealImage }) => {
                     </label>
                 )}
             </div>
-            <form className="w-1/2">        
+            <form className="w-1/2">
                 <Button
                     component="label"
                     variant="contained"

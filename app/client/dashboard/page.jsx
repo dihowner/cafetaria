@@ -14,7 +14,7 @@ const page = () => {
   const { stat } = useSelector((state) => state.rootReducers)
   const [statistic, { isLoading: staticLoading }] = useStatisticMutation()
   const dispatch = useDispatch();
-  const id = typeof window !== 'undefined' && localStorage.getItem('userId') ? JSON.parse(localStorage.getItem('userId')) : null
+  const id = typeof window !== 'undefined' && localStorage.getItem('Id') ? JSON.parse(localStorage.getItem('Id')) : null
 
   const fetchstat = async () => {
     try {
