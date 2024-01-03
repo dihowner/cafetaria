@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Switch from '@mui/material/Switch'
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa'
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '@/components/Loader'
 import Link from 'next/link'
-const ResturantItems = ({ ItemsTableData }) => {
+const ResturantItems = () => {
 
     const { meals } = useSelector((state) => state.rootReducers);
     const { getMeals, getMealLoading } = mealsfetch()
@@ -14,13 +14,14 @@ const ResturantItems = ({ ItemsTableData }) => {
     }, [])
     const allMeals = meals?.meals
     const noMealMessage = allMeals && allMeals.length === 0 ? 'No meal Created' : null
-    
     return (
         <>
             {getMealLoading ? <Loader /> : <>
-                {noMealMessage ? (<div>
-                    {noMealMessage}
-                </div>) : (<div className='overflow-x-auto w-[100%]'>
+                {noMealMessage ? (
+                    <div className=''>
+                        {noMealMessage}
+                    </div>
+                ) : (<div className='overflow-x-auto w-[100%]'>
                     <div className='inline-block min-w-full'>
                         <div className='overflow-hidden'>
                             <table className='min-w-full'>
@@ -75,7 +76,7 @@ const ResturantItems = ({ ItemsTableData }) => {
                                                 <div className=' border rounded-lg m-2 py-1 w-[40%] flex justify-center items-center'>
                                                     <img
                                                         className='w-12 h-12 rounded-full object-cover'
-                                                        src={item.image}
+                                                        src={item?.image}
                                                         alt='image'
                                                     />
                                                 </div>
@@ -85,7 +86,7 @@ const ResturantItems = ({ ItemsTableData }) => {
                                             </td>
 
                                             <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
-                                                {item.unitPrice}
+                                                {item?.unitPrice}
                                             </td>
                                             <td className='px-6 py-4 whitespace-nowrap text-sm font-medium '>
                                                 <Switch
@@ -96,7 +97,7 @@ const ResturantItems = ({ ItemsTableData }) => {
                                             </td>
                                             <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>
                                                 <ul className='flex items-center justify-start'>
-                                                    <Link href={'/vendor/items/editItem/edit-restuarant-meal'} className='py-1 px-2.5'>
+                                                    <Link href={`vendor/items/editItem/edit-restuarant-meal/${item._id}`} className='py-1 px-2.5'>
                                                         <FaEdit />
                                                     </Link>
                                                     <li className='py-1 px-2.5'>

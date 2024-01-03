@@ -21,7 +21,7 @@ const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
                         >
                             <FaBars />
                         </div>
-                        <div className="bg-[#C9C9C9]  py-2 px-2 w-[100%] flex justify-center items-center text-[#FFFFFF] h-12 text-2xl">
+                        <div className="bg-[#C9C9C9]  py-2 px-2 w-[100%] flex justify-center items-center text-[#FFFFFF] min-h-12 text-2xl">
                             <h4>Welcome {details?.store_name}</h4>
                         </div>
                     </div>
@@ -31,14 +31,14 @@ const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
                 </div>
                 <div className="flex justify-center items-center gap-x-4 w-[40%]">
                     <div className="flex justify-center items-center gap-x-2">
-                        <div className="flex justify-center items-center bg-[#C9C9C9]  py-2 px-2 text-lg text-[#FFFFFF] h-12">
+                        <div className="flex justify-center items-center bg-[#C9C9C9]  py-2 px-2 text-lg text-[#FFFFFF] min-h-12">
                             <BsWechat />
                         </div>
-                        <div className=" flex justify-center items-center bg-[#C9C9C9] py-2 px-2 text-lg text-[#FFFFFF] h-12">
+                        <div className=" flex justify-center items-center bg-[#C9C9C9] py-2 px-2 text-lg text-[#FFFFFF] min-h-12">
                             <BsChatDots />
                         </div>
                     </div>
-                    <div className="bg-[#C9C9C9] flex justify-center items-center py-2 px-2 text-lg text-[#FFFFFF] h-12 w-20">
+                    <div className="bg-[#C9C9C9] flex justify-center items-center py-2 px-2 text-lg text-[#FFFFFF] min-h-12 w-20">
                         <BsChatDots />
                     </div>
                 </div>
