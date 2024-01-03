@@ -45,9 +45,9 @@ export const mealsfetch = () => {
     }
     const getDetails = async (setDetails, mealId) => {
         try {
-            const response = await getMealDetails({ id: mealId, token: auth.token }).unwrap()
-            setDetails()
-            console.log(response)
+            const response = await getMealDetails({ params: mealId, token: auth.token }).unwrap()
+            setDetails(response)
+            // console.log(response)
         } catch (err) {
             toast.error(err?.data?.message || err.error);
         }

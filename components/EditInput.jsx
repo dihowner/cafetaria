@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 const EditInput = ({ ref, defaultValue, Icon, type, placeholder, disabled, title }) => {
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePassVisibility = () => {
+        setPasswordVisible((prevVisibility) => !prevVisibility);
+    };
+
     return (
         <div className=' flex flex-col w-full'>
             <label htmlFor="name">{title}</label>
