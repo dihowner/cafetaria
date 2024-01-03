@@ -4,6 +4,12 @@ const InputsCustom = ({ title, value, onchange, Icon, type, placeholder,disabled
     const handleOnchange = (e) => {
         onchange(e.target.value);
     }
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePassVisibility = () => {
+        setPasswordVisible((prevVisibility) => !prevVisibility);
+    };
+
   <div className=' flex flex-col w-full'>
             <label htmlFor="name">{title}</label>
             <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
