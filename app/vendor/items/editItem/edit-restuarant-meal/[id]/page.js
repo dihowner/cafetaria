@@ -4,7 +4,7 @@ import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import { useGetMealDetailsMutation } from '@/redux/Vendor/getMealApiSlice'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 const page = () => {
   const router = useRouter()
@@ -16,10 +16,9 @@ const page = () => {
   const { getDetails } = mealsfetch()
   useEffect(() => {
     const mealId = router.query.id
-
     // Pass the 'id' to the getDetails function
     getDetails(setDetails, mealId)
-  }, [])
+  }, [router?.query?.id])
   return (
     <div className='flex justify-center flex-col items-center w-full'>
       {' '}
