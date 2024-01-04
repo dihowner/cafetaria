@@ -1,4 +1,4 @@
-import { set_Meals } from '@/redux/Vendor/Slices/createMealSlice';
+import { set_Meals, deleteMeal } from '@/redux/Vendor/Slices/createMealSlice';
 import { useGetMealMutation } from '@/redux/Vendor/getMealApiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
@@ -52,5 +52,35 @@ export const mealsfetch = () => {
             toast.error(err?.data?.message || err.error);
         }
     }
-    return { getMeals, getMealLoading, createMeal, loading, getDetails }
+
+    const updateMeal = async (formData, mealId) => {
+        setLoading(true)
+        await axios
+            .put(
+                `https://cafeteria-ekep.onrender.com/api/meals/${mealId}`,
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/formData',
+                        Accept: 'Application/json',
+                        Authorization: `Bearer ${auth.token}`,
+                    },
+                }
+            )
+            .then((response) => {
+                setLoading(false)
+                toast.success(response.data.message)
+                dispatch(response.data.data)
+                console.log(response.data)
+            })
+            .catch((error) => {
+                setLoading(false)
+                console.error(error)
+            })
+    }
+
+    //     const deleteMeal = aysnc() => {
+
+    // }
+    return { getMeals, getMealLoading, createMeal, loading, getDetails, updateMeal }
 }

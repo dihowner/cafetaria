@@ -7,32 +7,32 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Upload = ({ ref, defaultValue }) => {
-    const [selectedImage, setSelectedImage] = useState(defaultValue);
+const Upload = ({ reff, defaultValue }) => {
+const [selectedImage, setSelectedImage] = useState(defaultValue);
 
-    const handleFileInputChange = (event) => {
-        const file = event.target.files[0]
-        if (file) {
-            const maxSize = 10 * 1024 * 1024; // 10 MB in bytes
-            if (file.size > maxSize) {
-                // Display toast for exceeding file size limit
-                toast.error('File size exceeds the limit of 10 MB. Please choose a smaller file.');
-                return;
-            }
-            const dataUrl = URL.createObjectURL(file);
+    // const handleFileInputChange = (event) => {
+    //     const file = event.target.files[0]
+    //     if (file) {
+    //         const maxSize = 10 * 1024 * 1024; // 10 MB in bytes
+    //         if (file.size > maxSize) {
+    //             // Display toast for exceeding file size limit
+    //             toast.error('File size exceeds the limit of 10 MB. Please choose a smaller file.');
+    //             return;
+    //         }
+    //         const dataUrl = URL.createObjectURL(file);
 
-            const fileFormat = file.type.split('/')[1];
+    //         const fileFormat = file.type.split('/')[1];
 
 
-            if (['png', 'jpeg', 'jpg'].includes(fileFormat)) {
-                setSelectedImage(dataUrl);
-                mealImage(file)
-            } else {
-                // Display toast for invalid file format
-                toast.error('Invalid file format. Please select a PNG, JPEG, or JPG file.');
-            }
-        }
-    };
+    //         if (['png', 'jpeg', 'jpg'].includes(fileFormat)) {
+    //             setSelectedImage(dataUrl);
+
+    //         } else {
+    //             // Display toast for invalid file format
+    //             toast.error('Invalid file format. Please select a PNG, JPEG, or JPG file.');
+    //         }
+    //     }
+    // };
     const VisuallyHiddenInput = styled('input')({
         clip: 'rect(0 0 0 0)',
         clipPath: 'inset(50%)',
@@ -73,10 +73,10 @@ const Upload = ({ ref, defaultValue }) => {
                 >
                     Upload file
                     <VisuallyHiddenInput
-                        ref={ref}
+                        ref={reff}
                         type="file"
                         accept=".png, .jpg, .jpeg"
-                        defaultValue={defaultValue}
+                        // onChange={handleFileInputChange}
                     />
                 </Button>
             </form>

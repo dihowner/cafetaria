@@ -10,6 +10,8 @@ import { LiaTimesSolid } from 'react-icons/lia'
 import { useFetchBankMutation } from '@/redux/Vendor/fetchBankApiSlice'
 import { setBanks } from '@/redux/Vendor/Slices/withdrawSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
+// toast
 // useDispatch
 const WithdrawSec = () => {
     const [isOpenModal, setIsOpenModal] = useState(false)
