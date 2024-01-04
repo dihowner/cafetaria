@@ -97,7 +97,7 @@ const ResturantItems = () => {
                                             </td>
                                             <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>
                                                 <ul className='flex items-center justify-start'>
-                                                    <Link href={`vendor/items/editItem/edit-restuarant-meal/${item._id}`} className='py-1 px-2.5'>
+                                                    <Link href={`items/editItem/edit-restuarant-meal/${item._id}`} className='py-1 px-2.5'>
                                                         <FaEdit />
                                                     </Link>
                                                     <li className='py-1 px-2.5'>
