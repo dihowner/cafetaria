@@ -6,6 +6,7 @@ import StatisticSlice from './DashBoard/StatisticSlice'
 import withdrawSlice from './Vendor/Slices/withdrawSlice'
 import vendordetailsSlice from './Vendor/Slices/vendordetailsSlice'
 import createMealSlice from './Vendor/Slices/createMealSlice'
+import BankDetailsSlice from './Vendor/Slices/BankDetailsSlice'
 
 const rootReducers = combineReducers({
   auth: authSlice,
@@ -13,6 +14,7 @@ const rootReducers = combineReducers({
   banks: withdrawSlice,
   vendorDetails: vendordetailsSlice,
   meals: createMealSlice,
+  bankDetails:BankDetailsSlice
 })
 export const store = configureStore({
   reducer: {

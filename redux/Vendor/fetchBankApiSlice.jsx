@@ -18,8 +18,8 @@ export const verifyBankApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         verifyAccount: builder.mutation({
             query: (data) => ({
-                url: `${BANK_URL}/fetch-banks`,
-                method: 'POST',
+                url: `${BANK_URL}/verify-account`,
+                method: 'GET',
                 body: data
             })
         })
@@ -27,3 +27,19 @@ export const verifyBankApiSlice = apiSlice.injectEndpoints({
 })
 
 export const { useVerifyAccountMutation } = verifyBankApiSlice
+
+
+
+export const saveBankApiSlice = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        saveBank: builder.mutation({
+            query: (data) => ({
+                url: `${BANK_URL}/verify-account`,
+                method: 'GET',
+                body: data
+            })
+        })
+    })
+})
+
+export const { useSaveBankMutation } = saveBankApiSlice
