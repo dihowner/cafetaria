@@ -25,7 +25,7 @@ const layout = ({ children }) => {
 
   const fetchVendorDetails = async () => {
     try {
-      const response = await details(auth?.vendor_id).unwrap()
+      const response = await details(auth?.token).unwrap()
       dispatch(setVendorDetails(response))
     } catch (err) {
       toast.error(err?.data?.message || err.error)

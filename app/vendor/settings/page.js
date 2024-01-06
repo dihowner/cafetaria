@@ -8,6 +8,7 @@ import CustomButton from '@/components/CustomButton'
 import TimeandLocation from '@/components/MerchantDashboard/Settings/Business/TimeandLocation'
 import TypeOfVendor from '@/components/MerchantDashboard/Settings/Business/TypeOfVendor'
 import BankSetUp from '@/components/MerchantDashboard/Settings/BankSetUp'
+import UpdatePin from '@/components/MerchantDashboard/Settings/UpdatePin'
 
 const page = () => {
   const [tab, setTab] = useState('Account information')
@@ -91,8 +92,9 @@ const page = () => {
           </div>
         )}
         {tab === 'Withdrawal information' && (
-          <div className='width'>
+          <div className='width grid grid-cols-1 gap-y-4 gap-x-4 md:grid-cols-2'>
             <BankSetUp />
+            <UpdatePin />
           </div>
         )}
       </>
