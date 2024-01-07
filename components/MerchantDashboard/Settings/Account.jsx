@@ -39,8 +39,30 @@ const Account = () => {
                         ref={phoneRef}
                         defaultValue={details?.user?.mobile_number
                         }
+                        type={'tel'}
                         Icon={<FaPhoneSquare />}
                         disabled={!editMode} />
+                    <div className=' flex md:justify-end w-[80%]'>
+                        <div className='flex gap-x-6 border w-full py-4 px-4'>
+                            <div className='w-24 h-24'>
+                                <img
+                                    src='/Images/Rectangle 86.png'
+                                    alt=''
+                                    className='w-full h-full'
+                                />
+                            </div>
+                            <div className='flex flex-col gap-y-3'>
+                                <h6>Store picture</h6>
+                                <div className='flex gap-x-4 '>
+                                    <CustomButton
+                                        title='Change picture'
+                                        containerStyles='bg-[#218B07] text-white flex justify-center items-center rounded-[5px] px-2 py-3'
+                                    />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div className="w-full flex items-center gap-x-4">
                     {!editMode ? (
@@ -52,7 +74,7 @@ const Account = () => {
                         <>
                             <CustomButton
                                 title={'Save'}
-                                    containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2'
+                                containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2'
                                 type='submit'
                             // handleClick={handleSaveClick}
                             />

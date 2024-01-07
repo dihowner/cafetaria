@@ -5,6 +5,7 @@ import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from '@/components/Loader'
 import Link from 'next/link'
+import DeleteItemModal from './DeleteItemModal'
 const ResturantItems = () => {
 
     const { meals } = useSelector((state) => state.rootReducers);
@@ -14,6 +15,11 @@ const ResturantItems = () => {
     }, [])
     const allMeals = meals?.meals
     const noMealMessage = allMeals && allMeals.length === 0 ? 'No meal Created' : null
+    const [itemId, setItemId] = useState()
+    const [isOpenModal, setIsOpenModal] = useState(false)
+    const openModal = () => {
+        setIsOpenModal(true)
+    }
     return (
         <>
             {getMealLoading ? <Loader /> : <>
@@ -97,10 +103,15 @@ const ResturantItems = () => {
                                             </td>
                                             <td className='text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'>
                                                 <ul className='flex items-center justify-start'>
-                                                    <Link href={`items/editItem/edit-restuarant-meal/${item._id}`} className='py-1 px-2.5'>
+                                                    <Link href={`items/editItem/edit-restuarant-meal/${item?._id}`} className='py-1 px-2.5'>
                                                         <FaEdit />
                                                     </Link>
-                                                    <li className='py-1 px-2.5'>
+                                                    <li className='py-1 px-2.5' onClick={() => {
+                                                        openModal()
+                                                        setItemId(item)
+                                                    }}
+                                                    >
+                                                        {/* {item?._id} */}
                                                         <FaTrash />
                                                     </li>
                                                     <li className='py-1 px-2.5'>
@@ -117,6 +128,7 @@ const ResturantItems = () => {
                 </div>)}
             </>
             }
+            <DeleteItemModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} itemID={itemId} />
         </>
 
     )

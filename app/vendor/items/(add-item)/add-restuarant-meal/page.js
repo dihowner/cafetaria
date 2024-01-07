@@ -5,13 +5,17 @@ import InputsCustom from '@/components/InputsCustom'
 import Upload from '@/components/Upload'
 import Button from '@mui/material/Button'
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
+import { useRouter } from 'next/navigation'
 const page = () => {
   const status = [
     { value: true, status: 'Active' },
     { value: false, status: 'Not Active' },
   ]
   const [checked, setChecked] = React.useState(true)
-
+  const router = useRouter()
+  const itemPage = () => {
+    router.back()
+  }
   const handleChange = (event) => {
     setChecked(event.target.checked)
   }
@@ -54,7 +58,7 @@ const page = () => {
       },
     }
     formData.append('packaging', JSON.stringify(packagingData))
-    await createMeal(formData)
+    await createMeal(formData,itemPage)
   }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
