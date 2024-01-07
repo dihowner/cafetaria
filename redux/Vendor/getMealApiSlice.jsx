@@ -34,6 +34,22 @@ export const getMealDetailsApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
+export const deleteMealApiSlice = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        deleteMeal: builder.mutation({
+            query: ({ token, params }) => ({
+                url: `${VENDORMEALDETAILS_URL}/${params}`,
+                method: 'DELETE',
+                headers: {
+                    // Add your headers here
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+        })
+    })
+})
 
 export const { useGetMealMutation } = getMealApiSlice
 export const { useGetMealDetailsMutation } = getMealDetailsApiSlice
+export const { useDeleteMealMutation} = deleteMealApiSlice

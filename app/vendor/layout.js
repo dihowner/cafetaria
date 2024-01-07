@@ -16,19 +16,27 @@ import { useDetailsMutation } from '@/redux/Vendor/vendorsApiSlice'
 import { setVendorDetails } from '@/redux/Vendor/Slices/vendordetailsSlice'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/navigation'
+import { logout } from '../../user/authSlice'
+
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
 
   const [details, data] = useDetailsMutation()
   const dispatch = useDispatch()
   const { auth } = useSelector((state) => state.rootReducers)
-
+  const router = useRouter()
   const fetchVendorDetails = async () => {
     try {
       const response = await details(auth?.token).unwrap()
       dispatch(setVendorDetails(response))
     } catch (err) {
-      toast.error(err?.data?.message || err.error)
+      console.log(err)
+      toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
+      if (err.status === 401) {
+        dispatch(logout())
+        router.push('/vendor/login')
+      }
     }
   }
   useEffect(() => {

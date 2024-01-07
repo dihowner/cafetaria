@@ -1,5 +1,5 @@
 import { set_Meals, deleteMeal } from '@/redux/Vendor/Slices/createMealSlice';
-import { useGetMealMutation } from '@/redux/Vendor/getMealApiSlice'
+import { useDeleteMealMutation, useGetMealMutation } from '@/redux/Vendor/getMealApiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import axios from 'axios'
@@ -9,6 +9,7 @@ export const mealsfetch = () => {
     const [getMeal, { isLoading: getMealLoading }] = useGetMealMutation()
     const [getMealDetails, { isLoading: DetailsLoading }] =
         useGetMealDetailsMutation()
+    const [deleteMeal, { isLoading: deleteMealLoading }] = useDeleteMealMutation()
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.rootReducers);
     const getMeals = async () => {
@@ -20,7 +21,7 @@ export const mealsfetch = () => {
         }
     }
     const [loading, setLoading] = useState(false)
-    const createMeal = async (formData) => {
+    const createMeal = async (formData, itemPage) => {
         setLoading(true)
         await axios
             .post(
@@ -36,7 +37,9 @@ export const mealsfetch = () => {
             )
             .then((response) => {
                 setLoading(false)
-                console.log(response.data)
+                toast.success(response.data.message)
+                
+                itemPage()
             })
             .catch((error) => {
                 setLoading(false)
@@ -79,8 +82,18 @@ export const mealsfetch = () => {
             })
     }
 
-    //     const deleteMeal = aysnc() => {
 
-    // }
-    return { getMeals, getMealLoading, createMeal, loading, getDetails, updateMeal }
+    const deleteAMeal = async (mealId, setIsOpenModal) => {
+        try {
+            await deleteMeal({ params: mealId, token: auth.token }).unwrap()
+            toast.success('Meal has been deleted successfully')
+            getMeals()
+            setIsOpenModal(false)
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+        }
+
+    }
+
+    return { getMeals, getMealLoading, createMeal, loading, getDetails, updateMeal, deleteAMeal, deleteMealLoading }
 }

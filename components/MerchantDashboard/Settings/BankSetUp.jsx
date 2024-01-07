@@ -8,6 +8,7 @@ import InputsCustom from '@/components/InputsCustom'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch, useSelector } from 'react-redux'
+import Button from '@mui/material/Button'
 
 import { BanksFetch } from '@/components/Utilis/Fetch/BankFetch'
 
@@ -31,20 +32,24 @@ const BankSetUp = () => {
         account_number: bankAccount
     }
 
-    const info={
+    const info = {
         bank_code: bank_code,
         account_number: bankAccount,
-        account_name:bankAccount_name,
-        transact_pin:transactionPin
+        account_name: bankAccount_name,
+        transact_pin: transactionPin
     }
     useEffect(() => {
         Allbanks()
     }, [])
-    useEffect(() => {
-        if (bankAccount?.length === 10) {
-            verifyBank(data, setBankAccount_name);
-        }
-    }, [bankAccount]);
+    const verify = () => {
+        verifyBank(data, setBankAccount_name);
+        console.log(data)
+    }
+    // useEffect(() => {
+    //     if (bankAccount?.length === 10) {
+    //         verifyBank(data, setBankAccount_name);
+    //     }
+    // }, []);
     return (
         <div className='w-full border p-4 flex flex-col gap-y-8 '>
             <h1 className='font-[700] text-3xl'>Bank account information</h1>
@@ -71,10 +76,21 @@ const BankSetUp = () => {
 
                 </div>
                 <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
+
                     <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' value={bankAccount} onChange={(e) => setBankAccount(e.target.value)} />
+                    <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' value={bankAccount} onChange={(e) => setBankAccount(e.target.value)} />
+                    <Button
+                        sx={{
+                            backgroundColor: '#218B07',
+                            color: '#ffffff',
+                            '&:hover': {
+                                backgroundColor: '#218B07',
+                            },
+                        }}
+                        onClick={verify}
+                    > Verify Account</Button>
                 </div>
                 <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
@@ -86,7 +102,7 @@ const BankSetUp = () => {
                     <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account name ' value={transactionPin} onChange={(e)=>setTransactionPin(e.target.value)} />
+                    <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Your transaction pin ' value={transactionPin} onChange={(e) => setTransactionPin(e.target.value)} />
                 </div>
                 <CustomButton title='Save Bank Account' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[60%]'
                     Icon={<BiMoneyWithdraw />}
