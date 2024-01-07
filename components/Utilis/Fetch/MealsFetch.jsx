@@ -1,4 +1,4 @@
-import { set_Meals, deleteMeal } from '@/redux/Vendor/Slices/createMealSlice';
+import { set_Meals, deleteMeal, createMeal, updateMeal } from '@/redux/Vendor/Slices/createMealSlice';
 import { useDeleteMealMutation, useGetMealMutation } from '@/redux/Vendor/getMealApiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
@@ -38,8 +38,9 @@ export const mealsfetch = () => {
             .then((response) => {
                 setLoading(false)
                 toast.success(response.data.message)
-                
+                dispatch(response.data.data)
                 itemPage()
+                // console.log(response)
             })
             .catch((error) => {
                 setLoading(false)
@@ -85,9 +86,10 @@ export const mealsfetch = () => {
 
     const deleteAMeal = async (mealId, setIsOpenModal) => {
         try {
-            await deleteMeal({ params: mealId, token: auth.token }).unwrap()
+            const response = await deleteMeal({ params: mealId, token: auth.token }).unwrap()
             toast.success('Meal has been deleted successfully')
             getMeals()
+            // console.log(response)
             setIsOpenModal(false)
         } catch (err) {
             toast.error(err?.data?.message || err.error);
