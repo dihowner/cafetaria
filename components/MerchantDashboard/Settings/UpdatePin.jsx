@@ -3,25 +3,50 @@ import InputsCustom from '@/components/InputsCustom'
 import Button from '@mui/material/Button'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { toast } from 'react-toastify';
+import { BanksFetch } from '@/components/Utilis/Fetch/BankFetch';
+import AppLoader from '@/components/AppLoader';
 
 const UpdatePin = () => {
     const [currentPin, setCurrentPin] = useState()
     const [Newpin, setNewPin] = useState()
     const [cNewpin, setCNewPin] = useState()
     const [passwordVisible, setPasswordVisible] = useState(false);
-
+    const { updatePin, loading } = BanksFetch()
     const togglePassVisibility = () => {
         setPasswordVisible((prevVisibility) => !prevVisibility);
     };
+
+    const data = {
+        current_pin: currentPin,
+        new_pin: Newpin,
+        confirm_pin: cNewpin
+    }
+    const handleUpdatePin = async (e) => {
+        e.preventDefault()
+        await updatePin(data)
+    }
     return (
         <div className='w-full border p-4 flex flex-col gap-y-8 '><h1 className='font-[700] text-3xl'>Create payment pin</h1>
-            <form className="flex flex-col gap-y-4">
+            {/* {loading && <AppLoader />} */}
+            <form className="flex flex-col gap-y-4" onSubmit={handleUpdatePin}>
                 <span className='text-[#218B07]'>Please only Enter numbers</span>
                 <div className=' flex flex-col w-full'>
                     <label htmlFor="name">{"Current Pin"}</label>
                     <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
-                        <input type={passwordVisible ? 'number' : 'password'} value={currentPin} onChange={(e) => setCurrentPin(e.target.value)} placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
+                        <input type={passwordVisible ? 'number' : 'password'} value={currentPin} onChange={(e) => {
+                            const inputValue = e.target.value;
+                            // Enforce maximum length (e.g., 6 digits)
+                            setCurrentPin(inputValue.slice(0, 6));
+                        }} placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
+                            maxLength={6}
+                            onKeyDown={(e) => {
+                                // Allow only numeric input
+                                if (!/\d/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                                    e.preventDefault();
+                                }
+                            }}
+
                         />
 
                         <div
@@ -43,8 +68,19 @@ const UpdatePin = () => {
                     <label htmlFor="name">{"New Pin"}</label>
                     <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
-                        <input type={passwordVisible ? 'number' : 'password'} value={Newpin} onChange={(e) => setNewPin(e.target.value)} placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
+                        <input type={passwordVisible ? 'number' : 'password'} value={Newpin} onChange={(e) => {
+                            const inputValue = e.target.value;
+                            // Enforce maximum length (e.g., 6 digits)
+                            setNewPin(inputValue.slice(0, 6));
+                        }
+                        } placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
                             maxLength={6}
+                            onKeyDown={(e) => {
+                                // Allow only numeric input
+                                if (!/\d/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                                    e.preventDefault();
+                                }
+                            }}
                         />
 
                         <div
@@ -66,8 +102,18 @@ const UpdatePin = () => {
                     <label htmlFor="name">{"New Pin"}</label>
                     <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
-                        <input type={passwordVisible ? 'number' : 'password'} value={cNewpin} onChange={(e) => setCNewPin(e.target.value)} placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
+                        <input type={passwordVisible ? 'number' : 'password'} value={cNewpin} onChange={(e) => {
+                            const inputValue = e.target.value;
+                            // Enforce maximum length (e.g., 6 digits)
+                            setCNewPin(inputValue.slice(0, 6));
+                        }} placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
                             maxLength={6}
+                            onKeyDown={(e) => {
+                                // Allow only numeric input
+                                if (!/\d/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                                    e.preventDefault();
+                                }
+                            }}
                         />
 
                         <div
@@ -95,7 +141,8 @@ const UpdatePin = () => {
                         }}
                         type='submit'
                     >
-                        Update Pin
+                        {loading ? 'loading' : '   Update Pin'}
+
                     </Button>
                 </div>
             </form>

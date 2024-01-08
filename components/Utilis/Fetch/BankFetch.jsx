@@ -11,7 +11,7 @@ import axios from 'axios'
 
 export const BanksFetch = () => {
     const dispatch = useDispatch();
-    // const { banks } = useSelector((state) => state.rootReducers)
+    const { auth } = useSelector((state) => state.rootReducers)
     const [fetchBank, { isLoading: fetchBankLoading }] = useFetchBankMutation()
     const [loading, setLoading] = useState(false)
 
@@ -32,29 +32,57 @@ export const BanksFetch = () => {
     }
 
 
-    const verifyBank = async (data,setBankAccount_name) => {
+    const verifyBank = async (data, setBankAccount_name) => {
+        setLoading(true)
         await axios
             .post(
                 'https://cafeteria-ekep.onrender.com/api/banks/verify-account', data
-                   
+
             )
             .then((response) => {
                 // if(status===success){}
                 setLoading(false)
-                setBankAccount_name(response?.data?.account_name)
-                toast.success(response?.message)
-                console.log(data)
+                setBankAccount_name(response?.data?.data?.account_name)
+                toast.success(response?.data.message||response.error)
+                // console.log(response)
             })
             .catch((err) => {
-                toast.error(err?.message || err.error);
+                console.log(err)
+                toast.error(err?.response?.data?.message || err.message);
             })
     }
-    const saveBankDetails = async () => {
+    const saveBankDetails = async (info) => {
         try {
-            const response = await saveBank().unwrap()
+            const response = await saveBank({ info: info, token: auth.token }).unwrap()
         } catch (err) {
             toast.error(err?.data?.message || err.error);
         }
     }
-    return { verifyBank, Allbanks, fetchBankLoading, saveBankDetails, loading }
+    const updatePin = async (data) => {
+        setLoading(true)
+        await axios
+            .put(
+                'https://cafeteria-ekep.onrender.com/api/user/modify-tx-pin', data, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Accept: 'Application/json',
+                    Authorization: `Bearer ${auth.token}`,
+                },
+            }
+
+            )
+            .then((response) => {
+                // if(status===success){}
+                setLoading(false)
+
+                console.log(response)
+            })
+            .catch((err) => {
+                setLoading(false)
+                // console.log(err)
+                toast.error(err?.response?.data?.message || err.error);
+            })
+    }
+
+    return { verifyBank, Allbanks, fetchBankLoading, saveBankDetails, loading, updatePin }
 }

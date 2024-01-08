@@ -18,7 +18,7 @@ const BankSetUp = () => {
     const [bankAccount, setBankAccount] = useState()
     const [bankAccount_name, setBankAccount_name] = useState()
     const [transactionPin, setTransactionPin] = useState()
-    const { Allbanks, verifyBank, fetchBankLoading } = BanksFetch()
+    const { Allbanks, verifyBank, fetchBankLoading, saveBankDetails } = BanksFetch()
     const options = banks?.banks?.map((bank) => ({ label: bank.bank_name, value: bank.bank_code })) || [];
     const handleBankChange = (event, value) => {
         if (value) {
@@ -43,7 +43,11 @@ const BankSetUp = () => {
     }, [])
     const verify = () => {
         verifyBank(data, setBankAccount_name);
-        console.log(data)
+        // console.log(data)
+    }
+    const SaveBank = async (e) => {
+        e.preventDefault()
+        await saveBankDetails(info)
     }
     // useEffect(() => {
     //     if (bankAccount?.length === 10) {
@@ -59,7 +63,7 @@ const BankSetUp = () => {
                 </span>
                 <p>Bank account</p>
             </div>
-            <div className="flex flex-col gap-y-4">
+            <form onSubmit={SaveBank} className="flex flex-col gap-y-4">
                 <span className='text-[#218B07]'>Enter bank details</span>
                 <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-3 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-3  flex justify-center items-center rounded-lg'>
@@ -105,9 +109,10 @@ const BankSetUp = () => {
                     <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Your transaction pin ' value={transactionPin} onChange={(e) => setTransactionPin(e.target.value)} />
                 </div>
                 <CustomButton title='Save Bank Account' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[60%]'
+                    type={'submit'}
                     Icon={<BiMoneyWithdraw />}
                 />
-            </div>
+            </form>
 
         </div>
     )

@@ -21,7 +21,7 @@ export const mealsfetch = () => {
         }
     }
     const [loading, setLoading] = useState(false)
-    const createMeal = async (formData, itemPage) => {
+    const createMeals = async (formData, itemPage) => {
         setLoading(true)
         await axios
             .post(
@@ -38,7 +38,7 @@ export const mealsfetch = () => {
             .then((response) => {
                 setLoading(false)
                 toast.success(response.data.message)
-                dispatch(response.data.data)
+                dispatch(createMeal(response.data.data))
                 itemPage()
                 // console.log(response)
             })
@@ -57,7 +57,7 @@ export const mealsfetch = () => {
         }
     }
 
-    const updateMeal = async (formData, mealId) => {
+    const updateMeals = async (formData, mealId) => {
         setLoading(true)
         await axios
             .put(
@@ -74,8 +74,8 @@ export const mealsfetch = () => {
             .then((response) => {
                 setLoading(false)
                 toast.success(response.data.message)
-                dispatch(response.data.data)
-                console.log(response.data)
+                dispatch(updateMeal(response.data.data))
+                // console.log(response.data)
             })
             .catch((error) => {
                 setLoading(false)
@@ -96,6 +96,30 @@ export const mealsfetch = () => {
         }
 
     }
-
-    return { getMeals, getMealLoading, createMeal, loading, getDetails, updateMeal, deleteAMeal, deleteMealLoading }
+    const changeAvailabilty = async (formData, mealId) => {
+        setLoading(true)
+        await axios
+            .put(
+                `https://cafeteria-ekep.onrender.com/api/meals/${mealId}`,
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/formData',
+                        Accept: 'Application/json',
+                        Authorization: `Bearer ${auth.token}`,
+                    },
+                }
+            )
+            .then((response) => {
+                setLoading(false)
+                toast.success(response.data.message)
+                dispatch(updateMeal(response.data.data))
+                // console.log(response.data)
+            })
+            .catch((error) => {
+                setLoading(false)
+                console.error(error)
+            })
+    }
+    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading }
 }

@@ -96,7 +96,7 @@ const ResturantItems = () => {
                                             </td>
                                             <td className='px-6 py-4 whitespace-nowrap text-sm font-medium '>
                                                 <Switch
-                                                    // checked={checked}
+                                                    checked={item?.isAvailable}
                                                     // onChange={handleChange}
                                                     inputProps={{ 'aria-label': 'controlled' }}
                                                 />
@@ -106,7 +106,7 @@ const ResturantItems = () => {
                                                     <Link href={`items/editItem/edit-restuarant-meal/${item?._id}`} className='py-1 px-2.5'>
                                                         <FaEdit />
                                                     </Link>
-                                                    <li className='py-1 px-2.5' onClick={() => {
+                                                    <li className='py-1 px-2.5 cursor-pointer' onClick={() => {
                                                         openModal()
                                                         setItemId(item)
                                                     }}

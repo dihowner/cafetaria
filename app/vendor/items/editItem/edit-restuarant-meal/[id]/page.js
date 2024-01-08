@@ -31,7 +31,7 @@ const page = ({ params }) => {
   const is_requiredstyrofoam = useRef(null)
   const is_requiredplasticPlate = useRef(null)
   const mealImage = useRef(null)
-  const { updateMeal } = mealsfetch()
+  const { updateMeals } = mealsfetch()
   const update = async (e) => {
     e.preventDefault()
     const formData = new FormData()
@@ -52,7 +52,7 @@ const page = ({ params }) => {
       },
     }
     formData.append('packaging', JSON.stringify(Packaging))
-    await updateMeal(formData, mealId)
+    await updateMeals(formData, mealId)
     // console.log(formData)
   }
   return (
