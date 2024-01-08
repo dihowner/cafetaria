@@ -38,7 +38,7 @@ const page = () => {
     }))
   }
 
-  const { createMeal } = mealsfetch()
+  const { createMeals, loading } = mealsfetch()
   const handlesubmit = async (e) => {
     e.preventDefault()
     const formData = new FormData()
@@ -58,7 +58,7 @@ const page = () => {
       },
     }
     formData.append('packaging', JSON.stringify(packagingData))
-    await createMeal(formData,itemPage)
+    await createMeals(formData, itemPage)
   }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
@@ -229,7 +229,7 @@ const page = () => {
             }}
             type='submit'
           >
-            Create Meal
+            {loading ? 'Please wait' : ' Create Meal'}
           </Button>
         </div>
       </form>
