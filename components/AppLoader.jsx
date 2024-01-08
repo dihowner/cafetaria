@@ -1,12 +1,16 @@
 import React from 'react'
-
-const AppLoader = () => {
+import { useState, CSSProperties } from "react";
+import ScaleLoader from "react-spinners/ScaleLoader";
+const AppLoader = ({ loading, color }) => {
     return (
-        <div class="overlay">
-            <div class="overlay__inner">
-                <div class="overlay__content"><span class="spinner"></span></div>
-            </div>
+        <div className='loader'>
+            <ScaleLoader
+                color={color}
+                loading={loading}
+                speedMultiplier={'1.2'}
+            />
         </div>
+
     )
 }
 
