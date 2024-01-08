@@ -24,6 +24,9 @@ const UpdatePin = () => {
     const handleUpdatePin = async (e) => {
         e.preventDefault()
         await updatePin(data)
+        setCNewPin('')
+        setNewPin('')
+        setCurrentPin('')
     }
     return (
         <div className='w-full border p-4 flex flex-col gap-y-8 '><h1 className='font-[700] text-3xl'>Create payment pin</h1>

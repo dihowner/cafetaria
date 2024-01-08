@@ -43,12 +43,12 @@ export const BanksFetch = () => {
                 // if(status===success){}
                 setLoading(false)
                 setBankAccount_name(response?.data?.data?.account_name)
-                toast.success(response?.data.message||response.error)
-                // console.log(response)
+                toast.success(response?.data.message)
+                console.log(response)
             })
             .catch((err) => {
                 console.log(err)
-                toast.error(err?.response?.data?.message || err.message);
+                toast.error(err?.data?.error || err.message);
             })
     }
     const saveBankDetails = async (info) => {
@@ -74,7 +74,7 @@ export const BanksFetch = () => {
             .then((response) => {
                 // if(status===success){}
                 setLoading(false)
-
+                toast.success(response?.data?.message)
                 console.log(response)
             })
             .catch((err) => {
