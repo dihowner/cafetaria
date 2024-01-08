@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useGetMealDetailsMutation } from '@/redux/Vendor/getMealApiSlice'
 export const mealsfetch = () => {
     const [getMeal, { isLoading: getMealLoading }] = useGetMealMutation()
+    const [error, setError] = useState()
     const [getMealDetails, { isLoading: DetailsLoading }] =
         useGetMealDetailsMutation()
     const [deleteMeal, { isLoading: deleteMealLoading }] = useDeleteMealMutation()
@@ -18,6 +19,7 @@ export const mealsfetch = () => {
             dispatch(set_Meals(response))
         } catch (err) {
             toast.error(err?.data?.message || err.error);
+            setError(err.error)
         }
     }
     const [loading, setLoading] = useState(false)
@@ -62,7 +64,7 @@ export const mealsfetch = () => {
         await axios
             .put(
                 `https://cafeteria-ekep.onrender.com/api/meals/${mealId}`,
-                formData,
+                formData,   
                 {
                     headers: {
                         'Content-Type': 'multipart/formData',
@@ -121,5 +123,5 @@ export const mealsfetch = () => {
                 console.error(error)
             })
     }
-    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading }
+    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty }
 }
