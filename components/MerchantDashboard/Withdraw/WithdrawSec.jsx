@@ -19,25 +19,8 @@ const WithdrawSec = () => {
         setIsOpenModal(true)
     }
     const dispatch = useDispatch();
-    const { banks } = useSelector((state) => state.rootReducers)
-    const [fetchBank, { isSuccess }] = useFetchBankMutation()
-
-    const Allbanks = async () => {
-        try {
-
-            const response = await fetchBank().unwrap()
-            // if (isSuccess) {
-            dispatch(setBanks(response))
-            // }
-        } catch (err) {
-            toast.error(err?.data?.message || err.error);
-        }
-    }
-
-    useEffect(() => {
-        Allbanks()
-    }, [])
-    // console.log(banks.banks)
+    const { bankDetails } = useSelector((state) => state.rootReducers)
+console.log(bankDetails)
     return (
         <div className='w-full md:w-[50%] border p-4 flex flex-col gap-y-8 '>
             <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
@@ -54,9 +37,7 @@ const WithdrawSec = () => {
                     </span>
                     <select name="" id="" className='bg-[transparent] capitalize w-[80%]' defaultValue="defaultBank">
                         <option value="defaultBank" disabled>Select your bank</option>
-                        {banks.banks && banks.banks.map((item, index) => (
-                            <option value="" key={index} >{item?.bank_name}</option>
-                        ))}
+                    
                     </select>
                 </div>
                 <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">

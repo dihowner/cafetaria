@@ -77,7 +77,7 @@ export const BanksFetch = () => {
                 // if(status===success){}
                 setLoading(false)
                 toast.success(response?.data?.message)
-                console.log(response)
+                // console.log(response)
             })
             .catch((err) => {
                 setLoading(false)

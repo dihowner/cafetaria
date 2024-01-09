@@ -4,6 +4,7 @@ import { FaPhoneSquare, FaRegUser } from "react-icons/fa";
 import CustomButton from '@/components/CustomButton';
 import { useSelector, useDispatch } from 'react-redux';
 import EditInput from '@/components/EditInput';
+import TypeOfVendor from './Business/TypeOfVendor';
 const Account = () => {
     const { vendorDetails } = useSelector((state) => state.rootReducers)
     const [editMode, setEditMode] = useState(false);
@@ -25,11 +26,20 @@ const Account = () => {
             <p className='text-[#00000066] text-sm'>These are your public information, be careful what u share</p>
             <form action="" className='flex flex-col gap-y-16'>
                 <div className="flex flex-col gap-y-3 w-full">
-                    <EditInput title='Email Address'
+                    <div className=' flex flex-col w-full'>
+                        <label htmlFor="name">{'Email Address'}</label>
+                        <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                            <input type={'text'}
+                                defaultValue={details?.user?.email} className='w-full outline-none border-none bg-transparent'
+                                disabled
+                            />
+                        </div>
+                    </div>
+                    {/* <EditInput title='Email Address'
                         ref={emailRef}
                         defaultValue={details?.user?.email}
                         Icon={<HiOutlineEnvelope />}
-                        disabled={!editMode} />
+                        disabled={!editMode} /> */}
                     <EditInput title='Store name'
                         ref={storeNameRef}
                         defaultValue={details?.store_name}
@@ -61,6 +71,14 @@ const Account = () => {
 
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <TypeOfVendor />
+                    <div className="flex flex-col gap-y-2">
+                        <label htmlFor="" className='font-bold'>Business description</label>
+                        <div className="bg-[#F5F5F5]  w-[100%] sm:w-[70%] md:w-[70%] rounded-xl py-4 px-2 ">
+                            <textarea name="" id="" cols="30" rows="8" className='w-full bg-transparent outline-none border-0' placeholder='A short description of your business'></textarea>
+
                         </div>
                     </div>
                 </div>

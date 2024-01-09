@@ -7,12 +7,13 @@ import Image from 'next/image'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { ImCancelCircle } from 'react-icons/im'
 import { usePathname, useRouter } from 'next/navigation'
-import { useSelector } from 'react-redux'
 import CustomButton from '../CustomButton'
 import { FaBars } from 'react-icons/fa'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsWechat, BsChatDots } from 'react-icons/bs'
-import { redirect } from 'next/navigation'
+import { useSelector, useDispatch } from 'react-redux'
+import { useDetailsMutation } from '@/redux/Vendor/vendorsApiSlice'
+import { setVendorDetails } from '@/redux/Vendor/Slices/vendordetailsSlice'
 const Header = () => {
   const [toggle, setToggle] = useState(false)
   const [isFixed, setIsFixed] = useState(false)
@@ -24,7 +25,6 @@ const Header = () => {
       setIsAuth(true)
     }
   }, [isAuth, auth])
-  const shouldDisableButton = true;
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -42,7 +42,40 @@ const Header = () => {
     }
   }, [])
   const pathname = usePathname()
+  const [details, data] = useDetailsMutation()
+  const dispatch = useDispatch()
+  const fetchVendorDetails = async () => {
+    try {
+      const response = await details(auth?.token).unwrap()
+      dispatch(setVendorDetails(response))
+    } catch (err) {
+      // console.log(err)
+      // toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
+      if (err.status === 401) {
+        dispatch(logout())
+      }
+    }
+  }
+  const fetchUserDetails = async () => {
+    try {
+      const response = await details(auth?.token).unwrap()
+      // dispatch(setVendorDetails(response))
+    } catch (err) {
+      // console.log(err)
+      // toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
+      if (err.status === 401) {
+        dispatch(logout())
 
+      }
+    }
+  }
+  useEffect(() => {
+    if (auth?.user === 'vendor') {
+      fetchVendorDetails()
+    } else if (auth?.user === 'user') {
+      fetchUserDetails()
+    }
+  }, [])
   return (
     <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999] shadow-md' : 'w-[100%] flex justify-center items-center bg-[white] py-3 transition-all duration-75 shadow-md '}`}>
       <div className='flex width justify-between items-center'>
@@ -92,7 +125,7 @@ const Header = () => {
         {
           isAuth ?
             <>
-              <div className="flex gap-x-6">
+              {auth?.user === 'user' ? <div className="flex gap-x-6">
                 <CustomButton
                   title='Cart 16' containerStyles=' hidden md:flex text-[white] flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
                   Icon={<AiOutlineShoppingCart />}
@@ -113,7 +146,24 @@ const Header = () => {
                 >
                   <FaBars />
                 </div>
-              </div>
+              </div> : <>
+                <div className="md:flex justify-center hidden items-center gap-x-2">
+                  <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-3xl h-12 w-12  text-[#FFFFFF]">
+                    <BsWechat />
+                  </div>
+                  <div className="bg-[#C9C9C9] rounded-[8px] text-lg h-12 w-12 text-[#FFFFFF]">
+                    <img src="/Rectangle 87.png" alt="" className='w-full h-full' />
+                  </div>
+                  <div
+                    className='md:flex items-center gap-x-4 capitalize  text-4xl hidden  '
+
+                  >
+                    <FaBars />
+                  </div>
+                </div>
+
+              </>}
+
             </> :
             (
               <div className='loginandsigup hidden md:flex gap-x-4 justify-center items-center'>
@@ -130,37 +180,25 @@ const Header = () => {
               setToggle(true)
             }}
           />{' '}
-          <CustomButton
+
+          {auth.user === 'user' ? <CustomButton
             title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
             Icon={<AiOutlineShoppingCart />}
             handleClick={() => router.push('/client/cart')}
             disable_btn={false}
-          // handleClick={router.push('/client/cart')}
-          />
+          /> : null}
+          {/* <CustomButton
+            title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+            Icon={<AiOutlineShoppingCart />}
+            handleClick={() => router.push('/client/cart')}
+            disable_btn={false}
+          /> */}
         </div>
       </div>
 
       {toggle && (
         <div className="mediumscreen block md:hidden">
-          {/* {
-            isAuth ?
-              <>
-                <div className="flex gap-x-6 flex-row-reverse gap-y-4 justify-between items-center">
-             
-                  <div className="flex justify-center items-center gap-x-2 flex-row-reverse">
-                    <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-3xl h-16 w-16  text-[#FFFFFF]">
-                      <BsWechat />
-                    </div>
-                    <div className="bg-[#C9C9C9] rounded-[8px] text-lg h-16 w-16 text-[#FFFFFF]">
-                      <img src="/Rectangle 87.png" alt="" className='w-full h-full' />
-                    </div>
-                  </div>
 
-                </div>
-              </> :
-              (
-                ''
-              )} */}
           <ul className='flex gap-y-6 flex-col text-lg'>
             <ImCancelCircle
               onClick={() => {
@@ -215,15 +253,26 @@ const Header = () => {
             </li>
             {
               isAuth ?
+                <>
+                  {auth?.user === 'user' ? <CustomButton
+                    title='Dashboard' containerStyles='text-[#FF9C06] md:hidden  flex justify-center bg-[white] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
 
-                <CustomButton
-                  title='Dashboard' containerStyles='text-[#FF9C06] md:hidden  flex justify-center bg-[white] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+                    handleClick={() => router.push('/client/dashboard')}
 
-                  handleClick={() => router.push('/client/dashboard')}
+                    disable_btn={false}
 
-                  disable_btn={false}
+                  /> : <>
+                    <CustomButton
+                      title='Dashboard' containerStyles='text-[#FF9C06] md:hidden  flex justify-center bg-[white] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
 
-                />
+                      handleClick={() => router.push('/vendor/dashboard')}
+
+                      disable_btn={false}
+
+                    />
+                  </>}
+                </>
+
                 :
                 (
                   <>

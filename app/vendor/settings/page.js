@@ -42,14 +42,14 @@ const page = () => {
               Account information{' '}
             </h1>
             <h1
-              onClick={(e) => changeTab('Business information')}
+              onClick={(e) => changeTab('Security information')}
               className={`${
                 tab === 'Business information'
                   ? 'text-lg md:text-2xl text-[#218B07]  border-[#218B07] border p-4 font-semibold cursor-pointer'
                   : 'text-lg md:text-2xl text-[#00000033] font-semibold cursor-pointer'
               }`}
             >
-              Business information
+              Security information
             </h1>
             <h1
               onClick={(e) => changeTab('Withdrawal information')}
@@ -68,16 +68,16 @@ const page = () => {
         {tab === 'Account information' && (
           <div className='grid grid-cols-1 gap-y-4 md:grid-cols-2 width gap-x-4'>
             <Account />
-            <Security />
+            <TimeandLocation />
           </div>
         )}
-        {tab === 'Business information' && (
+        {tab === 'Security information' && (
           <div className='width flex flex-col gap-y-6'>
             <div className='grid grid-cols-1 gap-y-4 md:grid-cols-3 w-full gap-x-4'>
-              <TimeandLocation />
-              <TypeOfVendor />
+              <Security />
+              {/* <TypeOfVendor /> */}
             </div>
-            <div className='w-[100%] md:w-[70%] flex items-center gap-x-4 '>
+            {/* <div className='w-[100%] md:w-[70%] flex items-center gap-x-4 '>
               <CustomButton
                 title='save'
                 containerStyles='bg-[#218B07] text-white flex justify-center items-center py-4 px-8 rounded-[5px] gap-x-4 w-1/2'
@@ -88,7 +88,7 @@ const page = () => {
                 containerStyles='border text-black border-black flex justify-center items-center py-4 px-8 rounded-[5px] gap-x-4 w-1/2'
                 type='submit'
               />
-            </div>
+            </div> */}
           </div>
         )}
         {tab === 'Withdrawal information' && (

@@ -44,9 +44,10 @@ export const mealsfetch = () => {
                 itemPage()
                 // console.log(response)
             })
-            .catch((error) => {
+            .catch((err) => {
                 setLoading(false)
-                console.error(error)
+                toast.error(err?.response?.data?.message || err.error);
+                // console.error(error)
             })
     }
     const getDetails = async (setDetails, mealId) => {
@@ -79,9 +80,10 @@ export const mealsfetch = () => {
                 dispatch(updateMeal(response.data.data))
                 // console.log(response.data)
             })
-            .catch((error) => {
+            .catch((err) => {
                 setLoading(false)
-                console.error(error)
+                toast.error(err?.response?.data?.message || err.error);
+                // console.error(error)
             })
     }
 
@@ -118,9 +120,10 @@ export const mealsfetch = () => {
                 dispatch(updateMeal(response.data.data))
                 // console.log(response.data)
             })
-            .catch((error) => {
+            .catch((err) => {
                 setLoading(false)
-                console.error(error)
+                // console.error(error)
+                toast.error(err?.response?.data?.message || err.error);
             })
     }
     return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty }
