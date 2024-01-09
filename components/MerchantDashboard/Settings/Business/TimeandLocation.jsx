@@ -4,7 +4,7 @@ import React from 'react'
 import { HiOutlineLocationMarker } from 'react-icons/hi'
 const TimeandLocation = () => {
     return (
-        <div className='col-span-2 w-full capitalize flex flex-col gap-y-8 order-2 md:order-1'>
+        <div className=''>
             <div className="flex w-full flex-col gap-y-2">
                 <Map />
                 <label htmlFor="" className='font-bold'>Business location</label>
@@ -148,14 +148,6 @@ const TimeandLocation = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col gap-y-2">
-                <label htmlFor="" className='font-bold'>Business description</label>
-                <div className="bg-[#F5F5F5]  w-[100%] sm:w-[70%] md:w-[70%] rounded-xl py-4 px-2 ">
-                    <textarea name="" id="" cols="30" rows="8" className='w-full bg-transparent outline-none border-0' placeholder='A short description of your business'></textarea>
-
-                </div>
-            </div>
-
         </div>
     )
 }
