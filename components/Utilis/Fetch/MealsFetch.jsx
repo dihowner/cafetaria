@@ -126,5 +126,5 @@ export const mealsfetch = () => {
                 toast.error(err?.response?.data?.message || err.error);
             })
     }
-    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty }
+    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty,DetailsLoading }
 }

@@ -73,22 +73,9 @@ const page = () => {
         )}
         {tab === 'Security information' && (
           <div className='width flex flex-col gap-y-6'>
-            <div className='grid grid-cols-1 gap-y-4 md:grid-cols-3 w-full gap-x-4'>
+            <div className='w-full gap-x-4'>
               <Security />
-              {/* <TypeOfVendor /> */}
             </div>
-            {/* <div className='w-[100%] md:w-[70%] flex items-center gap-x-4 '>
-              <CustomButton
-                title='save'
-                containerStyles='bg-[#218B07] text-white flex justify-center items-center py-4 px-8 rounded-[5px] gap-x-4 w-1/2'
-                type='submit'
-              />
-              <CustomButton
-                title='cancel'
-                containerStyles='border text-black border-black flex justify-center items-center py-4 px-8 rounded-[5px] gap-x-4 w-1/2'
-                type='submit'
-              />
-            </div> */}
           </div>
         )}
         {tab === 'Withdrawal information' && (

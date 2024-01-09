@@ -18,11 +18,12 @@ import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import { logout } from '../../user/authSlice'
+import AppLoader from '@/components/AppLoader'
 
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
 
-  const [details, data] = useDetailsMutation()
+  const [details, { isLoading }] = useDetailsMutation()
   const dispatch = useDispatch()
   const { auth } = useSelector((state) => state.rootReducers)
   const router = useRouter()
@@ -31,7 +32,7 @@ const layout = ({ children }) => {
       const response = await details(auth?.token).unwrap()
       dispatch(setVendorDetails(response))
     } catch (err) {
-      console.log(err)
+      // console.log(err)
       toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
       if (err.status === 401) {
         dispatch(logout())
@@ -39,12 +40,19 @@ const layout = ({ children }) => {
       }
     }
   }
+
   useEffect(() => {
-    fetchVendorDetails()
+    if (auth?.user === 'vendor') {
+      fetchVendorDetails()
+    } else {
+      // If auth.user is not 'vendor', redirect to the previous page
+      router.back()
+    }
   }, [])
   return (
     <div>
       <ProtectedRouteWrapper>
+        {isLoading ? <AppLoader color={'#5f8357'} loading={isLoading} /> : null}
         <Sidebar
           SideBarFirstLinks={SideBarFirstLinks}
           SideBarSecondLinks={SideBarSecondLinks}

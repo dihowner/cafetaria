@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import UploadEdit from '@/components/UploadEdit'
 import Button from '@mui/material/Button'
 import EditInput from '@/components/EditInput'
+import AppLoader from '@/components/AppLoader'
 
 const page = ({ params }) => {
   const router = useRouter()
@@ -16,7 +17,7 @@ const page = ({ params }) => {
     { value: false, status: 'Not Active' },
   ]
   const [details, setDetails] = useState(null)
-  const { getDetails } = mealsfetch()
+  const { getDetails, DetailsLoading } = mealsfetch()
   const mealId = params?.id
   // console.log(mealId)
   useEffect(() => {
@@ -31,7 +32,7 @@ const page = ({ params }) => {
   const is_requiredstyrofoam = useRef(null)
   const is_requiredplasticPlate = useRef(null)
   const mealImage = useRef(null)
-  const { updateMeals } = mealsfetch()
+  const { updateMeals, loading } = mealsfetch()
   const update = async (e) => {
     e.preventDefault()
     const formData = new FormData()
@@ -57,7 +58,11 @@ const page = ({ params }) => {
   }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
-      {' '}
+      {DetailsLoading ? (
+        <AppLoader color={'#5f8357'} loading={DetailsLoading} />
+      ) : null}
+      {loading ? <AppLoader color={'#5f8357'} loading={loading} /> : null}
+
       <form
         action=''
         className='width flex flex-col gap-y-8 justify-center items-center '
@@ -68,7 +73,6 @@ const page = ({ params }) => {
             <UploadEdit reff={mealImage} defaultValue={details?.image} />
           </div>
           <div className='flex flex-col gap-y-5'>
-           
             <EditInput
               title={'Meal Name'}
               type={'text'}
@@ -181,7 +185,7 @@ const page = ({ params }) => {
             }}
             type='submit'
           >
-            Update Meal
+            {loading ? '' : '  Update Meal'}
           </Button>
         </div>
       </form>
