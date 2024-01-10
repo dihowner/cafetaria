@@ -37,8 +37,6 @@ export default ProtectedRouteWrapper
 
 
 
-
-
 //     const { auth } = useSelector((state) => state.rootReducers);
 //     const [isAuth, setIsAuth] = useState(true)
 // const router = useRouter()

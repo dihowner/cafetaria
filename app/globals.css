@@ -146,3 +146,6 @@ h1 {
   left: 0;
   z-index: 200;
 }
+.vendoritembtn .css-12i3490-MuiButtonGroup-root .MuiButtonGroup-firstButton{
+  border-color: #218B07;
+}

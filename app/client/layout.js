@@ -10,9 +10,20 @@ import { useContext } from 'react'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
 import MClientHeader from '@/components/ClientDasboard/MClientHeader'
 import ProtectedRouteWrapper from '@/components/ProtectedRouteWrapper'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { useRouter } from 'next/navigation'
+// useRouter
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
+   const { auth } = useSelector((state) => state.rootReducers)
+     const router = useRouter()
+
+     // Check if the user role is 'user', otherwise redirect to the previous page
+     if (auth.user !== 'user') {
+       // You can customize the redirection logic based on your requirements
+       router.back()
+       return null // Prevent rendering the rest of the layout
+     }
   return (
     <div>
       <ProtectedRouteWrapper>

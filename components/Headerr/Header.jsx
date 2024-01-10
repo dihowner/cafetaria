@@ -42,40 +42,7 @@ const Header = () => {
     }
   }, [])
   const pathname = usePathname()
-  const [details, data] = useDetailsMutation()
-  const dispatch = useDispatch()
-  const fetchVendorDetails = async () => {
-    try {
-      const response = await details(auth?.token).unwrap()
-      dispatch(setVendorDetails(response))
-    } catch (err) {
-      // console.log(err)
-      // toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
-      if (err.status === 401) {
-        dispatch(logout())
-      }
-    }
-  }
-  const fetchUserDetails = async () => {
-    try {
-      const response = await details(auth?.token).unwrap()
-      // dispatch(setVendorDetails(response))
-    } catch (err) {
-      // console.log(err)
-      // toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
-      if (err.status === 401) {
-        dispatch(logout())
-
-      }
-    }
-  }
-  useEffect(() => {
-    if (auth?.user === 'vendor') {
-      fetchVendorDetails()
-    } else if (auth?.user === 'user') {
-      fetchUserDetails()
-    }
-  }, [])
+ 
   return (
     <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999] shadow-md' : 'w-[100%] flex justify-center items-center bg-[white] py-3 transition-all duration-75 shadow-md '}`}>
       <div className='flex width justify-between items-center'>
