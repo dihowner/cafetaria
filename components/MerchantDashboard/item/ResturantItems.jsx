@@ -211,6 +211,7 @@ const ResturantItems = () => {
                                                                                 <MenuItem className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]' onClick={() => {
                                                                                     openModal()
                                                                                     setItemId(item)
+                                                                                    setOpen(false);
                                                                                 }}>
                                                                                     <div className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
                                                                                         <FaTrash />

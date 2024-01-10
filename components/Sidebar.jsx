@@ -7,6 +7,7 @@ import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'
 import TopSideBar from './TopSideBar'
 import SecondSideBar from './SecondSideBar'
 
+
 const Sidebar = ({ SideBarFirstLinks,
     SideBarSecondLinks, color }) => {
     const { isSidebarOpen, toggleSidebar, } = useContext(SidebarCreateContext)

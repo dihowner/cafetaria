@@ -45,7 +45,7 @@ const Security = () => {
     };
     const isValid = NewPass && cNewPass
     return (
-        <div className='flex flex-col gap-y-4 border p-6'>
+        <div className='flex flex-col gap-y-4 border p-6 md:w-[60%] w-full'>
             <h1 className='font-semibold text-3xl'>Security</h1>
             <p className='text-[#00000066] text-sm'>Anyone with your password can have access to your account, share this information with no one.</p>
             <form action="" className='flex flex-col gap-y-6' onSubmit={handleSaveClick}>

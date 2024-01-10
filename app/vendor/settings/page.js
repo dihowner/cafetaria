@@ -73,7 +73,7 @@ const page = () => {
         )}
         {tab === 'Security information' && (
           <div className='width flex flex-col gap-y-6'>
-            <div className='w-full gap-x-4'>
+            <div className='w-full flex justify-center gap-x-4'>
               <Security />
             </div>
           </div>
