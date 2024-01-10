@@ -48,7 +48,8 @@ const layout = ({ children }) => {
       // If auth.user is not 'vendor', redirect to the previous page
       router.back()
     }
-  }, [])
+  }, [auth])
+
   return (
     <div>
       <ProtectedRouteWrapper>
