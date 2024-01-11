@@ -54,7 +54,7 @@ const Upload = ({ reff, defaultValue }) => {
     return (
         <div className="flex flex-col gap-y-6 justify-center border w-full h-full p-6">
             <div className="w-full flex justify-center items-center h-[200px]">
-                {selectedImage !== null || undefined ? (
+                {selectedImage !== null && selectedImage !== undefined ? (
                     <img src={selectedImage} alt="Selected" className="w-full h-full object-contain" />
                 ) : (
                     // <label htmlFor="fileInput" className="text-center">

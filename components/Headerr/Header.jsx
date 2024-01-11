@@ -12,8 +12,8 @@ import { FaBars } from 'react-icons/fa'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { BsWechat, BsChatDots } from 'react-icons/bs'
 import { useSelector, useDispatch } from 'react-redux'
-import { useDetailsMutation } from '@/redux/Vendor/vendorsApiSlice'
-import { setVendorDetails } from '@/redux/Vendor/Slices/vendordetailsSlice'
+import { useDetailsMutation } from '@/redux/Vendor/detailsApiSlice'
+import { setVendorDetails } from '@/redux/Vendor/Slices/detailsSlice'
 const Header = () => {
   const [toggle, setToggle] = useState(false)
   const [isFixed, setIsFixed] = useState(false)
@@ -42,7 +42,7 @@ const Header = () => {
     }
   }, [])
   const pathname = usePathname()
- 
+
   return (
     <div className={`${isFixed ? 'w-[100%] flex justify-center items-center bg-[#F6F6F6] py-3 transition-all duration-75 fixed z-[999] shadow-md' : 'w-[100%] flex justify-center items-center bg-[white] py-3 transition-all duration-75 shadow-md '}`}>
       <div className='flex width justify-between items-center'>
@@ -148,7 +148,7 @@ const Header = () => {
             }}
           />{' '}
 
-          {auth.user === 'user' ? <CustomButton
+          {auth?.user === 'user' ? <CustomButton
             title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
             Icon={<AiOutlineShoppingCart />}
             handleClick={() => router.push('/client/cart')}

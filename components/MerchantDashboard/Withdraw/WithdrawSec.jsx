@@ -11,16 +11,26 @@ import { useFetchBankMutation } from '@/redux/Vendor/fetchBankApiSlice'
 import { setBanks } from '@/redux/Vendor/Slices/withdrawSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
-// toast
-// useDispatch
+import { useRef } from 'react'
+import { FaNairaSign } from "react-icons/fa6";
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 const WithdrawSec = () => {
     const [isOpenModal, setIsOpenModal] = useState(false)
+    const [passwordVisible, setPasswordVisible] = useState(false);
+    const [Pin, setPin] = useState()
     const openModal = () => {
         setIsOpenModal(true)
     }
-    const dispatch = useDispatch();
-    const { bankDetails } = useSelector((state) => state.rootReducers)
-console.log(bankDetails)
+    const togglePassVisibility = () => {
+        setPasswordVisible((prevVisibility) => !prevVisibility);
+    };
+    const { Details } = useSelector((state) => state.rootReducers)
+    const bankDetails = Details?.Details?.bank
+    const amountTowithdrawRef = useRef()
+    const amount = amountTowithdrawRef?.current?.value
+    const withdrawMoney = () => {
+        console.log(amount)
+    }
     return (
         <div className='w-full md:w-[50%] border p-4 flex flex-col gap-y-8 '>
             <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
@@ -35,22 +45,29 @@ console.log(bankDetails)
                     <span className='w-[20%] border p-3  flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
-                    <select name="" id="" className='bg-[transparent] capitalize w-[80%]' defaultValue="defaultBank">
-                        <option value="defaultBank" disabled>Select your bank</option>
-                    
-                    </select>
+                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Bank Name' defaultValue={bankDetails?.bankName
+                    } />
                 </div>
                 <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' />
+                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' defaultValue={bankDetails?.accountNumber
+                    } />
                 </div>
                 <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account name ' />
+                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account name ' defaultValue={bankDetails?.accountName
+                    } />
+                </div>
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
+                    <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
+                        <FaNairaSign className='text-3xl w-full' />
+                    </span>
+                    <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Amount' ref={amountTowithdrawRef} defaultValue={''
+                    } />
                 </div>
                 <span>Your withdrawal would be processed within 0 to 24 hours after withdraw</span>
                 <CustomButton title='Withdraw' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[60%]'
@@ -68,13 +85,46 @@ console.log(bankDetails)
                         <span className='text-[#218B07]'>Please input password to withdraw</span>
                     </div>
                     <form action="" className='w-[80%] flex flex-col gap-y-8 justify-center items-center'>
-                        <InputsCustom
+                        <div className=' flex flex-col w-full'>
+                            <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                                <span><GiPadlock /></span>
+                                <input type={passwordVisible ? 'number' : 'password'} value={Pin} onChange={(e) => {
+                                    const inputValue = e.target.value;
+                                    // Enforce maximum length (e.g., 6 digits)
+                                    setPin(inputValue.slice(0, 6));
+                                }} placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
+                                    maxLength={6}
+                                    onKeyDown={(e) => {
+                                        // Allow only numeric input
+                                        if (!/\d/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                                            e.preventDefault();
+                                        }
+                                    }}
+
+                                />
+
+                                <div
+                                    onClick={togglePassVisibility}
+                                    className='absolute top-[40%] right-[10px] text-black cursor-pointer'
+                                >
+                                    {passwordVisible ? (
+                                        <AiOutlineEye />
+                                    ) : (
+                                        <AiOutlineEyeInvisible />
+                                    )}
+                                </div>
+
+                            </div>
+
+                        </div>
+                        {/* <InputsCustom
                             value=''
                             onchange=''
                             placeholder='Enter password'
-                            Icon={<GiPadlock />} />
+                            Icon={<GiPadlock />} /> */}
                         <CustomButton title='Withdraw' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[55%]'
-                            Icon={<BiMoneyWithdraw />} />
+                            Icon={<BiMoneyWithdraw />}
+                            handleClick={() => withdrawMoney()} />
                     </form>
                 </div>
             </Modal>

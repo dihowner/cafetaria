@@ -1,6 +1,6 @@
-const URL = 'api/vendor'
+const URL = 'api/user'
 import { apiSlice } from "../apiSlice"
-export const vendorDetailsApiSlice = apiSlice.injectEndpoints({
+export const DetailsApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         details: builder.mutation({
             query: (token) => ({
@@ -15,4 +15,4 @@ export const vendorDetailsApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
-export const { useDetailsMutation } = vendorDetailsApiSlice
+export const { useDetailsMutation } = DetailsApiSlice

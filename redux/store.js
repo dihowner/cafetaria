@@ -4,17 +4,18 @@ import { apiSlice } from './apiSlice'
 import authSlice from '@/user/authSlice'
 import StatisticSlice from './DashBoard/StatisticSlice'
 import withdrawSlice from './Vendor/Slices/withdrawSlice'
-import vendordetailsSlice from './Vendor/Slices/vendordetailsSlice'
+// import vendordetailsSlice from './Vendor/Slices/detailsSlice'
 import createMealSlice from './Vendor/Slices/createMealSlice'
 import BankDetailsSlice from './Vendor/Slices/BankDetailsSlice'
+import detailsSlice from './Vendor/Slices/detailsSlice'
 
 const rootReducers = combineReducers({
   auth: authSlice,
   stat: StatisticSlice,
   banks: withdrawSlice,
-  vendorDetails: vendordetailsSlice,
+  Details: detailsSlice,
   meals: createMealSlice,
-  bankDetails:BankDetailsSlice
+  bankDetails: BankDetailsSlice,
 })
 export const store = configureStore({
   reducer: {
