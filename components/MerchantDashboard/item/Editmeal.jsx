@@ -77,7 +77,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                     className='w-full flex flex-col gap-y-8 justify-center items-center '
                     onSubmit={update}
                 >
-                    <div className=' w-full grid grid-cols-2 gap-x-4'>
+                    <div className=' w-full grid grid-cols-1 md:grid-cols-2 gap-x-4'>
                         <div className=''>
                             <UploadEdit reff={mealImage} defaultValue={details?.image} />
                         </div>
