@@ -6,16 +6,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import EditInput from '@/components/EditInput';
 import TypeOfVendor from './Business/TypeOfVendor';
 const Account = () => {
-    const { vendorDetails } = useSelector((state) => state.rootReducers)
+    const { Details } = useSelector((state) => state.rootReducers)
     const [editMode, setEditMode] = useState(false);
     const handleEditClick = () => {
         setEditMode(true);
     };
-
     const handleCancelClick = () => {
         setEditMode(false);
     };
-    const details = vendorDetails?.vendorDetails
+    const details = Details?.Details.vendor
     const emailRef = useRef(null)
     const phoneRef = useRef(null)
     const storeNameRef = useRef(null)
@@ -30,7 +29,7 @@ const Account = () => {
                         <label htmlFor="name">{'Email Address'}</label>
                         <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
                             <input type={'text'}
-                                defaultValue={details?.user?.email} className='w-full outline-none border-none bg-transparent'
+                                defaultValue={Details?.Details?.email} className='w-full outline-none border-none bg-transparent'
                                 disabled
                             />
                         </div>
@@ -47,7 +46,7 @@ const Account = () => {
                         disabled={!editMode} />
                     <EditInput title='phone Number'
                         ref={phoneRef}
-                        defaultValue={details?.user?.mobile_number
+                        defaultValue={Details?.Details?.mobile_number
                         }
                         type={'tel'}
                         Icon={<FaPhoneSquare />}

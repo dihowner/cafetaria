@@ -55,7 +55,8 @@ export const BanksFetch = () => {
         try {
             const response = await saveBank({ info: info, token: auth.token }).unwrap()
             dispatch(setBankDetails())
-            console.log(response)
+            toast.success(response.data.message)
+            // console.log(response)
         } catch (err) {
             toast.error(err?.data?.message || err.error);
         }

@@ -203,7 +203,7 @@ const ResturantItems = () => {
                                                                         <ClickAwayListener onClickAway={handleClose}>
                                                                             <MenuList id="split-button-menu" autoFocusItem>
                                                                                 <MenuItem>
-                                                                                    <Link href={`items/editItem/edit-restuarant-meal/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07] '>
+                                                                                    <Link href={`items/restaurant/meals/edit/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07] '>
                                                                                         <FaEdit />
                                                                                         <p>Edit</p>
                                                                                     </Link>
@@ -211,7 +211,7 @@ const ResturantItems = () => {
                                                                                 <MenuItem className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]' onClick={() => {
                                                                                     openModal()
                                                                                     setItemId(item)
-                                                                                    setOpen(false);
+                                                                                    setOpen(false)
                                                                                 }}>
                                                                                     <div className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
                                                                                         <FaTrash />
@@ -220,7 +220,7 @@ const ResturantItems = () => {
 
                                                                                 </MenuItem>
                                                                                 <MenuItem className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
-                                                                                    <Link href={`items/meal-details/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
+                                                                                    <Link href={`items/restaurant/meals/details/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
                                                                                         <FaEye />
                                                                                         <p>View Details</p>
                                                                                     </Link>
