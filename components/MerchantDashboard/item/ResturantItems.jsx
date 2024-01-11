@@ -220,10 +220,10 @@ const ResturantItems = () => {
 
                                                                                 </MenuItem>
                                                                                 <MenuItem className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
-                                                                                    <div className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
+                                                                                    <Link href={`items/meal-details/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
                                                                                         <FaEye />
                                                                                         <p>View Details</p>
-                                                                                    </div>
+                                                                                    </Link>
 
                                                                                 </MenuItem>
                                                                             </MenuList>
