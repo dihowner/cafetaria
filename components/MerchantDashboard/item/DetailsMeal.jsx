@@ -18,7 +18,7 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
             ) : null}
             <div className='width flex flex-col gap-y-8 justify-center items-center '>
                 <div className='flex justify-between items-center w-full'>
-                    <div className='flex gap-x-4'>
+                    <div className='flex items-center justify-start gap-x-4 w-1/2'>
                         <span
                             className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md text-white cursor-pointer'
                             onClick={() => router.back()}
@@ -30,29 +30,36 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                             <p className='text-[#424242A6] capitalize'>{details?.description}</p>
                         </div>
                     </div>
-                    <div className='flex gap-x-4'>
+                    <div className='flex sm:items-center justify-end flex-col sm:flex-row gap-y-4 gap-x-4 w-1/2'>
                         <Button sx={{
                             backgroundColor: 'transparent',
                             color: 'black',
-                            border: 'black solid 1px',
+                            border: '#0000000F solid 1px',
+                            fontWeight: "bold",
+                            textTransform: 'capitalize', fontSize: '1.2rem', 
                             '&:hover': {
                                 backgroundColor: 'transparent',
                             },
                         }}
                             onClick={() => router.push(`items/restaurant/meals/edit/${mealId}`)} >Edit Meal</Button>
                         <Button sx={{
-                            backgroundColor: '#218B07',
-                            color: '#ffffff',
+                            backgroundColor: 'transparent',
+                            color: '#218B07',
+                            fontWeight: "bold",
+                            border: '#218B07 solid 1px',
+                            fontSize: '1.2rem', 
+                            textTransform: 'capitalize',
                             '&:hover': {
-                                backgroundColor: '#218B07',
+                                backgroundColor: 'transparent',
                             },
                         }}
                             onClick={() => openCategoryModal()}>Add Categories</Button>
                     </div>
                 </div>
+                <Categories itemID={mealId} />
             </div>
             <CreateCategory isOpenModal={isCategoryOpenModal} setIsOpenModal={setIsCategoryOpenModal} itemID={mealId} />
-            <Categories itemID={mealId} />
+
         </div>
     )
 }

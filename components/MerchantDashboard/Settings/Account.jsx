@@ -30,7 +30,7 @@ const Account = () => {
                         <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
                             <input type={'text'}
                                 defaultValue={Details?.Details?.email} className='w-full outline-none border-none bg-transparent'
-                                disabled
+                            
                             />
                         </div>
                     </div>
@@ -40,12 +40,12 @@ const Account = () => {
                         Icon={<HiOutlineEnvelope />}
                         disabled={!editMode} /> */}
                     <EditInput title='Store name'
-                        ref={storeNameRef}
+                        reff={storeNameRef}
                         defaultValue={details?.store_name}
                         Icon={<FaRegUser />}
                         disabled={!editMode} />
                     <EditInput title='phone Number'
-                        ref={phoneRef}
+                        reff={phoneRef}
                         defaultValue={Details?.Details?.mobile_number
                         }
                         type={'tel'}

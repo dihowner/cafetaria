@@ -1,5 +1,5 @@
 import { set_Meals, deleteMeal, createMeal, updateMeal } from '@/redux/Vendor/Slices/createMealSlice';
-import { useDeleteMealMutation, useGetMealMutation, useCreateCategoryMutation, useGetCategoryMutation } from '@/redux/Vendor/getMealApiSlice'
+import { useDeleteMealMutation, useGetMealMutation, useCreateCategoryMutation, useGetCategoryMutation, useEditCategoryMutation } from '@/redux/Vendor/getMealApiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import axios from 'axios'
@@ -14,6 +14,7 @@ export const mealsfetch = () => {
     const [deleteMeal, { isLoading: deleteMealLoading }] = useDeleteMealMutation()
     const [createCategory, { isLoading: createCategoryLoading }] = useCreateCategoryMutation()
     const [getCategory, { isLoading: getCategoryLoading }] = useGetCategoryMutation()
+    const [editCategory, { isLoading: editCategoryLoading }] = useEditCategoryMutation()
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.rootReducers);
     const getMeals = async () => {
@@ -152,5 +153,16 @@ export const mealsfetch = () => {
             setError(err.error)
         }
     }
-    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading,getMealCategories,getCategoryLoading }
+    const EditCategory = async (name, params,mealId) => {
+        try {
+            const response = await editCategory({ name: name, token: auth.token, params: params }).unwrap()
+            dispatch(updateCategory(response.data))
+            getMealCategories(mealId)
+            toast.success(response.message)
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+            setError(err.error)
+        }
+    }
+    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading, getMealCategories, getCategoryLoading, EditCategory, editCategoryLoading }
 }

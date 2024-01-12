@@ -1,20 +1,40 @@
 import Modal from '@/components/Modal'
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import { Button } from '@mui/material'
-
+import { useSelector } from 'react-redux'
 import { LiaTimesSolid } from 'react-icons/lia'
 import InputsCustom from '@/components/InputsCustom'
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
     const [name, setName] = useState()
     const [price, setPrice] = useState()
+    const [categoryId, setCategoryId] = useState()
     // const [name, setName] = useState()
     const status = [
         { value: true, status: 'Active' },
         { value: false, status: 'Not Active' },
     ]
     const [is_available, setIs_available] = useState(true)
-
+    const { getMealCategories, getCategoryLoading, error } = mealsfetch()
+    const getcategory = async () => {
+        await getMealCategories(itemID?._id)
+    }
+    useEffect(() => {
+        getcategory()
+    }, [])
+    const { categories } = useSelector((state) => state.rootReducers)
+    const category = categories?.category
+    const options = category?.map((item) => ({ label: item?.name, value: item?._id })) || [];
+    const handleCategoryChange = (event, value) => {
+        if (value) {
+            setCategoryId(value.value);
+        } else {
+            setCategoryId(null);
+        }
+    };
+    console.log(itemID)
     return (
         <div>
             <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)} >
@@ -48,6 +68,18 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                                     </option>
                                 ))}
                             </select>
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <label htmlFor=''>Category</label>
+                            <Autocomplete
+                                disablePortal
+                                id="combo-box-demo"
+                                options={options}
+                                sx={{ width: 300 }}
+                                onChange={handleCategoryChange}
+                                renderInput={(params) => <TextField {...params} label="category" />}
+                            />
+
                         </div>
                         <InputsCustom title={'Item Name'}
                             type={'text'}
