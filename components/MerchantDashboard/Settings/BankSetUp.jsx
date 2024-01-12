@@ -9,7 +9,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useDispatch, useSelector } from 'react-redux'
 import Button from '@mui/material/Button'
-
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { BanksFetch } from '@/components/Utilis/Fetch/BankFetch'
 
 const BankSetUp = () => {
@@ -20,6 +20,11 @@ const BankSetUp = () => {
     const [transactionPin, setTransactionPin] = useState()
     const { Allbanks, verifyBank, fetchBankLoading, saveBankDetails } = BanksFetch()
     const options = banks?.banks?.map((bank) => ({ label: bank.bank_name, value: bank.bank_code })) || [];
+    const togglePassVisibility = () => {
+        setPasswordVisible((prevVisibility) => !prevVisibility);
+    };
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
     const handleBankChange = (event, value) => {
         if (value) {
             setBank_code(value.value);
@@ -106,7 +111,33 @@ const BankSetUp = () => {
                     <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-3xl w-full' />
                     </span>
-                    <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Your transaction pin ' value={transactionPin} onChange={(e) => setTransactionPin(e.target.value)} />
+                    <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                        <input type={passwordVisible ? 'number' : 'password'} value={transactionPin} onChange={(e) => {
+                            const inputValue = e.target.value;
+                            // Enforce maximum length (e.g., 6 digits)
+                            setTransactionPin(inputValue.slice(0, 6));
+                        }} placeholder={'Enter Your transaction pin'} className='w-full outline-none border-none bg-transparent'
+                            maxLength={6}
+                            onKeyDown={(e) => {
+                                // Allow only numeric input
+                                if (!/\d/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete') {
+                                    e.preventDefault();
+                                }
+                            }}
+
+                        />
+                        <div
+                            onClick={togglePassVisibility}
+                            className='absolute top-[40%] right-[10px] text-black cursor-pointer'
+                        >
+                            {passwordVisible ? (
+                                <AiOutlineEye />
+                            ) : (
+                                <AiOutlineEyeInvisible />
+                            )}
+                        </div>
+                    </div>
+                    {/* <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Your transaction pin ' value={transactionPin} onChange={(e) => setTransactionPin(e.target.value)} /> */}
                 </div>
                 <CustomButton title='Save Bank Account' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[60%]'
                     type={'submit'}

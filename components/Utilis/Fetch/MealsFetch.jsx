@@ -1,16 +1,19 @@
 import { set_Meals, deleteMeal, createMeal, updateMeal } from '@/redux/Vendor/Slices/createMealSlice';
-import { useDeleteMealMutation, useGetMealMutation } from '@/redux/Vendor/getMealApiSlice'
+import { useDeleteMealMutation, useGetMealMutation, useCreateCategoryMutation, useGetCategoryMutation } from '@/redux/Vendor/getMealApiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import axios from 'axios'
 import { useState } from 'react';
 import { useGetMealDetailsMutation } from '@/redux/Vendor/getMealApiSlice'
+import { create_Category, set_Categories, updateCategory } from '@/redux/Vendor/Slices/CategorySlices';
 export const mealsfetch = () => {
     const [getMeal, { isLoading: getMealLoading }] = useGetMealMutation()
     const [error, setError] = useState()
     const [getMealDetails, { isLoading: DetailsLoading }] =
         useGetMealDetailsMutation()
     const [deleteMeal, { isLoading: deleteMealLoading }] = useDeleteMealMutation()
+    const [createCategory, { isLoading: createCategoryLoading }] = useCreateCategoryMutation()
+    const [getCategory, { isLoading: getCategoryLoading }] = useGetCategoryMutation()
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.rootReducers);
     const getMeals = async () => {
@@ -65,7 +68,7 @@ export const mealsfetch = () => {
         await axios
             .put(
                 `https://cafeteria-ekep.onrender.com/api/meals/${mealId}`,
-                formData,   
+                formData,
                 {
                     headers: {
                         'Content-Type': 'multipart/formData',
@@ -126,5 +129,28 @@ export const mealsfetch = () => {
                 toast.error(err?.response?.data?.message || err.error);
             })
     }
-    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty,DetailsLoading }
+    const createMealCategory = async (name, mealId) => {
+        try {
+            const response = await createCategory({ name: name, params: mealId, token: auth.token }).unwrap()
+            dispatch(create_Category(response.data))
+            toast.success(response.message)
+            // console.log(response)
+
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+            setError(err.error)
+        }
+    }
+
+    const getMealCategories = async (itemID) => {
+        try {
+            const response = await getCategory({ params: itemID, token: auth.token }).unwrap()
+            // console.log(response)
+            dispatch(set_Categories(response))
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+            setError(err.error)
+        }
+    }
+    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading,getMealCategories,getCategoryLoading }
 }
