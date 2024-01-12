@@ -44,7 +44,7 @@ const page = () => {
             <h1
               onClick={(e) => changeTab('Security information')}
               className={`${
-                tab === 'Business information'
+                tab === 'Security information'
                   ? 'text-lg md:text-2xl text-[#218B07]  border-[#218B07] border p-4 font-semibold cursor-pointer'
                   : 'text-lg md:text-2xl text-[#00000033] font-semibold cursor-pointer'
               }`}

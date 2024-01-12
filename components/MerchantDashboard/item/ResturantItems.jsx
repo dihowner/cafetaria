@@ -17,6 +17,8 @@ import Popper from '@mui/material/Popper';
 import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import AddSubMeal from './AddSubMeal'
+import CreatCategory from './CreateCategory'
+
 const ResturantItems = () => {
 
     const { meals } = useSelector((state) => state.rootReducers);
@@ -35,6 +37,10 @@ const ResturantItems = () => {
     const openSubModal = () => {
         setIsSubOpenModal(true)
     }
+    const [isCategoryOpenModal, setIsCategoryOpenModal] = useState(false)
+    const openCategoryModal = () => {
+        setIsCategoryOpenModal(true)
+    }
     const changeavai = async (item) => {
         const updatedAvailability = { ...item, isAvailable: !item.isAvailable };
         const mealId = item?._id
@@ -43,20 +49,26 @@ const ResturantItems = () => {
         await changeAvailabilty(formData, mealId)
     }
     const handleClick = (item) => {
-        openSubModal()
+
+        openCategoryModal()
         setItemId(item)
         console.info(`You clicked ${'22222'}`);
     };
-    const [open, setOpen] = React.useState(false);
-    const handleToggle = () => {
-        setOpen((prevOpen) => !prevOpen);
+    const [open, setOpen] = React.useState(allMeals ? Array(allMeals.length).fill(false) : []);
+    const handleToggle = (index) => {
+        setOpen((prevStates) => {
+            const newStates = Array.isArray(prevStates) ? [...prevStates] : [];
+            newStates[index] = !newStates[index];
+            return newStates;
+        });
+
+        // setOpen((prevOpen) => !prevOpen);
     };
     const anchorRef = React.useRef(null);
     const handleClose = (event) => {
         if (anchorRef.current && anchorRef.current.contains(event.target)) {
             return;
         }
-
         setOpen(false);
     };
     return (
@@ -150,7 +162,9 @@ const ResturantItems = () => {
                                                         }}
                                                     />
                                                 </td>
-                                                <td className=' vendoritembtn text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap' ref={anchorRef}>
+                                                <td className=' vendoritembtn text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'
+                                                // ref={anchorRef}
+                                                >
                                                     <ButtonGroup variant="contained" aria-label="split button"
                                                         sx={{
                                                             backgroundColor: '#218B07', // Set the background color to green
@@ -163,13 +177,13 @@ const ResturantItems = () => {
                                                                 '&:hover': {
                                                                     backgroundColor: '#218B07',
                                                                 },
-                                                            }}>Create Sub-Meal</Button>
+                                                            }}>Create Category</Button>
                                                         <Button
                                                             size="small"
-                                                            aria-controls={open ? 'split-button-menu' : undefined}
-                                                            aria-expanded={open ? 'true' : undefined}
+                                                            aria-controls={open[index] ? 'split-button-menu' : undefined}
+                                                            aria-expanded={open[index] ? 'true' : undefined}
 
-                                                            onClick={handleToggle}
+                                                            onClick={() => handleToggle(index)}
                                                             sx={{
                                                                 backgroundColor: '#218B07',
                                                                 color: '#ffffff',
@@ -178,52 +192,67 @@ const ResturantItems = () => {
                                                                     backgroundColor: '#218B07',
                                                                 },
                                                             }}
+                                                            ref={anchorRef}
                                                         >
                                                             <ArrowDropDownIcon />
                                                         </Button>
                                                         <Popper
                                                             sx={{
                                                                 zIndex: 1,
+
                                                             }}
-                                                            open={open}
+                                                            // open={open}
+                                                            // anchorEl={anchorRef.current}
+                                                            // role={undefined}
+                                                            // transition
+                                                            // disablePortal
+                                                            open={open[index]}
                                                             anchorEl={anchorRef.current}
                                                             role={undefined}
                                                             transition
                                                             disablePortal
+
                                                         >
                                                             {({ TransitionProps, placement }) => (
                                                                 <Grow
                                                                     {...TransitionProps}
-                                                                    style={{
-                                                                        transformOrigin:
-                                                                            placement === 'bottom' ? 'center top' : 'center bottom',
-                                                                    }}
+                                                                // style={{
+                                                                //     transformOrigin:
+                                                                //         placement === 'bottom' ? 'center top' : 'center bottom',
+                                                                // }}
                                                                 >
                                                                     <Paper >
                                                                         <ClickAwayListener onClickAway={handleClose}>
                                                                             <MenuList id="split-button-menu" autoFocusItem>
                                                                                 <MenuItem>
-                                                                                    <Link href={`items/restaurant/meals/edit/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07] '>
-                                                                                        <FaEdit />
+                                                                                    <Link href={`items/restaurant/meals/edit/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07] '>
+
                                                                                         <p>Edit</p>
                                                                                     </Link>
                                                                                 </MenuItem>
-                                                                                <MenuItem className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]' onClick={() => {
+                                                                                <MenuItem onClick={() => {
                                                                                     openModal()
                                                                                     setItemId(item)
                                                                                     setOpen(false)
                                                                                 }}>
-                                                                                    <div className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
-                                                                                        <FaTrash />
+                                                                                    <div className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
+
                                                                                         <p>Delete</p>
                                                                                     </div>
 
                                                                                 </MenuItem>
-                                                                                <MenuItem className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
-                                                                                    <Link href={`items/restaurant/meals/details/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-2xl items-center text-[#218B07]'>
-                                                                                        <FaEye />
+                                                                                <MenuItem>
+                                                                                    <Link href={`items/restaurant/meals/details/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
+
                                                                                         <p>View Details</p>
                                                                                     </Link>
+
+                                                                                </MenuItem>
+                                                                                <MenuItem
+                                                                                    onClick={() => openSubModal()}>
+                                                                                    <p className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
+                                                                                        Create-Submeal
+                                                                                    </p>
 
                                                                                 </MenuItem>
                                                                             </MenuList>
@@ -246,28 +275,10 @@ const ResturantItems = () => {
             }
             <DeleteItemModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} itemID={itemId} />
             <AddSubMeal isOpenModal={isSubOpenModal} setIsOpenModal={setIsSubOpenModal} itemID={itemId} />
+            <CreatCategory isOpenModal={isCategoryOpenModal} setIsOpenModal={setIsCategoryOpenModal} itemID={itemId} />
         </>
 
     )
 }
 
 export default ResturantItems
-
-
-
-{/* <ul className='flex items-center justify-start'>
-                                                        <Link href={`items/editItem/edit-restuarant-meal/${item?._id}`} className='py-1 px-2.5'>
-                                                            <FaEdit />
-                                                        </Link>
-                                                        <li className='py-1 px-2.5 cursor-pointer' onClick={() => {
-                                                            openModal()
-                                                            setItemId(item)
-                                                        }}
-                                                        >
-                                                            {/* {item?._id} 
-                                                            <FaTrash />
-                                                        </li>
-                                                        <li className='py-1 px-2.5'>
-                                                            <FaEye />
-                                                        </li>
-                                                    </ul> */}
