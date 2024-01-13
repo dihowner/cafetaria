@@ -52,7 +52,7 @@ const ResturantItems = () => {
 
         openCategoryModal()
         setItemId(item)
-        console.info(`You clicked ${'22222'}`);
+        // console.info(`You clicked ${'22222'}`);
     };
     const [open, setOpen] = React.useState(allMeals ? Array(allMeals.length).fill(false) : []);
     const handleToggle = (index) => {
@@ -71,6 +71,7 @@ const ResturantItems = () => {
         }
         setOpen(false);
     };
+    
     return (
         <>
             {loading ? <AppLoader loading={loading} color={'#5f8357'} /> : null}
@@ -249,7 +250,12 @@ const ResturantItems = () => {
 
                                                                                 </MenuItem>
                                                                                 <MenuItem
-                                                                                    onClick={() => openSubModal()}>
+                                                                                    onClick={() => {
+                                                                                        openSubModal();
+                                                                                        setItemId(item);
+                                                                                        setOpen(false)
+                                                                                    }
+                                                                                    }>
                                                                                     <p className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
                                                                                         Create-Submeal
                                                                                     </p>

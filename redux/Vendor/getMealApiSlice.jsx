@@ -52,7 +52,7 @@ export const deleteMealApiSlice = apiSlice.injectEndpoints({
 export const createCategoryApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         createCategory: builder.mutation({
-            query: ({ token, params, name }) => ({
+            query: ({ token, params, name}) => ({
                 url: `${VENDORMEALDETAILS_URL}/category/${params}`,
                 method: 'POST',
                 body: name,
@@ -80,9 +80,26 @@ export const getCategoryApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
+export const editCategoryApiSlice = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        editCategory: builder.mutation({
+            query: ({ token, params,name }) => ({
+                url: `${VENDORMEALDETAILS_URL}/category/${params}`,
+                method: 'PUT',
+                body: name,
+                headers: {
+                    // Add your headers here
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+        })
+    })
+})
 
 export const { useGetMealMutation } = getMealApiSlice
 export const { useGetMealDetailsMutation } = getMealDetailsApiSlice
 export const { useDeleteMealMutation } = deleteMealApiSlice
 export const { useCreateCategoryMutation } = createCategoryApiSlice
 export const { useGetCategoryMutation } = getCategoryApiSlice
+export const { useEditCategoryMutation } = editCategoryApiSlice
