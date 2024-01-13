@@ -1,5 +1,5 @@
 import Modal from '@/components/Modal'
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import { Button } from '@mui/material'
 import { useSelector } from 'react-redux'
@@ -17,13 +17,8 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
         { value: false, status: 'Not Active' },
     ]
     const [is_available, setIs_available] = useState(true)
-    const { getMealCategories, getCategoryLoading, error } = mealsfetch()
-    const getcategory = async () => {
-        await getMealCategories(itemID?._id)
-    }
-    useEffect(() => {
-        getcategory()
-    }, [])
+    const { createSubMeal, createSubMealLoading, error } = mealsfetch()
+
     const { categories } = useSelector((state) => state.rootReducers)
     const category = categories?.category
     const options = category?.map((item) => ({ label: item?.name, value: item?._id })) || [];
@@ -34,7 +29,17 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
             setCategoryId(null);
         }
     };
-    console.log(itemID)
+    console.log(categoryId)
+    const data = {
+        unit_price: price,
+        name: name,
+        category: categoryId,
+        is_available: is_available
+    }
+    const submealcreate = async (e) => {
+        e.preventDefault()
+        await createSubMeal(data, categoryId, itemID?._id)
+    }
     return (
         <div>
             <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)} >
@@ -44,8 +49,8 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                         <LiaTimesSolid className='text-xl' />
                     </span>
                 </div>
-                <div className="flex flex-col justify-center items-center w-full gap-y-6">
-                    <h1 className='text-3xl text-[#218B07] font-[700] text-center'>Add Submeals</h1>
+                <form onSubmit={submealcreate } className="flex flex-col justify-center items-center w-full gap-y-6">
+                    <h1 className='text-3xl text-[#218B07] font-[700] text-center'>Add Submeals to {itemID?.name}</h1>
                     <div className="grid grid-cols-2 gap-4">
                         <InputsCustom title={'Item Name'}
                             type={'text'}
@@ -69,22 +74,18 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                                 ))}
                             </select>
                         </div>
-                        <div className="flex flex-col w-full">
+                        <div className="flex flex-col w-full addsub">
                             <label htmlFor=''>Category</label>
                             <Autocomplete
                                 disablePortal
                                 id="combo-box-demo"
                                 options={options}
-                                sx={{ width: 300 }}
+                                sx={{ width: "100%" }}
                                 onChange={handleCategoryChange}
-                                renderInput={(params) => <TextField {...params} label="category" />}
+                                renderInput={(params) => <TextField {...params} label="" />}
                             />
 
                         </div>
-                        <InputsCustom title={'Item Name'}
-                            type={'text'}
-                            value={name}
-                            onchange={setName} />
                     </div>
                     <div className=' flex justify-center w-full'>
                         <Button
@@ -97,10 +98,10 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                             }}
                             type='submit'
                         >
-                            {'Add Sub-Meal'}
+                            {createSubMealLoading ? 'Loading' : 'Add Sub-Meal'}
                         </Button>
                     </div>
-                </div>
+                </form>
             </Modal>
         </div>
     )
