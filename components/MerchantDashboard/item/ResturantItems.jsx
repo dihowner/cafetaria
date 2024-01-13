@@ -22,7 +22,7 @@ import CreatCategory from './CreateCategory'
 const ResturantItems = () => {
 
     const { meals } = useSelector((state) => state.rootReducers);
-    const { getMeals, getMealLoading, error, changeAvailabilty, loading } = mealsfetch()
+    const { getMeals, getMealLoading, error, changeAvailabilty, loading, getMealCategories, getCategoryLoading, } = mealsfetch()
     useEffect(() => {
         getMeals()
     }, [])
@@ -71,7 +71,12 @@ const ResturantItems = () => {
         }
         setOpen(false);
     };
-    
+    const getcategory = async (id) => {
+        await getMealCategories(id)
+    }
+
+
+
     return (
         <>
             {loading ? <AppLoader loading={loading} color={'#5f8357'} /> : null}
@@ -254,6 +259,7 @@ const ResturantItems = () => {
                                                                                         openSubModal();
                                                                                         setItemId(item);
                                                                                         setOpen(false)
+                                                                                        getcategory(item?._id)
                                                                                     }
                                                                                     }>
                                                                                     <p className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>

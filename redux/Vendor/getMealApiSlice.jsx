@@ -1,5 +1,6 @@
 const VENDORMEAL_URL = '/api/vendor';
 const VENDORMEALDETAILS_URL = '/api/meals';
+const VENDORSUBMEAL_URL = '/api';
 
 import { apiSlice } from "../apiSlice";
 
@@ -52,7 +53,7 @@ export const deleteMealApiSlice = apiSlice.injectEndpoints({
 export const createCategoryApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         createCategory: builder.mutation({
-            query: ({ token, params, name}) => ({
+            query: ({ token, params, name }) => ({
                 url: `${VENDORMEALDETAILS_URL}/category/${params}`,
                 method: 'POST',
                 body: name,
@@ -83,7 +84,7 @@ export const getCategoryApiSlice = apiSlice.injectEndpoints({
 export const editCategoryApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         editCategory: builder.mutation({
-            query: ({ token, params,name }) => ({
+            query: ({ token, params, name }) => ({
                 url: `${VENDORMEALDETAILS_URL}/category/${params}`,
                 method: 'PUT',
                 body: name,
@@ -97,9 +98,26 @@ export const editCategoryApiSlice = apiSlice.injectEndpoints({
     })
 })
 
+export const createSubMealApiSlice = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        createSubmeal: builder.mutation({
+            query: ({ token, params, data }) => ({
+                url: `${VENDORSUBMEAL_URL}/submeal/add-new/${params}`,
+                method: 'POST',
+                body: data,
+                headers: {
+                    // Add your headers here
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+        })
+    })
+})
 export const { useGetMealMutation } = getMealApiSlice
 export const { useGetMealDetailsMutation } = getMealDetailsApiSlice
 export const { useDeleteMealMutation } = deleteMealApiSlice
 export const { useCreateCategoryMutation } = createCategoryApiSlice
 export const { useGetCategoryMutation } = getCategoryApiSlice
 export const { useEditCategoryMutation } = editCategoryApiSlice
+export const { useCreateSubmealMutation } = createSubMealApiSlice
