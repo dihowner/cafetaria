@@ -14,10 +14,10 @@ const Sidebar = ({ SideBarFirstLinks,
 
     return (
         <div className={`${isSidebarOpen
-            ? `hidden  w-[250px] lg:block lg:w-[250px] bg-[${color}] fixed overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] h-[100vh] transition-[all] ease duration-[.3s] z-[10] md:block`
-            : `hidden w-[100%] md:w-[80px] lg:w-[250px] bg-[${color}]  fixed  h-[100vh] overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] transition-[all] z-[10] md:block py-4`
+            ? `hidden  w-[250px] lg:block lg:w-[250px] bg-[${color}] fixed overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] h-[100vh] transition-[all] ease duration-[.3s] z-[1000] md:block`
+            : `hidden w-[100%] md:w-[80px] lg:w-[250px] bg-[${color}]  fixed  h-[100vh] overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] transition-[all] z-[100] md:block`
             } `}>
-            <div className='flex flex-col justify-center items-center gap-y-8 w-[100%] h-[100%]  '>
+            <div className='flex flex-col justify-center items-center gap-y-4 w-[100%] h-[100%] pt-2 '>
                 <div >
                     <img src="/logo2.png" alt="" srcSet="" className={`${isSidebarOpen ? 'block' : 'block md:hidden lg:block'
                         }`} />

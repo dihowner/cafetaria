@@ -10,14 +10,14 @@ import React from 'react'
 const page = () => {
   return (
     <div className='w-full justify-center items-center flex flex-col gap-y-8'>
-      <div className='flex justify-between  width md:items-center flex-col md:flex-row gap-y-6 p-4  '>
-        <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg'>
+      <div className='flex justify-between  width md:items-center flex-col md:flex-row gap-y-6 p-2  '>
+      <div className='flex items-center text-base  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg'>
           <span>
             <MdDashboard />
           </span>
           <span>dashboard</span>
         </div>
-        <div className='flex items-center text-lg  gap-x-4 capitalize text-white rounded-lg  p-4 bg-[#218B07]'>
+        <div className='flex items-center text-base  gap-x-2 capitalize text-white rounded-lg p-2 bg-[#218B07]'>
           <span>
             <BiMoneyWithdraw />
           </span>

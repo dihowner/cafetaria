@@ -29,7 +29,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
             setCategoryId(null);
         }
     };
-    console.log(categoryId)
+    // console.log(categoryId)
     const data = {
         unit_price: price,
         name: name,
@@ -38,7 +38,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
     }
     const submealcreate = async (e) => {
         e.preventDefault()
-        await createSubMeal(data, categoryId, itemID?._id)
+        await createSubMeal(data, itemID?._id)
     }
     return (
         <div>
@@ -46,10 +46,10 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                 <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
                     <span className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
                         onClick={() => setIsOpenModal(false)}>
-                        <LiaTimesSolid/>  
+                        <LiaTimesSolid />
                     </span>
                 </div>
-                <form onSubmit={submealcreate } className="flex flex-col justify-center items-center w-full gap-y-6">
+                <form onSubmit={submealcreate} className="flex flex-col justify-center items-center w-full gap-y-6">
                     <h1 className='text-3xl text-[#218B07] font-[700] text-center'>Add Submeals to {itemID?.name}</h1>
                     <div className="grid grid-cols-2 gap-4">
                         <InputsCustom title={'Item Name'}

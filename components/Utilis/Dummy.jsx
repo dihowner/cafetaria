@@ -1,6 +1,6 @@
 
 import { AiFillStar, AiFillMessage } from 'react-icons/ai'
-import { MdDashboard, MdNotifications, MdOutlineSettings, MdReviews, MdSwipeDownAlt } from 'react-icons/md'
+import { MdDashboard, MdNotifications, MdOutlineSettings, MdReviews, MdSwipeDownAlt,MdOutlineRestaurantMenu  } from 'react-icons/md'
 import { FaCartShopping } from 'react-icons/fa6'
 import { BiMoneyWithdraw, BiSolidUserRectangle } from 'react-icons/bi'
 import { BsFillCreditCard2BackFill } from 'react-icons/bs'
@@ -657,8 +657,13 @@ export const SideBarFirstLinks = [
         icon: <FaCartShopping />,
     },
     {
-        path: '/vendor/items',
-        name: 'items',
+        path: '/vendor/restaurant',
+        name: 'restaurant',
+        icon: <MdOutlineRestaurantMenu />,
+    },
+    {
+        path: '/vendor/groceries',
+        name: 'groceries',
         icon: <MdSwipeDownAlt />,
     },
     // {

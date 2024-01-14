@@ -12,12 +12,12 @@ const TopSideBar = ({ SideBarFirstLinks,closes }) => {
         <div className='flex flex-col gap-y-4 w-full'>
             {SideBarFirstLinks.map((item, index) => (
                 <Link href={item.path} key={index}
-                    className={`w-[100%] hover:bg-[#E0F3F3] hover:text-[black] rounded-[10px] bg-[#F8F8F863]  p-3 ${pathname.startsWith(item.path) ? 'bg-[#FAFAFA] text-[black]' : 'text-white'
+                    className={`w-[100%] hover:bg-[#E0F3F3] hover:text-[black] rounded-[5px] bg-[#F8F8F863]  p-1 text-sm  ${pathname.startsWith(item.path) ? 'bg-[#FAFAFA] text-[black]' : 'text-white'
                         }`} onClick={closes}>
-                    <div className='flex items-center text-lg  w-[100%]  gap-x-4 capitalize'>
+                    <div className='flex items-center text-sm  w-[100%]  gap-x-2 capitalize'>
                         <div className='text-xl'>{item.icon}</div>
                         <div
-                            className={`${isSidebarOpen ? 'block' : 'block md:hidden lg:block'
+                            className={` ${isSidebarOpen ? 'block' : 'block md:hidden lg:block '
                                 }`}
                         >
                             {item.name}

@@ -39,10 +39,10 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
         <div className='flex flex-col gap-y-4 w-full h-full'>
             {SideBarSecondLinks.map((item, index) => (
                 <Link href={item.path} key={index}
-                    className={`w-[100%] hover:bg-[#E0F3F3] hover:text-[black] rounded-[10px] bg-[#F8F8F863] p-3 ${pathname.startsWith(item.path) ? 'bg-[#FAFAFA] text-[black]' : ' text-white'
+                    className={`text-base w-[100%] hover:bg-[#E0F3F3] hover:text-[black] rounded-[5px] bg-[#F8F8F863] p-1 ${pathname.startsWith(item.path) ? 'bg-[#FAFAFA] text-[black]' : ' text-white'
                         }`} onClick={closes}>
-                    <div className='flex items-center text-base  w-[100%]  gap-x-4 capitalize'>
-                        <div className='text-xl'>{item.icon}</div>
+                    <div className='flex items-center text-sm  w-[100%]  gap-x-4 capitalize'>
+                        <div className='text-sm'>{item.icon}</div>
                         <div
                             className={`${isSidebarOpen ? 'block' : ' block md:hidden lg:block'
                                 }`}
@@ -52,9 +52,9 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
                     </div>
                 </Link>
             ))}
-            <button className={`w-[100%] hover:bg-[#E0F3F3] hover:text-[black] rounded-[10px] bg-[#F8F8F863] p-3 text-white capitalize hidden md:block`} onClick={openModal}>
-                <div className='flex items-center text-base  w-[100%]  gap-x-4 capitalize'>
-                    <div className='text-xl'><AiOutlinePoweroff /></div>
+            <button className={` text-base w-[100%] hover:bg-[#E0F3F3] hover:text-[black] rounded-[5px] bg-[#F8F8F863] p-1 text-white capitalize hidden md:block`} onClick={openModal}>
+                <div className='flex items-center text-sm  w-[100%]  gap-x-4 capitalize'>
+                    <div className='text-sm'><AiOutlinePoweroff /></div>
                     <div
                         className={`${isSidebarOpen ? 'block' : ' block md:hidden lg:block'
                             }`}
@@ -92,7 +92,7 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
                         <LiaTimesSolid className='text-xl' />
                     </span>
                     <div className="flex flex-col justify-center items-center w-full gap-y-6">
-                        <h1 className='text-5xl text-center'>Are you sure you to log out?</h1>
+                        <h1 className='text-lg md:text-xl text-center'>Are you sure you to log out?</h1>
                         <div className="flex justify-center items-center w-full gap-x-4">
                             {/* <CustomButton title='yes'
                                 containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[40%] capitalize'

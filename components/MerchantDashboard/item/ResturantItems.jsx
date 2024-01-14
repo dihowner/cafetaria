@@ -42,11 +42,12 @@ const ResturantItems = () => {
         setIsCategoryOpenModal(true)
     }
     const changeavai = async (item) => {
-        const updatedAvailability = { ...item, isAvailable: !item.isAvailable };
+        const updatedAvailability = !item.isAvailable
         const mealId = item?._id
-        const formData = new FormData();
-        formData.append('isAvailable', updatedAvailability)
-        await changeAvailabilty(formData, mealId)
+        const data = {
+            is_available: updatedAvailability
+        }
+        await changeAvailabilty(data, mealId)
     }
     const handleClick = (item) => {
 
@@ -231,7 +232,7 @@ const ResturantItems = () => {
                                                                         <ClickAwayListener onClickAway={handleClose}>
                                                                             <MenuList id="split-button-menu" autoFocusItem>
                                                                                 <MenuItem>
-                                                                                    <Link href={`items/restaurant/meals/edit/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07] '>
+                                                                                    <Link href={`restaurant/edit-meal/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07] '>
 
                                                                                         <p>Edit</p>
                                                                                     </Link>
@@ -248,7 +249,7 @@ const ResturantItems = () => {
 
                                                                                 </MenuItem>
                                                                                 <MenuItem>
-                                                                                    <Link href={`items/restaurant/meals/details/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
+                                                                                    <Link href={`restaurant/meals/details/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
 
                                                                                         <p>View Details</p>
                                                                                     </Link>

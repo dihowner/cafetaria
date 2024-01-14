@@ -17,13 +17,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
         { value: true, status: 'Active' },
         { value: false, status: 'Not Active' },
     ]
-    // const [details, setDetails] = useState(null)
-    // const { getDetails, DetailsLoading } = mealsfetch()
-    // const mealId = params
-    // // console.log(mealId)
-    // useEffect(() => {
-    //     getDetails(setDetails, mealId)
-    // }, [mealId])
+    
     const NameRef = useRef(null)
     const descriptionRef = useRef(null)
     const is_availableRef = useRef(null)
@@ -205,3 +199,12 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
 }
 
 export default Editmeal
+
+
+// const [details, setDetails] = useState(null)
+// const { getDetails, DetailsLoading } = mealsfetch()
+// const mealId = params
+// // console.log(mealId)
+// useEffect(() => {
+//     getDetails(setDetails, mealId)
+// }, [mealId])
