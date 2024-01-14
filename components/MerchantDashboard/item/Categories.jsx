@@ -5,7 +5,8 @@ import Switch from '@mui/material/Switch'
 import Button from '@mui/material/Button';
 import AppLoader from '@/components/AppLoader';
 import EditCategory from './EditCategory';
-const Categories = ({ itemID }) => {
+import AddSubMeal from './AddSubMeal';
+const Categories = ({ itemID,details }) => {
     const { getMealCategories, getCategoryLoading, error } = mealsfetch()
     const getcategory = async () => {
         await getMealCategories(itemID)
@@ -18,8 +19,12 @@ const Categories = ({ itemID }) => {
     const openEditCategoryModal = () => {
         setIsEditCategoryOpenModal(true)
     }
+    const [isSubOpenModal, setIsSubOpenModal] = useState(false)
+    const openSubModal = () => {
+        setIsSubOpenModal(true)
+    }
     const category = categories?.category
-    const noItemMessage = category && category?.length === 0 ? 'No item Created' : null
+    const noItemMessage = category && category?.length === 0 ? 'No category Created' : null
     return (
         <div className='width flex flex-col gap-y-8 justify-center items-center'>
             {error ? (<div className='text-center text-3xl w-full capitalize'>{error}</div>) : (<>
@@ -34,9 +39,22 @@ const Categories = ({ itemID }) => {
                                     <div className="flex justify-between items-center w-full">
                                         <div className="flex flex-col gap-y-4">
                                             <h1 className='text-xl text-[#000000] font-bold capitalize'>{item?.name}</h1>
-                                            <span className='text-[#218B07] font-bold cursor-pointer' onClick={()=>openEditCategoryModal()}>Edit Category</span>
+                                            <span className='text-[#218B07] font-bold cursor-pointer' onClick={() => openEditCategoryModal()}>Edit Category</span>
                                         </div>
-                                        <div className="">
+                                        <div className="flex sm:items-center justify-start flex-col sm:flex-row gap-y-4 gap-x-4">
+                                            <Button sx={{
+                                                backgroundColor: 'transparent',
+                                                color: '#218B07',
+                                                border: '#218B07 solid 1px',
+                                                fontWeight: "bold",
+                                                textTransform: 'capitalize', fontSize: '1.2rem',
+                                                '&:hover': {
+                                                    backgroundColor: 'transparent',
+                                                },
+                                            }}
+                                                onClick={() => openSubModal()}
+
+                                            >delete category</Button>
                                             <Switch
                                                 // checked={item?.isAvailable}
                                                 // onChange={() => changeavai(item)}
@@ -63,7 +81,7 @@ const Categories = ({ itemID }) => {
                                                 backgroundColor: 'transparent',
                                             },
                                         }}
-                                        // onClick={() => router.push(`items/restaurant/meals/edit/${mealId}`)}
+                                            onClick={() => openSubModal()}
 
                                         >Add Item</Button>
                                         <Button sx={{
@@ -77,9 +95,14 @@ const Categories = ({ itemID }) => {
                                                 backgroundColor: 'transparent',
                                             },
                                         }}
-                                            onClick={() => openCategoryModal()}>Delete Item</Button>
+                                        // onClick={() => openCategoryModal()}
+                                        >
+
+                                            Delete Item
+                                        </Button>
                                     </div>
                                     <EditCategory isOpenModal={isEditCategoryOpenModal} setIsOpenModal={setIsEditCategoryOpenModal} itemID={item} />
+                                    <AddSubMeal isOpenModal={isSubOpenModal} setIsOpenModal={setIsSubOpenModal} itemID={details} />
                                 </div>
 
                             ))}

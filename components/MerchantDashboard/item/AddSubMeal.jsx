@@ -46,7 +46,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                 <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
                     <span className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
                         onClick={() => setIsOpenModal(false)}>
-                        <LiaTimesSolid className='text-xl' />
+                        <LiaTimesSolid/>  
                     </span>
                 </div>
                 <form onSubmit={submealcreate } className="flex flex-col justify-center items-center w-full gap-y-6">
@@ -82,7 +82,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                                 options={options}
                                 sx={{ width: "100%" }}
                                 onChange={handleCategoryChange}
-                                renderInput={(params) => <TextField {...params} label="" />}
+                                renderInput={(params) => <TextField {...params} label="select category" />}
                             />
 
                         </div>
