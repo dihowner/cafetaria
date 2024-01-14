@@ -7,7 +7,7 @@ import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 const CreateCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
     const [name, setName] = useState()
     const { createMealCategory, createCategoryLoading } = mealsfetch()
-    const mealId = itemID?._id
+    const mealId = itemID
     // console.log(itemID)
     const data={
         name:name

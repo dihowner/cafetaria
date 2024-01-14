@@ -169,7 +169,7 @@ export const mealsfetch = () => {
         try {
             const response = await createSubmeal({ data, params: id, token: auth.token }).unwrap()
             toast.success(response.message)
-            console.log(response)
+            // console.log(response)
         } catch (err) {
             toast.error(err?.data?.message || err.error);
             setError(err.error)
