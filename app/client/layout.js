@@ -13,7 +13,7 @@ import ProtectedRouteWrapper from '@/components/ProtectedRouteWrapper'
 import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import { useDetailsMutation } from '@/redux/Vendor/detailsApiSlice'
+import { useDetailsMutation, useUserDetailsMutation } from '@/redux/Vendor/detailsApiSlice'
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 import AppLoader from '@/components/AppLoader'
 import { logout } from '@/user/authSlice'
@@ -21,18 +21,18 @@ import { logout } from '@/user/authSlice'
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
   const { auth } = useSelector((state) => state.rootReducers)
-  const [details, { isLoading }] = useDetailsMutation()
+  const [userdetails, { isLoading }] = useUserDetailsMutation()
   const router = useRouter()
   const fetchDetails = async () => {
     try {
-      const response = await details(auth?.token).unwrap()
+      const response = await userdetails(auth?.token).unwrap()
       dispatch(setDetails(response))
     } catch (err) {
       // console.log(err)
       if (err.status === 401) {
         dispatch(logout())
         toast.error(err?.data?.message + ' ' + 'Please Login Again')
-        router.push('/vendor/login')
+        router.push('/client/login')
       } else {
         toast.error(err.error)
       }

@@ -4,8 +4,6 @@ const initialState = {
     meals: null
 }
 
-
-
 const createMealSlice = createSlice({
     name: 'meal',
     initialState,

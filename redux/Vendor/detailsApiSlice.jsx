@@ -1,10 +1,11 @@
-const URL = 'api/user'
+const USER_URL = 'api/user'
+const VENDOR_URL = 'api/vendor'
 import { apiSlice } from "../apiSlice"
-export const DetailsApiSlice = apiSlice.injectEndpoints({
+export const userDetailsApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        details: builder.mutation({
+        userdetails: builder.mutation({
             query: (token) => ({
-                url: `${URL}/details`,
+                url: `${USER_URL}/details`,
                 method: 'GET',
                 headers: {
                     // Add your headers here
@@ -15,4 +16,20 @@ export const DetailsApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
-export const { useDetailsMutation } = DetailsApiSlice
+export const { useUserDetailsMutation } = userDetailsApiSlice
+export const VendorDetailsApiSlice = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        vendordetails: builder.mutation({
+            query: (token) => ({
+                url: `${VENDOR_URL}/details`,
+                method: 'GET',
+                headers: {
+                    // Add your headers here
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+        })
+    })
+})
+export const { useVendordetailsMutation} = VendorDetailsApiSlice
