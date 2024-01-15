@@ -18,8 +18,8 @@ const page = () => {
   return (
     <div className='flex justify-center flex-col items-center w-full'>
       <div className='width flex flex-col gap-y-4 border'>
-        <div className='flex justify-between  w-full md:items-center flex-col md:flex-row gap-y-6 p-4 '>
-          <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg'>
+        <div className='flex justify-between  w-full md:items-center flex-col md:flex-row gap-y-6 p-2 '>
+          <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg'>
             <span>
               <MdSwipeDownAlt />
             </span>
@@ -27,26 +27,26 @@ const page = () => {
           </div>
           <CustomButton
             title='Add'
-            containerStyles='text-[#218B07] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 border-[#218B07] border'
+            containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 text-sm rounded-[5px] gap-x-4 border-[#218B07] border'
             Icon={<IoIosAdd />}
             handleClick={() => {
               router.push('restaurant/add-meal')
             }}
           />
         </div>
-        <div className='flex justify-between items-center bg-[#218B07] p-4'>
-          <div className='flex gap-x-4'>
+        <div className='flex justify-between items-center bg-[#218B07] p-2'>
+          <div className='flex gap-x-2'>
             <CustomButton
               title='All Items 48'
-              containerStyles='text-[#218B07] flex justify-center items-center py-2 px-4 rounded-[5px] gap-x-4  bg-[white]'
+              containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4  bg-[white] text-sm'
             />
             <CustomButton
               title='Active 31'
-              containerStyles='text-[white] flex justify-center items-center py-2 px-4 rounded-[5px] gap-x-4 border-[white] border'
+              containerStyles='text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 border-[white] border text-sm'
             />
             <CustomButton
               title='Not Active 17'
-              containerStyles='text-[white] flex justify-center items-center py-2 px-4 rounded-[5px] gap-x-4 border-[white] border'
+              containerStyles='text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 border-[white] border text-sm'
             />
           </div>
         </div>

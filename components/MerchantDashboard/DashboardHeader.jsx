@@ -21,11 +21,11 @@ const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
                         >
                             <FaBars />
                         </div>
-                        <div className="bg-[#C9C9C9] w-[100%] flex justify-center items-center text-[#FFFFFF] min-h-12 text-base text-center">
+                        <div className="bg-[#C9C9C9] w-[100%] flex justify-center items-center text-[#FFFFFF] min-h-12 text-sm text-center">
                             <h4>Welcome {details?.store_name}</h4>
                         </div>
                     </div>
-                    <div className="bg-[#C9C9C9]  py-2 px-2 w-[60%] lg:w-[80%] h-12 flex justify-center items-center text-base">
+                    <div className="bg-[#C9C9C9] px-1 w-[60%] lg:w-[80%] min-h-12 flex justify-center items-center text-sm">
                         <input type="text" className='w-full  capitalize bg-[#C9C9C9] rounded-full border-none outline-none text-[#FFFFFF]' placeholder='search Anything here' />
                     </div>
                 </div>

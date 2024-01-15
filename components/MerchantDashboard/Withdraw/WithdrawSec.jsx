@@ -33,52 +33,52 @@ const WithdrawSec = () => {
     }
     return (
         <div className='w-full md:w-[50%] border p-4 flex flex-col gap-y-8 '>
-            <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
-                <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
-                    <BsBank className='text-3xl w-full' />
+            <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-2 py-2 text-sm flex items-center gap-x-6 rounded-lg">
+                <span className='w-[20%] border p-2 flex justify-center items-center rounded-lg'>
+                    <BsBank className='text-sm w-full' />
                 </span>
                 <p>Bank account</p>
             </div>
-            <div className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-4 text-sm">
                 <span className='text-[#218B07]'>Enter bank details</span>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-3 flex items-center gap-x-6 rounded-lg">
-                    <span className='w-[20%] border p-3  flex justify-center items-center rounded-lg'>
-                        <BsBank className='text-3xl w-full' />
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                    <span className='w-[20%] border p-2  flex justify-center items-center rounded-lg'>
+                        <BsBank className='text-sm w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Bank Name' defaultValue={bankDetails?.bankName
+                    <input type="text" className='bg-[transparent] outline-none border-0 text-sm w-[80%]' placeholder='Enter Bank Name' defaultValue={bankDetails?.bankName
                     } />
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
-                    <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
-                        <BsBank className='text-3xl w-full' />
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                    <span className='w-[20%] border p-2 flex justify-center items-center rounded-lg'>
+                        <BsBank className='text-sm w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' defaultValue={bankDetails?.accountNumber
+                    <input type="text" className='bg-[transparent] outline-none border-0 text-sm  w-[80%]' placeholder='Enter Account number ' defaultValue={bankDetails?.accountNumber
                     } />
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
-                    <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
-                        <BsBank className='text-3xl w-full' />
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                    <span className='w-[20%] border p-2 flex justify-center items-center rounded-lg'>
+                        <BsBank className='text-sm w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account name ' defaultValue={bankDetails?.accountName
+                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%] text-sm' placeholder='Enter Account name ' defaultValue={bankDetails?.accountName
                     } />
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
-                    <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
-                        <FaNairaSign className='text-3xl w-full' />
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                    <span className='w-[20%] border p-2 flex justify-center items-center rounded-lg'>
+                        <FaNairaSign className='text-sm w-full' />
                     </span>
-                    <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Amount' ref={amountTowithdrawRef} defaultValue={''
+                    <input type="number" className='bg-[transparent] outline-none border-0 text-sm w-[80%]' placeholder='Enter Amount' ref={amountTowithdrawRef} defaultValue={''
                     } />
                 </div>
                 <span>Your withdrawal would be processed within 0 to 24 hours after withdraw</span>
-                <CustomButton title='Withdraw' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[60%]'
-                    Icon={<BiMoneyWithdraw />}
+                <CustomButton title='Withdraw' containerStyles='text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] text-sm gap-x-4 bg-[#218B07] w-[60%]'
+                    Icon={<BiMoneyWithdraw />} 
                     handleClick={openModal} />
             </div>
             <Modal isOpen={isOpenModal} close={() => setIsOpenModal(false)}>
                 <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
-                    <span className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md absolute top-0 right-0 text-white'
+                    <span className='bg-[black] p-2 h-8 justify-center flex items-center rounded-md absolute top-0 right-0 text-white'
                         onClick={() => setIsOpenModal(false)}>
-                        <LiaTimesSolid className='text-xl' />
+                        <LiaTimesSolid className='text-sm' />
                     </span>
                     <div className="flex flex-col justify-center items-center w-full">
                         <h1 className='text-4xl font-semibold text-[#000000CC] '>Confirm withdrawal</h1>

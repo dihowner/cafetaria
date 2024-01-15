@@ -51,9 +51,9 @@ const Upload = ({  mealImage }) => {
                 {selectedImage ? (
                     <img src={selectedImage} alt="Selected" className="w-full h-full object-contain" />
                 ) : (
-                    <label htmlFor="fileInput" className="text-center">
-                        <IoMdImages className="text-9xl" />
-                        <span className='text-[#218B07] text-xl'>Upload your Meal Image </span>
+                    <label htmlFor="fileInput" className="text-center flex flex-col justify-center items-center">
+                        <IoMdImages className="text-2xl" />
+                        <span className='text-[#218B07] text-sm'>Upload your Meal Image </span>
                     </label>
                 )}
             </div>

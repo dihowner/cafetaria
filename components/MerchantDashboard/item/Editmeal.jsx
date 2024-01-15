@@ -58,7 +58,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
             ) : null}
             {loading ? <AppLoader color={'#5f8357'} loading={loading} /> : null}
             <div className='width'>
-                <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg w-[60%] md:w-[30%]'>
+                <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg w-[60%] md:w-[20%]'>
                     <span className='text-xl'>
                         <BiMoneyWithdraw />
                     </span>
@@ -71,11 +71,11 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                     className='w-full flex flex-col gap-y-8 justify-center items-center '
                     onSubmit={update}
                 >
-                    <div className=' w-full grid grid-cols-1 md:grid-cols-2 gap-x-4'>
+                    <div className=' w-full grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3'>
                         <div className=''>
                             <UploadEdit reff={mealImage} defaultValue={details?.image} />
                         </div>
-                        <div className='flex flex-col gap-y-5'>
+                        <div className='flex flex-col gap-y-3'>
                             <EditInput
                                 title={'Meal Name'}
                                 type={'text'}
@@ -89,14 +89,14 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                 defaultValue={details?.description}
                             />
                             <div className='flex flex-col w-full'>
-                                <label htmlFor=''>Availability</label>
+                                <label htmlFor='' className='text-sm'>Availability</label>
                                 <select
                                     ref={is_availableRef}
                                     defaultValue={details?.isAvailable}
-                                    className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] outline-none'
+                                    className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] text-sm outline-none'
                                 >
                                     {status.map((item, index) => (
-                                        <option key={index} value={item.value} className='capitalize'>
+                                        <option key={index} value={item.value} className='capitalize text-sm'>
                                             {item.status}
                                         </option>
                                     ))}
@@ -108,12 +108,12 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                 reff={priceRef}
                                 defaultValue={details?.unitPrice}
                             />
-                            <label htmlFor='' className='text-lg'>
+                            <label htmlFor='' className='text-sm'>
                                 Packaging
                             </label>
                             <div className='w-full'>
                                 <div className='grid grid-cols-2 gap-x-2 items-center'>
-                                    <p className='text-xl'>Stryofoam</p>
+                                    <p className='text-sm'>Stryofoam</p>
                                     <div className='flex gap-x-2'>
                                         <EditInput
                                             title={'Price'}
@@ -123,17 +123,17 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                         />
 
                                         <div className='flex flex-col w-full'>
-                                            <label htmlFor=''>Avaliability</label>
+                                            <label htmlFor='' className='text-sm'>Avaliability</label>
                                             <select
                                                 ref={is_requiredstyrofoam}
                                                 defaultValue={details?.packaging?.stryrofoam?.is_required}
-                                                className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] outline-none'
+                                                className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] text-sm outline-none'
                                             >
                                                 {status.map((item, index) => (
                                                     <option
                                                         key={index}
                                                         value={item.value}
-                                                        className='capitalize'
+                                                        className='capitalize text-sm'
                                                     >
                                                         {item.status}
                                                     </option>
@@ -143,7 +143,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                     </div>
                                 </div>
                                 <div className='grid grid-cols-2 gap-x-2 items-center'>
-                                    <p className='text-xl'>Plastic Plate</p>
+                                    <p className='text-sm'>Plastic Plate</p>
                                     <div className='flex gap-x-2'>
                                         <EditInput
                                             title={'Price'}
@@ -153,19 +153,19 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                         />
 
                                         <div className='flex flex-col w-full'>
-                                            <label htmlFor=''>Avaliability</label>
+                                            <label htmlFor='' className='text-sm'>Avaliability</label>
                                             <select
                                                 ref={is_requiredplasticPlate}
                                                 defaultValue={
                                                     details?.packaging?.plastic_plate?.is_required
                                                 }
-                                                className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] outline-none'
+                                                className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] text-sm outline-none'
                                             >
                                                 {status.map((item, index) => (
                                                     <option
                                                         key={index}
                                                         value={item.value}
-                                                        className='capitalize'
+                                                        className='capitalize text-sm'
                                                     >
                                                         {item.status}
                                                     </option>

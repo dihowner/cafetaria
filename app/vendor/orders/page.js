@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 // import CustomButton from '@/components/CustomButton'
 const page = () => {
-  const maxLength = 25
+  const maxLength = 15
   const truncate = (str) => {
     if (typeof str === 'string' && str.length > maxLength) {
       return str.slice(0, maxLength) + '.....'
@@ -16,14 +16,14 @@ const page = () => {
   return (
     <div className='flex justify-center flex-col items-center w-full '>
       <div className='width flex flex-col gap-y-4 border'>
-        <div className='flex justify-between md:items-center flex-col md:flex-row gap-y-6 w-full p-4  '>
-          <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg'>
+        <div className='flex justify-between md:items-center flex-col md:flex-row gap-y-6 w-full p-2  '>
+          <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg'>
             <span>
               <FaCartShopping />
             </span>
             <span>Orders</span>
           </div>
-          <div className='flex gap-x-2 items-center text-[#0000007D] border p-2'>
+          <div className='flex gap-x-2 text-sm items-center text-[#0000007D] border p-2'>
             <span>
               <BiSortAlt2 />
             </span>
@@ -39,50 +39,50 @@ const page = () => {
                   <tr className='capitalize bg-[#218B07] text-white'>
                     <td
                       scope='col'
-                      className='text-base font-bold text-white px-6 py-4 text-left'
+                      className='text-sm font-bold text-white px-1 py-1 text-left '
                     >
                       #
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold whitespace-nowrap text-white px-6 py-4 text-left'
+                      className='text-sm  text-white px-1 py-1 font-bold whitespace-nowrap text-left'
                     >
                       Order ID
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-white px-6 py-4 text-left'
+                      className='text-sm  text-white px-1 py-1 font-bold text-left '
                     >
                       Order
                     </td>
 
                     <td
                       scope='col'
-                      className='text-base font-bold text-white px-6 py-4 text-left'
+                      className='text-sm  text-white px-1 py-1 font-bold text-left'
                     >
                       Address
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-white px-6 py-4 text-left'
+                      className='text-sm  text-white px-1 py-1 font-bold text-left'
                     >
                       Phone
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-white px-6 py-4 text-left'
+                      className='text-sm  text-white px-1 py-1 font-bold text-left'
                     >
                       Amount
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-whitepx-6 py-4 text-left'
+                      className='text-sm  text-white px-1 py-1 font-bold text-left'
                     >
                       Date
                     </td>
                     <td
                       scope='col'
-                      className='text-base font-bold text-white px-6 py-4 text-left'
+                      className='text-sm  text-white px-1 py-1 font-bold text-left'
                     >
                       Status
                     </td>
@@ -90,56 +90,56 @@ const page = () => {
                 </thead>
                 <tbody>
                   {OrdersTableData.map((item, index) => (
-                    <tr className='border-b capitalize my-8' key={index}>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                    <tr className='border-b capitalize my-2' key={index}>
+                      <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                         {item.id}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                      <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                         {item.order_id}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
-                        <div className='flex gap-x-4'>
+                      <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
+                        <div className='flex gap-x-2'>
                           <img
-                            className='w-12 h-12 rounded-[10px] object-cover'
+                            className='w-8 h-8 rounded-[10px] object-cover'
                             src={item.image}
                             alt='image'
                           />
                           <div className=''>
-                            <p className='text-base font-semibold'>
+                            <p className='text-sm font-semibold'>
                               {item.order}
                             </p>
-                            <span className='text-[#ABABAB] text-base'>
+                            <span className='text-[#ABABAB] text-sm'>
                               {item.type}
                             </span>
                           </div>
                         </div>
                       </td>
 
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                      <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                         {truncate(item.address)}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                      <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                         {item.phone}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                      <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                         {item.amount}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                      <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                         {item.date}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium '>
+                      <td className='px-1 py-1 whitespace-nowrap text-sm font-medium '>
                         <div
                           className={`w-[100px] ${
                             item.status === 'Successful'
-                              ? 'text-[white] rounded-lg flex justify-center items-center p-2 bg-[#218B07]'
-                              : 'text-[white] rounded-lg flex justify-center items-center p-2 bg-[#ED1111]'
+                              ? 'text-[white] rounded-lg flex justify-center items-center p-1 bg-[#218B07] text-sm'
+                              : 'text-[white] rounded-lg flex justify-center items-center p-1 bg-[#ED1111] text-sm'
                           }`}
                         >
                           {item.status}
                         </div>
                         <Link
                           href={`/vendor/orders/${item.id}`}
-                          className='text-[#218B07]  gap-x-1 mt-6 font-semibold flex items-center'
+                          className='text-[#218B07]  gap-x-1 mt-4 font-semibold flex items-center'
                         >
                           <p> view details </p>
                           <span>

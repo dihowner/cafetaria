@@ -21,7 +21,7 @@ const page = () => {
       <div className='width flex flex-col gap-y-4'>
         <div className='flex justify-between md:items-center flex-col md:flex-row gap-y-6 w-full p-4  '>
           <div className='flex flex-col gap-y-8 w-full md:w-1/2'>
-            <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg w-[45%] md:w-[40%]'>
+            <div className='flex items-center text-sm  gap-x-4 capitalize p-2 border-2 bg-[#FAFAFA] rounded-lg w-[45%] md:w-[20%]'>
               <span>
                 <MdOutlineSettings />
               </span>
@@ -35,8 +35,8 @@ const page = () => {
               onClick={(e) => changeTab('Account information')}
               className={`${
                 tab === 'Account information'
-                  ? 'text-lg md:text-2xl text-[#218B07] font-semibold cursor-pointer border-[#218B07] border p-4'
-                  : 'text-lg md:text-2xl text-[#00000033] font-semibold cursor-pointer'
+                  ? 'text-sm md:text-base text-[#218B07] font-semibold cursor-pointer border-[#218B07] border p-2'
+                  : 'text-sm md:text-base text-[#00000033] font-semibold cursor-pointer'
               }`}
             >
               Account information{' '}
@@ -45,8 +45,8 @@ const page = () => {
               onClick={(e) => changeTab('Security information')}
               className={`${
                 tab === 'Security information'
-                  ? 'text-lg md:text-2xl text-[#218B07]  border-[#218B07] border p-4 font-semibold cursor-pointer'
-                  : 'text-lg md:text-2xl text-[#00000033] font-semibold cursor-pointer'
+                  ? 'text-sm md:text-base text-[#218B07] font-semibold cursor-pointer border-[#218B07] border p-2'
+                  : 'text-sm md:text-base text-[#00000033] font-semibold cursor-pointer'
               }`}
             >
               Security information
@@ -55,8 +55,8 @@ const page = () => {
               onClick={(e) => changeTab('Withdrawal information')}
               className={`${
                 tab === 'Withdrawal information'
-                  ? 'text-lg md:text-2xl text-[#218B07]  border-[#218B07] border p-4 font-semibold cursor-pointer'
-                  : 'text-lg md:text-2xl text-[#00000033] font-semibold cursor-pointer'
+                  ? 'text-sm md:text-base text-[#218B07] font-semibold cursor-pointer border-[#218B07] border p-2'
+                  : 'text-sm md:text-base text-[#00000033] font-semibold cursor-pointer'
               }`}
             >
               Withdrawal information

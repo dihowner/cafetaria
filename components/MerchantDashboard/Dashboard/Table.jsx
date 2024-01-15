@@ -6,7 +6,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import { FaCartShopping } from 'react-icons/fa6'
 // Link
 const Table = () => {
-    const maxLength = 25
+    const maxLength = 15
     const truncate = (str) => {
         if (typeof str === 'string' && str.length > maxLength) {
             return str.slice(0, maxLength) + '.....'
@@ -25,8 +25,8 @@ const Table = () => {
             </div>
             {/* sm:-mx-6 lg:-mx-8 */}
             <div className=' w-[100%] overflow-x-auto bg-[white]  border'>
-                <div className="flex justify-between items-center w-full min-w-full px-6 py-4">
-                    <div className="flex gap-x-2 items-center text-base font-semibold">
+                <div className="flex justify-between items-center w-full min-w-full px-2 py-2">
+                    <div className="flex gap-x-2 items-center text-sm font-semibold">
                         <span><FaCartShopping /></span>
                         <span>Order</span>
                     </div>
@@ -38,38 +38,38 @@ const Table = () => {
                             <thead className='border-b'>
                                 <tr className='capitalize bg-[#218B07] text-white'>
                                     <td scope='col'
-                                        className='text-sm font-bold text-white px-3 py-2 text-left'>#</td>
+                                        className='text-sm font-bold text-white px-1 py-1 text-left'>#</td>
                                     <td scope='col'
-                                        className='text-sm  text-white px-3 py-2 font-bold whitespace-nowrap text-left'>Order ID</td>
+                                        className='text-sm  text-white px-1 py-1 font-bold whitespace-nowrap text-left'>Order ID</td>
                                     <td scope='col'
-                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Order</td>
+                                        className='text-sm  text-white px-1 py-1 font-bold text-left'>Order</td>
 
                                     <td scope='col'
-                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Address</td>
+                                        className='text-sm  text-white px-1 py-1 font-bold text-left'>Address</td>
                                     <td scope='col'
-                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Phone</td>
+                                        className='text-sm  text-white px-1 py-1 font-bold text-left'>Phone</td>
                                     <td scope='col'
-                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Amount</td>
+                                        className='text-sm  text-white px-1 py-1 font-bold text-left'>Amount</td>
                                     <td scope='col'
-                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Date</td>
+                                        className='text-sm  text-white px-1 py-1 font-bold text-left'>Date</td>
                                     <td scope='col'
-                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Status</td>
+                                        className='text-sm  text-white px-1 py-1 font-bold text-left'>Status</td>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 {DashboardTableData.map((item, index) => (
                                     <tr className='border-b capitalize my-4' key={index}>
-                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.id}
                                         </td>
-                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.order_id}
                                         </td>
-                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             <div className="flex gap-x-2">
                                                 <img
-                                                    className='w-12 h-12 rounded-[10px] object-cover'
+                                                    className='w-8 h-8 rounded-[10px] object-cover'
                                                     src={item.image}
                                                     alt='image'
                                                 />
@@ -81,23 +81,23 @@ const Table = () => {
 
                                         </td>
 
-                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {truncate(item.address)}
                                         </td>
-                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.phone}
                                         </td>
-                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.amount}
                                         </td>
-                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.date}
                                         </td>
-                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium '>
-                                            <div className={`w-[100px] ${item.status === 'Successful' ? 'text-[white] rounded-lg flex justify-center items-center p-2 bg-[#218B07]' : 'text-[white] rounded-lg flex justify-center items-center p-2 bg-[#ED1111]'}`}>
+                                        <td className='px-1 py-1 whitespace-nowrap text-sm font-medium '>
+                                            <div className={`w-[100px] ${item.status === 'Successful' ? 'text-[white] rounded-lg flex justify-center items-center p-1 bg-[#218B07] text-sm' : 'text-[white] rounded-lg flex justify-center items-center p-1 bg-[#ED1111] text-sm'}`}>
                                                 {item.status}
                                             </div>
-                                            <Link href={`/vendor/orders/${item.id}`} className='text-[#218B07]  gap-x-1 mt-6 font-semibold flex items-center'>
+                                            <Link href={`/vendor/orders/${item.id}`} className='text-[#218B07]  gap-x-1 mt-4 font-semibold flex items-center'>
                                                 <p> view details </p><span><AiOutlineArrowRight /></span>
                                             </Link>
 

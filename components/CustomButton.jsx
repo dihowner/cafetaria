@@ -11,7 +11,7 @@ const CustomButton = ({ title, handleClick, containerStyles, type, Icon, disable
             disabled={disable_btn || false}
         >
             {Icon && (
-                <div className='text-[1.5rem]'>
+                <div className='text-[1rem]'>
                     {Icon}
                 </div>
             )}

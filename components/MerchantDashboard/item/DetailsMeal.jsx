@@ -21,13 +21,13 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                         <div className='flex justify-between items-center w-full'>
                             <div className='flex items-center justify-start gap-x-4 w-[60%]'>
                                 <span
-                                    className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md text-white cursor-pointer'
+                                    className='bg-[black] p-2 h-8 justify-center flex items-center rounded-md text-white cursor-pointer'
                                     onClick={() => router.back()}
                                 >
-                                    <LiaTimesSolid className='text-xl' />
+                                    <LiaTimesSolid className='text-sm' />
                                 </span>
                                 <div className=''>
-                                    <h1 className='text-base md:text-3xl text-[#444444] font-medium capitalize'>{details?.name}</h1>
+                                    <h1 className='text-sm md:text-base text-[#444444] font-medium capitalize'>{details?.name}</h1>
                                     <p className='text-[#424242A6] capitalize'>{details?.description}</p>
                                 </div>
                             </div>
@@ -37,7 +37,8 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                                     color: 'black',
                                     border: '#0000000F solid 1px',
                                     fontWeight: "bold",
-                                    textTransform: 'capitalize', fontSize: '1rem',
+                                    padding:'.3rem',
+                                    textTransform: 'capitalize', fontSize: '.8rem',
                                     '&:hover': {
                                         backgroundColor: 'transparent',
                                     },
@@ -48,8 +49,9 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                                     color: '#218B07',
                                     fontWeight: "bold",
                                     border: '#218B07 solid 1px',
-                                    fontSize: '1rem',
-                                    textTransform: 'capitalize',
+                                    fontWeight: "bold",
+                                    padding: '.3rem',
+                                    textTransform: 'capitalize', fontSize: '.8rem',
                                     '&:hover': {
                                         backgroundColor: 'transparent',
                                     },
