@@ -39,7 +39,7 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
         <div className='flex flex-col gap-y-4 w-full h-full'>
             {SideBarSecondLinks.map((item, index) => (
                 <Link href={item.path} key={index}
-                    className={`text-base w-[100%] hover:bg-[#E0F3F3] hover:text-[black] rounded-[5px] bg-[#F8F8F863] p-1 ${pathname.startsWith(item.path) ? 'bg-[#FAFAFA] text-[black]' : ' text-white'
+                    className={`text-base w-[100%] hover:bg-[#E0F3F3] hover:text-[black] rounded-[5px] bg-[#F8F8F863] p-2 ${pathname.startsWith(item.path) ? 'bg-[#FAFAFA] text-[black]' : ' text-white'
                         }`} onClick={closes}>
                     <div className='flex items-center text-sm  w-[100%]  gap-x-4 capitalize'>
                         <div className='text-sm'>{item.icon}</div>

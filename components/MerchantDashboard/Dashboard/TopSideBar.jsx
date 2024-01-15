@@ -6,22 +6,22 @@ const TopSideBar = () => {
     return (
         <div className='width flex items-cente flex-col lg:flex-row gap-x-8 gap-y-4 '>
             <div className="flex flex-col w-[100%] lg:w-[70%] border p-3">
-                <div className="flex items-center flex-col md:flex-row gap-y-5 gap-x-6 w-full">
-                    <div className=" py-3 px-2 flex justify-center items-center flex-col gap-y-2 rounded-[10px] border w-[100%] md:w-[50%] ">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-6 w-full">
+                    <div className=" py-3 px-2 flex justify-center items-center flex-col gap-y-2 rounded-[10px] border ">
                         <div className="flex justify-center items-center gap-x-2">
-                            <span className='bg-[#E1510D] text-[white] p-2 text-lg'><AiFillAccountBook /></span>
-                            <h4 className='text-lg text-[#5B5B5B99]'>Account balance</h4>
+                            <span className='bg-[#E1510D] text-[white] p-2 text-base'><AiFillAccountBook /></span>
+                            <h4 className='text-base text-[#5B5B5B99]'>Account balance</h4>
                         </div>
-                        <p className='text-xl font-bold text-center'>
+                        <p className='text-lg font-bold text-center'>
                             150,000
                         </p>
                     </div>
-                    <div className="py-3 px-2 flex justify-center items-center flex-col gap-y-2 rounded-[10px] border w-[100%] md:w-[50%]  ">
+                    <div className="py-3 px-2 flex justify-center items-center flex-col gap-y-2 rounded-[10px] border  ">
                         <div className="flex justify-center items-center gap-x-2">
-                            <span className='bg-[#218B07] text-[white] p-2 text-lg'><AiOutlineShoppingCart /></span>
-                            <h4 className='text-lg text-[#5B5B5B99]'>Total items delivered</h4>
+                            <span className='bg-[#218B07] text-[white] p-2 text-base'><AiOutlineShoppingCart /></span>
+                            <h4 className='text-base text-[#5B5B5B99]'>Total items delivered</h4>
                         </div>
-                        <p className='text-xl font-bold text-center'>
+                        <p className='text-lg font-bold text-center'>
                             209
                         </p>
                     </div>

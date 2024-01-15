@@ -8,7 +8,7 @@ const page = () => {
   return (
     <div className='w-full justify-center items-center flex flex-col gap-y-8'>
       <div className='width'>
-        <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg w-[60%] md:w-[30%]'>
+        <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg w-[40%] md:w-[20%]'>
           <span className='text-xl'>
             <BiMoneyWithdraw />
           </span>

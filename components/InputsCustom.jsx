@@ -10,11 +10,11 @@ const InputsCustom = ({ title, value, onchange, Icon, type, placeholder, disable
         setPasswordVisible((prevVisibility) => !prevVisibility);
     };
     return (
-        <div className=' flex flex-col w-full'>
+        <div className=' flex flex-col w-full text-sm'>
             <label htmlFor="name">{title}</label>
-            <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+            <div className="flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative ">
                 <span>{Icon}</span>
-                <input type={type === 'password' ? (passwordVisible ? 'text' : 'password') : type || 'text'} value={value} onChange={handleOnchange} placeholder={placeholder} className='w-full outline-none border-none bg-transparent'
+                <input type={type === 'password' ? (passwordVisible ? 'text' : 'password') : type || 'text'} value={value} onChange={handleOnchange} placeholder={placeholder} className='w-full outline-none border-none bg-transparent text-sm'
                     disabled={disabled} />
                 {type === 'password' && (
                     <div
@@ -29,7 +29,6 @@ const InputsCustom = ({ title, value, onchange, Icon, type, placeholder, disable
                     </div>
                 )}
             </div>
-
         </div>
     )
 }

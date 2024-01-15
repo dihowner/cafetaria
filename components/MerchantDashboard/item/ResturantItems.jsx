@@ -94,67 +94,67 @@ const ResturantItems = () => {
                                     <tr className='capitalize'>
                                         <td
                                             scope='col'
-                                            className='text-lg font-bold text-[#5f8357] px-6 py-4 text-left'
+                                            className='text-sm  text-[#5f8357] px-1 py-1 font-bold whitespace-nowrap text-center'
                                         >
                                             sn
                                         </td>
                                         <td
                                             scope='col'
-                                            className='text-lg font-bold text-[#5f8357] px-6 py-4 text-left'
+                                            className='text-sm  text-[#5f8357] px-1 py-1 font-bold whitespace-nowrap text-center'
                                         >
                                             Preview
                                         </td>
                                         <td
                                             scope='col'
-                                            className='text-lg font-bold text-[#5f8357] px-6 py-4 text-left'
+                                            className='text-sm  text-[#5f8357] px-1 py-1 font-bold whitespace-nowrap text-center'
                                         >
                                             Name
                                         </td>
 
                                         <td
                                             scope='col'
-                                            className='text-lg font-bold text-[#5f8357] px-6 py-4 text-left'
+                                            className='text-sm  text-[#5f8357] px-1 py-1 font-bold whitespace-nowrap text-center'
                                         >
                                             Unit Price
                                         </td>
                                         <td
                                             scope='col'
-                                            className='text-lg font-bold text-[#5f8357] px-6 py-4 text-left'
+                                            className='text-sm  text-[#5f8357] px-1 py-1 font-bold whitespace-nowrap text-center'
                                         >
                                             Availability
                                         </td>
                                         <td
                                             scope='col'
-                                            className='text-lg font-bold text-[#5f8357] px-6 py-4 text-left'
+                                            className='text-sm text-[#5f8357] px-1 py-1 font-bold whitespace-nowrap text-center'
                                         >
                                             Action
                                         </td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {error ? (<div className='text-center text-3xl w-full capitalize'>{error}</div>) : (<>
+                                    {error ? (<div className='text-center text-2xl w-full capitalize'>{error}</div>) : (<>
                                         {allMeals && allMeals.map((item, index) => (
-                                            <tr className='border-b capitalize p-8' key={index}>
-                                                <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                            <tr className='border-b capitalize p-2' key={index}>
+                                                <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900 text-center'>
                                                     {index + 1}
                                                 </td>
-                                                <td>
+                                                <td className='text-center flex justify-center items-center'>
                                                     <div className=' border rounded-lg m-2 py-1 w-[40%] flex justify-center items-center'>
                                                         <img
-                                                            className='w-12 h-12 rounded-full object-cover'
+                                                            className='w-8 h-8 rounded-full object-cover'
                                                             src={item?.image}
                                                             alt='image'
                                                         />
                                                     </div>
                                                 </td>
-                                                <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                                <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900 text-center'>
                                                     {item.name}
                                                 </td>
 
-                                                <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                                <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900 text-center'>
                                                     {item?.unitPrice}
                                                 </td>
-                                                <td className='px-6 py-4 whitespace-nowrap text-sm font-medium '>
+                                                <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-center'>
                                                     <Switch
                                                         checked={item?.isAvailable}
                                                         onChange={() => changeavai(item)}
@@ -169,7 +169,7 @@ const ResturantItems = () => {
                                                         }}
                                                     />
                                                 </td>
-                                                <td className=' vendoritembtn text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap'
+                                                <td className=' vendoritembtn text-sm text-gray-900 font-light px-1 py-1 whitespace-nowrap text-center'
                                                 // ref={anchorRef}
                                                 >
                                                     <ButtonGroup variant="contained" aria-label="split button"
@@ -181,10 +181,12 @@ const ResturantItems = () => {
                                                                 backgroundColor: '#218B07',
                                                                 color: '#ffffff',
                                                                 borderColor: 'solid #218B07',
+                                                                fontSize:'0.75rem',
                                                                 '&:hover': {
                                                                     backgroundColor: '#218B07',
                                                                 },
-                                                            }}>Create Category</Button>
+                                                            }}
+                                                            size="small">Create Category</Button>
                                                         <Button
                                                             size="small"
                                                             aria-controls={open[index] ? 'split-button-menu' : undefined}
@@ -208,12 +210,9 @@ const ResturantItems = () => {
                                                                 zIndex: 1,
 
                                                             }}
-                                                            // open={open}
-                                                            // anchorEl={anchorRef.current}
-                                                            // role={undefined}
-                                                            // transition
-                                                            // disablePortal
+
                                                             open={open[index]}
+                                                            size="small"
                                                             anchorEl={anchorRef.current}
                                                             role={undefined}
                                                             transition
@@ -232,7 +231,7 @@ const ResturantItems = () => {
                                                                         <ClickAwayListener onClickAway={handleClose}>
                                                                             <MenuList id="split-button-menu" autoFocusItem>
                                                                                 <MenuItem>
-                                                                                    <Link href={`restaurant/edit-meal/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07] '>
+                                                                                    <Link href={`restaurant/edit-meal/${item?._id}`} className='py-1 px-1 flex gap-x-2 text-sm items-center text-[#218B07] '>
 
                                                                                         <p>Edit</p>
                                                                                     </Link>
@@ -242,14 +241,14 @@ const ResturantItems = () => {
                                                                                     setItemId(item)
                                                                                     setOpen(false)
                                                                                 }}>
-                                                                                    <div className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
+                                                                                    <div className='py-1 px-1 flex gap-x-2 text-sm items-center text-[#218B07]'>
 
                                                                                         <p>Delete</p>
                                                                                     </div>
 
                                                                                 </MenuItem>
                                                                                 <MenuItem>
-                                                                                    <Link href={`restaurant/meals/details/${item?._id}`} className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
+                                                                                    <Link href={`restaurant/meals/details/${item?._id}`} className='py-1 px-1 flex gap-x-2 text-sm items-center text-[#218B07]'>
 
                                                                                         <p>View Details</p>
                                                                                     </Link>
@@ -263,7 +262,7 @@ const ResturantItems = () => {
                                                                                         getcategory(item?._id)
                                                                                     }
                                                                                     }>
-                                                                                    <p className='py-1 px-2.5 flex gap-x-2 text-xl items-center text-[#218B07]'>
+                                                                                    <p className='py-1 px-1 flex gap-x-2 text-sm items-center text-[#218B07]'>
                                                                                         Create-Submeal
                                                                                     </p>
 

@@ -46,7 +46,7 @@ const Security = () => {
     const isValid = NewPass && cNewPass
     return (
         <div className='flex flex-col gap-y-4 border p-6 md:w-[60%] w-full'>
-            <h1 className='font-semibold text-3xl'>Security</h1>
+            <h1 className='font-semibold text-lg'>Security</h1>
             <p className='text-[#00000066] text-sm'>Anyone with your password can have access to your account, share this information with no one.</p>
             <form action="" className='flex flex-col gap-y-6' onSubmit={handleSaveClick}>
                 <div className="">
@@ -60,7 +60,7 @@ const Security = () => {
 
                 </div>
                 <div className="flex flex-col gap-y-6">
-                    <h1 className='font-semibold text-3xl'>Change password</h1>
+                    <h1 className='font-semibold text-lg'>Change password</h1>
                     <InputsCustom title='New Password'
                         value={NewPass}
                         onchange={setNewPass}
@@ -76,19 +76,19 @@ const Security = () => {
                 </div>
                 <div className="w-full flex items-center gap-x-4">
                     {!editMode ? (<div
-                        className='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2'
+                        className='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2 text-sm'
                         onClick={handleEditClick}
                     >Edit</div>) : (
                         <>
                             <CustomButton
                                 title={changePasswordLoading ? 'please wait' : 'Save'}
-                                containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2'
+                                    containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2 text-sm'
                                 type='submit'
                             // handleClick={handleSaveClick}
                             />
                             <CustomButton
                                 title='Cancel'
-                                containerStyles='border text-black border-black flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2'
+                                containerStyles='border text-black border-black flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2 text-sm'
                                 type='button'
                                 handleClick={handleCancelClick}
                             />

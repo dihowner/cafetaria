@@ -22,7 +22,7 @@ const Sidebar = ({ SideBarFirstLinks,
                     <img src="/logo2.png" alt="" srcSet="" className={`${isSidebarOpen ? 'block' : 'block md:hidden lg:block'
                         }`} />
                 </div>
-                <div className="flex w-[90%] flex-col py-4 items-center gap-y-4 h-[100%]  overflow-auto">
+                <div className="flex w-[80%] flex-col py-4 items-center gap-y-4 h-[100%]  overflow-auto">
                     <TopSideBar SideBarFirstLinks={SideBarFirstLinks} />
                     <div className='border-b-2 w-full  border-[white] '></div>
                     <SecondSideBar SideBarSecondLinks={SideBarSecondLinks} />

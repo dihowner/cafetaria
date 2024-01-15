@@ -20,15 +20,15 @@ const page = () => {
     <div className='flex justify-center flex-col items-center w-full'>
       <div className='width flex flex-col gap-y-4 border pb-6'>
         <div className='flex justify-between  w-full md:items-center flex-col md:flex-row gap-y-6 p-4 '>
-          <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg'>
+          <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg'>
             <span>
-              <MdSwipeDownAlt />
+              <MdSwipeDownAlt className='text-sm' />
             </span>
             <span>Groceries Items</span>
           </div>
           <CustomButton
             title='Add'
-            containerStyles='text-[#218B07] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 border-[#218B07] border'
+            containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-2 border-[#218B07] border text-sm'
             Icon={<IoIosAdd />}
             handleClick={() => {
               router.push('groceries/add-item')

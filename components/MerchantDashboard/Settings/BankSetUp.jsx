@@ -61,18 +61,18 @@ const BankSetUp = () => {
     // }, []);
     return (
         <div className='w-full border p-4 flex flex-col gap-y-8 '>
-            <h1 className='font-[700] text-3xl'>Bank account information</h1>
-            <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
-                <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
-                    <BsBank className='text-3xl w-full' />
+            <h1 className='font-[700] text-lg'>Bank account information</h1>
+            <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                <span className='w-[20%] border p-1 flex justify-center items-center rounded-lg text-sm'>
+                    <BsBank className='text-sm w-full' />
                 </span>
                 <p>Bank account</p>
             </div>
-            <form onSubmit={SaveBank} className="flex flex-col gap-y-4">
+            <form onSubmit={SaveBank} className="flex flex-col gap-y-4 text-sm">
                 <span className='text-[#218B07]'>Enter bank details</span>
                 <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-3 flex items-center gap-x-6 rounded-lg">
-                    <span className='w-[20%] border p-3  flex justify-center items-center rounded-lg'>
-                        <BsBank className='text-3xl w-full' />
+                    <span className='w-[20%] border text-sm p-1  flex justify-center items-center rounded-lg'>
+                        <BsBank className=' w-full' />
                     </span>
                     <Autocomplete
                         disablePortal
@@ -84,16 +84,17 @@ const BankSetUp = () => {
                     />
 
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 text-sm py-2 flex items-center gap-x-6 rounded-lg">
 
-                    <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
-                        <BsBank className='text-3xl w-full' />
+                    <span className='w-[20%] border p-1 text-sm flex justify-center items-center rounded-lg'>
+                        <BsBank className='text-sm w-full' />
                     </span>
                     <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' value={bankAccount} onChange={(e) => setBankAccount(e.target.value)} />
                     <Button
                         sx={{
                             backgroundColor: '#218B07',
                             color: '#ffffff',
+                            fontSize:'.8rem',
                             '&:hover': {
                                 backgroundColor: '#218B07',
                             },
@@ -101,22 +102,22 @@ const BankSetUp = () => {
                         onClick={verify}
                     > Verify Account</Button>
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
-                    <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
-                        <BsBank className='text-3xl w-full' />
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                    <span className='w-[20%] border p-1 text-sm flex justify-center items-center rounded-lg'>
+                        <BsBank className=' w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account name ' value={bankAccount_name} />
+                    <input type="text" className='bg-[transparent] outline-none border-0 text-sm w-[80%]' placeholder='Enter Account name ' value={bankAccount_name} />
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-6 py-3 flex items-center gap-x-6 rounded-lg">
-                    <span className='w-[20%] border p-3 flex justify-center items-center rounded-lg'>
-                        <BsBank className='text-3xl w-full' />
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                    <span className='w-[20%] border p-1 text-sm flex justify-center items-center rounded-lg'>
+                        <BsBank className=' w-full' />
                     </span>
-                    <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                    <div className="flex gap-x-2 items-center px-2 py-2 rounded-[8px] relative w-[80%] ">
                         <input type={passwordVisible ? 'number' : 'password'} value={transactionPin} onChange={(e) => {
                             const inputValue = e.target.value;
                             // Enforce maximum length (e.g., 6 digits)
                             setTransactionPin(inputValue.slice(0, 6));
-                        }} placeholder={'Enter Your transaction pin'} className='w-full outline-none border-none bg-transparent'
+                        }} placeholder={'Enter Your transaction pin'} className='w-full outline-none border-none bg-transparent text-sm'
                             maxLength={6}
                             onKeyDown={(e) => {
                                 // Allow only numeric input
@@ -139,7 +140,7 @@ const BankSetUp = () => {
                     </div>
                     {/* <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Your transaction pin ' value={transactionPin} onChange={(e) => setTransactionPin(e.target.value)} /> */}
                 </div>
-                <CustomButton title='Save Bank Account' containerStyles='text-[white] flex justify-center items-center py-4 px-4 rounded-[5px] gap-x-4 bg-[#218B07] w-[60%]'
+                <CustomButton title='Save Bank Account' containerStyles='text-[white] flex justify-center items-center py-2 text-sm px-2 rounded-[5px] gap-x-4 bg-[#218B07] w-[60%]'
                     type={'submit'}
                     Icon={<BiMoneyWithdraw />}
                 />

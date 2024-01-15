@@ -29,19 +29,19 @@ const UpdatePin = () => {
         setCurrentPin('')
     }
     return (
-        <div className='w-full border p-4 flex flex-col gap-y-8 '><h1 className='font-[700] text-3xl'>Create payment pin</h1>
+        <div className='w-full border p-4 flex flex-col gap-y-8 '><h1 className='font-[700] text-lg'>Create payment pin</h1>
             {/* {loading && <AppLoader />} */}
             <form className="flex flex-col gap-y-4" onSubmit={handleUpdatePin}>
-                <span className='text-[#218B07]'>Please only Enter numbers</span>
+                <span className='text-[#218B07] text-sm'>Please only Enter numbers</span>
                 <div className=' flex flex-col w-full'>
                     <label htmlFor="name">{"Current Pin"}</label>
-                    <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                    <div className="flex gap-x-2 items-center px-1 py-1 text-sm border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
                         <input type={passwordVisible ? 'number' : 'password'} value={currentPin} onChange={(e) => {
                             const inputValue = e.target.value;
                             // Enforce maximum length (e.g., 6 digits)
                             setCurrentPin(inputValue.slice(0, 6));
-                        }} placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
+                        }} placeholder={'Enter Your Pin'} className='text-sm w-full outline-none border-none bg-transparent'
                             maxLength={6}
                             onKeyDown={(e) => {
                                 // Allow only numeric input
@@ -67,16 +67,16 @@ const UpdatePin = () => {
 
                 </div>
 
-                <div className=' flex flex-col w-full'>
+                <div className=' flex flex-col w-full text-sm'>
                     <label htmlFor="name">{"New Pin"}</label>
-                    <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                    <div className="flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
                         <input type={passwordVisible ? 'number' : 'password'} value={Newpin} onChange={(e) => {
                             const inputValue = e.target.value;
                             // Enforce maximum length (e.g., 6 digits)
                             setNewPin(inputValue.slice(0, 6));
                         }
-                        } placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
+                        } placeholder={'Enter Your Pin'} className=' text-smw-full outline-none border-none bg-transparent'
                             maxLength={6}
                             onKeyDown={(e) => {
                                 // Allow only numeric input
@@ -101,15 +101,15 @@ const UpdatePin = () => {
 
                 </div>
 
-                <div className=' flex flex-col w-full'>
+                <div className=' flex flex-col w-full text-sm'>
                     <label htmlFor="name">{"New Pin"}</label>
-                    <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                    <div className="flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
                         <input type={passwordVisible ? 'number' : 'password'} value={cNewpin} onChange={(e) => {
                             const inputValue = e.target.value;
                             // Enforce maximum length (e.g., 6 digits)
                             setCNewPin(inputValue.slice(0, 6));
-                        }} placeholder={'Enter Your Pin'} className='w-full outline-none border-none bg-transparent'
+                        }} placeholder={'Enter Your Pin'} className='text-sm w-full outline-none border-none bg-transparent'
                             maxLength={6}
                             onKeyDown={(e) => {
                                 // Allow only numeric input

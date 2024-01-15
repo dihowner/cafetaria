@@ -43,8 +43,8 @@ const Categories = ({ itemID,details }) => {
                                 <div className="w-full bg-[#F8F8F8] flex justify-center items-cente gap-y-6 flex-col rounded-[8px] p-6 " key={index}>
                                     <div className="flex justify-between items-center w-full">
                                         <div className="flex flex-col gap-y-4">
-                                            <h1 className='text-xl text-[#000000] font-bold capitalize'>{item?.name}</h1>
-                                            <span className='text-[#218B07] font-bold cursor-pointer' onClick={() => openEditCategoryModal()}>Edit Category</span>
+                                            <h1 className='text-lg text-[#000000] font-bold capitalize'>{item?.name}</h1>
+                                            <span className='text-[#218B07] font-bold text-sm cursor-pointer' onClick={() => openEditCategoryModal()}>Edit Category</span>
                                         </div>
                                         <div className="flex sm:items-center justify-start flex-col sm:flex-row gap-y-4 gap-x-4">
                                             <Button sx={{
@@ -52,7 +52,9 @@ const Categories = ({ itemID,details }) => {
                                                 color: '#218B07',
                                                 border: '#218B07 solid 1px',
                                                 fontWeight: "bold",
-                                                textTransform: 'capitalize', fontSize: '1.2rem',
+                                                
+                                                padding: '.3rem',
+                                                textTransform: 'capitalize', fontSize: '.8rem',
                                                 '&:hover': {
                                                     backgroundColor: 'transparent',
                                                 },
@@ -81,7 +83,9 @@ const Categories = ({ itemID,details }) => {
                                             color: '#218B07',
                                             border: '#218B07 solid 1px',
                                             fontWeight: "bold",
-                                            textTransform: 'capitalize', fontSize: '1.2rem',
+                                           
+                                            padding: '.3rem',
+                                            textTransform: 'capitalize', fontSize: '.8rem',
                                             '&:hover': {
                                                 backgroundColor: 'transparent',
                                             },
@@ -94,8 +98,9 @@ const Categories = ({ itemID,details }) => {
                                             color: 'black',
                                             fontWeight: "bold",
                                             border: '#0000000F solid 1px',
-                                            fontSize: '1.2rem',
-                                            textTransform: 'capitalize',
+                                           
+                                            padding: '.3rem',
+                                            textTransform: 'capitalize', fontSize: '.8rem',
                                             '&:hover': {
                                                 backgroundColor: 'transparent',
                                             },

@@ -6,10 +6,10 @@ const page = () => {
         <div className='flex w-full justify-center items-center'>
             <div className="width flex flex-col justify-center items-cente gap-y-8">
                 <div className="flex justify-between md:items-center flex-col gap-y-4 md:flex-row w-full">
-                    <h1 className='font-semibold uppercase text-3xl text-[#444444]'>Order  Details: </h1>
+                    <h1 className='font-semibold uppercase text-lg text-[#444444]'>Order  Details: </h1>
 
                     <select
-                        className='px-4 py-4 border rounded-sm outline-none bg-transparent'
+                        className='px-2 py-2 border rounded-sm outline-none bg-transparent'
 
                     >
                         <option value='' disabled selected>
@@ -21,21 +21,21 @@ const page = () => {
                     </select>
                 </div>
 
-                <div className="border-b p-4 w-[100%] md:w-[70%] capitalize flex justify-center flex-col gap-y-3 ">
-                    <p className='font-semibold text-base'>order Id: <span className='text-[#218B07]'>#737456</span></p>
-                    <span>Monday, 19th September 2023</span>
-                    <div className="flex justify-center items-center bg-[#FF9C06] p-3 w-[40%] md:w-[15%]  text-white text-center capitalize ">
+                <div className="border-b p-2 w-[100%] md:w-[70%] capitalize flex justify-center flex-col gap-y-3 ">
+                    <p className='font-semibold text-sm'>order Id: <span className='text-[#218B07]'>#737456</span></p>
+                    <span className='text-sm'>Monday, 19th September 2023</span>
+                    <div className="flex justify-center items-center bg-[#FF9C06] p-2 w-[40%] md:w-[15%]  text-white text-center text-sm capitalize ">
                         in progress
                     </div>
                 </div>
                 <div className="border-b p-4 w-[100%] md:w-[70%] capitalize flex flex-col gap-y-3 ">
                     <div className="flex  items-center gap-x-4">
-                        <span className='bg-[#218B07] text-white fle justify-center items-center p-4 rounded-md'><BsBagFill /></span>
-                        <p className='text-2xl text-[#444444] font-semibold'>Order info:</p>
+                        <span className='bg-[#218B07] text-white flex text-sm justify-center items-center p-2 rounded-md'><BsBagFill /></span>
+                        <p className='text-lg text-[#444444] font-semibold'>Order info:</p>
                     </div>
                     <div className="flex gap-x-8">
                         <span>Jollof Rice</span>
-                        <ul className='list-disc text-[#218B07] font-medium'>
+                        <ul className='list-disc text-[#218B07] text-sm font-medium'>
                             <li>Take away</li>
                             <li>1 portion pf jollof rice</li>
                             <li>4 beef meats</li>
@@ -45,28 +45,28 @@ const page = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="border-b p-4 w-[100%] md:w-[70%] capitalize flex flex-col gap-y-3 ">
+                <div className="border-b p-2 w-[100%] md:w-[70%] capitalize flex flex-col gap-y-3 ">
                     <div className="flex  items-center gap-x-4">
-                        <span className='bg-[#218B07] text-white fle justify-center items-center p-4 rounded-md'><BsFillCreditCard2BackFill /></span>
-                        <p className='text-2xl text-[#444444] font-semibold'>Payment status:</p>
+                        <span className='bg-[#218B07] text-white flex text-sm justify-center items-center p-2 rounded-md'><BsFillCreditCard2BackFill /></span>
+                        <p className='text-lg text-[#444444] font-semibold'>Payment status:</p>
                     </div>
-                    <div className="flex flex-col gap-y-3">
+                    <div className="flex flex-col gap-y-3 text-sm">
 
                         <p>Transaction Amount: <span className='text-[#218B07]'>2300</span> </p>
                         <p>Transaction id :  <span className='text-[#218B07]'>29299288281002810281080280188802801</span> </p>
                         <p>Transaction time: <span className='text-[#218B07]'> 24 minutes ago</span> </p>
 
                     </div>
-                    <div className="text-[white] flex justify-center items-center py-2 px-4 md:px-8 rounded-[8px] gap-x-4  bg-[#218B07] w-[40%] md:w-[20%]">
+                    <div className="text-[white] flex justify-center items-center py-2 px-2 md:px-4 rounded-[8px] gap-x-2 bg-[#218B07] w-[40%] md:w-[20%] text-sm">
                         Successful
                     </div>
                 </div>
                 <div className="border-b p-4 w-[100%] md:w-[70%] capitalize flex flex-col gap-y-3 ">
-                    <div className="flex  items-center gap-x-4">
-                        <span className='bg-[#218B07] text-white fle justify-center items-center p-4 rounded-md'><FaUser /></span>
-                        <p className='text-2xl text-[#444444] font-semibold'>Customer Details:</p>
+                    <div className="flex  items-center gap-x-2">
+                        <span className='bg-[#218B07] text-white flex text-sm justify-center items-center p-2 rounded-md'><FaUser /></span>
+                        <p className='text-lg text-[#444444] font-semibold'>Customer Details:</p>
                     </div>
-                    <div className="flex flex-col gap-y-3">
+                    <div className="flex flex-col gap-y-3 text-sm">
 
                         <p className='text-[#00000047]'>Name: <span className='text-[#218B07]'>Abayomi Daniel</span> </p>
                         <p className='text-[#00000047]'>Address:  <span className='text-[#218B07]'>J and p bus-stop moniya ibadan, Fatokun street

@@ -65,8 +65,8 @@ const page = () => {
   return (
     <div className='w-full justify-center items-center flex flex-col gap-y-8'>
       <div className='width'>
-        <div className='flex items-center text-lg  gap-x-4 capitalize  p-4 border-2 bg-[#FAFAFA] rounded-lg w-[60%] md:w-[30%]'>
-          <span className='text-xl'>
+        <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg w-[40%] md:w-[20%]'>
+          <span className='text-sm'>
             <BiMoneyWithdraw />
           </span>
           <span>Add Meal</span>
@@ -76,13 +76,13 @@ const page = () => {
         <form
           action=''
           onSubmit={handlesubmit}
-          className='w-full flex flex-col gap-y-8 justify-center items-center '
+          className='w-full flex flex-col gap-y-4 justify-center items-center '
         >
           <div className=' w-full grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3'>
             <div className=''>
               <Upload mealImage={setMealImage} />
             </div>
-            <div className='flex flex-col gap-y-5'>
+            <div className='flex flex-col gap-y-3'>
               <InputsCustom
                 title={'Meal Name'}
                 type={'text'}
@@ -96,17 +96,19 @@ const page = () => {
                 onchange={setDescription}
               />
               <div className='flex flex-col w-full'>
-                <label htmlFor=''>Availability</label>
+                <label htmlFor='' className='text-sm'>
+                  Availability
+                </label>
                 <select
                   value={is_available}
                   onChange={(e) => setIs_available(e.target.value)}
-                  className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] outline-none'
+                  className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] text-sm outline-none'
                 >
                   {status.map((item, index) => (
                     <option
                       key={index}
                       value={item.value}
-                      className='capitalize'
+                      className='capitalize text-sm'
                     >
                       {item.status}
                     </option>
@@ -127,7 +129,7 @@ const page = () => {
                   onChange={handleChange}
                   required
                 />
-                <label htmlFor='' className='text-lg'>
+                <label htmlFor='' className='text-sm'>
                   Packaging
                 </label>
               </div>
@@ -135,15 +137,17 @@ const page = () => {
               {checked && (
                 <div className='w-full'>
                   <div className='grid grid-cols-2 gap-x-2 items-center'>
-                    <p className='text-xl'>Stryofoam</p>
+                    <p className='text-sm'>Stryofoam</p>
                     <div className='flex gap-x-2'>
                       <div className='flex flex-col w-ful'>
-                        <label htmlFor='name'>Price</label>
-                        <div className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative '>
+                        <label htmlFor='name' className='text-sm'>
+                          Price
+                        </label>
+                        <div className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative '>
                           <input
                             title={'Price'}
                             type={'number'}
-                            className='w-full outline-none border-none bg-transparent'
+                            className='w-full outline-none border-none bg-transparent text-sm'
                             value={packaging.styrofoam.price}
                             onChange={(e) =>
                               handlePackagingChange(
@@ -156,7 +160,9 @@ const page = () => {
                         </div>
                       </div>
                       <div className='flex flex-col w-full'>
-                        <label htmlFor=''>Status</label>
+                        <label htmlFor='' className='text-sm '>
+                          Availability
+                        </label>
                         <select
                           value={packaging.styrofoam.status}
                           onChange={(e) =>
@@ -166,13 +172,13 @@ const page = () => {
                               e.target.value
                             )
                           }
-                          className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] outline-none'
+                          className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] outline-none'
                         >
                           {status.map((item, index) => (
                             <option
                               key={index}
                               value={item.value}
-                              className='capitalize'
+                              className='capitalize text-sm'
                             >
                               {item.status}
                             </option>
@@ -182,15 +188,17 @@ const page = () => {
                     </div>
                   </div>
                   <div className='grid grid-cols-2 gap-x-2 items-center'>
-                    <p className='text-xl'>Plastic Plate</p>
+                    <p className='text-sm'>Plastic Plate</p>
                     <div className='flex gap-x-2'>
                       <div className='flex flex-col w-ful'>
-                        <label htmlFor='name'>Price</label>
-                        <div className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative '>
+                        <label htmlFor='name' className='text-sm'>
+                          Price
+                        </label>
+                        <div className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative '>
                           <input
                             title={'Price'}
                             type={'number'}
-                            className='w-full outline-none border-none bg-transparent'
+                            className='w-full outline-none border-none bg-transparent text-sm'
                             value={packaging.plastic_plate.price}
                             onChange={(e) =>
                               handlePackagingChange(
@@ -204,7 +212,9 @@ const page = () => {
                       </div>
 
                       <div className='flex flex-col w-full'>
-                        <label htmlFor=''>Avaliability</label>
+                        <label htmlFor='' className='text-sm'>
+                          Avaliability
+                        </label>
                         <select
                           value={packaging.plastic_plate.status}
                           onChange={(e) =>
@@ -214,13 +224,13 @@ const page = () => {
                               e.target.value
                             )
                           }
-                          className='flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] outline-none'
+                          className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] outline-none'
                         >
                           {status.map((item, index) => (
                             <option
                               key={index}
                               value={item.value}
-                              className='capitalize'
+                              className='capitalize text-sm'
                             >
                               {item.status}
                             </option>

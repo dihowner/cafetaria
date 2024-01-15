@@ -21,13 +21,13 @@ const Account = () => {
 
     return (
         <div className='flex flex-col gap-y-4 border p-6'>
-            <h1 className='font-semibold text-3xl'>Account information</h1>
+            <h1 className='font-semibold text-lg'>Account information</h1>
             <p className='text-[#00000066] text-sm'>These are your public information, be careful what u share</p>
             <form action="" className='flex flex-col gap-y-16'>
                 <div className="flex flex-col gap-y-3 w-full">
-                    <div className=' flex flex-col w-full'>
+                    <div className=' flex flex-col w-full text-sm'>
                         <label htmlFor="name">{'Email Address'}</label>
-                        <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                        <div className="flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative ">
                             <input type={'text'}
                                 defaultValue={Details?.Details?.email} className='w-full outline-none border-none bg-transparent'
                             
@@ -65,7 +65,7 @@ const Account = () => {
                                 <div className='flex gap-x-4 '>
                                     <CustomButton
                                         title='Change picture'
-                                        containerStyles='bg-[#218B07] text-white flex justify-center items-center rounded-[5px] px-2 py-3'
+                                        containerStyles='bg-[#218B07] text-white flex justify-center items-center rounded-[5px] px-1 py-1 text-sm'
                                     />
 
                                 </div>
@@ -75,7 +75,7 @@ const Account = () => {
                     <TypeOfVendor />
                     <div className="flex flex-col gap-y-2">
                         <label htmlFor="" className='font-bold'>Business description</label>
-                        <div className="bg-[#F5F5F5]  w-[100%] sm:w-[70%] md:w-[70%] rounded-xl py-4 px-2 ">
+                        <div className="bg-[#F5F5F5]  w-[100%] sm:w-[70%] md:w-[70%] rounded-xl py-2 px-2 ">
                             <textarea name="" id="" cols="30" rows="8" className='w-full bg-transparent outline-none border-0' placeholder='A short description of your business'></textarea>
 
                         </div>
@@ -84,20 +84,20 @@ const Account = () => {
                 <div className="w-full flex items-center gap-x-4">
                     {!editMode ? (
                         <div
-                            className='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2'
+                            className='bg-[#218B07] text-white flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 w-1/2 text-sm'
                             onClick={handleEditClick}
                         >Edit</div>
                     ) : (
                         <>
                             <CustomButton
                                 title={'Save'}
-                                containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2'
+                                containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 w-1/2 text-sm'
                                 type='submit'
                             // handleClick={handleSaveClick}
                             />
                             <CustomButton
                                 title='Cancel'
-                                containerStyles='border text-black border-black flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2'
+                                containerStyles='border text-black border-black flex justify-center items-center py-2 px-8 rounded-[5px] gap-x-4 w-1/2 text-sm'
                                 type='button'
                                 handleClick={handleCancelClick}
                             />
