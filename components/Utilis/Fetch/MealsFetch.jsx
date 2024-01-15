@@ -1,5 +1,5 @@
 import { set_Meals, deleteMeal, createMeal, updateMeal } from '@/redux/Vendor/Slices/createMealSlice';
-import { useDeleteMealMutation, useGetMealMutation, useCreateCategoryMutation, useGetCategoryMutation, useEditCategoryMutation, useCreateSubmealMutation } from '@/redux/Vendor/getMealApiSlice'
+import { useDeleteMealMutation, useGetMealMutation, useCreateCategoryMutation, useGetCategoryMutation, useEditCategoryMutation, useCreateSubmealMutation, useDeleteCategoryMutation } from '@/redux/Vendor/getMealApiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import axios from 'axios'
@@ -16,6 +16,8 @@ export const mealsfetch = () => {
     const [getCategory, { isLoading: getCategoryLoading }] = useGetCategoryMutation()
     const [editCategory, { isLoading: editCategoryLoading }] = useEditCategoryMutation()
     const [createSubmeal, { isLoading: createSubMealLoading }] = useCreateSubmealMutation()
+    const [deleteCategory, { isLoading: deleteCategoryLoading }] = useDeleteCategoryMutation()
+
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.rootReducers);
     const getMeals = async () => {
@@ -105,15 +107,15 @@ export const mealsfetch = () => {
         }
 
     }
-    const changeAvailabilty = async (formData, mealId) => {
+    const changeAvailabilty = async (data, mealId) => {
         setLoading(true)
         await axios
             .put(
-                `https://cafeteria-ekep.onrender.com/api/meals/${mealId}`,
-                formData,
+                `https://cafeteria-ekep.onrender.com/api/meals/${mealId}/activate`,
+                data,
                 {
                     headers: {
-                        'Content-Type': 'multipart/formData',
+                        'Content-Type': 'Application/json',
                         Accept: 'Application/json',
                         Authorization: `Bearer ${auth.token}`,
                     },
@@ -123,6 +125,7 @@ export const mealsfetch = () => {
                 setLoading(false)
                 toast.success(response.data.message)
                 dispatch(updateMeal(response.data.data))
+                getMeals()
                 // console.log(response.data)
             })
             .catch((err) => {
@@ -165,7 +168,17 @@ export const mealsfetch = () => {
             setError(err.error)
         }
     }
-    const createSubMeal = async (data, categoryId, id) => {
+    const deletecategory = async (params, mealId) => {
+        try {
+            const response = await deleteCategory({ token: auth.token, params: params }).unwrap()
+            getMealCategories(mealId)
+            toast.success('Category has been deleted successfully')
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+            setError(err.error)
+        }
+    }
+    const createSubMeal = async (data, id) => {
         try {
             const response = await createSubmeal({ data, params: id, token: auth.token }).unwrap()
             toast.success(response.message)
@@ -175,5 +188,5 @@ export const mealsfetch = () => {
             setError(err.error)
         }
     }
-    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading, getMealCategories, getCategoryLoading, EditCategory, editCategoryLoading, createSubMeal, createSubMealLoading }
+    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading, getMealCategories, getCategoryLoading, EditCategory, editCategoryLoading, createSubMeal, createSubMealLoading, deletecategory, deleteCategoryLoading }
 }

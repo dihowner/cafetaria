@@ -27,7 +27,7 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                                     <LiaTimesSolid className='text-xl' />
                                 </span>
                                 <div className=''>
-                                    <h1 className='text-3xl text-[#444444] font-medium capitalize'>{details?.name}</h1>
+                                    <h1 className='text-base md:text-3xl text-[#444444] font-medium capitalize'>{details?.name}</h1>
                                     <p className='text-[#424242A6] capitalize'>{details?.description}</p>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                                     color: 'black',
                                     border: '#0000000F solid 1px',
                                     fontWeight: "bold",
-                                    textTransform: 'capitalize', fontSize: '1.2rem',
+                                    textTransform: 'capitalize', fontSize: '1rem',
                                     '&:hover': {
                                         backgroundColor: 'transparent',
                                     },
@@ -48,7 +48,7 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                                     color: '#218B07',
                                     fontWeight: "bold",
                                     border: '#218B07 solid 1px',
-                                    fontSize: '1.2rem',
+                                    fontSize: '1rem',
                                     textTransform: 'capitalize',
                                     '&:hover': {
                                         backgroundColor: 'transparent',
@@ -60,6 +60,7 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                         <Categories itemID={mealId} details={details} />
                     </div>
                     <CreateCategory isOpenModal={isCategoryOpenModal} setIsOpenModal={setIsCategoryOpenModal} itemID={mealId} />
+                    
             </>}
            
 

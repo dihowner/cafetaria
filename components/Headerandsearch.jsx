@@ -15,7 +15,7 @@ const Headerandsearch = () => {
 
     return (
         <div className='w-full flex justify-center items-center'>
-            <div className='width flex justify-between flex-col md:flex-row gap-y-4 items-center w-[100%] gap-x-6'>
+            <div className='width flex justify-between flex-col md:flex-row gap-y-4 items-center w-[100%] gap-x-6 z-10'>
                 <div className='flex gap-x-4 w-[100%] md:w-[50%]  '>
                     <CustomButton
                         title='Restuarant'

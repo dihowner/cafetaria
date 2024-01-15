@@ -97,7 +97,21 @@ export const editCategoryApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
-
+export const deleteCategoryApiSlice = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        deleteCategory: builder.mutation({
+            query: ({ token, params }) => ({
+                url: `${VENDORMEALDETAILS_URL}/category/${params}`,
+                method: 'DELETE',
+                headers: {
+                    // Add your headers here
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+        })
+    })
+})
 export const createSubMealApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         createSubmeal: builder.mutation({
@@ -121,3 +135,4 @@ export const { useCreateCategoryMutation } = createCategoryApiSlice
 export const { useGetCategoryMutation } = getCategoryApiSlice
 export const { useEditCategoryMutation } = editCategoryApiSlice
 export const { useCreateSubmealMutation } = createSubMealApiSlice
+export const { useDeleteCategoryMutation } = deleteCategoryApiSlice

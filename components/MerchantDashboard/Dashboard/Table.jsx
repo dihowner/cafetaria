@@ -16,17 +16,17 @@ const Table = () => {
     return (
         <div className='width flex flex-col gap-y-4'>
             <div className="flex gap-x-4 items-center">
-                <h1 className='text-[#000000B5] font-bold text-base md:text-2xl'>Recents Orders</h1>
+                <h1 className='text-[#000000B5] font-bold text-base md:text-lg'>Recents Orders</h1>
                 <CustomButton
                     title='View All Orders'
-                    containerStyles='text-[white] flex justify-center items-center py-2 px-4 md:px-8 rounded-[8px] gap-x-4  bg-[#218B07]'
+                    containerStyles='text-[white] flex justify-center items-center py-2 px-2 md:px-4 rounded-[8px] gap-x-2  bg-[#218B07]'
 
                 />
             </div>
             {/* sm:-mx-6 lg:-mx-8 */}
             <div className=' w-[100%] overflow-x-auto bg-[white]  border'>
                 <div className="flex justify-between items-center w-full min-w-full px-6 py-4">
-                    <div className="flex gap-x-2 items-center text-lg font-semibold">
+                    <div className="flex gap-x-2 items-center text-base font-semibold">
                         <span><FaCartShopping /></span>
                         <span>Order</span>
                     </div>
@@ -38,62 +38,62 @@ const Table = () => {
                             <thead className='border-b'>
                                 <tr className='capitalize bg-[#218B07] text-white'>
                                     <td scope='col'
-                                        className='text-base font-bold text-white px-6 py-4 text-left'>#</td>
+                                        className='text-sm font-bold text-white px-3 py-2 text-left'>#</td>
                                     <td scope='col'
-                                        className='text-base font-bold whitespace-nowrap text-white px-6 py-4 text-left'>Order ID</td>
+                                        className='text-sm  text-white px-3 py-2 font-bold whitespace-nowrap text-left'>Order ID</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-white px-6 py-4 text-left'>Order</td>
+                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Order</td>
 
                                     <td scope='col'
-                                        className='text-base font-bold text-white px-6 py-4 text-left'>Address</td>
+                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Address</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-white px-6 py-4 text-left'>Phone</td>
+                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Phone</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-white px-6 py-4 text-left'>Amount</td>
+                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Amount</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-whitepx-6 py-4 text-left'>Date</td>
+                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Date</td>
                                     <td scope='col'
-                                        className='text-base font-bold text-white px-6 py-4 text-left'>Status</td>
+                                        className='text-sm  text-white px-3 py-2 font-bold text-left'>Status</td>
                                 </tr>
                             </thead>
                             <tbody>
 
                                 {DashboardTableData.map((item, index) => (
-                                    <tr className='border-b capitalize my-8' key={index}>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                    <tr className='border-b capitalize my-4' key={index}>
+                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.id}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.order_id}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
-                                            <div className="flex gap-x-4">
+                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                            <div className="flex gap-x-2">
                                                 <img
                                                     className='w-12 h-12 rounded-[10px] object-cover'
                                                     src={item.image}
                                                     alt='image'
                                                 />
                                                 <div className="">
-                                                    <p className='text-base font-semibold'>{item.order}</p>
-                                                    <span className='text-[#ABABAB] text-base'>{item.type}</span>
+                                                    <p className='text-sm font-semibold'>{item.order}</p>
+                                                    <span className='text-[#ABABAB] text-sm'>{item.type}</span>
                                                 </div>
                                             </div>
 
                                         </td>
 
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {truncate(item.address)}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.phone}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.amount}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900'>
                                             {item.date}
                                         </td>
-                                        <td className='px-6 py-4 whitespace-nowrap text-sm font-medium '>
+                                        <td className='px-3 py-2 whitespace-nowrap text-sm font-medium '>
                                             <div className={`w-[100px] ${item.status === 'Successful' ? 'text-[white] rounded-lg flex justify-center items-center p-2 bg-[#218B07]' : 'text-[white] rounded-lg flex justify-center items-center p-2 bg-[#ED1111]'}`}>
                                                 {item.status}
                                             </div>

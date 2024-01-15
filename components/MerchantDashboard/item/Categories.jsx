@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import AppLoader from '@/components/AppLoader';
 import EditCategory from './EditCategory';
 import AddSubMeal from './AddSubMeal';
+import DeleteCategory from './DeleteCategory';
 const Categories = ({ itemID,details }) => {
     const { getMealCategories, getCategoryLoading, error } = mealsfetch()
     const getcategory = async () => {
@@ -18,6 +19,10 @@ const Categories = ({ itemID,details }) => {
     const [isEditCategoryOpenModal, setIsEditCategoryOpenModal] = useState(false)
     const openEditCategoryModal = () => {
         setIsEditCategoryOpenModal(true)
+    }
+    const [isDeleteCategoryOpenModal, setIsDeleteCategoryOpenModal] = useState(false)
+    const openDeleteCategoryModal = () => {
+        setIsDeleteCategoryOpenModal(true)
     }
     const [isSubOpenModal, setIsSubOpenModal] = useState(false)
     const openSubModal = () => {
@@ -52,7 +57,7 @@ const Categories = ({ itemID,details }) => {
                                                     backgroundColor: 'transparent',
                                                 },
                                             }}
-                                                onClick={() => openSubModal()}
+                                                onClick={() => openDeleteCategoryModal()}
 
                                             >delete category</Button>
                                             <Switch
@@ -102,6 +107,7 @@ const Categories = ({ itemID,details }) => {
                                         </Button>
                                     </div>
                                     <EditCategory isOpenModal={isEditCategoryOpenModal} setIsOpenModal={setIsEditCategoryOpenModal} itemID={item} />
+                                    <DeleteCategory isOpenModal={isDeleteCategoryOpenModal} setIsOpenModal={setIsDeleteCategoryOpenModal} itemID={item} />
                                     <AddSubMeal isOpenModal={isSubOpenModal} setIsOpenModal={setIsSubOpenModal} itemID={details} />
                                 </div>
 
