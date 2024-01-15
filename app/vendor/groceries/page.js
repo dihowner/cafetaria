@@ -17,7 +17,7 @@ const page = () => {
     setIsOpenModal(true)
   }
   const { Details } = useSelector((state) => state.rootReducers)
-  const vendordetails = Details?.Details
+  const vendordetails = Details?.Details?.mart
   console.log(vendordetails?.mart)
   return (
     <div className='flex justify-center flex-col items-center w-full'>
