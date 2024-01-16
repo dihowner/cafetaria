@@ -11,7 +11,7 @@ import Button from '@mui/material/Button'
 import StoreCreation from '@/components/MerchantDashboard/item/StoreCreation'
 import { useSelector, useDispatch } from 'react-redux'
 import EditStore from '@/components/MerchantDashboard/item/EditStore'
-import CategoryStore from '@/components/MerchantDashboard/item/categoryStore'
+import CategoryStore from '@/components/MerchantDashboard/item/CategoryStore'
 const page = () => {
   const router = useRouter()
   const [isOpenModal, setIsOpenModal] = useState(false)
