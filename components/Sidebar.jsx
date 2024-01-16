@@ -17,12 +17,12 @@ const Sidebar = ({ SideBarFirstLinks,
             ? `hidden  w-[250px] lg:block lg:w-[250px] bg-[${color}] fixed overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] h-[100vh] transition-[all] ease duration-[.3s] z-[1000] md:block`
             : `hidden w-[100%] md:w-[80px] lg:w-[250px] bg-[${color}]  fixed  h-[100vh] overflow-auto shadow-[rgb(113 122 131 / 11%) 0px 7px 30px 0px;] transition-[all] z-[100] md:block`
             } `}>
-            <div className='flex flex-col justify-center items-center gap-y-4 w-[100%] h-[100%] pt-2 '>
-                <div >
-                    <img src="/logo2.png" alt="" srcSet="" className={`${isSidebarOpen ? 'block' : 'block md:hidden lg:block'
+            <div className='flex flex-col justify-center items-center gap-y-2 w-[100%] h-[100%] pt-2 '>
+                <div className='w-24' >
+                    <img src="/logo2.png" alt="" srcSet="" className={` ${isSidebarOpen ? 'block' : 'block md:hidden lg:block'
                         }`} />
                 </div>
-                <div className="flex w-[80%] flex-col py-4 items-center gap-y-4 h-[100%]  overflow-auto">
+                <div className="flex w-[80%] flex-col py-4 items-center gap-y-8 h-[100%]  overflow-auto">
                     <TopSideBar SideBarFirstLinks={SideBarFirstLinks} />
                     <div className='border-b-2 w-full  border-[white] '></div>
                     <SecondSideBar SideBarSecondLinks={SideBarSecondLinks} />

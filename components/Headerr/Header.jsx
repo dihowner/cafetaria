@@ -121,12 +121,12 @@ const Header = () => {
                   <div className="bg-[#C9C9C9] rounded-[8px] text-lg h-12 w-12 text-[#FFFFFF]">
                     <img src="/Rectangle 87.png" alt="" className='w-full h-full' />
                   </div>
-                  <div
+                  <Link href='/vendor/dashboard'
                     className='md:flex items-center gap-x-4 capitalize  text-4xl hidden  '
 
                   >
                     <FaBars />
-                  </div>
+                  </Link>
                 </div>
 
               </>}

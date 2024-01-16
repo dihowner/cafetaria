@@ -40,14 +40,14 @@ const DeleteCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
                             onClick={() => deleteCat()}
                         >Yes</Button>
                         <Button sx={{
-                            backgroundColor: 'Red',
+                            backgroundColor: '#FF9C06',
                             color: 'white',
                             fontWeight: "bold",
                             // border: ' solid 1px',
                             fontSize: '1rem',
                             textTransform: 'capitalize',
                             '&:hover': {
-                                backgroundColor: 'Red',
+                                backgroundColor: '#FF9C06',
                             },
                         }}
                             onClick={() => setIsOpenModal(false)}>No</Button>
