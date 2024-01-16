@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
   useDetailsMutation,
-  useUserDetailsMutation,
+  useUserdetailsMutation,
   useVendordetailsMutation,
 } from '@/redux/Vendor/detailsApiSlice'
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
@@ -13,10 +13,11 @@ import Loader from '@/components/Loader'
 import { logout } from '@/user/authSlice'
 const layout = ({ children }) => {
   const { auth } = useSelector((state) => state.rootReducers)
+  
   const [vendordetails, { isLoading: vendorDetailsLoading }] =
     useVendordetailsMutation()
   const [userdetails, { isLoading: userDetailsLoading }] =
-    useUserDetailsMutation()
+    useUserdetailsMutation()
   const dispatch = useDispatch()
   const fetchDetails = async () => {
     try {
@@ -50,13 +51,21 @@ const layout = ({ children }) => {
       }
     }
   }
-  useEffect(() => {
-    if (auth?.user === 'user') {
-      fetchDetails()
-    } else if (auth?.user === 'vendor') {
-      fetchVendorDetails()
-    }
-  }, [])
+ useEffect(() => {
+   const fetchData = async () => {
+     try {
+       if (auth?.user === 'user') {
+         await fetchDetails()
+       } else if (auth?.user === 'vendor') {
+         await fetchVendorDetails()
+       }
+     } catch (err) {
+       // Handle errors if necessary
+     }
+   }
+
+   fetchData()
+ }, [auth, fetchDetails, fetchVendorDetails])
   return (
     <div>
       {/* {isLoading  ? (
