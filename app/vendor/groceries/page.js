@@ -9,11 +9,41 @@ import { ItemsTableData } from '@/components/Utilis/Dummy'
 import Switch from '@mui/material/Switch'
 import Button from '@mui/material/Button'
 import StoreCreation from '@/components/MerchantDashboard/item/StoreCreation'
-import { useSelector, useDispatch } from 'react-redux'
+
 import EditStore from '@/components/MerchantDashboard/item/EditStore'
 import CategoryStore from '@/components/MerchantDashboard/item/CategoryStore'
+import AppLoader from '@/components/AppLoader'
+import { useVendordetailsMutation } from '@/redux/Vendor/detailsApiSlice'
+import { useSelector, useDispatch } from 'react-redux'
+import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
+import { useEffect} from 'react'
 const page = () => {
+  const [vendordetails, { isLoading }] = useVendordetailsMutation()
+  const dispatch = useDispatch()
+  const [error, setError] = useState()
+  const { auth } = useSelector((state) => state.rootReducers)
   const router = useRouter()
+  const fetchDetails = async () => {
+    try {
+      const response = await vendordetails(auth?.token).unwrap()
+      dispatch(setDetails(response))
+    } catch (err) {
+      // console.log(err)
+      // toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
+      if (err.status === 401) {
+        dispatch(logout())
+        toast.error(err?.data?.message + ' ' + 'Please Login Again')
+        router.push('/vendor/login')
+      } else {
+        toast.error(err.error)
+        setError(err.error)
+      }
+    }
+  }
+
+  useEffect(() => {
+    fetchDetails()
+  }, [auth])
   const [isOpenModal, setIsOpenModal] = useState(false)
   const openModal = () => {
     setIsOpenModal(true)
@@ -27,94 +57,108 @@ const page = () => {
     setIsCategoryStorOpenModal(true)
   }
   const { Details } = useSelector((state) => state.rootReducers)
-  const vendordetails = Details?.Details
+  const vendorDetails = Details?.Details
   return (
     <div className='flex justify-center flex-col items-center w-full'>
-      <div className='width flex flex-col gap-y-4 border pb-6'>
-        <div className='flex justify-between  w-full md:items-center flex-col md:flex-row gap-y-6 p-4 '>
-          <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg'>
-            <span>
-              <MdSwipeDownAlt className='text-sm' />
-            </span>
-            <span>Groceries Items</span>
-          </div>
-          {vendordetails && vendordetails?.mart === undefined && null ? null : (
-            <CustomButton
-              title='Add'
-              containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-2 border-[#218B07] border text-sm'
-              Icon={<IoIosAdd />}
-              handleClick={() => {
-                openCategoryStorModal()
-              }}
-            />
+      {isLoading ? (
+        <AppLoader color={'#5f8357'} loading={isLoading} />
+      ) : (
+        <>
+          {error && error ? (
+            <div className=''>{error}</div>
+          ) : (
+            <>
+              <div className='width flex flex-col gap-y-4 border pb-6'>
+                <div className='flex justify-between  w-full md:items-center flex-col md:flex-row gap-y-6 p-4 '>
+                  <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg'>
+                    <span>
+                      <MdSwipeDownAlt className='text-sm' />
+                    </span>
+                    <span>Groceries Items</span>
+                  </div>
+                  {vendorDetails &&
+                  vendorDetails?.mart === undefined &&
+                  null ? null : (
+                    <CustomButton
+                      title='Add'
+                      containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-2 border-[#218B07] border text-sm'
+                      Icon={<IoIosAdd />}
+                      handleClick={() => {
+                        openCategoryStorModal()
+                      }}
+                    />
+                  )}
+                </div>
+                {vendorDetails && vendorDetails?.mart === undefined && null ? (
+                  <div className='flex flex-col justify-center items-center'>
+                    <p className='text-xl text-center font-semibold'>
+                      You don't have a store please create one
+                    </p>
+                    <Button
+                      sx={{
+                        backgroundColor: '#218B07',
+                        color: '#ffffff',
+                        textTransform: 'capitalize',
+
+                        '&:hover': {
+                          backgroundColor: '#218B07',
+                        },
+                      }}
+                      onClick={() => openModal()}
+                    >
+                      {'create store'}
+                    </Button>
+                  </div>
+                ) : (
+                  <div className=''>
+                    <div className=' flex justify-cente items-center gap-x-3 6 p-4'>
+                      <div className='border w-16 h-16'>
+                        <img src={vendorDetails?.mart?.image} alt='image' />
+                      </div>
+                      <div className=''>
+                        <h3 className='capitalize text-sm text-[#218B07] font-semibold'>
+                          {vendorDetails?.mart?.name}
+                        </h3>
+                        <p className='capitalize text-sm text-[#218B07]'>
+                          {vendorDetails?.mart?.address}
+                        </p>
+                      </div>
+                    </div>
+                    <div className='flex justify-start items-center w-[30%] p-4'>
+                      <Button
+                        sx={{
+                          backgroundColor: '#218B07',
+                          color: '#ffffff',
+                          textTransform: 'capitalize',
+
+                          '&:hover': {
+                            backgroundColor: '#218B07',
+                          },
+                        }}
+                        onClick={() => openEditStorModal()}
+                      >
+                        {'Edit store'}
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <StoreCreation
+                isOpenModal={isOpenModal}
+                setIsOpenModal={setIsOpenModal}
+              />
+              <EditStore
+                isOpenModal={isEditStorOpenModal}
+                setIsOpenModal={setIsEditStorOpenModal}
+              />
+              <CategoryStore
+                isOpenModal={isCategoryStorOpenModal}
+                setIsOpenModal={setIsCategoryStorOpenModal}
+              />
+            </>
           )}
-        </div>
-        {vendordetails && vendordetails?.mart === undefined && null ? (
-          <div className='flex flex-col justify-center items-center'>
-            <p className='text-xl text-center font-semibold'>
-              You don't have a store please create one
-            </p>
-            <Button
-              sx={{
-                backgroundColor: '#218B07',
-                color: '#ffffff',
-                textTransform: 'capitalize',
-
-                '&:hover': {
-                  backgroundColor: '#218B07',
-                },
-              }}
-              onClick={() => openModal()}
-            >
-              {'create store'}
-            </Button>
-          </div>
-        ) : (
-          <div className=''>
-            <div className=' flex justify-cente items-center gap-x-3 6 p-4'>
-              <div className='border w-16 h-16'>
-                <img src={vendordetails?.mart?.image} alt='image' />
-              </div>
-              <div className=''>
-                <h3 className='capitalize text-sm text-[#218B07] font-semibold'>
-                  {vendordetails?.mart?.name}
-                </h3>
-                <p className='capitalize text-sm text-[#218B07]'>
-                  {vendordetails?.mart?.address}
-                </p>
-              </div>
-            </div>
-            <div className='flex justify-start items-center w-[30%] p-4'>
-              <Button
-                sx={{
-                  backgroundColor: '#218B07',
-                  color: '#ffffff',
-                  textTransform: 'capitalize',
-
-                  '&:hover': {
-                    backgroundColor: '#218B07',
-                  },
-                }}
-                onClick={() => openEditStorModal()}
-              >
-                {'Edit store'}
-              </Button>
-            </div>
-          </div>
-        )}
-      </div>
-      <StoreCreation
-        isOpenModal={isOpenModal}
-        setIsOpenModal={setIsOpenModal}
-      />
-      <EditStore
-        isOpenModal={isEditStorOpenModal}
-        setIsOpenModal={setIsEditStorOpenModal}
-      />
-      <CategoryStore
-        isOpenModal={isCategoryStorOpenModal}
-        setIsOpenModal={setIsCategoryStorOpenModal}
-      />
+        </>
+      )}
     </div>
   )
 }
