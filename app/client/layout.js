@@ -13,7 +13,7 @@ import ProtectedRouteWrapper from '@/components/ProtectedRouteWrapper'
 import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import { useDetailsMutation, useUserDetailsMutation } from '@/redux/Vendor/detailsApiSlice'
+import { useDetailsMutation, useUserdetailsMutation } from '@/redux/Vendor/detailsApiSlice'
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 import AppLoader from '@/components/AppLoader'
 import { logout } from '@/user/authSlice'
@@ -21,7 +21,7 @@ import { logout } from '@/user/authSlice'
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
   const { auth } = useSelector((state) => state.rootReducers)
-  const [userdetails, { isLoading }] = useUserDetailsMutation()
+  const [userdetails, { isLoading }] = useUserdetailsMutation()
   const router = useRouter()
   const fetchDetails = async () => {
     try {
