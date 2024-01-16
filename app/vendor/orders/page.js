@@ -108,13 +108,12 @@ const page = () => {
                             <p className='text-sm font-semibold'>
                               {item.order}
                             </p>
-                            <span className='text-[#ABABAB] text-sm'>
+                            {/* <span className='text-[#ABABAB] text-sm'>
                               {item.type}
-                            </span>
+                            </span> */}
                           </div>
                         </div>
                       </td>
-
                       <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900'>
                         {truncate(item.address)}
                       </td>

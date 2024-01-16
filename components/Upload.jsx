@@ -7,7 +7,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Upload = ({  mealImage }) => {
+const Upload = ({ mealImage }) => {
     const [selectedImage, setSelectedImage] = useState(null);
 
     const handleFileInputChange = (event) => {
@@ -57,29 +57,30 @@ const Upload = ({  mealImage }) => {
                     </label>
                 )}
             </div>
-            <form className="w-1/2">
-                <Button
-                    component="label"
-                    variant="contained"
-                    startIcon={<CloudUploadIcon />}
-                    // onClick={handleButtonClick}
-                    sx={{
+
+            <Button
+                startIcon={<CloudUploadIcon />}
+                // onClick={handleButtonClick}
+                sx={{
+                    backgroundColor: '#218B07',
+                    color: '#ffffff',
+                    fontSize: '.8rem',
+                    padding: '.5rem',
+                    width:'150px',
+                    '&:hover': {
                         backgroundColor: '#218B07',
-                        color: '#ffffff',
-                        '&:hover': {
-                            backgroundColor: '#218B07',
-                        },
-                    }}
-                >
-                    Upload file
-                    <VisuallyHiddenInput
-                        // ref={fileInputRef}
-                        type="file"
-                        accept=".png, .jpg, .jpeg"
-                        onChange={handleFileInputChange}
-                    />
-                </Button>
-            </form>
+                    },
+                }}
+            >
+                Upload file
+                <VisuallyHiddenInput
+                    // ref={fileInputRef}
+                    type="file"
+                    accept=".png, .jpg, .jpeg"
+                    onChange={handleFileInputChange}
+                />
+            </Button>
+
         </div>
     );
 };

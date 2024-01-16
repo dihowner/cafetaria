@@ -12,24 +12,25 @@ import { FaBars } from 'react-icons/fa'
 import MHeader from '@/components/MerchantDashboard/MHeader'
 import ProtectedRouteWrapper from '@/components/ProtectedRouteWrapper'
 import { useSelector, useDispatch } from 'react-redux'
-import { useDetailsMutation } from '@/redux/Vendor/detailsApiSlice'
+// import { useDetailsMutation } from '@/redux/Vendor/detailsApiSlice'
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import { logout } from '../../user/authSlice'
 import AppLoader from '@/components/AppLoader'
+import { useVendordetailsMutation } from '@/redux/Vendor/detailsApiSlice'
 
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)
 
-  const [details, { isLoading }] = useDetailsMutation()
+  const [vendordetails, { isLoading }] = useVendordetailsMutation()
   const dispatch = useDispatch()
   const { auth } = useSelector((state) => state.rootReducers)
   const router = useRouter()
   const fetchDetails = async () => {
     try {
-      const response = await details(auth?.token).unwrap()
+      const response = await vendordetails(auth?.token).unwrap()
       dispatch(setDetails(response))
     } catch (err) {
       // console.log(err)

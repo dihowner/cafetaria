@@ -29,7 +29,7 @@ const Account = () => {
                         <label htmlFor="name">{'Email Address'}</label>
                         <div className="flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative ">
                             <input type={'text'}
-                                defaultValue={Details?.Details?.email} className='w-full outline-none border-none bg-transparent'
+                                defaultValue={Details?.Details?.email} className='w-full outline-none border-none bg-transparent' disabled
                             
                             />
                         </div>

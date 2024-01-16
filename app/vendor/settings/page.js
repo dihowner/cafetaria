@@ -35,8 +35,8 @@ const page = () => {
               onClick={(e) => changeTab('Account information')}
               className={`${
                 tab === 'Account information'
-                  ? 'text-sm md:text-base text-[#218B07] font-semibold cursor-pointer border-[#218B07] border p-2'
-                  : 'text-sm md:text-base text-[#00000033] font-semibold cursor-pointer'
+                  ? 'text-sm md:text-base text-[#218B07] font-semibold text-center cursor-pointer border-[#218B07] border p-2'
+                  : 'text-sm md:text-base text-[#00000033] font-semibold text-center cursor-pointer'
               }`}
             >
               Account information{' '}
@@ -45,8 +45,8 @@ const page = () => {
               onClick={(e) => changeTab('Security information')}
               className={`${
                 tab === 'Security information'
-                  ? 'text-sm md:text-base text-[#218B07] font-semibold cursor-pointer border-[#218B07] border p-2'
-                  : 'text-sm md:text-base text-[#00000033] font-semibold cursor-pointer'
+                  ? 'text-sm md:text-base text-[#218B07] font-semibold text-center cursor-pointer border-[#218B07] border p-2'
+                  : 'text-sm md:text-base text-[#00000033] font-semibold text-center cursor-pointer'
               }`}
             >
               Security information
@@ -55,8 +55,8 @@ const page = () => {
               onClick={(e) => changeTab('Withdrawal information')}
               className={`${
                 tab === 'Withdrawal information'
-                  ? 'text-sm md:text-base text-[#218B07] font-semibold cursor-pointer border-[#218B07] border p-2'
-                  : 'text-sm md:text-base text-[#00000033] font-semibold cursor-pointer'
+                  ? 'text-sm md:text-base text-[#218B07] font-semibold text-center cursor-pointer border-[#218B07] border p-2'
+                  : 'text-sm md:text-base text-[#00000033] font-semibold text-center cursor-pointer'
               }`}
             >
               Withdrawal information

@@ -9,13 +9,16 @@ import { ItemsTableData } from '@/components/Utilis/Dummy'
 import Switch from '@mui/material/Switch'
 import Button from '@mui/material/Button'
 import StoreCreation from '@/components/MerchantDashboard/item/StoreCreation'
-
+import { useSelector, useDispatch } from 'react-redux'
 const page = () => {
   const router = useRouter()
-   const [isOpenModal, setIsOpenModal] = useState(false)
-   const openModal = () => {
-     setIsOpenModal(true)
-   }
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const openModal = () => {
+    setIsOpenModal(true)
+  }
+  const { Details } = useSelector((state) => state.rootReducers)
+  const vendordetails = Details?.Details?.mart
+  console.log(vendordetails?.mart)
   return (
     <div className='flex justify-center flex-col items-center w-full'>
       <div className='width flex flex-col gap-y-4 border pb-6'>
@@ -35,25 +38,40 @@ const page = () => {
             }}
           />
         </div>
-        <div className='flex flex-col justify-center items-center'>
-          <p className='text-xl text-center font-semibold'>
-            You don't have a store please create one
-          </p>
-          <Button
-            sx={{
-              backgroundColor: '#218B07',
-              color: '#ffffff',
-              textTransform: 'capitalize',
-
-              '&:hover': {
+        {/* {vendordetails && vendordetails?.mart === undefined && null ? (
+          <div className='flex flex-col justify-center items-center'>
+            <p className='text-xl text-center font-semibold'>
+              You don't have a store please create one
+            </p>
+            <Button
+              sx={{
                 backgroundColor: '#218B07',
-              },
-            }}
-            onClick={() => openModal()}
-          >
-            {'create store'}
-          </Button>
-        </div>
+                color: '#ffffff',
+                textTransform: 'capitalize',
+
+                '&:hover': {
+                  backgroundColor: '#218B07',
+                },
+              }}
+              onClick={() => openModal()}
+            >
+              {'create store'}
+            </Button>
+          </div>
+        ) : (
+          <> */}
+            <div className='border-2 '>
+              gggggg
+              <div className=''>
+                <img src={vendordetails?.image} alt='' srcset='' />
+              </div>
+              <div className=''>
+                <h3>{vendordetails?.name}</h3>
+                <p>{vendordetails?.address}</p>
+              </div>
+            </div>
+          {/* </>
+        )} */}
 
         {/* <div className='flex justify-between items-center bg-[#218B07] p-4'>
           <div className='flex gap-x-4'>

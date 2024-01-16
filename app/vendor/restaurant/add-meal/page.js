@@ -102,7 +102,7 @@ const page = () => {
                 <select
                   value={is_available}
                   onChange={(e) => setIs_available(e.target.value)}
-                  className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] text-sm outline-none'
+                  className='flex gap-x-2 items-center px-2 py-2 border-2 rounded-[8px] text-sm outline-none'
                 >
                   {status.map((item, index) => (
                     <option
@@ -143,7 +143,7 @@ const page = () => {
                         <label htmlFor='name' className='text-sm'>
                           Price
                         </label>
-                        <div className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative '>
+                        <div className='flex gap-x-2 items-center px-2 py-2 border-2 rounded-[8px] relative '>
                           <input
                             title={'Price'}
                             type={'number'}
@@ -194,7 +194,7 @@ const page = () => {
                         <label htmlFor='name' className='text-sm'>
                           Price
                         </label>
-                        <div className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative '>
+                        <div className='flex gap-x-2 items-center px-2 py-2 border-2 rounded-[8px] relative '>
                           <input
                             title={'Price'}
                             type={'number'}
@@ -224,7 +224,7 @@ const page = () => {
                               e.target.value
                             )
                           }
-                          className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] outline-none'
+                          className='flex gap-x-2 items-center px-2 py-2 border-2 rounded-[8px] outline-none'
                         >
                           {status.map((item, index) => (
                             <option
