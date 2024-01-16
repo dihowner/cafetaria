@@ -13,7 +13,7 @@ import Loader from '@/components/Loader'
 import { logout } from '@/user/authSlice'
 const layout = ({ children }) => {
   const { auth } = useSelector((state) => state.rootReducers)
-  
+
   const [vendordetails, { isLoading: vendorDetailsLoading }] =
     useVendordetailsMutation()
   const [userdetails, { isLoading: userDetailsLoading }] =
@@ -51,24 +51,24 @@ const layout = ({ children }) => {
       }
     }
   }
- useEffect(() => {
-   const fetchData = async () => {
-     try {
-       if (auth?.user === 'user') {
-         await fetchDetails()
-       } else if (auth?.user === 'vendor') {
-         await fetchVendorDetails()
-       }
-     } catch (err) {
-       // Handle errors if necessary
-     }
-   }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (auth?.user === 'user') {
+          await fetchDetails()
+        } else if (auth?.user === 'vendor') {
+          await fetchVendorDetails()
+        }
+      } catch (err) {
+        // Handle errors if necessary
+      }
+    }
 
-   fetchData()
- }, [auth, fetchDetails, fetchVendorDetails])
+    fetchData()
+  }, [auth, fetchDetails, fetchVendorDetails])
   return (
     <div>
-      {isLoading  ? (
+      {vendorDetailsLoading && userDetailsLoading ? (
         <Loader />
       ) : (
         <>
