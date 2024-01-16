@@ -68,15 +68,15 @@ const layout = ({ children }) => {
  }, [auth, fetchDetails, fetchVendorDetails])
   return (
     <div>
-      {/* {isLoading  ? (
+      {isLoading  ? (
         <Loader />
-      ) : ( */}
+      ) : (
         <>
           <Header />
           {children}
           <Footer />
         </>
-      {/* )} */}
+      )}
     </div>
   )
 }
