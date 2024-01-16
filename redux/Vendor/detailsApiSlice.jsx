@@ -16,7 +16,7 @@ export const userDetailsApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
-export const { useUserDetailsMutation } = userDetailsApiSlice
+export const { useUserdetailsMutation } = userDetailsApiSlice
 export const VendorDetailsApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         vendordetails: builder.mutation({
