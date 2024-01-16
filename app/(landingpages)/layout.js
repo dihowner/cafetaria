@@ -59,15 +59,15 @@ const layout = ({ children }) => {
   }, [])
   return (
     <div>
-      {isLoading ? (
+      {/* {isLoading  ? (
         <Loader />
-      ) : (
+      ) : ( */}
         <>
           <Header />
           {children}
           <Footer />
         </>
-      )}
+      {/* )} */}
     </div>
   )
 }
