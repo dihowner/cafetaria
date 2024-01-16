@@ -1,30 +1,33 @@
-import InputsCustom from '@/components/InputsCustom'
 import Modal from '@/components/Modal'
-import Upload from '@/components/Upload'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { LiaTimesSolid } from 'react-icons/lia'
 import Button from '@mui/material/Button'
 import { toast } from 'react-toastify';
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-const StoreCreation = ({ isOpenModal, setIsOpenModal }) => {
-    const { auth } = useSelector((state) => state.rootReducers);
+import Upload from '@/components/UploadEdit';
+import EditInput from '@/components/EditInput';
+const EditStore = ({ isOpenModal, setIsOpenModal }) => {
+    const { Details } = useSelector((state) => state.rootReducers)
     const [loading, setLoading] = useState()
-    const [description, setDescription] = useState()
-    const [mealImage, setMealImage] = useState()
-    const [name, setName] = useState()
-    const [address, setAddress] = useState()
-    const createMart = async (e) => {
+
+    const vendordetails = Details?.Details
+    const NameRef = useRef(null)
+    const descriptionRef = useRef(null)
+    const storeImage = useRef(null)
+    const addressRef = useRef(null)
+
+    const editMart = async (e) => {
         setLoading(true)
         e.preventDefault()
         const formData = new FormData()
-        formData.append('description', description)
-        formData.append('mealImage', mealImage) // Assuming mealImage is a File object
-        formData.append('name', name)
-        formData.append('address', address)
+        formData.append('description', descriptionRef?.current?.value)
+        formData.append('mealImage', storeImage.current.files[0]) // Assuming mealImage is a File object
+        formData.append('name', NameRef?.current?.value)
+        formData.append('address', addressRef.current?.value)
         await axios
             .post(
-                'https://cafeteria-ekep.onrender.com/api/marts/add',
+                `https://cafeteria-ekep.onrender.com/api/marts/${vendordetails?.mart?._id}`,
                 formData,
                 {
                     headers: {
@@ -55,31 +58,27 @@ const StoreCreation = ({ isOpenModal, setIsOpenModal }) => {
                     </span>
                 </div>
                 <div className="flex justify-center items-center gap-2 flex-col">
-                    <h1 className='text-lg text-[#218B07] font-semibold'>Create a store</h1>
+                    <h1 className='text-lg text-[#218B07] font-semibold'>Edit Store</h1>
                     <div className='flex justify-center flex-col items-center width'>
-                        <form action="" onSubmit={createMart} className='w-full flex justify-center item gap-y-3 flex-col'>
+                        <form action="" onSubmit={editMart} className='w-full flex justify-center item gap-y-3 flex-col'>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
-                                <Upload mealImage={setMealImage} />
+                                <Upload reff={storeImage} defaultValue={vendordetails?.mart?.image} />
                                 <div className='flex flex-col gap-y-3'>
-                                    <InputsCustom
-                                        title={'Store Name'}
+                                    <EditInput
+                                        title={'Mart Name'}
                                         type={'text'}
-                                        value={name}
-                                        onchange={setName}
-
-                                    />
-                                    <InputsCustom
-                                        title={'description'}
+                                        reff={NameRef}
+                                        defaultValue={vendordetails?.mart?.name} />
+                                    <EditInput
+                                        title={'Mart description'}
                                         type={'text'}
-                                        value={description}
-                                        onchange={setDescription}
-                                    />
-                                    <InputsCustom
-                                        title={'Address'}
+                                        reff={descriptionRef}
+                                        defaultValue={vendordetails?.mart?.description} />
+                                    <EditInput
+                                        title={'Mart Address'}
                                         type={'text'}
-                                        value={address}
-                                        onchange={setAddress}
-                                    />
+                                        reff={addressRef}
+                                        defaultValue={vendordetails?.mart?.address} />
                                 </div>
                             </div>
                             <div className=' flex justify-end w-full'>
@@ -87,13 +86,15 @@ const StoreCreation = ({ isOpenModal, setIsOpenModal }) => {
                                     sx={{
                                         backgroundColor: '#218B07',
                                         color: '#ffffff',
+                                        fontSize: '.8rem',
+                                        padding: '.5rem',
                                         '&:hover': {
                                             backgroundColor: '#218B07',
                                         },
                                     }}
                                     type='submit'
                                 >
-                                    {loading ? 'Loading' : 'Create Store'}
+                                    {loading ? 'Loading' : 'Edit Store'}
                                 </Button>
                             </div>
                         </form>
@@ -104,4 +105,4 @@ const StoreCreation = ({ isOpenModal, setIsOpenModal }) => {
     )
 }
 
-export default StoreCreation
+export default EditStore

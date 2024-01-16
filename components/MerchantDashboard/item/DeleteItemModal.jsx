@@ -19,7 +19,7 @@ const DeleteItemModal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                     </span>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full gap-y-6">
-                    <h1 className='text-5xl text-center'>Are you sure you want to delete {itemID?.name}</h1>
+                    <h1 className='text-lg text-center'>Are you sure you want to delete {itemID?.name}</h1>
                     <div className="flex justify-center items-center w-full gap-x-4">
                         <Button sx={{
                             backgroundColor: '#218B07',
@@ -36,10 +36,10 @@ const DeleteItemModal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                         </Button>
                         <Button
                             sx={{
-                                backgroundColor: 'Red',
+                                backgroundColor: '#FF9C06',
                                 color: '#ffffff',
                                 '&:hover': {
-                                    backgroundColor: 'Red',
+                                    backgroundColor: '#FF9C06',
                                 },
                             }}
                             onClick={() => setIsOpenModal(false)}
