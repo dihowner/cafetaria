@@ -1,43 +1,38 @@
+
 import Modal from '@/components/Modal'
-import React, { useRef, useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { Button } from '@mui/material'
 import { LiaTimesSolid } from 'react-icons/lia'
-import Button from '@mui/material/Button'
-import { toast } from 'react-toastify';
-import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux'
-import InputsCustom from '@/components/InputsCustom'
-import { groceriesFetch } from '@/components/Utilis/Fetch/GroceriesFetch';
-
-
-const CategoryStore = ({ isOpenModal, setIsOpenModal }) => {
-    const [name, setName] = useState()
-    const { Createcategory, create_CategoryGroceriesLoading } = groceriesFetch()
-    const data = {
-        name: name
-    }
-    const create = async (e) => {
+import EditInput from '@/components/EditInput'
+import { groceriesFetch } from '@/components/Utilis/Fetch/GroceriesFetch'
+const EditGroceriesCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
+    console.log(itemID)
+    const { editCategory, editGroceriesCategoryLoading } = groceriesFetch()
+    const categoryRef = useRef(null)
+    const edit = async (e) => {
+        const data = {
+            name: categoryRef?.current?.value
+        }
         e.preventDefault()
-        await Createcategory(data)
-        setName('')
+        await editCategory(data, itemID?._id)
         setIsOpenModal(false)
     }
-
     return (
         <div>
             <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)}>
                 <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
                     <span className='bg-[black] p-2 h-8 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
                         onClick={() => setIsOpenModal(false)}>
-                        <LiaTimesSolid />
+                        <LiaTimesSolid className='text-sm' />
                     </span>
                 </div>
-                <form onSubmit={create} className="flex flex-col justify-center items-center w-full gap-y-6">
-                    <h1 className='text-xl text-[#218B07] font-[700] text-center'>Create Category</h1>
+                <form onSubmit={edit} className="flex flex-col justify-center items-center w-full gap-y-6">
+                    <h1 className='text-xl text-[#218B07] font-[700] text-center'>Edit {itemID?.name} Category</h1>
                     <div className="w-full flex justify-center items-center">
-                        <InputsCustom title={'Category Name'}
-                            type={'text'}
-                            value={name}
-                            onchange={setName} />
+                        <EditInput reff={categoryRef}
+                            defaultValue={itemID?.name}
+                            title={'category name'}
+                        />
                     </div>
                     <div className=' flex justify-center w-full'>
                         <Button
@@ -50,7 +45,7 @@ const CategoryStore = ({ isOpenModal, setIsOpenModal }) => {
                             }}
                             type='submit'
                         >
-                            {create_CategoryGroceriesLoading ? 'Loading:' : 'Create Category'}
+                            {editGroceriesCategoryLoading ? 'loading' : 'Edit Category'}
                         </Button>
                     </div>
                 </form>
@@ -59,4 +54,4 @@ const CategoryStore = ({ isOpenModal, setIsOpenModal }) => {
     )
 }
 
-export default CategoryStore
+export default EditGroceriesCategory

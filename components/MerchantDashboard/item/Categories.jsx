@@ -16,13 +16,13 @@ const Categories = ({ itemID,details }) => {
         getcategory()
     }, [])
     const { categories } = useSelector((state) => state.rootReducers)
-    const [isEditCategoryOpenModal, setIsEditCategoryOpenModal] = useState(false)
-    const openEditCategoryModal = () => {
-        setIsEditCategoryOpenModal(true)
+    const [isEditCategoryOpenModal, setIsEditCategoryOpenModal] = useState(null)
+    const openEditCategoryModal = (index) => {
+        setIsEditCategoryOpenModal(index)
     }
-    const [isDeleteCategoryOpenModal, setIsDeleteCategoryOpenModal] = useState(false)
-    const openDeleteCategoryModal = () => {
-        setIsDeleteCategoryOpenModal(true)
+    const [isDeleteCategoryOpenModal, setIsDeleteCategoryOpenModal] = useState(null)
+    const openDeleteCategoryModal = (index) => {
+        setIsDeleteCategoryOpenModal(index)
     }
     const [isSubOpenModal, setIsSubOpenModal] = useState(false)
     const openSubModal = () => {
@@ -44,7 +44,7 @@ const Categories = ({ itemID,details }) => {
                                     <div className="flex justify-between items-center w-full">
                                         <div className="flex flex-col gap-y-4">
                                             <h1 className='text-lg text-[#000000] font-bold capitalize'>{item?.name}</h1>
-                                            <span className='text-[#218B07] font-bold text-sm cursor-pointer' onClick={() => openEditCategoryModal()}>Edit Category</span>
+                                            <span className='text-[#218B07] font-bold text-sm cursor-pointer' onClick={() => openEditCategoryModal(index)}>Edit Category</span>
                                         </div>
                                         <div className="flex sm:items-center justify-start flex-col sm:flex-row gap-y-4 gap-x-4">
                                             <Button sx={{
@@ -59,7 +59,7 @@ const Categories = ({ itemID,details }) => {
                                                     backgroundColor: 'transparent',
                                                 },
                                             }}
-                                                onClick={() => openDeleteCategoryModal()}
+                                                onClick={() => openDeleteCategoryModal(index)}
 
                                             >delete category</Button>
                                             <Switch
@@ -111,8 +111,8 @@ const Categories = ({ itemID,details }) => {
                                             Delete Item
                                         </Button>
                                     </div>
-                                    <EditCategory isOpenModal={isEditCategoryOpenModal} setIsOpenModal={setIsEditCategoryOpenModal} itemID={item} />
-                                    <DeleteCategory isOpenModal={isDeleteCategoryOpenModal} setIsOpenModal={setIsDeleteCategoryOpenModal} itemID={item} />
+                                    <EditCategory isOpenModal={isEditCategoryOpenModal === index} setIsOpenModal={setIsEditCategoryOpenModal} itemID={item} />
+                                    <DeleteCategory isOpenModal={isDeleteCategoryOpenModal === index} setIsOpenModal={setIsDeleteCategoryOpenModal} itemID={item} />
                                     <AddSubMeal isOpenModal={isSubOpenModal} setIsOpenModal={setIsSubOpenModal} itemID={details} />
                                 </div>
 

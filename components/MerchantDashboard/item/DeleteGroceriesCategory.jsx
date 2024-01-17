@@ -1,21 +1,20 @@
-import AppLoader from '@/components/AppLoader'
 import Modal from '@/components/Modal'
-import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
-import { Button } from '@mui/material'
+import { groceriesFetch } from '@/components/Utilis/Fetch/GroceriesFetch'
 import React from 'react'
 import { LiaTimesSolid } from 'react-icons/lia'
-const DeleteItemModal = ({ isOpenModal, setIsOpenModal, itemID }) => {
-    // console.log(itemID)
-    const { deleteAMeal, deleteMealLoading } = mealsfetch()
+import { Button } from '@mui/material'
+import AppLoader from '@/components/AppLoader'
+const DeleteGroceriesCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
+    const { deleteCategory, deleteGroceriesCategoryLoading } = groceriesFetch()
 
     return (
         <div>
-          
+
             <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)}>
                 <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
-                    <span className='bg-[black] p-2 h-12 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
+                    <span className='bg-[black] p-2 h-8 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
                         onClick={() => setIsOpenModal(false)}>
-                        <LiaTimesSolid className='text-xl' />
+                        <LiaTimesSolid className='text-sm' />
                     </span>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full gap-y-6">
@@ -29,10 +28,10 @@ const DeleteItemModal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                             },
                         }}
                             onClick={() => {
-                                deleteAMeal(itemID?._id, setIsOpenModal)
+                                deleteCategory(itemID?._id, setIsOpenModal)
                             }}
                         >
-                            {deleteMealLoading ? 'Loading' : 'yes'}
+                            {deleteGroceriesCategoryLoading ? ' Loading' : ' yes'}
                         </Button>
                         <Button
                             sx={{
@@ -51,4 +50,4 @@ const DeleteItemModal = ({ isOpenModal, setIsOpenModal, itemID }) => {
     )
 }
 
-export default DeleteItemModal
+export default DeleteGroceriesCategory

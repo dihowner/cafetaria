@@ -17,6 +17,10 @@ import { useVendordetailsMutation } from '@/redux/Vendor/detailsApiSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 import { useEffect} from 'react'
+import { logout } from '@/user/authSlice'
+import GroceriesCategoryList from '@/components/MerchantDashboard/item/GroceriesCategoryList'
+import { toast } from 'react-toastify'
+
 const page = () => {
   const [vendordetails, { isLoading }] = useVendordetailsMutation()
   const dispatch = useDispatch()
@@ -110,7 +114,7 @@ const page = () => {
                     </Button>
                   </div>
                 ) : (
-                  <div className=''>
+                  <div className='flex flex-col gap-y2'>
                     <div className=' flex justify-cente items-center gap-x-3 6 p-4'>
                       <div className='border w-16 h-16'>
                         <img src={vendorDetails?.mart?.image} alt='image' />
@@ -140,6 +144,7 @@ const page = () => {
                         {'Edit store'}
                       </Button>
                     </div>
+                    <GroceriesCategoryList/>
                   </div>
                 )}
               </div>

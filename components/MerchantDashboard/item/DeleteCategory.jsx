@@ -13,7 +13,7 @@ const DeleteCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
         await deletecategory(params, mealId)
         setIsOpenModal(false)
     }
-    console.log(itemID)
+    // console.log(itemID)
     return (
         <div>
             <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)}>

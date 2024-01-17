@@ -19,7 +19,7 @@ const StoreCreation = ({ isOpenModal, setIsOpenModal }) => {
         e.preventDefault()
         const formData = new FormData()
         formData.append('description', description)
-        formData.append('mealImage', mealImage) // Assuming mealImage is a File object
+        formData.append('image', mealImage) // Assuming mealImage is a File object
         formData.append('name', name)
         formData.append('address', address)
         await axios
