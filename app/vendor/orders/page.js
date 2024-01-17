@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { OrdersTableData } from '@/components/Utilis/Dummy'
 import { BiSortAlt2 } from 'react-icons/bi'

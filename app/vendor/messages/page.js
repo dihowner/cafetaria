@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import AppLoader from '@/components/AppLoader'
 import { useVendordetailsMutation } from '@/redux/Vendor/detailsApiSlice'
