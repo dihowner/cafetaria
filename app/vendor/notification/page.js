@@ -11,6 +11,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation'
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 import { useEffect, useState } from 'react'
+import { logout } from '@/user/authSlice'
+import { toast } from 'react-toastify'
 
 // Link
 const page = () => {

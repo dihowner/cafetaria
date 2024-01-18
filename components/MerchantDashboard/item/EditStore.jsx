@@ -7,27 +7,53 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import Upload from '@/components/UploadEdit';
 import EditInput from '@/components/EditInput';
+import { useVendordetailsMutation } from '@/redux/Vendor/detailsApiSlice'
+import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 const EditStore = ({ isOpenModal, setIsOpenModal }) => {
     const { Details } = useSelector((state) => state.rootReducers)
+    const { auth } = useSelector((state) => state.rootReducers)
     const [loading, setLoading] = useState()
 
-    const vendordetails = Details?.Details
+    const vendorDetails = Details?.Details
     const NameRef = useRef(null)
     const descriptionRef = useRef(null)
     const storeImage = useRef(null)
     const addressRef = useRef(null)
+    const [vendordetails, { isLoading }] = useVendordetailsMutation()
+    const dispatch = useDispatch()
+    const [error, setError] = useState()
+    const fetchDetails = async () => {
+        try {
+            const response = await vendordetails(auth?.token).unwrap()
+            dispatch(setDetails(response))
+        } catch (err) {
+            // console.log(err)
+            // toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
+            if (err.status === 401) {
+                dispatch(logout())
+                toast.error(err?.data?.message + ' ' + 'Please Login Again')
+        
+            } else {
+                toast.error(err.error)
+                setError(err.error)
+            }
+        }
+    }
 
     const editMart = async (e) => {
         setLoading(true)
         e.preventDefault()
         const formData = new FormData()
         formData.append('description', descriptionRef?.current?.value)
-        formData.append('mealImage', storeImage.current.files[0]) // Assuming mealImage is a File object
+        const fileToUpload = storeImage?.current?.files[0] || vendorDetails?.mart?.image;
+        console.log(storeImage?.current?.files[0])
+        console.log(vendorDetails?.mart?.image)
+        // formData.append('image', fileToUpload) // Assuming mealImage is a File object
         formData.append('name', NameRef?.current?.value)
         formData.append('address', addressRef.current?.value)
         await axios
-            .post(
-                `https://cafeteria-ekep.onrender.com/api/marts/${vendordetails?.mart?._id}`,
+            .put(
+                `https://cafeteria-ekep.onrender.com/api/marts/${vendorDetails?.mart?._id}`,
                 formData,
                 {
                     headers: {
@@ -40,6 +66,8 @@ const EditStore = ({ isOpenModal, setIsOpenModal }) => {
             .then((response) => {
                 setLoading(false)
                 toast.success(response.data.message)
+                fetchDetails()
+                setIsOpenModal(false)
                 // console.log(response)
             })
             .catch((err) => {
@@ -62,23 +90,23 @@ const EditStore = ({ isOpenModal, setIsOpenModal }) => {
                     <div className='flex justify-center flex-col items-center width'>
                         <form action="" onSubmit={editMart} className='w-full flex justify-center item gap-y-3 flex-col'>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
-                                <Upload reff={storeImage} defaultValue={vendordetails?.mart?.image} />
+                                <Upload reff={storeImage} defaultValue={vendorDetails?.mart?.image} />
                                 <div className='flex flex-col gap-y-3'>
                                     <EditInput
                                         title={'Mart Name'}
                                         type={'text'}
                                         reff={NameRef}
-                                        defaultValue={vendordetails?.mart?.name} />
+                                        defaultValue={vendorDetails?.mart?.name} />
                                     <EditInput
                                         title={'Mart description'}
                                         type={'text'}
                                         reff={descriptionRef}
-                                        defaultValue={vendordetails?.mart?.description} />
+                                        defaultValue={vendorDetails?.mart?.description} />
                                     <EditInput
                                         title={'Mart Address'}
                                         type={'text'}
                                         reff={addressRef}
-                                        defaultValue={vendordetails?.mart?.address} />
+                                        defaultValue={vendorDetails?.mart?.address} />
                                 </div>
                             </div>
                             <div className=' flex justify-end w-full'>

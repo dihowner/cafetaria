@@ -12,7 +12,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/navigation'
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 import { useEffect,useState } from 'react'
+import { logout } from '@/user/authSlice'
 
+import { toast } from 'react-toastify'
 
 const page = () => {
   const [vendordetails, { isLoading }] = useVendordetailsMutation()
@@ -53,7 +55,7 @@ const page = () => {
           ) : (
             <>
               <div className='flex justify-between  width md:items-center flex-col md:flex-row gap-y-6 p-2  '>
-                <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg'>
+                <div className='flex items-center text-sm gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg'>
                   <span>
                     <MdDashboard />
                   </span>
