@@ -1,6 +1,8 @@
 'use client'
 import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { HiOutlineLocationMarker } from 'react-icons/hi'
+
 const containerStyle = {
     width: '400px',
     height: '200px'
@@ -32,20 +34,25 @@ const Map = () => {
 
     return (
         <>
+            <div className="flex w-full flex-col gap-y-2">
+                {isLoaded ? (
+                    <GoogleMap
+                        mapContainerStyle={containerStyle}
+                        center={center}
+                        zoom={10}
+                        onLoad={onLoad}
+                        onUnmount={onUnmount}
+                    >
+                    </GoogleMap>
+                ) : null
+                }
+                <label htmlFor="" className='font-bold'>Business location</label>
+                <div className="bg-[#83838326] flex items-center gap-x-2 py-1 px-1 text-sm w-[80%] sm:w-[70%] md:w-[70%] rounded-xl">
+                    <span><HiOutlineLocationMarker /></span>
+                    <input type="text" placeholder='Enter manually' className='bg-[transparent] outline-none border-none w-[100%]' />
+                </div>
+            </div>
 
-            {isLoaded ? (
-                <GoogleMap
-                    mapContainerStyle={containerStyle}
-                    center={center}
-                    zoom={10}
-                    onLoad={onLoad}
-                    onUnmount={onUnmount}
-                >
-                    { /* Child components, such as markers, info windows, etc. */}
-
-                </GoogleMap>
-            ) : null
-            }
         </>)
 }
 

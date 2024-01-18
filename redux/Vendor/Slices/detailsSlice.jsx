@@ -4,11 +4,11 @@ const initialState = {
     Details: null
 }
 const Details = createSlice({
-    name: 'vendor',
+    name: 'details',
     initialState,
     reducers: {
         setDetails(state, action) {
-            state.Details = action.payload
+            state.Details = { ...state.Details, ...action.payload };
         }
     }
 })

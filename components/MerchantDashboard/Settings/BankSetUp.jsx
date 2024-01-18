@@ -84,17 +84,18 @@ const BankSetUp = () => {
                     />
 
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 text-sm py-2 flex items-center gap-x-6 rounded-lg">
-
-                    <span className='w-[20%] border p-1 text-sm flex justify-center items-center rounded-lg'>
-                        <BsBank className='text-sm w-full' />
-                    </span>
-                    <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' value={bankAccount} onChange={(e) => setBankAccount(e.target.value)} />
+                <div className="flex gap-x-2 w-[100%]">
+                    <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 text-sm py-4 flex items-center gap-x-6 rounded-lg">
+                        <span className='w-[20%] border p-1 text-sm flex justify-center items-center rounded-lg'>
+                            <BsBank className='text-sm w-full' />
+                        </span>
+                        <input type="number" className='bg-[transparent] outline-none border-0  w-[80%]' placeholder='Enter Account number ' value={bankAccount} onChange={(e) => setBankAccount(e.target.value)} />
+                    </div>
                     <Button
                         sx={{
                             backgroundColor: '#218B07',
                             color: '#ffffff',
-                            fontSize:'.8rem',
+                            fontSize: '.8rem',
                             '&:hover': {
                                 backgroundColor: '#218B07',
                             },
@@ -102,17 +103,17 @@ const BankSetUp = () => {
                         onClick={verify}
                     > Verify Account</Button>
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-4 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-1 text-sm flex justify-center items-center rounded-lg'>
                         <BsBank className=' w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0 text-sm w-[80%]' placeholder='Enter Account name ' value={bankAccount_name} />
+                    <input type="text" className='bg-[transparent] outline-none border-0 text-sm w-[80%]' placeholder='Enter Account name ' value={bankAccount_name} disabled />
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-4 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-1 text-sm flex justify-center items-center rounded-lg'>
                         <BsBank className=' w-full' />
                     </span>
-                    <div className="flex gap-x-2 items-center px-2 py-2 rounded-[8px] relative w-[80%] ">
+                    <div className="flex gap-x-2 items-center rounded-[8px] relative w-[80%] ">
                         <input type={passwordVisible ? 'number' : 'password'} value={transactionPin} onChange={(e) => {
                             const inputValue = e.target.value;
                             // Enforce maximum length (e.g., 6 digits)

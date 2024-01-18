@@ -12,7 +12,7 @@ const InputsCustom = ({ title, value, onchange, Icon, type, placeholder, disable
     return (
         <div className=' flex flex-col w-full text-sm'>
             <label htmlFor="name">{title}</label>
-            <div className="flex gap-x-2 items-center px-2 py-2 border-2 rounded-[8px] relative ">
+            <div className="flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] relative ">
                 <span>{Icon}</span>
                 <input type={type === 'password' ? (passwordVisible ? 'text' : 'password') : type || 'text'} value={value} onChange={handleOnchange} placeholder={placeholder} className='w-full outline-none border-none bg-transparent text-sm'
                     disabled={disabled} />

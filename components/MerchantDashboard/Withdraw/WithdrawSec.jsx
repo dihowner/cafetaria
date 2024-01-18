@@ -33,7 +33,7 @@ const WithdrawSec = () => {
     }
     return (
         <div className='w-full md:w-[50%] border p-4 flex flex-col gap-y-8 '>
-            <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-2 py-2 text-sm flex items-center gap-x-6 rounded-lg">
+            <div className="border w-[100%] sm:w-[80%] md:w-[50%] px-4 py-4 text-sm flex items-center gap-x-6 rounded-lg">
                 <span className='w-[20%] border p-2 flex justify-center items-center rounded-lg'>
                     <BsBank className='text-sm w-full' />
                 </span>
@@ -41,28 +41,28 @@ const WithdrawSec = () => {
             </div>
             <div className="flex flex-col gap-y-4 text-sm">
                 <span className='text-[#218B07]'>Enter bank details</span>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-4 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-2  flex justify-center items-center rounded-lg'>
                         <BsBank className='text-sm w-full' />
                     </span>
                     <input type="text" className='bg-[transparent] outline-none border-0 text-sm w-[80%]' placeholder='Enter Bank Name' defaultValue={bankDetails?.bankName
-                    } />
+                    } disabled />
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-4 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-2 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-sm w-full' />
                     </span>
                     <input type="text" className='bg-[transparent] outline-none border-0 text-sm  w-[80%]' placeholder='Enter Account number ' defaultValue={bankDetails?.accountNumber
-                    } />
+                    } disabled />
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-4 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-2 flex justify-center items-center rounded-lg'>
                         <BsBank className='text-sm w-full' />
                     </span>
-                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%] text-sm' placeholder='Enter Account name ' defaultValue={bankDetails?.accountName
-                    } />
+                    <input type="text" className='bg-[transparent] outline-none border-0  w-[80%] text-sm ' placeholder='Enter Account name ' defaultValue={bankDetails?.accountName
+                    } disabled/>
                 </div>
-                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-2 py-2 flex items-center gap-x-6 rounded-lg">
+                <div className="border w-[100%] sm:w-[80%] md:w-[80%] px-4 py-4 flex items-center gap-x-6 rounded-lg">
                     <span className='w-[20%] border p-2 flex justify-center items-center rounded-lg'>
                         <FaNairaSign className='text-sm w-full' />
                     </span>
@@ -81,12 +81,12 @@ const WithdrawSec = () => {
                         <LiaTimesSolid className='text-sm' />
                     </span>
                     <div className="flex flex-col justify-center items-center w-full">
-                        <h1 className='text-4xl font-semibold text-[#000000CC] '>Confirm withdrawal</h1>
-                        <span className='text-[#218B07]'>Please input password to withdraw</span>
+                        <h1 className='text-lg font-semibold text-[#000000CC] '>Confirm withdrawal</h1>
+                        <span className='text-[#218B07] text-sm'>Please input password to withdraw</span>
                     </div>
                     <form action="" className='w-[80%] flex flex-col gap-y-8 justify-center items-center'>
                         <div className=' flex flex-col w-full'>
-                            <div className="flex gap-x-2 items-center px-2 py-3 border-2 rounded-[8px] relative ">
+                            <div className="flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] relative ">
                                 <span><GiPadlock /></span>
                                 <input type={passwordVisible ? 'number' : 'password'} value={Pin} onChange={(e) => {
                                     const inputValue = e.target.value;
