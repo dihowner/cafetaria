@@ -39,8 +39,16 @@ const DashboardHeader = ({ isSidebarOpen, toggleSidebar }) => {
                             <BsChatDots />
                         </div>
                     </div>
-                    <div className="bg-[#FFFFFF5E] flex justify-center items-center py-2 px-2 text-lg text-[#FFFFFF] min-h-12 w-20">
-                        <BsChatDots />
+                    <div className=" flex justify-center items-center h-12 w-16 ">
+                        {Details?.Details?.store_image === null || Details?.Details?.store_image === undefined ? <img
+                            src='/Images/Rectangle 86.png'
+                            alt='store image'
+                            className='w-full h-full'
+                        /> : <img
+                            src={Details?.Details?.store_image}
+                            alt='store image'
+                            className='w-full h-full'
+                        />}
                     </div>
                 </div>
             </div>

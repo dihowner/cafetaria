@@ -35,7 +35,7 @@ const UpdatePin = () => {
                 <span className='text-[#218B07] text-sm'>Please only Enter numbers</span>
                 <div className=' flex flex-col w-full'>
                     <label htmlFor="name">{"Current Pin"}</label>
-                    <div className="flex gap-x-2 items-center px-1 py-1 text-sm border-2 rounded-[8px] relative ">
+                    <div className="flex gap-x-2 items-center px-4 py-4 text-sm border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
                         <input type={passwordVisible ? 'number' : 'password'} value={currentPin} onChange={(e) => {
                             const inputValue = e.target.value;
@@ -69,7 +69,7 @@ const UpdatePin = () => {
 
                 <div className=' flex flex-col w-full text-sm'>
                     <label htmlFor="name">{"New Pin"}</label>
-                    <div className="flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative ">
+                    <div className="flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
                         <input type={passwordVisible ? 'number' : 'password'} value={Newpin} onChange={(e) => {
                             const inputValue = e.target.value;
@@ -103,7 +103,7 @@ const UpdatePin = () => {
 
                 <div className=' flex flex-col w-full text-sm'>
                     <label htmlFor="name">{"New Pin"}</label>
-                    <div className="flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] relative ">
+                    <div className="flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] relative ">
                         {/* <span>{}</span> */}
                         <input type={passwordVisible ? 'number' : 'password'} value={cNewpin} onChange={(e) => {
                             const inputValue = e.target.value;
