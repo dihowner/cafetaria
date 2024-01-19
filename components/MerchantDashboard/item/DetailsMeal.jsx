@@ -12,6 +12,36 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
     const openCategoryModal = () => {
         setIsCategoryOpenModal(true)
     }
+    // {
+    //     "Sunday": {
+    //         "openingTime": "",
+    //             "closingTime": ""
+    //     },
+    //     "Monday": {
+    //         "openingTime": "08:32",
+    //             "closingTime": "20:34"
+    //     },
+    //     "Tuesday": {
+    //         "openingTime": "01:32",
+    //             "closingTime": "20:35"
+    //     },
+    //     "Wednesday": {
+    //         "openingTime": "08:38",
+    //             "closingTime": "20:32"
+    //     },
+    //     "Thursday": {
+    //         "openingTime": "20:37",
+    //             "closingTime": "13:33"
+    //     },
+    //     "Friday": {
+    //         "openingTime": "23:33",
+    //             "closingTime": "20:38"
+    //     },
+    //     "Saturday": {
+    //         "openingTime": "01:34",
+    //             "closingTime": "12:34"
+    //     }
+    // }
     return (
         <div className='flex justify-center flex-col items-center w-full'>
             {DetailsLoading ? (

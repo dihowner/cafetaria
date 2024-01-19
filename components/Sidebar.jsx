@@ -1,6 +1,4 @@
 'use client'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { FaBars } from 'react-icons/fa'
 import React, { useContext, useEffect } from 'react'
 import { SidebarCreateContext } from '@/context/Sidebar/SideBarContext'

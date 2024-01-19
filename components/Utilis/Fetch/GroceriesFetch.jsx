@@ -14,7 +14,7 @@ export const groceriesFetch = () => {
     const { Details } = useSelector((state) => state.rootReducers)
     const vendordetails = Details?.Details
     const [error, setError] = useState()
-    // console.log(vendordetails)
+    console.log(vendordetails)
     const dispatch = useDispatch();
     const Createcategory = async (data) => {
         try {
