@@ -20,6 +20,8 @@ const BankSetUp = () => {
     const [transactionPin, setTransactionPin] = useState()
     const { Allbanks, verifyBank, fetchBankLoading, saveBankDetails } = BanksFetch()
     const options = banks?.banks?.map((bank) => ({ label: bank.bank_name, value: bank.bank_code })) || [];
+    const { Details } = useSelector((state) => state.rootReducers)
+    const bankDetails = Details?.Details?.bank
     const togglePassVisibility = () => {
         setPasswordVisible((prevVisibility) => !prevVisibility);
     };
@@ -32,6 +34,7 @@ const BankSetUp = () => {
             setBank_code(null);
         }
     };
+    
     const data = {
         bank_code: bank_code,
         account_number: bankAccount
@@ -44,8 +47,14 @@ const BankSetUp = () => {
         transact_pin: transactionPin
     }
     useEffect(() => {
+        if (bankDetails) {
+            // setBank_code(bankDetails?.bankName || ''); // assuming bank_code is a string
+            setBankAccount(bankDetails?.accountNumber || ''); // assuming account_number is a string
+            setBankAccount_name(bankDetails?.accountName || '');
+           // assuming transact_pin is a string
+        }
         Allbanks()
-    }, [])
+    }, [bankDetails])
     const verify = () => {
         verifyBank(data, setBankAccount_name);
         // console.log(data)
@@ -53,6 +62,7 @@ const BankSetUp = () => {
     const SaveBank = async (e) => {
         e.preventDefault()
         await saveBankDetails(info)
+
     }
     // useEffect(() => {
     //     if (bankAccount?.length === 10) {
@@ -75,6 +85,8 @@ const BankSetUp = () => {
                         <BsBank className=' w-full' />
                     </span>
                     <Autocomplete
+                        value={bank_code}
+
                         disablePortal
                         id="combo-box-demo"
                         options={options}

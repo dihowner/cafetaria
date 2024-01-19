@@ -93,7 +93,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                 <select
                                     ref={is_availableRef}
                                     defaultValue={details?.isAvailable}
-                                    className='flex gap-x-2 items-center px-2 py-2 border-2 rounded-[8px] text-sm outline-none'
+                                    className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] text-sm outline-none'
                                 >
                                     {status.map((item, index) => (
                                         <option key={index} value={item.value} className='capitalize text-sm'>
@@ -127,7 +127,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                             <select
                                                 ref={is_requiredstyrofoam}
                                                 defaultValue={details?.packaging?.stryrofoam?.is_required}
-                                                className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] text-sm outline-none'
+                                                className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] text-sm outline-none'
                                             >
                                                 {status.map((item, index) => (
                                                     <option
@@ -159,7 +159,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                                 defaultValue={
                                                     details?.packaging?.plastic_plate?.is_required
                                                 }
-                                                className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] text-sm outline-none'
+                                                className='flex gap-x-2 items-center px- py-4 border-2 rounded-[8px] text-sm outline-none'
                                             >
                                                 {status.map((item, index) => (
                                                     <option
