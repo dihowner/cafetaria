@@ -15,7 +15,7 @@ const Upload = ({ reff, defaultValue }) => {
     //         // Your file input handling logic...
     //     }
     // };
-    console.log(defaultValue)
+    // console.log(defaultValue)
     const handleFileInputChange = (event) => {
         const file = event.target.files[0]
         if (file) {

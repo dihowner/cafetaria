@@ -63,7 +63,7 @@ const page = () => {
               <div className='width flex flex-col gap-y-4'>
                 <div className='flex justify-between md:items-center flex-col md:flex-row gap-y-6 w-full p-4  '>
                   <div className='flex flex-col gap-y-8 w-full md:w-1/2'>
-                    <div className='flex items-center text-sm  gap-x-4 capitalize p-2 border-2 bg-[#FAFAFA] rounded-lg w-[45%] md:w-[20%]'>
+                    <div className='flex items-center text-sm  gap-x-4 capitalize p-2 border-2 bg-[#FAFAFA] rounded-lg w-[45%] md:w-[25%]'>
                       <span>
                         <MdOutlineSettings />
                       </span>

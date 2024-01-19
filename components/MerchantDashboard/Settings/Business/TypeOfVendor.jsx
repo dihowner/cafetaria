@@ -7,8 +7,9 @@ import FormLabel from '@mui/material/FormLabel';
 import Map from '@/components/Map';
 const TypeOfVendor = ({ setisPhysicalStore, value }) => {
     const handleChange = (event) => {
-        setisPhysicalStore(event.target.value);
+        setisPhysicalStore(event.target.value === "true");
     };
+    // console.log('hello', value, typeof (value))
     return (
         <div className=' w-full capitalize flex flex-col sm:flex-row sm:justify-between md:flex-col md:justify-start gap-y-8 gap-x-6'>
             <div className="bg-transparent pt-4 pb-8 sm:w-1/2 md:w-[80%] flex justify-center items-center text-base text-black border border-black min-h-[100px] ">
@@ -18,18 +19,20 @@ const TypeOfVendor = ({ setisPhysicalStore, value }) => {
                         aria-labelledby="demo-radio-buttons-group-label"
                         // defaultValue={defaultValue}
                         // ref={reff}
-                        value={value}
+                        value={value.toString()}
                         onChange={handleChange}
                         name="radio-buttons-group"
 
                     >
-                        <div className="flex justify-between items-center w-1/2"> <FormControlLabel value={true} control={<Radio sx={{ color: '#218B07', '&.Mui-checked': { color: '#218B07' } }} />} label="Yes" />
-                            <FormControlLabel value={false} control={<Radio sx={{ color: '#218B07', '&.Mui-checked': { color: '#218B07' } }} />} label="No" /></div>
+                        <div className="flex justify-between items-center w-1/2">
+                            <FormControlLabel value={'true'} control={<Radio sx={{ color: '#218B07', '&.Mui-checked': { color: '#218B07' } }} />} label="Yes" />
+                            <FormControlLabel value={'false'} control={<Radio sx={{ color: '#218B07', '&.Mui-checked': { color: '#218B07' } }} />} label="No" /></div>
                     </RadioGroup>
                 </div>
 
             </div>
-            {value === true ? <Map /> : null}
+            {/* {value ? 'mmm' : null} */}
+
         </div>
     )
 }

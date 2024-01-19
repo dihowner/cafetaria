@@ -24,12 +24,12 @@ const MHeader = ({ SideBarFirstLinks,
           </div>
         </div>
         <div className=" flex justify-center items-center h-12 w-16 ">
-          {Details?.Details?.user?.store_image === null || Details?.Details?.user?.store_image === undefined ? <img
+          {Details?.Details?.user?.store_image === null || Details?.Details?.store_image === undefined ? <img
             src='/Images/Rectangle 86.png'
             alt='store image'
             className='w-full h-full'
           /> : <img
-            src={Details?.Details?.user?.store_image}
+            src={Details?.Details?.store_image}
             alt='store image'
             className='w-full h-full'
           />}

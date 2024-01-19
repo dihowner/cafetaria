@@ -132,7 +132,6 @@ const Account = () => {
                             />
                         </div>
                     </div>
-
                     <EditInput title='Store name'
                         reff={storeNameRef}
                         defaultValue={Details?.Details?.store_name}
@@ -206,6 +205,7 @@ const Account = () => {
                         </div>
                     </div>
                     <TypeOfVendor value={isPhysicalStore} setisPhysicalStore={setisPhysicalStore} />
+                    {isPhysicalStore === true ? <Map />:null}
                 </div>
                 <div className="w-full flex items-center gap-x-4">
                     {!editMode ? (
