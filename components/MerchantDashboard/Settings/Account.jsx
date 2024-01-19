@@ -20,6 +20,8 @@ const Account = () => {
     const [store_image, setStore_image] = useState()
     const { auth } = useSelector((state) => state.rootReducers);
     const [editMode, setEditMode] = useState(false);
+    const [loading, setisLoading] = useState(false)
+
     const handleEditClick = () => {
         setEditMode(true);
     };
@@ -86,6 +88,8 @@ const Account = () => {
     }
     const edit = async (e) => {
         e.preventDefault()
+        setisLoading(true)
+
         const fileimage = store_image === undefined || store_image === null ? Details?.Details?.store_image : store_image
         const formData = new FormData()
         formData.append('mobile_number', phoneRef?.current?.value)
@@ -102,7 +106,9 @@ const Account = () => {
         })
 
             .then(response => {
-                console.log('Success:', response.data);
+                setisLoading(false)
+
+                // console.log('Success:', response.data);
                 dispatch(setDetails(response.data))
                 fetchDetails()
                 toast.success('profile updated succesfully')
@@ -216,7 +222,7 @@ const Account = () => {
                     ) : (
                         <>
                             <CustomButton
-                                title={'Save'}
+                                    title={loading ? 'loading' : 'update'}
                                 containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 w-1/2 text-sm'
                                 type='submit'
                             // handleClick={() => edit()}

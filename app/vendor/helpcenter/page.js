@@ -26,7 +26,7 @@ const page = () => {
       // toast.error(err?.data?.message + ' ' + 'Please Login Again' || err.error)
       if (err.status === 401) {
         dispatch(logout())
-        toast.error(err?.data?.message + ' ' + 'Please Login Again')
+        // toast.error(err?.data?.message + ' ' + 'Please Login Again')
         router.push('/vendor/login')
       } else {
         toast.error(err.error)
