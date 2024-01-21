@@ -9,17 +9,20 @@ import { ItemsTableData } from '@/components/Utilis/Dummy'
 import Switch from '@mui/material/Switch'
 import Button from '@mui/material/Button'
 import StoreCreation from '@/components/MerchantDashboard/item/StoreCreation'
-
+// Link
 import EditStore from '@/components/MerchantDashboard/item/EditStore'
 import CategoryStore from '@/components/MerchantDashboard/item/CategoryStore'
 import AppLoader from '@/components/AppLoader'
 import { useVendordetailsMutation } from '@/redux/Vendor/detailsApiSlice'
 import { useSelector, useDispatch } from 'react-redux'
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
-import { useEffect} from 'react'
+import { useEffect } from 'react'
 import { logout } from '@/user/authSlice'
 import GroceriesCategoryList from '@/components/MerchantDashboard/item/GroceriesCategoryList'
 import { toast } from 'react-toastify'
+import Link from 'next/link'
+import { groceriesFetch } from '@/components/Utilis/Fetch/GroceriesFetch'
+import GroceriesItem from '@/components/MerchantDashboard/item/GroceriesItem'
 
 const page = () => {
   const [vendordetails, { isLoading }] = useVendordetailsMutation()
@@ -27,6 +30,11 @@ const page = () => {
   const [error, setError] = useState()
   const { auth } = useSelector((state) => state.rootReducers)
   const router = useRouter()
+  const { getcategory, getCategoryLoading } = groceriesFetch()
+
+  useEffect(() => {
+    getcategory()
+  }, [])
   const fetchDetails = async () => {
     try {
       const response = await vendordetails(auth?.token).unwrap()
@@ -83,14 +91,21 @@ const page = () => {
                   {vendorDetails &&
                   vendorDetails?.mart === undefined &&
                   null ? null : (
-                    <CustomButton
-                      title='Add'
-                      containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-2 border-[#218B07] border text-sm'
-                      Icon={<IoIosAdd />}
-                      handleClick={() => {
-                        openCategoryStorModal()
-                      }}
-                    />
+                    <div className='flex gap-x-2'>
+                      <CustomButton
+                        title='Create Category'
+                        containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-2 border-[#218B07] border text-sm'
+                        handleClick={() => {
+                          openCategoryStorModal()
+                        }}
+                      />
+                      <Link
+                        href={'/vendor/groceries/add-item'}
+                        className='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-2 border-[#218B07] border text-sm'
+                      >
+                        {'Add item'}
+                      </Link>
+                    </div>
                   )}
                 </div>
                 {vendorDetails && vendorDetails?.mart === undefined && null ? (
@@ -144,7 +159,8 @@ const page = () => {
                         {'Edit store'}
                       </Button>
                     </div>
-                    <GroceriesCategoryList/>
+                    {/* <GroceriesCategoryList /> */}
+                    <GroceriesItem/>  
                   </div>
                 )}
               </div>

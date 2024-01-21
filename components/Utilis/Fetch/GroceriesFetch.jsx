@@ -3,18 +3,22 @@ import { create_Category, set_Categories, updateCategory } from '@/redux/Vendor/
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import { useState } from 'react';
+import { createGroceries, set_Groceries } from '@/redux/Vendor/Slices/GroceriesSlice';
 
+import axios from 'axios'
+import { useGetGroceriesMutation } from '@/redux/Vendor/GroceriesItemApiSlice';
 
 export const groceriesFetch = () => {
     const [createGroceriesCategory, { isLoading: create_CategoryGroceriesLoading }] = useCreateGroceriesCategoryMutation()
     const [getCategory, { isLoading: getCategoryLoading }] = useGetCategoryMutation()
     const [editGroceriesCategory, { isLoading: editGroceriesCategoryLoading }] = useEditGroceriesCategoryMutation()
     const [deleteGroceriesCategory, { isLoading: deleteGroceriesCategoryLoading }] = useDeleteGroceriesCategoryMutation()
+    const [getGroceries, { isLoading: getGroceriesLoading }] = useGetGroceriesMutation()
     const { auth } = useSelector((state) => state.rootReducers);
     const { Details } = useSelector((state) => state.rootReducers)
     const vendordetails = Details?.Details
     const [error, setError] = useState()
-    console.log(vendordetails)
+    // console.log(vendordetails)
     const dispatch = useDispatch();
     const Createcategory = async (data) => {
         try {
@@ -65,7 +69,46 @@ export const groceriesFetch = () => {
             setError(err.error)
         }
     }
+
+    const [loading, setLoading] = useState(false)
+    const createGrocery = async (formData) => {
+        setLoading(true)
+        await axios
+            .post(
+                'https://cafeteria-ekep.onrender.com/api/grocery/add',
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/formData',
+                        Accept: 'Application/json',
+                        Authorization: `Bearer ${auth.token}`,
+                    },
+                }
+            )
+            .then((response) => {
+                setLoading(false)
+                toast.success(response.data.message)
+                dispatch(
+                    createGroceries(response.data.data)
+                )
+                // console.log(response)
+            })
+            .catch((err) => {
+                setLoading(false)
+                toast.error(err?.response?.data?.message || err.error);
+                // console.error(error)
+            })
+    }
+    const getGrocery = async () => {
+        try {
+            const response = await getGroceries({  token: auth.token }).unwrap()
+            dispatch(set_Groceries(response))
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+            setError(err.error)
+        }
+    }
     return {
-        Createcategory, create_CategoryGroceriesLoading, error, getcategory, getCategoryLoading, editCategory, editGroceriesCategoryLoading, deleteCategory, deleteGroceriesCategoryLoading
+        Createcategory, create_CategoryGroceriesLoading, error, getcategory, getCategoryLoading, editCategory, editGroceriesCategoryLoading, deleteCategory, deleteGroceriesCategoryLoading, createGrocery, loading,getGrocery,getGroceriesLoading
     }
 }
