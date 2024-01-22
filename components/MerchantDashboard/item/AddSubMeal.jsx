@@ -1,5 +1,5 @@
 import Modal from '@/components/Modal'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import { Button } from '@mui/material'
 import { useSelector } from 'react-redux'
@@ -7,7 +7,7 @@ import { LiaTimesSolid } from 'react-icons/lia'
 import InputsCustom from '@/components/InputsCustom'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
+const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID, categoryDetails, params }) => {
     const [name, setName] = useState()
     const [price, setPrice] = useState()
     const [categoryId, setCategoryId] = useState()
@@ -16,29 +16,37 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
         { value: true, status: 'Active' },
         { value: false, status: 'Not Active' },
     ]
+
+    console.log(categoryDetails)
+
     const [is_available, setIs_available] = useState(true)
     const { createSubMeal, createSubMealLoading, error } = mealsfetch()
 
     const { categories } = useSelector((state) => state.rootReducers)
     const category = categories?.category
     const options = category?.map((item) => ({ label: item?.name, value: item?._id })) || [];
-    const handleCategoryChange = (event, value) => {
-        if (value) {
-            setCategoryId(value.value);
-        } else {
-            setCategoryId(null);
-        }
-    };
+    // const handleCategoryChange = (event, value) => {
+    //     if (value) {
+    //         setCategoryId(value.value);
+    //     } else {
+    //         setCategoryId(null);
+    //     }
+    // };
     // console.log(categoryId)
+    const categoryRef = useRef(null)
     const data = {
         unit_price: price,
         name: name,
-        category: categoryId,
+        category: categoryDetails?.id,
         is_available: is_available
     }
     const submealcreate = async (e) => {
         e.preventDefault()
-        await createSubMeal(data, itemID?._id)
+        // console.log(data)
+        await createSubMeal(data, itemID?._id, setIsOpenModal)
+        setName('')
+        setPrice('')
+        setIs_available(null)
     }
     return (
         <div>
@@ -50,7 +58,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                     </span>
                 </div>
                 <form onSubmit={submealcreate} className="flex flex-col justify-center items-center w-full gap-y-6">
-                    <h1 className='text-lg text-[#218B07] font-[700] text-center'>Add Submeals to {itemID?.name}</h1>
+                    <h1 className='text-lg text-[#218B07] font-[700] text-center'>Add Submeals to {itemID?.name} {categoryDetails?.name}</h1>
                     <div className="grid grid-cols-2 gap-4">
                         <InputsCustom title={'Item Name'}
                             type={'text'}
@@ -65,7 +73,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                             <select
                                 value={is_available}
                                 onChange={(e) => setIs_available(e.target.value)}
-                                className='flex gap-x-2 items-center px-1 py-1 border-2 rounded-[8px] outline-none'
+                                className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] outline-none bg-transparent'
                             >
                                 {status.map((item, index) => (
                                     <option key={index} value={item.value} className='capitalize'>
@@ -74,7 +82,29 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                                 ))}
                             </select>
                         </div>
-                        <div className="flex flex-col w-full addsub">
+                        {/* <InputsCustom title={'Category'}
+                            type={'text'}
+                            value={categoryDetails?.name}
+                        /> */}
+                        <div className='flex flex-col w-full'>
+                            <label htmlFor=''>Category</label>
+
+                            <select
+                                defaultValue={categoryDetails?._id}
+                                ref={categoryRef}
+                                disabled
+                                // value={categoryId}
+                                // onChange={() => setCategoryId(e?.target?.value)}
+                                className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] outline-none bg-transparent'
+                            >
+
+                                <option value={categoryDetails?._id} className='capitalize'>
+                                    {categoryDetails?.name}
+                                </option>
+
+                            </select>
+                        </div>
+                        {/* <div className="flex flex-col w-full addsub">
                             <label htmlFor=''>Category</label>
                             <Autocomplete
                                 disablePortal
@@ -85,7 +115,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                                 renderInput={(params) => <TextField {...params} label="select category" />}
                             />
 
-                        </div>
+                        </div> */}
                     </div>
                     <div className=' flex justify-center w-full'>
                         <Button
