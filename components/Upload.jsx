@@ -53,7 +53,7 @@ const Upload = ({ mealImage }) => {
                 ) : (
                     <label htmlFor="fileInput" className="text-center flex flex-col justify-center items-center">
                         <IoMdImages className="text-2xl" />
-                        <span className='text-[#218B07] text-sm'>Upload your Meal Image </span>
+                        <span className='text-[#218B07] text-sm'>Upload your Item Image </span>
                     </label>
                 )}
             </div>
@@ -61,6 +61,8 @@ const Upload = ({ mealImage }) => {
             <Button
                 startIcon={<CloudUploadIcon />}
                 // onClick={handleButtonClick}
+                component="label"
+                variant="contained"
                 sx={{
                     backgroundColor: '#218B07',
                     color: '#ffffff',
