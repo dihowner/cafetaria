@@ -4,16 +4,16 @@ import { LiaTimesSolid } from 'react-icons/lia'
 import { Button } from '@mui/material'
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 
-const DeleteCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
-    const params = itemID?._id
-    const mealId = itemID?.meal
+const DeleteCategory = ({ isOpenModal, setIsOpenModal, itemID, mealDetailsID }) => {
+    const params = itemID?.id
+    const mealId = mealDetailsID
     const { deletecategory, deleteCategoryLoading } = mealsfetch()
 
     const deleteCat = async () => {
         await deletecategory(params, mealId)
         setIsOpenModal(false)
     }
-    // console.log(itemID)
+    console.log(itemID)
     return (
         <div>
             <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)}>

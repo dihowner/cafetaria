@@ -14,6 +14,7 @@ import MenuList from '@mui/material/MenuList';
 
 import Switch from '@mui/material/Switch'
 import Link from 'next/link'
+import DeleteGroceries from './DeleteGroceries';
 
 
 const GroceriesItem = () => {
@@ -255,6 +256,7 @@ const GroceriesItem = () => {
                 </table>
               </div>
             </div>
+            <DeleteGroceries/>
           </div>
           )}
         </>

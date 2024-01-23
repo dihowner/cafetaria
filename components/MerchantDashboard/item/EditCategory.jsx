@@ -5,13 +5,13 @@ import { LiaTimesSolid } from 'react-icons/lia'
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import EditInput from '@/components/EditInput'
 
-const EditCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
-    console.log(itemID)
+const EditCategory = ({ isOpenModal, setIsOpenModal, itemID, mealDetailsID }) => {
+    // console.log(itemID)
     const NameRef = useRef(null)
     const { EditCategory, editCategoryLoading } = mealsfetch()
 
-    const params = itemID?._id
-    const mealId = itemID?.meal
+    const params = itemID?.id
+    const mealId = mealDetailsID
     const edit = async (e) => {
         e.preventDefault()
         const name = {
@@ -20,6 +20,8 @@ const EditCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
         await EditCategory(name, params, mealId)
         setIsOpenModal(false)
     }
+    // console.log(params)
+    // console.log(mealId)
     return (
         <div>
             <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)}>

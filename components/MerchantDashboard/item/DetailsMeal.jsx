@@ -89,7 +89,10 @@ const DetailsMeal = ({ mealId, details, DetailsLoading }) => {
                                     onClick={() => openCategoryModal()}>Add Categories</Button>
                             </div>
                         </div>
-                        <Categories itemID={mealId} details={details} />
+                        <Categories 
+                        itemID={mealId} // the meal id 
+                        details={details} // the details of the meal
+                         /> 
                     </div>
                     <CreateCategory isOpenModal={isCategoryOpenModal} setIsOpenModal={setIsCategoryOpenModal} itemID={mealId} />
                     

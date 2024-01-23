@@ -14,7 +14,7 @@ const page = ({ params }) => {
     useEffect(() => {
         getDetails(setDetails, mealId)
     }, [mealId])
-    // console.log(details)
+    console.log(details)
     const pathname = usePathname()
     if (pathname.includes('edit')) {
         return <><Editmeal mealId={mealId} details={details} DetailsLoading={DetailsLoading} /></>;

@@ -52,7 +52,7 @@ const ResturantItems = () => {
     const handleClick = (item) => {
 
         openCategoryModal()
-        setItemId(item)
+        setItemId(item?._id)
         // console.info(`You clicked ${'22222'}`);
     };
     const [open, setOpen] = React.useState(allMeals ? Array(allMeals.length).fill(false) : []);

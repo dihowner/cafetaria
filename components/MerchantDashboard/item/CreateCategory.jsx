@@ -9,14 +9,15 @@ const CreateCategory = ({ isOpenModal, setIsOpenModal, itemID }) => {
     const { createMealCategory, createCategoryLoading } = mealsfetch()
     const mealId = itemID
     // console.log(itemID)
-    const data={
-        name:name
+    const data = {
+        name: name
     }
+    // console.log(itemID)
     const createMeal = async (e) => {
         e.preventDefault()
-        await createMealCategory(data, mealId)
+        await createMealCategory(data, mealId, setIsOpenModal)
         setName('')
-        setIsOpenModal(false)
+        // setIsOpenModal(false)
     }
     return (
         <div>
