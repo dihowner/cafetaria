@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { createGroceries, set_Groceries } from '@/redux/Vendor/Slices/GroceriesSlice';
 
 import axios from 'axios'
-import { useGetGroceriesMutation } from '@/redux/Vendor/GroceriesItemApiSlice';
+import { useDeletegroceriesMutation, useGetGroceriesMutation } from '@/redux/Vendor/GroceriesItemApiSlice';
 
 export const groceriesFetch = () => {
     const [createGroceriesCategory, { isLoading: create_CategoryGroceriesLoading }] = useCreateGroceriesCategoryMutation()
@@ -14,6 +14,7 @@ export const groceriesFetch = () => {
     const [editGroceriesCategory, { isLoading: editGroceriesCategoryLoading }] = useEditGroceriesCategoryMutation()
     const [deleteGroceriesCategory, { isLoading: deleteGroceriesCategoryLoading }] = useDeleteGroceriesCategoryMutation()
     const [getGroceries, { isLoading: getGroceriesLoading }] = useGetGroceriesMutation()
+    const [deletegroceries, { isLoading: deletegroceriesLoading }]=useDeletegroceriesMutation()
     const { auth } = useSelector((state) => state.rootReducers);
     const { Details } = useSelector((state) => state.rootReducers)
     const vendordetails = Details?.Details
@@ -109,11 +110,12 @@ export const groceriesFetch = () => {
         }
     }
 
-    const deleteGroceries = async (id) => {
+    const deleteGroceries = async (id, setIsOpenModal) => {
         try {
-            const response = await deleteMeal({ params: id, token: auth.token }).unwrap()
-            toast.success('Grocerie has been deleted successfully')
+            const response = await deletegroceries({ params: id, token: auth.token }).unwrap()
+            toast.success('Item deleted successfully')
             getGrocery()
+            setIsOpenModal(false)
             // console.log(response)
             setIsOpenModal(false)
         } catch (err) {

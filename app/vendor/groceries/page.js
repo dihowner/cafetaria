@@ -92,13 +92,13 @@ const page = () => {
                   vendorDetails?.mart === undefined &&
                   null ? null : (
                     <div className='flex gap-x-2'>
-                      <CustomButton
+                      {/* <CustomButton
                         title='Create Category'
                         containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-2 border-[#218B07] border text-sm'
                         handleClick={() => {
                           openCategoryStorModal()
                         }}
-                      />
+                      /> */}
                       <Link
                         href={'/vendor/groceries/add-item'}
                         className='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-2 border-[#218B07] border text-sm'
@@ -160,7 +160,7 @@ const page = () => {
                       </Button>
                     </div>
                     {/* <GroceriesCategoryList /> */}
-                    <GroceriesItem/>  
+                    <GroceriesItem />  
                   </div>
                 )}
               </div>
