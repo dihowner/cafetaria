@@ -16,9 +16,6 @@ export const { useFetchBankMutation } = creatBankApiSlice
 
 
 
-
-
-
 export const saveBankApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         saveBank: builder.mutation({

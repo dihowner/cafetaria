@@ -19,7 +19,7 @@ const DeleteGroceries = ({ isOpenModal, setIsOpenModal, itemID }) => {
                     </span>
                 </div>
                 <div className="flex flex-col justify-center items-center w-full gap-y-6">
-                    <h1 className='text-lg text-center'>Are you sure you want to delete {itemID?.name}</h1>
+                    <h1 className='text-lg text-center'>Are you sure you want to delete <b>{itemID?.name}</b> </h1>
                     <div className="flex justify-center items-center w-full gap-x-4">
                         <Button sx={{
                             backgroundColor: '#218B07',

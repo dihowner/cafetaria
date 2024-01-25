@@ -3,7 +3,7 @@ import { create_Category, set_Categories, updateCategory } from '@/redux/Vendor/
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import { useState } from 'react';
-import { createGroceries, set_Groceries } from '@/redux/Vendor/Slices/GroceriesSlice';
+import { createGroceries, set_Groceries, updatedGroceries } from '@/redux/Vendor/Slices/GroceriesSlice';
 
 import axios from 'axios'
 import { useDeletegroceriesMutation, useGetGroceriesMutation } from '@/redux/Vendor/GroceriesItemApiSlice';
@@ -123,7 +123,35 @@ export const groceriesFetch = () => {
         }
 
     }
+    const changeAvailabilty = async (data, groceryId) => {
+        setLoading(true)
+        await axios
+            .put(
+                `https://cafeteria-ekep.onrender.com/api/grocery/${groceryId}/activate`,
+                data,
+                {
+                    headers: {
+                        'Content-Type': 'Application/json',
+                        Accept: 'Application/json',
+                        Authorization: `Bearer ${auth.token}`,
+                    },
+                }
+            )
+            .then((response) => {
+                setLoading(false)
+                console.log(response?.data?.data)
+                toast.success(response.data.message)
+                // getGrocery()
+                dispatch(updatedGroceries(response?.data?.data))
+
+            })
+            .catch((err) => {
+                setLoading(false)
+                // console.error(error)
+                toast.error(err?.response?.data?.message || err.error);
+            })
+    }
     return {
-        Createcategory, create_CategoryGroceriesLoading, error, getcategory, getCategoryLoading, editCategory, editGroceriesCategoryLoading, deleteCategory, deleteGroceriesCategoryLoading, createGrocery, loading, getGrocery, getGroceriesLoading,deleteGroceries
+        Createcategory, create_CategoryGroceriesLoading, error, getcategory, getCategoryLoading, editCategory, editGroceriesCategoryLoading, deleteCategory, deleteGroceriesCategoryLoading, createGrocery, loading, getGrocery, getGroceriesLoading,deleteGroceries,changeAvailabilty
     }
 }

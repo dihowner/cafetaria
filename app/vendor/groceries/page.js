@@ -30,11 +30,6 @@ const page = () => {
   const [error, setError] = useState()
   const { auth } = useSelector((state) => state.rootReducers)
   const router = useRouter()
-  const { getcategory, getCategoryLoading } = groceriesFetch()
-
-  useEffect(() => {
-    getcategory()
-  }, [])
   const fetchDetails = async () => {
     try {
       const response = await vendordetails(auth?.token).unwrap()
@@ -160,7 +155,7 @@ const page = () => {
                       </Button>
                     </div>
                     {/* <GroceriesCategoryList /> */}
-                    <GroceriesItem />  
+                    <GroceriesItem />
                   </div>
                 )}
               </div>

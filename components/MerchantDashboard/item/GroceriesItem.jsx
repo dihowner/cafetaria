@@ -18,7 +18,7 @@ import DeleteGroceries from './DeleteGroceries';
 
 
 const GroceriesItem = () => {
-  const { getGrocery, getGroceriesLoading, error } = groceriesFetch()
+  const { getGrocery, getGroceriesLoading, error, changeAvailabilty, loading } = groceriesFetch()
   useEffect(() => {
     getGrocery()
   }, [])
@@ -34,13 +34,13 @@ const GroceriesItem = () => {
   };
 
   const changeavai = async (item) => {
-    // const updatedAvailability = !item.isAvailable
-    // const mealId = item?._id
-    // const data = {
-    //   is_available: updatedAvailability
-    // }
-    // await changeAvailabilty(data, mealId)
-    console.log('first')
+    const updatedAvailability = !item.isAvailable
+    const groceryId = item?._id
+    const data = {
+      is_available: updatedAvailability
+    }
+    await changeAvailabilty(data, groceryId)
+    // console.log('first')
   }
   const [open, setOpen] = React.useState(allGroceries ? Array(allGroceries.length).fill(false) : []);
   const handleToggle = (index) => {
@@ -64,7 +64,7 @@ const GroceriesItem = () => {
   const openModal = () => {
     setIsOpenModal(true)
   }
-  const [itemId, setItemId]=useState()
+  const [itemId, setItemId] = useState()
   return (
     <>
       {getGroceriesLoading ? <AppLoader color={'#5f8357'} loading={getGroceriesLoading} /> :
@@ -98,12 +98,12 @@ const GroceriesItem = () => {
                         Name
                       </td>
 
-                      <td
+                      {/* <td
                         scope='col'
                         className='text-sm  text-[#5f8357] px-1 py-1 font-bold whitespace-nowrap text-center'
                       >
                         Unit Price
-                      </td>
+                      </td> */}
                       <td
                         scope='col'
                         className='text-sm  text-[#5f8357] px-1 py-1 font-bold whitespace-nowrap text-center'
@@ -138,10 +138,9 @@ const GroceriesItem = () => {
                           <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900 text-center'>
                             {item.name}
                           </td>
-
-                          <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900 text-center'>
+                          {/* <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900 text-center'>
                             {item?.unitPrice}
-                          </td>
+                          </td> */}
                           <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-center'>
                             <Switch
                               checked={item?.isAvailable}
@@ -156,6 +155,7 @@ const GroceriesItem = () => {
                                 },
                               }}
                             />
+                            {/* {loading && <AppLoader color={'#5f8357'} loading={loading} />} */}
                           </td>
                           <td className=' vendoritembtn text-sm text-gray-900 font-light px-1 py-1 whitespace-nowrap text-center'
                           // ref={anchorRef}
