@@ -1,5 +1,5 @@
 import { groceriesFetch } from '@/components/Utilis/Fetch/GroceriesFetch'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import AppLoader from '@/components/AppLoader'
 import Button from '@mui/material/Button';
@@ -60,8 +60,11 @@ const GroceriesItem = () => {
     setOpen(false);
   };
 
-
-
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const openModal = () => {
+    setIsOpenModal(true)
+  }
+  const [itemId, setItemId]=useState()
   return (
     <>
       {getGroceriesLoading ? <AppLoader color={'#5f8357'} loading={getGroceriesLoading} /> :
@@ -217,11 +220,10 @@ const GroceriesItem = () => {
                                         <MenuList id="split-button-menu" autoFocusItem>
                                           <MenuItem
 
-                                          // onClick={() => {
-                                          //   openModal()
-                                          //   setItemId(item)
-                                          //   setOpen(false)
-                                          // }}
+                                            onClick={() => {
+                                              openModal()
+                                              setItemId(item)
+                                            }}
                                           >
                                             <div className='py-1 px-1 flex gap-x-2 text-sm items-center text-[#218B07]'>
 
@@ -256,7 +258,8 @@ const GroceriesItem = () => {
                 </table>
               </div>
             </div>
-            <DeleteGroceries/>
+            <DeleteGroceries isOpenModal={isOpenModal}
+              setIsOpenModal={setIsOpenModal} itemID={itemId} />
           </div>
           )}
         </>

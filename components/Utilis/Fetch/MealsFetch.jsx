@@ -1,5 +1,5 @@
 import { set_Meals, deleteMeal, createMeal, updateMeal } from '@/redux/Vendor/Slices/createMealSlice';
-import { useDeleteMealMutation, useGetMealMutation, useCreateCategoryMutation, useGetCategoryMutation, useEditCategoryMutation, useCreateSubmealMutation, useDeleteCategoryMutation, useEditSubmealMutation } from '@/redux/Vendor/getMealApiSlice'
+import { useDeleteMealMutation, useGetMealMutation, useCreateCategoryMutation, useGetCategoryMutation, useEditCategoryMutation, useCreateSubmealMutation, useDeleteCategoryMutation, useEditSubmealMutation, useDeleteSubmealMutation } from '@/redux/Vendor/getMealApiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import axios from 'axios'
@@ -19,6 +19,7 @@ export const mealsfetch = () => {
     const [createSubmeal, { isLoading: createSubMealLoading }] = useCreateSubmealMutation()
     const [deleteCategory, { isLoading: deleteCategoryLoading }] = useDeleteCategoryMutation()
     const [editSubmeal, { isLoading: editSubmealLoading } ] = useEditSubmealMutation()
+    const [ deleteSubmeal,{isLoading:deleteSubmealLoading}] = useDeleteSubmealMutation()
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.rootReducers);
     const getMeals = async () => {
@@ -207,5 +208,18 @@ export const mealsfetch = () => {
             setError(err.error)
         }
     }
-    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading, getMealCategories, getCategoryLoading, EditCategory, editCategoryLoading, createSubMeal, createSubMealLoading, deletecategory, deleteCategoryLoading, editSubMeal, editSubmealLoading }
+    const deletesubMeal = async (submealId, mealId) => {
+        try {
+            const response = await deleteSubmeal({ params: submealId, token: auth.token }).unwrap()
+            toast.success(response.message)
+
+            // console.log(response)
+            getMealCategories(mealId)
+            setIsOpenModal(false)
+        } catch (err) {
+            toast.error(err?.data?.message || err.error);
+            setError(err.error)
+        }
+    }
+    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading, getMealCategories, getCategoryLoading, EditCategory, editCategoryLoading, createSubMeal, createSubMealLoading, deletecategory, deleteCategoryLoading, editSubMeal, editSubmealLoading,deletesubMeal,deleteSubmealLoading }
 }

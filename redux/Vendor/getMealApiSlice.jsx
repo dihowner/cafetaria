@@ -144,6 +144,22 @@ export const editSubMealApiSlice = apiSlice.injectEndpoints({
         })
     })
 })
+export const deleteSubMealApiSlice = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        deleteSubmeal: builder.mutation({
+            query: ({ token, params }) => ({
+                url: `${VENDORMEALDETAILS_URL }/${params}`,
+                method: 'DELETE',
+            
+                headers: {
+                    // Add your headers here
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+            })
+        })
+    })
+})
 export const { useGetMealMutation } = getMealApiSlice
 export const { useGetMealDetailsMutation } = getMealDetailsApiSlice
 export const { useDeleteMealMutation } = deleteMealApiSlice
@@ -153,3 +169,4 @@ export const { useEditCategoryMutation } = editCategoryApiSlice
 export const { useCreateSubmealMutation } = createSubMealApiSlice
 export const { useDeleteCategoryMutation } = deleteCategoryApiSlice
 export const { useEditSubmealMutation } = editSubMealApiSlice
+export const { useDeleteSubmealMutation } = deleteSubMealApiSlice

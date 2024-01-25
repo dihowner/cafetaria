@@ -18,7 +18,7 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
     console.log(categoryDetails)
     const { categories } = useSelector((state) => state.rootReducers)
     const category = categories?.category
-    const { editSubMeal, editSubmealLoading } = mealsfetch()
+    const { editSubMeal, editSubmealLoading,deletesubMeal,deleteSubmealLoading } = mealsfetch()
     const status = [
         { value: true, status: 'Active' },
         { value: false, status: 'Not Active' },
@@ -52,7 +52,7 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
                             <div className="bg-white shadow-lg rounded-[8px] py-6 px-4 capitalize flex flex-col gap-y-8 relative">
                                 {selectedCategoryForDelete &&
                                     <span className='bg-[#FF9C06] p-2 h-6 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
-                                        onClick={() => setIsOpenModal(false)}>
+                                        onClick={() => deletesubMeal(item?._id, item?.meal)}>
                                         <LiaTimesSolid className='text-sm' />
                                     </span>
                                 }
@@ -62,7 +62,7 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
                                     <p className='flex gap-x-1 items-center'><span><TbCurrencyNaira /></span>{item?.unitPrice}</p>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                    <p className='text-[#218B07] text-lg font-medium' onClick={() => openModal(index)}>Edit</p>
+                                    <p className='text-[#218B07] text-lg font-medium cursor-pointer' onClick={() => openModal(index)}>Edit</p>
 
                                     <Switch
                                         checked={item?.isAvailable}
@@ -79,12 +79,7 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
                                     />
                                 </div>
                                 <Modal isOpen={isOpenModal === index} height='400px' close={() => setIsOpenModal(false)}>
-                                    <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
-                                        <span className='bg-[black] p-2 h-8 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
-                                            onClick={() => setIsOpenModal(false)}>
-                                            <LiaTimesSolid className='text-sm' />
-                                        </span>
-                                    </div>
+                               
                                     <form
                                         onSubmit={(e) => editSubmubmeal(e, item?._id, item?.meal)}
                                         className="flex flex-col justify-center items-center w-full gap-y-6">
