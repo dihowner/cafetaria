@@ -65,7 +65,7 @@ const layout = ({ children }) => {
     }
 
     fetchData()
-  }, [auth, fetchDetails, fetchVendorDetails])
+  }, [auth])
   return (
     <div>
       {vendorDetailsLoading && userDetailsLoading ? (

@@ -19,7 +19,8 @@ import MenuList from '@mui/material/MenuList';
 import AddSubMeal from './AddSubMeal'
 import CreatCategory from './CreateCategory'
 
-const ResturantItems = () => {
+const 
+ResturantItems = () => {
 
     const { meals } = useSelector((state) => state.rootReducers);
     const { getMeals, getMealLoading, error, changeAvailabilty, loading, getMealCategories, getCategoryLoading, } = mealsfetch()
