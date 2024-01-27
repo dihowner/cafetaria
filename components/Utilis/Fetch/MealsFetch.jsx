@@ -18,14 +18,16 @@ export const mealsfetch = () => {
     const [editCategory, { isLoading: editCategoryLoading }] = useEditCategoryMutation()
     const [createSubmeal, { isLoading: createSubMealLoading }] = useCreateSubmealMutation()
     const [deleteCategory, { isLoading: deleteCategoryLoading }] = useDeleteCategoryMutation()
-    const [editSubmeal, { isLoading: editSubmealLoading } ] = useEditSubmealMutation()
-    const [ deleteSubmeal,{isLoading:deleteSubmealLoading}] = useDeleteSubmealMutation()
+    const [editSubmeal, { isLoading: editSubmealLoading }] = useEditSubmealMutation()
+    const [deleteSubmeal, { isLoading: deleteSubmealLoading }] = useDeleteSubmealMutation()
     const dispatch = useDispatch();
     const { auth } = useSelector((state) => state.rootReducers);
-    const getMeals = async () => {
+    const getMeals = async (status, page, setTotalPages) => {
         try {
-            const response = await getMeal({ id: auth.vendor_id, token: auth.token }).unwrap()
-            dispatch(set_Meals(response))
+            const response = await getMeal({ id: auth.vendor_id, token: auth.token, status: status, page: page }).unwrap()
+            dispatch(set_Meals(response?.data))
+            // console.log(response)
+            setTotalPages(response?.pagination?.totalPages)
         } catch (err) {
             toast.error(err?.data?.message || err.error);
             setError(err.error)
@@ -97,11 +99,11 @@ export const mealsfetch = () => {
     }
 
 
-    const deleteAMeal = async (mealId, setIsOpenModal) => {
+    const deleteAMeal = async (mealId, setIsOpenModal, status, page) => {
         try {
             const response = await deleteMeal({ params: mealId, token: auth.token }).unwrap()
             toast.success('Meal has been deleted successfully')
-            getMeals()
+            getMeals(status, page)
             // console.log(response)
             setIsOpenModal(false)
         } catch (err) {
@@ -109,7 +111,7 @@ export const mealsfetch = () => {
         }
 
     }
-    const changeAvailabilty = async (data, mealId) => {
+    const changeAvailabilty = async (data, mealId, status, page,) => {
         setLoading(true)
         await axios
             .put(
@@ -125,9 +127,12 @@ export const mealsfetch = () => {
             )
             .then((response) => {
                 setLoading(false)
+                // dispatch(updateMeal(response?.data?.data))
+                dispatch(updateMeal(response?.data?.data))
+                // console.log(response.data.data)
                 toast.success(response.data.message)
-                dispatch(updateMeal(response.data.data))
-                getMeals()
+
+                getMeals(status, page,)
                 // console.log(response.data)
             })
             .catch((err) => {
@@ -221,5 +226,5 @@ export const mealsfetch = () => {
             setError(err.error)
         }
     }
-    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading, getMealCategories, getCategoryLoading, EditCategory, editCategoryLoading, createSubMeal, createSubMealLoading, deletecategory, deleteCategoryLoading, editSubMeal, editSubmealLoading,deletesubMeal,deleteSubmealLoading }
+    return { getMeals, getMealLoading, createMeals, loading, getDetails, updateMeals, deleteAMeal, deleteMealLoading, error, changeAvailabilty, DetailsLoading, createMealCategory, createCategoryLoading, getMealCategories, getCategoryLoading, EditCategory, editCategoryLoading, createSubMeal, createSubMealLoading, deletecategory, deleteCategoryLoading, editSubMeal, editSubmealLoading, deletesubMeal, deleteSubmealLoading }
 }

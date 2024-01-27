@@ -47,7 +47,19 @@ const page = () => {
   useEffect(() => {
     fetchDetails()
   }, [auth])
+  const [status, setStatus] = useState('all')
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  const [currentNum, setCurrentNum] = useState(0)
+  const handlePrevPage = () => {
+    setPage(page - 1)
+    setCurrentNum(page / page)
+  }
 
+  const handleNextPage = () => {
+    setPage((page) => page + 1)
+    setCurrentNum(page * 10)
+  }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
       {isLoading ? (
@@ -78,20 +90,69 @@ const page = () => {
                 <div className='flex justify-between items-center bg-[#218B07] p-2'>
                   <div className='flex gap-x-2'>
                     <CustomButton
-                      title='All Items 48'
-                      containerStyles='text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4  bg-[white] text-sm'
+                      title='All Items'
+                      containerStyles={`${
+                        status === 'all'
+                          ? '}text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4  bg-[white] text-sm'
+                          : 'text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 border-[white] border text-sm'
+                      }`}
+                      handleClick={() => {
+                        setStatus('all')
+                      }}
                     />
                     <CustomButton
-                      title='Active 31'
-                      containerStyles='text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 border-[white] border text-sm'
+                      title='Active'
+                      containerStyles={`${
+                        status === 'active'
+                          ? '}text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4  bg-[white] text-sm'
+                          : 'text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 border-[white] border text-sm'
+                      }`}
+                      handleClick={() => {
+                        setStatus('active')
+                      }}
                     />
                     <CustomButton
-                      title='Not Active 17'
-                      containerStyles='text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 border-[white] border text-sm'
+                      title='Not Active'
+                      containerStyles={`${
+                        status === 'inactive'
+                          ? '}text-[#218B07] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4  bg-[white] text-sm'
+                          : 'text-[white] flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 border-[white] border text-sm'
+                      }`}
+                      handleClick={() => {
+                        setStatus('inactive')
+                      }}
                     />
                   </div>
                 </div>
-                <ResturantItems ItemsTableData={ItemsTableData} />
+                <ResturantItems
+                  ItemsTableData={ItemsTableData}
+                  status={status}
+                  page={page}
+                  currentNum={currentNum}
+                  setTotalPages={setTotalPages}
+                />
+                <div className='flex justify-center my-4'>
+                  <button
+                    className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 mr-2 ${
+                      page === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    onClick={handlePrevPage}
+                    disabled={page === 1}
+                  >
+                    Prev
+                  </button>
+                  <button
+                    className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 ${
+                      page === totalPages || totalPages === 0
+                        ? 'opacity-50 cursor-not-allowed'
+                        : ''
+                    }`}
+                    onClick={handleNextPage}
+                    disabled={page === totalPages || totalPages === 0}
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
               <AdditemModal
                 isOpenModal={isOpenModal}

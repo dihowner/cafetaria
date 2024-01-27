@@ -2,6 +2,7 @@
 import React from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { HiOutlineLocationMarker } from 'react-icons/hi'
+import EditInput from './EditInput';
 
 const containerStyle = {
     width: '400px',
@@ -13,7 +14,7 @@ const center = {
     lng: -38.523
 };
 
-const Map = () => {
+const Map = ({ addressRef, disable, defaultValue }) => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: "AIzaSyAXY-zoJAkqa4ZZFq9G1T4HImVKmZzhwG8"
@@ -35,7 +36,7 @@ const Map = () => {
     return (
         <>
             <div className="flex w-full flex-col gap-y-2">
-                {isLoaded ? (
+                {/* {isLoaded ? (
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
@@ -45,12 +46,19 @@ const Map = () => {
                     >
                     </GoogleMap>
                 ) : null
-                }
-                <label htmlFor="" className='font-bold'>Business location</label>
-                <div className="bg-[#83838326] flex items-center gap-x-2 py-1 px-1 text-sm w-[80%] sm:w-[70%] md:w-[70%] rounded-xl">
+                } */}
+                <EditInput
+
+                    title={"Address"}
+                    reff={addressRef}
+                    defaultValue={defaultValue}
+                    Icon={<HiOutlineLocationMarker />}
+                    disabled={disable} />
+                {/* <label htmlFor="" className='font-bold'>Business location</label>
+                <div className="bg-[#83838326] flex items-center gap-x-2 py-4 px-4 text-sm w-[80%] sm:w-[70%] md:w-[70%] rounded-xl">
                     <span><HiOutlineLocationMarker /></span>
                     <input type="text" placeholder='Enter manually' className='bg-[transparent] outline-none border-none w-[100%]' />
-                </div>
+                </div> */}
             </div>
 
         </>)

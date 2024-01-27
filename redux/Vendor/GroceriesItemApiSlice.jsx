@@ -21,9 +21,9 @@ export const getGroceriesApiSlice = apiSlice.injectEndpoints({
 export const deleteGroceriesApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         deletegroceries: builder.mutation({
-            query: ({ token, id }) => ({
-                url: `${URL}/${id}`,
-                method: DELETE,
+            query: ({ token, params }) => ({
+                url: `${URL}/${params}`,
+                method: 'DELETE',
                 headers: {
                     // Add your headers here
                     'Accept': 'application/json',

@@ -3,7 +3,7 @@ import { create_Category, set_Categories, updateCategory } from '@/redux/Vendor/
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import { useState } from 'react';
-import { createGroceries, set_Groceries, updatedGroceries } from '@/redux/Vendor/Slices/GroceriesSlice';
+import { createGroceries, set_Groceries, updateGroceries } from '@/redux/Vendor/Slices/GroceriesSlice';
 
 import axios from 'axios'
 import { useDeletegroceriesMutation, useGetGroceriesMutation } from '@/redux/Vendor/GroceriesItemApiSlice';
@@ -14,7 +14,7 @@ export const groceriesFetch = () => {
     const [editGroceriesCategory, { isLoading: editGroceriesCategoryLoading }] = useEditGroceriesCategoryMutation()
     const [deleteGroceriesCategory, { isLoading: deleteGroceriesCategoryLoading }] = useDeleteGroceriesCategoryMutation()
     const [getGroceries, { isLoading: getGroceriesLoading }] = useGetGroceriesMutation()
-    const [deletegroceries, { isLoading: deletegroceriesLoading }]=useDeletegroceriesMutation()
+    const [deletegroceries, { isLoading: deletegroceriesLoading }] = useDeletegroceriesMutation()
     const { auth } = useSelector((state) => state.rootReducers);
     const { Details } = useSelector((state) => state.rootReducers)
     const vendordetails = Details?.Details
@@ -43,8 +43,8 @@ export const groceriesFetch = () => {
             console.log(response)
             dispatch(set_Categories(response))
         } catch (err) {
-            toast.error(err?.data?.message || err.error);
-            setError(err.error)
+            // toast.error(err?.data?.message || err.error);
+            // setError(err.error)
         }
     }
 
@@ -62,9 +62,9 @@ export const groceriesFetch = () => {
     const deleteCategory = async (id, setIsOpenModal) => {
         try {
             const response = await deleteGroceriesCategory({ id, token: auth.token }).unwrap()
-            getcategory()
             toast.success('Category deleted Successfully')
             setIsOpenModal(false)
+            console.log(id)
         } catch (err) {
             toast.error(err?.data?.message || err.error);
             setError(err.error)
@@ -139,10 +139,10 @@ export const groceriesFetch = () => {
             )
             .then((response) => {
                 setLoading(false)
-                console.log(response?.data?.data)
+                getGrocery()
                 toast.success(response.data.message)
-                // getGrocery()
-                dispatch(updatedGroceries(response?.data?.data))
+
+                // dispatch(updateGroceries(response?.data?.data))
 
             })
             .catch((err) => {
@@ -151,7 +151,36 @@ export const groceriesFetch = () => {
                 toast.error(err?.response?.data?.message || err.error);
             })
     }
+    const editGrocery = async (formData, id, setIsOpenModal) => {
+        setLoading(true)
+        await axios
+            .put(
+                `https://cafeteria-ekep.onrender.com/api/grocery/${id}`,
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/formData',
+                        Accept: 'Application/json',
+                        Authorization: `Bearer ${auth.token}`,
+                    },
+                }
+            )
+            .then((response) => {
+                setLoading(false)
+                toast.success(response?.data?.message)
+                setIsOpenModal(false)
+                // dispatch(
+                //     createGroceries(response.data.data)
+                // )
+                // console.log(response)
+            })
+            .catch((err) => {
+                setLoading(false)
+                toast.error(err?.response?.data?.message || err.error);
+                // console.error(error)
+            })
+    }
     return {
-        Createcategory, create_CategoryGroceriesLoading, error, getcategory, getCategoryLoading, editCategory, editGroceriesCategoryLoading, deleteCategory, deleteGroceriesCategoryLoading, createGrocery, loading, getGrocery, getGroceriesLoading,deleteGroceries,changeAvailabilty
+        Createcategory, create_CategoryGroceriesLoading, error, getcategory, getCategoryLoading, editCategory, editGroceriesCategoryLoading, deleteCategory, deleteGroceriesCategoryLoading, createGrocery, loading, getGrocery, getGroceriesLoading, deleteGroceries, changeAvailabilty, deletegroceriesLoading, editGrocery 
     }
 }

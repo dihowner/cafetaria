@@ -7,8 +7,8 @@ import { apiSlice } from "../apiSlice";
 export const getMealApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getMeal: builder.mutation({
-            query: ({ token, id }) => ({
-                url: `${VENDORMEAL_URL}/${id}/meals`,
+            query: ({ token, id, status, page }) => ({
+                url: `${VENDORMEAL_URL}/${id}/meals?status=${status}&page=${page}`,
                 method: 'GET',
                 headers: {
                     // Add your headers here
@@ -148,9 +148,9 @@ export const deleteSubMealApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         deleteSubmeal: builder.mutation({
             query: ({ token, params }) => ({
-                url: `${VENDORMEALDETAILS_URL }/${params}`,
+                url: `${VENDORMEALDETAILS_URL}/${params}`,
                 method: 'DELETE',
-            
+
                 headers: {
                     // Add your headers here
                     'Accept': 'application/json',
