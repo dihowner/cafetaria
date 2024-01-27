@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Switch from '@mui/material/Switch'
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa'
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
@@ -18,15 +18,20 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import AddSubMeal from './AddSubMeal'
 import CreatCategory from './CreateCategory'
+import LoaderTwo from '@/components/Utilis/LoaderTwo'
 
-const 
-ResturantItems = () => {
+const ResturantItems = ({ status, page, currentNum, setTotalPages }) => {
 
     const { meals } = useSelector((state) => state.rootReducers);
     const { getMeals, getMealLoading, error, changeAvailabilty, loading, getMealCategories, getCategoryLoading, } = mealsfetch()
+
+    const all = useCallback(() => {
+        getMeals(status, page, setTotalPages)
+    }, [status, page])
     useEffect(() => {
-        getMeals()
-    }, [])
+        all()
+    }, [status, page])
+
     const allMeals = meals?.meals
     const noMealMessage = allMeals && allMeals.length === 0 ? 'No meal Created' : null
     const [itemId, setItemId] = useState()
@@ -48,7 +53,8 @@ ResturantItems = () => {
         const data = {
             is_available: updatedAvailability
         }
-        await changeAvailabilty(data, mealId)
+        await changeAvailabilty(data, mealId, status, page)
+        // console.log("first", item?.name)
     }
     const handleClick = (item) => {
 
@@ -68,7 +74,7 @@ ResturantItems = () => {
     };
     const anchorRef = React.useRef(null);
     const handleClose = (event) => {
-        if (anchorRef.current && anchorRef.current.contains(event.target)) {
+        if (anchorRef?.current && anchorRef?.current?.contains(event?.target)) {
             return;
         }
         setOpen(false);
@@ -81,8 +87,9 @@ ResturantItems = () => {
 
     return (
         <>
-            {loading ? <AppLoader loading={loading} color={'#5f8357'} /> : null}
-            {getMealLoading ? <AppLoader color={'#5f8357'} loading={getMealLoading} /> : <>
+            {loading ? <LoaderTwo color={'#5f8357'} loading={loading} /> : null}
+            {/* {getMealLoading ? <AppLoader color={'#5f8357'} loading={getMealLoading} /> :  */}
+            <>
                 {noMealMessage ? (
                     <div className=''>
                         {noMealMessage}
@@ -137,7 +144,7 @@ ResturantItems = () => {
                                         {allMeals && allMeals.map((item, index) => (
                                             <tr className='border-b capitalize p-2' key={index}>
                                                 <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900 text-center'>
-                                                    {index + 1}
+                                                    {currentNum + index + 1}
                                                 </td>
                                                 <td className='text-center flex justify-center items-center'>
                                                     <div className=' border rounded-lg m-2 py-1 w-[40%] flex justify-center items-center'>
@@ -182,7 +189,7 @@ ResturantItems = () => {
                                                                 backgroundColor: '#218B07',
                                                                 color: '#ffffff',
                                                                 borderColor: 'solid #218B07',
-                                                                fontSize:'0.75rem',
+                                                                fontSize: '0.75rem',
                                                                 '&:hover': {
                                                                     backgroundColor: '#218B07',
                                                                 },
@@ -241,6 +248,7 @@ ResturantItems = () => {
                                                                                     openModal()
                                                                                     setItemId(item)
                                                                                     setOpen(false)
+                                                                                    handleClose()
                                                                                 }}>
                                                                                     <div className='py-1 px-1 flex gap-x-2 text-sm items-center text-[#218B07]'>
 
@@ -255,7 +263,7 @@ ResturantItems = () => {
                                                                                     </Link>
 
                                                                                 </MenuItem>
-                                                                                <MenuItem
+                                                                                {/* <MenuItem
                                                                                     onClick={() => {
                                                                                         openSubModal();
                                                                                         setItemId(item);
@@ -267,7 +275,7 @@ ResturantItems = () => {
                                                                                         Create-Submeal
                                                                                     </p>
 
-                                                                                </MenuItem>
+                                                                                </MenuItem> */}
                                                                             </MenuList>
                                                                         </ClickAwayListener>
                                                                     </Paper>
@@ -283,10 +291,12 @@ ResturantItems = () => {
                             </table>
                         </div>
                     </div>
-                </div>)}
+                </div>
+                )}
             </>
-            }
-            <DeleteItemModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} itemID={itemId} />
+            {/* } */}
+            <DeleteItemModal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} itemID={itemId} status={status}
+                page={page} />
             <AddSubMeal isOpenModal={isSubOpenModal} setIsOpenModal={setIsSubOpenModal} itemID={itemId} />
             <CreatCategory isOpenModal={isCategoryOpenModal} setIsOpenModal={setIsCategoryOpenModal} itemID={itemId} />
         </>

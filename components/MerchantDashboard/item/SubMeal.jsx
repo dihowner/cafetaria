@@ -79,51 +79,55 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
                                     />
                                 </div>
                                 <Modal isOpen={isOpenModal === index} height='400px' close={() => setIsOpenModal(false)}>
-                               
-                                    <form
-                                        onSubmit={(e) => editSubmubmeal(e, item?._id, item?.meal)}
-                                        className="flex flex-col justify-center items-center w-full gap-y-6">
-                                        <h1 className='text-lg text-[#218B07] font-[700] text-center'>Edit {item?.name} sub Meal</h1>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <EditInput title={'Item Name'}
-                                                reff={nameRef}
-                                                defaultValue={item?.name}
-                                                type={'text'}
-                                            />
-                                            <EditInput title={'Price'}
-                                                reff={priceRef}
-                                                defaultValue={item?.unitPrice}
-                                                type={'text'} />
-                                            <div className='flex flex-col w-full'>
-                                                <label htmlFor='' className='text-sm'>Availability</label>
-                                                <select
-                                                    defaultValue={item?.isAvailable}
-                                                    ref={isAvailableRef}
-                                                    className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] outline-none bg-transparent'
-                                                >
-                                                    {status.map((item, index) => (
-                                                        <option key={index} value={item.value} className='capitalize'>
-                                                            {item.status}
+                                    <div className="flex justify-center flex-col items-center w-full gap-y-6 p-8 relative h-full">
+                                        <span className='bg-[black] p-2 h-8 justify-center flex items-center rounded-md absolute top-0 right-0 text-white cursor-pointer'
+                                            onClick={() => setIsOpenModal(false)}>
+                                            <LiaTimesSolid className='text-sm' />
+                                        </span>
+                                        <form
+                                            onSubmit={(e) => editSubmubmeal(e, item?._id, item?.meal)}
+                                            className="flex flex-col justify-center items-center w-full gap-y-6">
+                                            <h1 className='text-lg text-[#218B07] font-[700] text-center'>Edit {item?.name} sub Meal</h1>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <EditInput title={'Item Name'}
+                                                    reff={nameRef}
+                                                    defaultValue={item?.name}
+                                                    type={'text'}
+                                                />
+                                                <EditInput title={'Price'}
+                                                    reff={priceRef}
+                                                    defaultValue={item?.unitPrice}
+                                                    type={'text'} />
+                                                <div className='flex flex-col w-full'>
+                                                    <label htmlFor='' className='text-sm'>Availability</label>
+                                                    <select
+                                                        defaultValue={item?.isAvailable}
+                                                        ref={isAvailableRef}
+                                                        className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] outline-none bg-transparent'
+                                                    >
+                                                        {status.map((item, index) => (
+                                                            <option key={index} value={item.value} className='capitalize'>
+                                                                {item.status}
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                                <div className='flex flex-col w-full'>
+                                                    <label htmlFor=''>Category</label>
+
+                                                    <select
+                                                        defaultValue={categoryDetails?._id}
+                                                        disabled
+                                                        className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] outline-none bg-transparent'
+                                                    >
+
+                                                        <option key={index} value={categoryDetails?._id} className='capitalize'>
+                                                            {categoryDetails?.name}
                                                         </option>
-                                                    ))}
-                                                </select>
-                                            </div>
-                                            <div className='flex flex-col w-full'>
-                                                <label htmlFor=''>Category</label>
 
-                                                <select
-                                                    defaultValue={categoryDetails?._id}
-                                                    disabled
-                                                    className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] outline-none bg-transparent'
-                                                >
-
-                                                    <option key={index} value={categoryDetails?._id} className='capitalize'>
-                                                        {categoryDetails?.name}
-                                                    </option>
-
-                                                </select>
-                                            </div>
-                                            {/* <div className="flex flex-col w-full addsub">
+                                                    </select>
+                                                </div>
+                                                {/* <div className="flex flex-col w-full addsub">
                                                 <label htmlFor=''>Category</label>
 
                                                 <Autocomplete
@@ -136,22 +140,24 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
                                                 />
 
                                             </div> */}
-                                        </div>
-                                        <div className=' flex justify-center w-full'>
-                                            <Button
-                                                sx={{
-                                                    backgroundColor: '#218B07',
-                                                    color: '#ffffff',
-                                                    '&:hover': {
+                                            </div>
+                                            <div className=' flex justify-center w-full'>
+                                                <Button
+                                                    sx={{
                                                         backgroundColor: '#218B07',
-                                                    },
-                                                }}
-                                                type='submit'
-                                            >
-                                                {editSubmealLoading ? 'loading...' : 'Edit Sub-Meal'}
-                                            </Button>
-                                        </div>
-                                    </form>
+                                                        color: '#ffffff',
+                                                        '&:hover': {
+                                                            backgroundColor: '#218B07',
+                                                        },
+                                                    }}
+                                                    type='submit'
+                                                >
+                                                    {editSubmealLoading ? 'loading...' : 'Edit Sub-Meal'}
+                                                </Button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                   
                                 </Modal>
                             </div>
                         ))}

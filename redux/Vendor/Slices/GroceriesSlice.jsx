@@ -20,14 +20,27 @@ const createGroceriesSlice = createSlice({
             state.groceries = state.groceries.filter((grocery) => grocery.id !== groceriesIdToDelete);
         },
         updateGroceries(state, action) {
+            // const updatedGroceries = action.payload;
+            // const index = state.groceries.findIndex((grocery) => grocery.id === updatedGroceries.id);
+            // if (index !== -1) {
+            //     state.groceries[index] = updatedGroceries;
+            // }
             const updatedGroceries = action.payload;
-            const index = state.groceries.findIndex((grocery) => grocery.id === updatedGroceries.id);
-            if (index !== -1) {
-                state.groceries[index] = updatedGroceries;
+            const updatedIndex = state.groceries.findIndex((grocery) => grocery.id === updatedGroceries.id);
+
+            if (updatedIndex !== -1) {
+                // Create a new array with the updated grocery
+                const newGroceries = [...state.groceries];
+                newGroceries[updatedIndex] = updatedGroceries;
+
+                return { ...state, groceries: newGroceries };
             }
+
+            // If the grocery to update is not found, return the current state
+            return state;
         },
     },
 });
 
-export const { createGroceries, deleteGroceries, updatedGroceries, set_Groceries } = createGroceriesSlice.actions
+export const { createGroceries, deleteGroceries, updateGroceries, set_Groceries } = createGroceriesSlice.actions
 export default createGroceriesSlice.reducer

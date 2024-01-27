@@ -7,7 +7,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Upload = ({ reff, defaultValue }) => {
+const Upload = ({ reff, defaultValue, setStore_image }) => {
     const [selectedImage, setSelectedImage] = useState();
     // const handleFileInputChange = (event) => {
     //     const file = event.target.files[0];
@@ -18,6 +18,7 @@ const Upload = ({ reff, defaultValue }) => {
     // console.log(defaultValue)
     const handleFileInputChange = (event) => {
         const file = event.target.files[0]
+        setStore_image(file)
         if (file) {
             const maxSize = 10 * 1024 * 1024; // 10 MB in bytes
             if (file.size > maxSize) {
@@ -50,7 +51,6 @@ const Upload = ({ reff, defaultValue }) => {
         whiteSpace: 'nowrap',
         width: 1,
     });
-
     return (
         <div className="flex flex-col gap-y-6 justify-center border w-full h-full p-6">
             <div className="w-full flex justify-center items-center h-[200px]">
@@ -64,7 +64,7 @@ const Upload = ({ reff, defaultValue }) => {
                     <img src={defaultValue} alt="default value" className="w-full h-full object-contain" />
                 )}
             </div>
-            <form className="w-1/2">
+            <form className="w-full">
                 <Button
                     component="label"
                     variant="contained"

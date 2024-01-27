@@ -4,7 +4,7 @@ import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import { Button } from '@mui/material'
 import React from 'react'
 import { LiaTimesSolid } from 'react-icons/lia'
-const DeleteItemModal = ({ isOpenModal, setIsOpenModal, itemID }) => {
+const DeleteItemModal = ({ isOpenModal, setIsOpenModal, itemID, status, page }) => {
     // console.log(itemID)
     const { deleteAMeal, deleteMealLoading } = mealsfetch()
 
@@ -29,7 +29,7 @@ const DeleteItemModal = ({ isOpenModal, setIsOpenModal, itemID }) => {
                             },
                         }}
                             onClick={() => {
-                                deleteAMeal(itemID?._id, setIsOpenModal)
+                                deleteAMeal(itemID?._id, setIsOpenModal, status, page)
                             }}
                         >
                             {deleteMealLoading ? 'Loading' : 'yes'}

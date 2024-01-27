@@ -17,7 +17,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
         { value: true, status: 'Active' },
         { value: false, status: 'Not Active' },
     ]
-    
+
     const NameRef = useRef(null)
     const descriptionRef = useRef(null)
     const is_availableRef = useRef(null)
@@ -91,10 +91,14 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                             <div className='flex flex-col w-full'>
                                 <label htmlFor='' className='text-sm'>Availability</label>
                                 <select
-                                    ref={is_availableRef}
                                     defaultValue={details?.isAvailable}
+
+                                    ref={is_availableRef}
                                     className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] text-sm outline-none'
                                 >
+                                    <option value='' disabled selected>
+                                        Select Availability
+                                    </option>
                                     {status.map((item, index) => (
                                         <option key={index} value={item.value} className='capitalize text-sm'>
                                             {item.status}
@@ -188,7 +192,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                             }}
                             type='submit'
                         >
-                            {loading ? '' : '  Update Meal'}
+                            {loading ? 'Editing' : '  Update Meal'}
                         </Button>
                     </div>
                 </form>

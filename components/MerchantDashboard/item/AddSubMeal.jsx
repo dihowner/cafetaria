@@ -7,7 +7,7 @@ import { LiaTimesSolid } from 'react-icons/lia'
 import InputsCustom from '@/components/InputsCustom'
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID, categoryDetails, params }) => {
+const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID, categoryDetails }) => {
     const [name, setName] = useState()
     const [price, setPrice] = useState()
     const [categoryId, setCategoryId] = useState()
@@ -17,7 +17,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID, categoryDetails, para
         { value: false, status: 'Not Active' },
     ]
 
-    console.log(categoryDetails)
+    // console.log(categoryDetails)
 
     const [is_available, setIs_available] = useState(true)
     const { createSubMeal, createSubMealLoading, error } = mealsfetch()

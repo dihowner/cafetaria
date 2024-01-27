@@ -47,10 +47,31 @@ const page = () => {
       }
     }
   }
+  const { getcategory, getCategoryLoading, createGrocery, loading } =
+    groceriesFetch()
+
+  // useEffect(() => {
+  //   fetchDetails()
+  // }, [auth])
+  // useEffect(() => {
+  //   getcategory()
+  // }, [])
 
   useEffect(() => {
-    fetchDetails()
-  }, [auth])
+const fetchData = async () => {
+  try {
+    // Fetch details first
+    await fetchDetails()
+
+    // If fetchDetails succeeds, then fetch categories
+    await getcategory()
+  } catch (error) {
+    // Handle errors if needed
+    console.error('Error fetching details or categories:', error)
+  }
+}
+    fetchData()
+  }, [])
   const [isOpenModal, setIsOpenModal] = useState(false)
   const openModal = () => {
     setIsOpenModal(true)

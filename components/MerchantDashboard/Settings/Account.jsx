@@ -33,6 +33,7 @@ const Account = () => {
     const phoneRef = useRef(null)
     const storeNameRef = useRef(null)
     const NameRef = useRef(null)
+    const addressRef = useRef(null)
     const [vendordetails, { isLoading }] = useVendordetailsMutation()
     const dispatch = useDispatch()
     const handleFileInputChange = (event) => {
@@ -97,6 +98,7 @@ const Account = () => {
         formData.append('name', NameRef?.current?.value)
         formData.append('store_name', storeNameRef?.current?.value)
         formData.append('isPhysicalStore', isPhysicalStore)
+        formData.append('store_address', addressRef?.current?.value)
         await axios.put('https://cafeteria-ekep.onrender.com/api/user/profile/update', formData, {
             headers: {
                 'Content-Type': 'multipart/formData',
@@ -211,7 +213,9 @@ const Account = () => {
                         </div>
                     </div>
                     <TypeOfVendor value={isPhysicalStore} setisPhysicalStore={setisPhysicalStore} />
-                    {isPhysicalStore === true ? <Map />:null}
+                    {isPhysicalStore === true ? <Map addressRef={addressRef} disable={!editMode}
+                        defaultValue={Details?.Details?.store_address}
+                    /> : null}
                 </div>
                 <div className="w-full flex items-center gap-x-4">
                     {!editMode ? (
@@ -222,7 +226,7 @@ const Account = () => {
                     ) : (
                         <>
                             <CustomButton
-                                    title={loading ? 'loading' : 'update'}
+                                title={loading ? 'loading' : 'update'}
                                 containerStyles='bg-[#218B07] text-white flex justify-center items-center py-2 px-2 rounded-[5px] gap-x-4 w-1/2 text-sm'
                                 type='submit'
                             // handleClick={() => edit()}

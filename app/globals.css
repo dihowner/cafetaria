@@ -30,7 +30,6 @@ h1 {
   background-color: #888;
   border-radius: 6px;
   border: 3px solid #f1f1f1;
-
 }
 
 .width {
@@ -140,18 +139,18 @@ h1 {
 .css-13xfq8m-MuiTabPanel-root {
   padding: 0px !important;
 }
-.loader{
-  width:100%;
+.loader {
+  width: 100%;
   height: 100vh;
-  background-color: #E1efff3f;
+  background-color: #e1efff3f;
   display: grid;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 200;
 }
-.vendoritembtn .css-12i3490-MuiButtonGroup-root .MuiButtonGroup-firstButton{
-  border-color: #218B07;
+.vendoritembtn .css-12i3490-MuiButtonGroup-root .MuiButtonGroup-firstButton {
+  border-color: #218b07;
 }
 /* .css-bx4uh6-MuiPopper-root {
   transform: translate(0, 0) !important;
@@ -160,3 +159,62 @@ h1 {
     /* outline: none; 
     border-color: transparent !important; Optional: Set the border color to transparent to remove any remaining border
 } */
+
+/* .content {
+  position: relative;
+} */
+/* .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(224, 23, 23, 0.8) !important;
+}
+.overlay-content {
+  position: absolute;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #555;
+} */
+.content {
+  position: relative;
+  height: 100vh; 
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 300; /* Make sure the overlay is above other elements */
+  background-color: rgba(104, 97, 97, 0.307) !important;
+  width: 100%;
+}
+
+.overlay-content {
+  position: absolute;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Center the content both horizontally and vertically */
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  color: #555;
+  background-color: rgba(104, 97, 97, 0.307) !important;
+  width: 100%;
+  height: 100%;
+  /* background-color: red !important; */
+  z-index: 200; /* Make sure the loader is above the overlay */
+}
+.css-1jvzd0g-MuiButtonBase-root-MuiButton-root {
+  padding: 6px 6px !important;
+}
