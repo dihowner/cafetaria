@@ -23,7 +23,7 @@ const Security = () => {
     const { auth } = useSelector((state) => state.rootReducers)
 
     const data = {
-        current_passwor: currentPass,
+        current_password: currentPass,
         new_password: NewPass,
         confirm_password: cNewPass
     }
@@ -59,9 +59,6 @@ const Security = () => {
                         type='password'
 
                         disabled={!editMode} />
-                    <span className='text-sm'>Forget PassWord <Link href='/client/forgetpassword' className='text-[#218B07] font-medium'>
-                        click here
-                    </Link></span>
                 </div>
                 <div className="flex flex-col gap-y-6">
                     <h1 className='font-semibold text-3xl'>Change password</h1>

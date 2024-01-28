@@ -17,6 +17,8 @@ import { useDetailsMutation, useUserdetailsMutation } from '@/redux/Vendor/detai
 import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 import AppLoader from '@/components/AppLoader'
 import { logout } from '@/user/authSlice'
+import { toast } from 'react-toastify'
+
 // useRouter
 const layout = ({ children }) => {
   const { isSidebarOpen, toggleSidebar } = useContext(SidebarCreateContext)

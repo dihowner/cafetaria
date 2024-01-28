@@ -22,7 +22,7 @@ const Security = () => {
     };
     const { auth } = useSelector((state) => state.rootReducers)
     const data = {
-        current_passwor: currentPass,
+        current_password: currentPass,
         new_password: NewPass,
         confirm_password: cNewPass
     }
