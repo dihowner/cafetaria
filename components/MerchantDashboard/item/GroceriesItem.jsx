@@ -20,11 +20,11 @@ import EditGrocery from './EditGrocery';
 import DetailsGrocery from './DetailsGrocery';
 
 
-const GroceriesItem = () => {
+const GroceriesItem = ({ page, currentNum, setTotalPages }) => {
   const { getGrocery, getGroceriesLoading, error, changeAvailabilty, loading } = groceriesFetch()
   useEffect(() => {
-    getGrocery()
-  }, [])
+    getGrocery(page, setTotalPages)
+  }, [page])
   const { groceries } = useSelector((state) => state.rootReducers)
   const allGroceries = groceries?.groceries
 
@@ -137,7 +137,7 @@ const GroceriesItem = () => {
                     {allGroceries && allGroceries.map((item, index) => (
                       <tr className='border-b capitalize p-2' key={index}>
                         <td className='px-1 py-1 whitespace-nowrap text-sm font-medium text-gray-900 text-center'>
-                          {index + 1}
+                          {currentNum + index + 1}
                         </td>
                         <td className='text-center flex justify-center items-center'>
                           <div className=' border rounded-lg m-2 py-1 w-[40%] flex justify-center items-center'>

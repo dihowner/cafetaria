@@ -18,6 +18,7 @@ import { setDetails } from '@/redux/Vendor/Slices/detailsSlice'
 import AppLoader from '@/components/AppLoader'
 import { logout } from '@/user/authSlice'
 import { toast } from 'react-toastify'
+// import { Dispatch } from '@reduxjs/toolkit'
 
 // useRouter
 const layout = ({ children }) => {
@@ -25,6 +26,7 @@ const layout = ({ children }) => {
   const { auth } = useSelector((state) => state.rootReducers)
   const [userdetails, { isLoading }] = useUserdetailsMutation()
   const router = useRouter()
+  const dispatch=useDispatch()
   const fetchDetails = async () => {
     try {
       const response = await userdetails(auth?.token).unwrap()

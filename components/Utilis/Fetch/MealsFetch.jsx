@@ -71,7 +71,7 @@ export const mealsfetch = () => {
         }
     }
 
-    const updateMeals = async (formData, mealId) => {
+    const updateMeals = async (formData, mealId,router) => {
         setLoading(true)
         await axios
             .put(
@@ -89,6 +89,7 @@ export const mealsfetch = () => {
                 setLoading(false)
                 toast.success(response.data.message)
                 dispatch(updateMeal(response.data.data))
+                router.back()
                 // console.log(response.data)
             })
             .catch((err) => {

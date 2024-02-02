@@ -131,7 +131,7 @@ const page = () => {
                   currentNum={currentNum}
                   setTotalPages={setTotalPages}
                 />
-                <div className='flex justify-center my-4'>
+                <div className='flex justify-center'>
                   <button
                     className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 mr-2 ${
                       page === 1 ? 'opacity-50 cursor-not-allowed' : ''

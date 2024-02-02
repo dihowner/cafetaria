@@ -21,7 +21,7 @@ export const BanksFetch = () => {
 
     const [vendordetails, { isLoading }] = useVendordetailsMutation()
     const [verifyAccount] = useVerifyAccountMutation()
-    const [saveBank] = useSaveBankMutation()
+    const [saveBank, { isLoading: saveBanKLoading }] = useSaveBankMutation()
 
     const Allbanks = async () => {
         try {
@@ -109,5 +109,5 @@ export const BanksFetch = () => {
             })
     }
 
-    return { verifyBank, Allbanks, fetchBankLoading, saveBankDetails, loading, updatePin }
+    return { verifyBank, Allbanks, fetchBankLoading, saveBankDetails, loading, updatePin, saveBanKLoading }
 }
