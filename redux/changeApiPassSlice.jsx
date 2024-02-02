@@ -8,7 +8,7 @@ export const changePassSlice = apiSlice.injectEndpoints({
         changePassword: builder.mutation({
             query: ({ data, token }) => ({
                 url: `${AUTH_URL}/change-password`,
-                method: 'POST',
+                method: 'PUT',
                 body: data,
                 headers: {
                     // Add your headers here

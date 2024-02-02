@@ -13,6 +13,7 @@ const EditStore = ({ isOpenModal, setIsOpenModal }) => {
     const { Details } = useSelector((state) => state.rootReducers)
     const { auth } = useSelector((state) => state.rootReducers)
     const [loading, setLoading] = useState()
+    const [store_image, setStore_image] = useState()
 
     const vendorDetails = Details?.Details
     const NameRef = useRef(null)
@@ -44,6 +45,8 @@ const EditStore = ({ isOpenModal, setIsOpenModal }) => {
         setLoading(true)
         e.preventDefault()
         const formData = new FormData()
+        const fileimage = store_image === undefined || store_image === null ? vendorDetails?.mart?.image : store_image
+
         formData.append('description', descriptionRef?.current?.value)
         const fileToUpload = storeImage?.current?.files[0] || vendorDetails?.mart?.image;
         console.log(storeImage?.current?.files[0])
@@ -90,7 +93,7 @@ const EditStore = ({ isOpenModal, setIsOpenModal }) => {
                     <div className='flex justify-center flex-col items-center width'>
                         <form action="" onSubmit={editMart} className='w-full flex justify-center item gap-y-3 flex-col'>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
-                                <Upload reff={storeImage} defaultValue={vendorDetails?.mart?.image} />
+                                <Upload reff={storeImage} defaultValue={vendorDetails?.mart?.image} setStore_image={setStore_image} />
                                 <div className='flex flex-col gap-y-3'>
                                     <EditInput
                                         title={'Mart Name'}

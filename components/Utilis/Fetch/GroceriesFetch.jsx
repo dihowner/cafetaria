@@ -21,55 +21,55 @@ export const groceriesFetch = () => {
     const [error, setError] = useState()
     // console.log(vendordetails)
     const dispatch = useDispatch();
-    const Createcategory = async (data) => {
-        try {
-            const response = await createGroceriesCategory({
-                data, id: vendordetails?.mart?._id
-                , token: auth.token
-            }).unwrap()
-            // console.log(response)
-            dispatch(create_Category(response.data))
-        } catch (err) {
-            toast.error(err?.data?.message || err.error);
-            setError(err.error)
-        }
-    }
-    const getcategory = async () => {
-        try {
-            const response = await getCategory({
-                id: vendordetails?.mart?._id
-                , token: auth.token
-            }).unwrap()
-            console.log(response)
-            dispatch(set_Categories(response))
-        } catch (err) {
-            // toast.error(err?.data?.message || err.error);
-            // setError(err.error)
-        }
-    }
+    // const Createcategory = async (data) => {
+    //     try {
+    //         const response = await createGroceriesCategory({
+    //             data, id: vendordetails?.mart?._id
+    //             , token: auth.token
+    //         }).unwrap()
+    //         // console.log(response)
+    //         dispatch(create_Category(response.data))
+    //     } catch (err) {
+    //         toast.error(err?.data?.message || err.error);
+    //         setError(err.error)
+    //     }
+    // }
+    // const getcategory = async () => {
+    //     try {
+    //         const response = await getCategory({
+    //             id: vendordetails?.mart?._id
+    //             , token: auth.token
+    //         }).unwrap()
+    //         console.log(response)
+    //         dispatch(set_Categories(response))
+    //     } catch (err) {
+    //         // toast.error(err?.data?.message || err.error);
+    //         // setError(err.error)
+    //     }
+    // }
 
-    const editCategory = async (data, id) => {
-        try {
-            const response = await editGroceriesCategory({ data, id, token: auth.token }).unwrap()
-            dispatch(updateCategory(response.data))
-            toast.success(response?.message)
-            getcategory()
-        } catch (err) {
-            toast.error(err?.data?.message || err.error);
-            setError(err.error)
-        }
-    }
-    const deleteCategory = async (id, setIsOpenModal) => {
-        try {
-            const response = await deleteGroceriesCategory({ id, token: auth.token }).unwrap()
-            toast.success('Category deleted Successfully')
-            setIsOpenModal(false)
-            console.log(id)
-        } catch (err) {
-            toast.error(err?.data?.message || err.error);
-            setError(err.error)
-        }
-    }
+    // const editCategory = async (data, id) => {
+    //     try {
+    //         const response = await editGroceriesCategory({ data, id, token: auth.token }).unwrap()
+    //         dispatch(updateCategory(response.data))
+    //         toast.success(response?.message)
+    //         getcategory()
+    //     } catch (err) {
+    //         toast.error(err?.data?.message || err.error);
+    //         setError(err.error)
+    //     }
+    // }
+    // const deleteCategory = async (id, setIsOpenModal) => {
+    //     try {
+    //         const response = await deleteGroceriesCategory({ id, token: auth.token }).unwrap()
+    //         toast.success('Category deleted Successfully')
+    //         setIsOpenModal(false)
+    //         console.log(id)
+    //     } catch (err) {
+    //         toast.error(err?.data?.message || err.error);
+    //         setError(err.error)
+    //     }
+    // }
 
     const [loading, setLoading] = useState(false)
     const createGrocery = async (formData) => {
@@ -100,10 +100,11 @@ export const groceriesFetch = () => {
                 // console.error(error)
             })
     }
-    const getGrocery = async () => {
+    const getGrocery = async (page, setTotalPages) => {
         try {
             const response = await getGroceries({ token: auth.token }).unwrap()
-            dispatch(set_Groceries(response))
+            dispatch(set_Groceries(response?.data))
+            setTotalPages(response?.pagination?.totalPages)
         } catch (err) {
             toast.error(err?.data?.message || err.error);
             setError(err.error)
@@ -181,6 +182,6 @@ export const groceriesFetch = () => {
             })
     }
     return {
-        Createcategory, create_CategoryGroceriesLoading, error, getcategory, getCategoryLoading, editCategory, editGroceriesCategoryLoading, deleteCategory, deleteGroceriesCategoryLoading, createGrocery, loading, getGrocery, getGroceriesLoading, deleteGroceries, changeAvailabilty, deletegroceriesLoading, editGrocery 
+        create_CategoryGroceriesLoading, error, getCategoryLoading, deleteGroceriesCategoryLoading, createGrocery, loading, getGrocery, getGroceriesLoading, deleteGroceries, changeAvailabilty, deletegroceriesLoading, editGrocery
     }
 }

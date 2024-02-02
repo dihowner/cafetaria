@@ -197,6 +197,7 @@ h1 {
   z-index: 300; /* Make sure the overlay is above other elements */
   background-color: rgba(104, 97, 97, 0.307) !important;
   width: 100%;
+  height: 100vh;
 }
 
 .overlay-content {

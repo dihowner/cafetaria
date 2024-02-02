@@ -58,18 +58,18 @@ const page = () => {
   // }, [])
 
   useEffect(() => {
-const fetchData = async () => {
-  try {
-    // Fetch details first
-    await fetchDetails()
+    const fetchData = async () => {
+      try {
+        // Fetch details first
+        await fetchDetails()
 
-    // If fetchDetails succeeds, then fetch categories
-    await getcategory()
-  } catch (error) {
-    // Handle errors if needed
-    console.error('Error fetching details or categories:', error)
-  }
-}
+        // If fetchDetails succeeds, then fetch categories
+        await getcategory()
+      } catch (error) {
+        // Handle errors if needed
+        console.error('Error fetching details or categories:', error)
+      }
+    }
     fetchData()
   }, [])
   const [isOpenModal, setIsOpenModal] = useState(false)
@@ -86,6 +86,18 @@ const fetchData = async () => {
   }
   const { Details } = useSelector((state) => state.rootReducers)
   const vendorDetails = Details?.Details
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
+  const [currentNum, setCurrentNum] = useState(0)
+  const handlePrevPage = () => {
+    setPage(page - 1)
+    setCurrentNum(page / page)
+  }
+
+  const handleNextPage = () => {
+    setPage((page) => page + 1)
+    setCurrentNum(page * 10)
+  }
   return (
     <div className='flex justify-center flex-col items-center w-full'>
       {isLoading ? (
@@ -145,7 +157,7 @@ const fetchData = async () => {
                     </Button>
                   </div>
                 ) : (
-                  <div className='flex flex-col gap-y2'>
+                  <div className='flex flex-col gap-y-2'>
                     <div className=' flex justify-cente items-center gap-x-3 6 p-4'>
                       <div className='border w-16 h-16'>
                         <img src={vendorDetails?.mart?.image} alt='image' />
@@ -176,9 +188,35 @@ const fetchData = async () => {
                       </Button>
                     </div>
                     {/* <GroceriesCategoryList /> */}
-                    <GroceriesItem />
+                    <GroceriesItem
+                      page={page}
+                      currentNum={currentNum}
+                      setTotalPages={setTotalPages}
+                    />
                   </div>
                 )}
+                <div className='flex justify-center'>
+                  <button
+                    className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 mr-2 ${
+                      page === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
+                    onClick={handlePrevPage}
+                    disabled={page === 1}
+                  >
+                    Prev
+                  </button>
+                  <button
+                    className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 ${
+                      page === totalPages || totalPages === 0
+                        ? 'opacity-50 cursor-not-allowed'
+                        : ''
+                    }`}
+                    onClick={handleNextPage}
+                    disabled={page === totalPages || totalPages === 0}
+                  >
+                    Next
+                  </button>
+                </div>
               </div>
               <StoreCreation
                 isOpenModal={isOpenModal}

@@ -9,6 +9,8 @@ import UploadEdit from '@/components/UploadEdit'
 import Button from '@mui/material/Button'
 import EditInput from '@/components/EditInput'
 import AppLoader from '@/components/AppLoader'
+import { LiaTimesSolid } from 'react-icons/lia'
+
 import { BiMoneyWithdraw } from 'react-icons/bi'
 
 const Editmeal = ({ mealId, details, DetailsLoading }) => {
@@ -17,6 +19,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
         { value: true, status: 'Active' },
         { value: false, status: 'Not Active' },
     ]
+    const [store_image, setStore_image] = useState()
 
     const NameRef = useRef(null)
     const descriptionRef = useRef(null)
@@ -28,11 +31,13 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
     const is_requiredplasticPlate = useRef(null)
     const mealImage = useRef(null)
     const { updateMeals, loading } = mealsfetch()
+    console.log(typeof (details?.isAvailable))
     const update = async (e) => {
         e.preventDefault()
         const formData = new FormData()
+        const fileimage = store_image === undefined || store_image === null ? details?.image : store_image
         formData.append('description', descriptionRef?.current?.value)
-        formData.append('mealImage', mealImage.current.files[0]) // A ssuming mealImage is a File object
+        formData.append('mealImage', fileimage) // A ssuming mealImage is a File object
         formData.append('name', NameRef?.current?.value)
         formData.append('is_available', is_availableRef?.current?.value)
         formData.append('unit_price', parseInt(priceRef?.current?.value))
@@ -48,7 +53,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
             },
         }
         formData.append('packaging', JSON.stringify(Packaging))
-        await updateMeals(formData, mealId)
+        await updateMeals(formData, mealId, router)
         // console.log(formData)
     }
     return (
@@ -57,13 +62,19 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                 <AppLoader color={'#5f8357'} loading={DetailsLoading} />
             ) : null}
             {loading ? <AppLoader color={'#5f8357'} loading={loading} /> : null}
-            <div className='width'>
+            <div className='width flex justify-between'>
                 <div className='flex items-center text-sm  gap-x-4 capitalize  p-2 border-2 bg-[#FAFAFA] rounded-lg w-[60%] md:w-[20%]'>
                     <span className='text-xl'>
                         <BiMoneyWithdraw />
                     </span>
                     <span>Edit Meal</span>
                 </div>
+                <span
+                    className='bg-[black] p-2 h-8 justify-center flex items-center rounded-md text-white cursor-pointer'
+                    onClick={() => router.back()}
+                >
+                    <LiaTimesSolid className='text-sm' />
+                </span>
             </div>
             <div className='flex justify-center flex-col items-center width'>
                 <form
@@ -73,7 +84,7 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                 >
                     <div className=' w-full grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3'>
                         <div className=''>
-                            <UploadEdit reff={mealImage} defaultValue={details?.image} />
+                            <UploadEdit reff={mealImage} defaultValue={details?.image} setStore_image={setStore_image} />
                         </div>
                         <div className='flex flex-col gap-y-3'>
                             <EditInput
@@ -90,10 +101,12 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                             />
                             <div className='flex flex-col w-full'>
                                 <label htmlFor='' className='text-sm'>Availability</label>
+                                {details?.isAvailable.toString()}
                                 <select
+                                    ref={is_availableRef}
                                     defaultValue={details?.isAvailable}
 
-                                    ref={is_availableRef}
+
                                     className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] text-sm outline-none'
                                 >
                                     <option value='' disabled selected>

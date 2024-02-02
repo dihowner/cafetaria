@@ -109,7 +109,7 @@ const Header = () => {
                 </div>
                 <div
                   className='md:flex items-center gap-x-4 capitalize  text-4xl hidden  '
-
+                  onClick={() => router.push('/client/dashboard')}
                 >
                   <FaBars />
                 </div>
@@ -147,13 +147,32 @@ const Header = () => {
               setToggle(true)
             }}
           />{' '}
+          {/* {auth?.user === 'user' ? (
+            <div>
+              <CustomButton
+                title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+                Icon={<AiOutlineShoppingCart />}
+                handleClick={() => router.push('/client/cart')}
+                disable_btn={false}
+              />
+            </div>
+          ) : null} */}
+          {/* <>
+            {auth?.user === 'user' ?
+              <div>
+                <CustomButton
+                  title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+                  Icon={<AiOutlineShoppingCart />}
+                  handleClick={() => router.push('/client/cart')}
+                  disable_btn={false}
+                />
+              </div>
 
-          {auth?.user === 'user' ? <CustomButton
-            title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
-            Icon={<AiOutlineShoppingCart />}
-            handleClick={() => router.push('/client/cart')}
-            disable_btn={false}
-          /> : null}
+              // <p>"jjsjj"</p>
+              : null}
+          </> */}
+
+
           {/* <CustomButton
             title='Cart 16' containerStyles='text-[white] md:hidden  flex justify-center bg-[#FF9C06] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
             Icon={<AiOutlineShoppingCart />}
@@ -221,23 +240,23 @@ const Header = () => {
             {
               isAuth ?
                 <>
-                  {auth?.user === 'user' ? <CustomButton
-                    title='Dashboard' containerStyles='text-[#FF9C06] md:hidden  flex justify-center bg-[white] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
-
-                    handleClick={() => router.push('/client/dashboard')}
-
-                    disable_btn={false}
-
-                  /> : <>
+                  {auth?.user === 'user' ?
                     <CustomButton
                       title='Dashboard' containerStyles='text-[#FF9C06] md:hidden  flex justify-center bg-[white] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
 
-                      handleClick={() => router.push('/vendor/dashboard')}
+                      handleClick={() => router.push('/client/dashboard')}
 
                       disable_btn={false}
 
-                    />
-                  </>}
+                    /> :
+                    <>
+                      <CustomButton
+                        title='Dashboard' containerStyles='text-[#FF9C06] md:hidden  flex justify-center bg-[white] items-center py-2 px-2 rounded-[5px] gap-x-4 border'
+                        handleClick={() => router.push('/vendor/dashboard')}
+                        disable_btn={false}
+
+                      />
+                    </>}
                 </>
 
                 :
