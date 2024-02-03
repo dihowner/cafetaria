@@ -117,8 +117,8 @@ const page = () => {
                     <span>Groceries Items</span>
                   </div>
                   {vendorDetails &&
-                  vendorDetails?.mart === undefined &&
-                  null &&
+                  vendorDetails?.mart === undefined ||
+                  null ||
                   false ? null : (
                     <div className='flex gap-x-2'>
                       {/* <CustomButton
@@ -138,8 +138,8 @@ const page = () => {
                   )}
                 </div>
                 {vendorDetails &&
-                vendorDetails?.mart === undefined &&
-                null &&
+                vendorDetails?.mart === undefined ||
+                null ||
                 false ? (
                   <div className='flex flex-col justify-center items-center'>
                     <p className='text-xl text-center font-semibold'>
