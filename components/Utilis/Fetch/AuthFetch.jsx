@@ -14,9 +14,7 @@ export const UseAuth = () => {
   const [verifypasswordToken, { isLoading: verifypasswordTokenLoading }] = useVerifypasswordTokenMutation()
   const [verifyNewpassword, { isLoading: verifyNewpasswordLoading }] = useVerifyNewpasswordMutation()
   // const { auth } = useSelector((state) => state.persistedReducer);
-  const router = useRouter()
 
-  const dispatch = useDispatch();
   // const navigate = useNavigate();
   const useLogin = async (email, password, roles) => {
     try {

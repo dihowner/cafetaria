@@ -18,7 +18,7 @@ const UnprotectedRouter = ({ children }) => {
                 router.push('/vendor/dashboard')
             }
         }
-    }, [router, auth])
+    }, [ auth])
     return (
         <div>{isAuth && children}</div>
     )

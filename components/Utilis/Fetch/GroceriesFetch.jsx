@@ -34,19 +34,16 @@ export const groceriesFetch = () => {
     //         setError(err.error)
     //     }
     // }
-    // const getcategory = async () => {
-    //     try {
-    //         const response = await getCategory({
-    //             id: vendordetails?.mart?._id
-    //             , token: auth.token
-    //         }).unwrap()
-    //         console.log(response)
-    //         dispatch(set_Categories(response))
-    //     } catch (err) {
-    //         // toast.error(err?.data?.message || err.error);
-    //         // setError(err.error)
-    //     }
-    // }
+    const getcategory = async () => {
+        try {
+            const response = await getCategory().unwrap()
+            console.log(response)
+            dispatch(set_Categories(response))
+        } catch (err) {
+            // toast.error(err?.data?.message || err.error);
+            // setError(err.error)
+        }
+    }
 
     // const editCategory = async (data, id) => {
     //     try {
@@ -182,6 +179,6 @@ export const groceriesFetch = () => {
             })
     }
     return {
-        create_CategoryGroceriesLoading, error, getCategoryLoading, deleteGroceriesCategoryLoading, createGrocery, loading, getGrocery, getGroceriesLoading, deleteGroceries, changeAvailabilty, deletegroceriesLoading, editGrocery
+        create_CategoryGroceriesLoading, error, getCategoryLoading, deleteGroceriesCategoryLoading, createGrocery, loading, getGrocery, getGroceriesLoading, deleteGroceries, changeAvailabilty, deletegroceriesLoading, editGrocery, getcategory
     }
 }
