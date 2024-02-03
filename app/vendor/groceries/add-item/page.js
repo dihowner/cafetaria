@@ -18,9 +18,9 @@ const page = () => {
   const { getcategory, getCategoryLoading, createGrocery, loading } =
     groceriesFetch()
 
-  // useEffect(() => {
-  //   getcategory()
-  // }, [])
+  useEffect(() => {
+    getcategory()
+  }, [])
   const { GroceriesCategory } = useSelector((state) => state.rootReducers)
   const categories = GroceriesCategory?.category
   const [mealImage, setMealImage] = useState()

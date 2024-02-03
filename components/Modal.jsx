@@ -23,7 +23,7 @@ const Modal = ({ isOpen, close, children, height }) => {
         <>
             {' '}
             <Transition appear as={Fragment} show={isOpen}>
-                <Dialog as='div' className='relative z-10 ' initialFocus={cancelButtonRef} onClose={handleClose}>
+                <Dialog as='div' className='relative z-[100] ' initialFocus={cancelButtonRef} onClose={handleClose}>
                     <Transition.Child
                         as={Fragment}
                         enter='ease-out duration-300'

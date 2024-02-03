@@ -1,4 +1,5 @@
 const URL = '/api/marts';
+const URL1 = '/api';
 
 import { apiSlice } from "../apiSlice";
 
@@ -26,13 +27,13 @@ export const createGroceriesCategoryApiSlice = apiSlice.injectEndpoints({
 export const getGroceriesCategoryApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getCategory: builder.mutation({
-            query: ({ token, id }) => ({
-                url: `${URL}/mart-category/${id}`,
+            query: () => ({
+                url: `${URL1}/grocery/category/`,
                 method: 'GET',
                 headers: {
                     // Add your headers here
                     'Accept': 'application/json',
-                    'Authorization': `Bearer ${token}`,
+                
                 },
             })
         })
