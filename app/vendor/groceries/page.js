@@ -118,7 +118,8 @@ const page = () => {
                   </div>
                   {vendorDetails &&
                   vendorDetails?.mart === undefined &&
-                  null ? null : (
+                  null &&
+                  false ? null : (
                     <div className='flex gap-x-2'>
                       {/* <CustomButton
                         title='Create Category'
@@ -136,7 +137,10 @@ const page = () => {
                     </div>
                   )}
                 </div>
-                {vendorDetails && vendorDetails?.mart === undefined && null ? (
+                {vendorDetails &&
+                vendorDetails?.mart === undefined &&
+                null &&
+                false ? (
                   <div className='flex flex-col justify-center items-center'>
                     <p className='text-xl text-center font-semibold'>
                       You don't have a store please create one
