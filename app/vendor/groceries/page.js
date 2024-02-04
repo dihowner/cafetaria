@@ -136,7 +136,9 @@ const page = () => {
                     </div>
                   )}
                 </div>
-                {vendorDetails && vendorDetails?.mart === undefined && null ? (
+                {(vendorDetails && vendorDetails?.mart === undefined) ||
+                vendorDetails?.mart === null ||
+                vendorDetails?.mart === false ? (
                   <div className='flex flex-col justify-center items-center'>
                     <p className='text-xl text-center font-semibold'>
                       You don't have a store please create one
