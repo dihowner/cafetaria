@@ -26,6 +26,7 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
     const nameRef = useRef(null)
     const isAvailableRef = useRef(null)
     const priceRef = useRef(null)
+    const [is_available, setIs_available] = useState()
 
     const editSubmubmeal = async (e, submealId, mealId) => {
         e.preventDefault()
@@ -33,7 +34,7 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
         const data = {
             unit_price: priceRef?.current?.value,
             name: nameRef?.current?.value,
-            category: categoryDetails?.id,
+            category: categoryDetails?._id,
             is_available: isAvailableRef?.current?.value,
         }
         await editSubMeal(data, submealId, mealId, setIsOpenModal)
@@ -101,8 +102,10 @@ const SubMeal = ({ submeal, categoryDetails, selectedCategoryForDelete, setSelec
                                                 <div className='flex flex-col w-full'>
                                                     <label htmlFor='' className='text-sm'>Availability</label>
                                                     <select
-                                                        defaultValue={item?.isAvailable}
-                                                        ref={isAvailableRef}
+                                                        // defaultValue={item?.isAvailable}
+                                                        // ref={isAvailableRef}
+                                                        value={is_available === undefined ? item?.isAvailable : is_available}
+                                                        onChange={(e) => setIs_available(e.target.value)}
                                                         className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] outline-none bg-transparent'
                                                     >
                                                         {status.map((item, index) => (
