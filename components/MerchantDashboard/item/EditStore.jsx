@@ -48,10 +48,10 @@ const EditStore = ({ isOpenModal, setIsOpenModal }) => {
         const fileimage = store_image === undefined || store_image === null ? vendorDetails?.mart?.image : store_image
 
         formData.append('description', descriptionRef?.current?.value)
-        const fileToUpload = storeImage?.current?.files[0] || vendorDetails?.mart?.image;
+
         console.log(storeImage?.current?.files[0])
         console.log(vendorDetails?.mart?.image)
-        // formData.append('image', fileToUpload) // Assuming mealImage is a File object
+        formData.append('image', fileimage) // Assuming mealImage is a File object
         formData.append('name', NameRef?.current?.value)
         formData.append('address', addressRef.current?.value)
         await axios
