@@ -5,7 +5,11 @@ import { FaGreaterThan } from 'react-icons/fa6'
 import { EachRests } from '@/components/Utilis/Dummy'
 import Link from 'next/link'
 import CustomButton from '@/components/CustomButton'
-const EachRest = ({ restuarantsDetails, open }) => {
+import { randomFetch } from '@/components/Utilis/Fetch/RandomFetch'
+import AppLoader from '@/components/AppLoader'
+
+const EachRest = ({ restuarantsDetails, open, allMeals, setMealsDetails }) => {
+    const { getSubmeal, error, getVendorMealsLoading } = randomFetch()
 
     return (
         <div className='w-full flex justify-center items-center flex-col gap-y-8 pb-8'>
@@ -70,7 +74,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                     </div>
                 </div>
             </div>
-            <div className="width mt-[90px]  md:mt-[160px]">
+            {getVendorMealsLoading ? 'loading': <div className="width mt-[90px]  md:mt-[160px]">
                 <div className='flex flex-col gap-y-4 w-[100%]'>
                     <div className=" flex flex-col md:flex-row gap-x-4 gap-y-4 ">
                         <h1 className='font-[700] text-3xl'>All Delicacies</h1>
@@ -85,29 +89,39 @@ const EachRest = ({ restuarantsDetails, open }) => {
                         </div>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-6">
-                        {EachRests.map((item, index) => (
-                            <div className="border flex justify-between items-center gap-x-8 w-full px-6 py-8">
-                                <div className="flex-col flex gap-y-16 w-[60%]">
-                                    <h1 className='font-[600] text-xl'>{item.name}</h1>
-                                    <div className="">
-                                        <p>Initial Menu: <span className='text-[#218B07]'> {item.price}</span></p>
-                                        <CustomButton
-                                            title='Buy menu'
-                                            containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4  bg-[#218B07]'
-                                            handleClick={open}
-                                        />
+                        {error ? (<div className='text-center text-2xl w-full capitalize'>{error}</div>) : <>
+                            {allMeals && allMeals.map((item, index) => (
+                                <div className="border flex justify-between items-center gap-x-8 w-full px-3 py-4 capitalize text-sm" key={index}>
+                                    <div className="flex-col justify-between  flex gap-y-5 w-[50%]">
+                                        <div className="">
+                                            <h1 className='font-[600] text-base'>{item?.name}</h1>
+                                            <p>{item?.description}</p>
+
+                                        </div>
+                                        <div className=" text-sm">
+                                            <p>Initial Menu: <span className='text-[#218B07]'> {item?.unitPrice}</span></p>
+                                            <CustomButton
+                                                title='Buy menu'
+                                                containerStyles='text-[white] flex justify-center items-center py-2 px-8 rounded-[8px] gap-x-4 w-full bg-[#218B07]'
+                                                handleClick={() => {
+                                                    open(); setMealsDetails(item)
+                                                    getSubmeal(item?._id)
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="w-[50%] flex justify-center items-center h-[100%]">
+                                        <img src={item?.image} alt="" srcSet="" className='w-[100%] h-[100%]' />
                                     </div>
                                 </div>
-                                <div className="w-[40%] flex justify-center items-center h-[100%]">
-                                    <img src={item.image} alt="" srcSet="" className='w-[100%] h-[100%]' />
-                                </div>
-                            </div>
-                        ))}
+                            ))}</>}
+
                     </div>
 
                 </div>
-            </div>
-            <div className="width mt-8">
+            </div>}
+
+            {/* <div className="width mt-8">
                 <div className='flex flex-col gap-y-4 w-[100%]'>
                     <div className=" flex gap-x-4 ">
                         <h1 className='font-[700] text-3xl'>All Delicacies</h1>
@@ -134,7 +148,7 @@ const EachRest = ({ restuarantsDetails, open }) => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

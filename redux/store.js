@@ -11,6 +11,7 @@ import detailsSlice from './Vendor/Slices/detailsSlice'
 import CategorySlices from './Vendor/Slices/CategorySlices'
 import GroceriesCategorySlice from './Vendor/Slices/GroceriesCategorySlice'
 import GroceriesSlice from './Vendor/Slices/GroceriesSlice'
+import mealSlice from './User/mealSlice'
 
 const rootReducers = combineReducers({
   auth: authSlice,
@@ -19,9 +20,10 @@ const rootReducers = combineReducers({
   Details: detailsSlice,
   meals: createMealSlice,
   bankDetails: BankDetailsSlice,
-  categories:CategorySlices,
-  GroceriesCategory:GroceriesCategorySlice,
-  groceries:GroceriesSlice
+  categories: CategorySlices,
+  GroceriesCategory: GroceriesCategorySlice,
+  groceries: GroceriesSlice,
+  usermeals: mealSlice,
 })
 export const store = configureStore({
   reducer: {
