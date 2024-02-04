@@ -116,9 +116,9 @@ const page = () => {
                     </span>
                     <span>Groceries Items</span>
                   </div>
-                  {vendorDetails &&
-                  vendorDetails?.mart === undefined &&
-                  null ? null : (
+                  {(vendorDetails && vendorDetails?.mart === undefined) ||
+                  vendorDetails?.mart === null ||
+                  vendorDetails?.mart === false ? null : (
                     <div className='flex gap-x-2'>
                       {/* <CustomButton
                         title='Create Category'
@@ -136,7 +136,10 @@ const page = () => {
                     </div>
                   )}
                 </div>
-                {vendorDetails && vendorDetails?.mart === undefined && null ? (
+                {vendorDetails &&
+                vendorDetails?.mart === undefined ||
+                null ||
+                false ? (
                   <div className='flex flex-col justify-center items-center'>
                     <p className='text-xl text-center font-semibold'>
                       You don't have a store please create one
@@ -193,30 +196,30 @@ const page = () => {
                       currentNum={currentNum}
                       setTotalPages={setTotalPages}
                     />
+                    <div className='flex justify-center'>
+                      <button
+                        className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 mr-2 ${
+                          page === 1 ? 'opacity-50 cursor-not-allowed' : ''
+                        }`}
+                        onClick={handlePrevPage}
+                        disabled={page === 1}
+                      >
+                        Prev
+                      </button>
+                      <button
+                        className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 ${
+                          page === totalPages || totalPages === 0
+                            ? 'opacity-50 cursor-not-allowed'
+                            : ''
+                        }`}
+                        onClick={handleNextPage}
+                        disabled={page === totalPages || totalPages === 0}
+                      >
+                        Next
+                      </button>
+                    </div>
                   </div>
                 )}
-                <div className='flex justify-center'>
-                  <button
-                    className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 mr-2 ${
-                      page === 1 ? 'opacity-50 cursor-not-allowed' : ''
-                    }`}
-                    onClick={handlePrevPage}
-                    disabled={page === 1}
-                  >
-                    Prev
-                  </button>
-                  <button
-                    className={`bg-gray-200 hover:bg-gray-300 rounded-md py-2 px-4 ${
-                      page === totalPages || totalPages === 0
-                        ? 'opacity-50 cursor-not-allowed'
-                        : ''
-                    }`}
-                    onClick={handleNextPage}
-                    disabled={page === totalPages || totalPages === 0}
-                  >
-                    Next
-                  </button>
-                </div>
               </div>
               <StoreCreation
                 isOpenModal={isOpenModal}
