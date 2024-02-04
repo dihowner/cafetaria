@@ -28,12 +28,12 @@ export const getGroceriesCategoryApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         getCategory: builder.mutation({
             query: () => ({
-                url: `${URL1}/grocery/category/`,
+                url: `${URL1}/grocery/category/all`,
                 method: 'GET',
                 headers: {
                     // Add your headers here
                     'Accept': 'application/json',
-                
+
                 },
             })
         })
