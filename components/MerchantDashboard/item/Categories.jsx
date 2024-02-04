@@ -13,12 +13,6 @@ import SubMeal from './SubMeal';
 // the itemID is the meal id while the details is the meal details 
 const Categories = ({ itemID, details }) => {
     const { getMealCategories, getCategoryLoading, error } = mealsfetch()
-    const getcategory = async () => {
-        await getMealCategories(itemID) // getting the meal categories withe meal id 
-    }
-    useEffect(() => {
-        getcategory()
-    }, [])
     const { categories } = useSelector((state) => state.rootReducers)
 
     const [isEditCategoryOpenModal, setIsEditCategoryOpenModal] = useState(null)

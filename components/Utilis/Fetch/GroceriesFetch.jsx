@@ -37,7 +37,7 @@ export const groceriesFetch = () => {
     const getcategory = async () => {
         try {
             const response = await getCategory().unwrap()
-            console.log(response)
+            // console.log(response)
             dispatch(set_Categories(response))
         } catch (err) {
             // toast.error(err?.data?.message || err.error);

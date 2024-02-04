@@ -2,8 +2,8 @@
 
 import { mealsfetch } from '@/components/Utilis/Fetch/MealsFetch'
 import { useGetMealDetailsMutation } from '@/redux/Vendor/getMealApiSlice'
-import React, { useEffect, useRef } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+// import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import UploadEdit from '@/components/UploadEdit'
 import Button from '@mui/material/Button'
@@ -20,15 +20,17 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
         { value: false, status: 'Not Active' },
     ]
     const [store_image, setStore_image] = useState()
-
+    const [is_available, setIs_available] = useState()
+    const [is_requiredstyrofoam, setIs_requiredstyrofoam] = useState()
+    const [is_requiredplasticPlate, setIs_requiredplasticPlate] = useState()
     const NameRef = useRef(null)
     const descriptionRef = useRef(null)
     const is_availableRef = useRef(null)
     const priceRef = useRef(null)
     const styrofoamPriceRef = useRef(null)
     const plasticPlatePriceRef = useRef(null)
-    const is_requiredstyrofoam = useRef(null)
-    const is_requiredplasticPlate = useRef(null)
+    // const is_requiredstyrofoam = useRef(null)
+    // const is_requiredplasticPlate = useRef(null)
     const mealImage = useRef(null)
     const { updateMeals, loading } = mealsfetch()
     console.log(typeof (details?.isAvailable))
@@ -39,17 +41,17 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
         formData.append('description', descriptionRef?.current?.value)
         formData.append('mealImage', fileimage) // A ssuming mealImage is a File object
         formData.append('name', NameRef?.current?.value)
-        formData.append('is_available', is_availableRef?.current?.value)
+        formData.append('is_available', is_available === undefined ? details?.isAvailable : is_available)
         formData.append('unit_price', parseInt(priceRef?.current?.value))
 
         const Packaging = {
             styrofoam: {
                 price: styrofoamPriceRef?.current?.value,
-                is_required: is_requiredstyrofoam?.current?.value,
+                is_required: is_requiredstyrofoam === undefined ? details?.packaging?.stryrofoam?.is_required : is_requiredstyrofoam,
             },
             plastic_plate: {
                 price: plasticPlatePriceRef?.current?.value,
-                is_required: is_requiredplasticPlate?.current?.value,
+                is_required: is_requiredplasticPlate === undefined ? details?.packaging?.stryrofoam?.is_required : is_requiredplasticPlate,
             },
         }
         formData.append('packaging', JSON.stringify(Packaging))
@@ -103,13 +105,13 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                 <label htmlFor='' className='text-sm'>Availability</label>
                                 {details?.isAvailable.toString()}
                                 <select
-                                    ref={is_availableRef}
-                                    defaultValue={details?.isAvailable}
-
-
+                                    // ref={is_availableRef}
+                                    // defaultValue={details?.isAvailable}
+                                    value={is_available === undefined ? details?.isAvailable : is_available}
+                                    onChange={(e) => setIs_available(e.target.value)}
                                     className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] text-sm outline-none'
                                 >
-                                    <option value='' disabled selected>
+                                    <option value='' disabled>
                                         Select Availability
                                     </option>
                                     {status.map((item, index) => (
@@ -142,8 +144,9 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                         <div className='flex flex-col w-full'>
                                             <label htmlFor='' className='text-sm'>Avaliability</label>
                                             <select
-                                                ref={is_requiredstyrofoam}
-                                                defaultValue={details?.packaging?.stryrofoam?.is_required}
+                                                value={is_requiredstyrofoam === undefined ? details?.packaging?.stryrofoam?.is_required : is_requiredstyrofoam}
+                                                onChange={(e) => setIs_requiredstyrofoam(e.target.value)}
+
                                                 className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] text-sm outline-none'
                                             >
                                                 {status.map((item, index) => (
@@ -172,10 +175,8 @@ const Editmeal = ({ mealId, details, DetailsLoading }) => {
                                         <div className='flex flex-col w-full'>
                                             <label htmlFor='' className='text-sm'>Avaliability</label>
                                             <select
-                                                ref={is_requiredplasticPlate}
-                                                defaultValue={
-                                                    details?.packaging?.plastic_plate?.is_required
-                                                }
+                                                value={is_requiredplasticPlate === undefined ? details?.packaging?.stryrofoam?.is_required : is_requiredplasticPlate}
+                                                onChange={(e) => setIs_requiredplasticPlate(e.target.value)}
                                                 className='flex gap-x-2 items-center px- py-4 border-2 rounded-[8px] text-sm outline-none'
                                             >
                                                 {status.map((item, index) => (

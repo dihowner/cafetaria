@@ -35,7 +35,7 @@ const page = () => {
     formData.append('groceryImage', mealImage) // Assuming mealImage is a File object
     formData.append('name', itemName)
     formData.append('is_available', is_available)
-    formData.append('martcategory', categoryId)
+    formData.append('grocerycategory', categoryId)
     formData.append('unit_price', unit_price)
 
     await createGrocery(formData)

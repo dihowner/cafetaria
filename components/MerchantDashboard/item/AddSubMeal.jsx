@@ -19,7 +19,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID, categoryDetails }) =>
 
     // console.log(categoryDetails)
 
-    const [is_available, setIs_available] = useState(true)
+    const [is_available, setIs_available] = useState()
     const { createSubMeal, createSubMealLoading, error } = mealsfetch()
 
     const { categories } = useSelector((state) => state.rootReducers)
@@ -37,7 +37,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID, categoryDetails }) =>
     const data = {
         unit_price: price,
         name: name,
-        category: categoryDetails?.id,
+        category: categoryDetails?._id,
         is_available: is_available
     }
     const submealcreate = async (e) => {
@@ -48,6 +48,7 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID, categoryDetails }) =>
         setPrice('')
         setIs_available(null)
     }
+    // console.log(categoryDetails?._id)
     return (
         <div>
             <Modal isOpen={isOpenModal} height='400px' close={() => setIsOpenModal(false)} >
@@ -75,6 +76,9 @@ const AddSubMeal = ({ isOpenModal, setIsOpenModal, itemID, categoryDetails }) =>
                                 onChange={(e) => setIs_available(e.target.value)}
                                 className='flex gap-x-2 items-center px-4 py-4 border-2 rounded-[8px] outline-none bg-transparent'
                             >
+                                <option value='' disabled selected>
+                                    Select Availability
+                                </option>
                                 {status.map((item, index) => (
                                     <option key={index} value={item.value} className='capitalize'>
                                         {item.status}
