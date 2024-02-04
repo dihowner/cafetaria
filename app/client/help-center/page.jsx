@@ -26,7 +26,7 @@ const page = () => {
           </div>
           <div className="shadow-md flex justify-center flex-col items-center p-8 text-center gap-y-2">
             <span><BsChat className='text-5xl text-[#FF9C06]' /></span>
-            <h1 className='text-3xl textt-[#333333] font-semibold'>Contact support</h1>
+            <h1 className='text-3xl textt-[#333333] font-semibold'>Contact support cant support nnn </h1>
             <p className=''>
               Understanding cafeteria in and out
               started from the onboarding
