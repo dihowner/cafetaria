@@ -35,6 +35,7 @@ const page = () => {
     }
   }
   const isvalid = email && password
+  console.log(auth)
   useEffect(() => {
     if (auth && auth?.token && auth?.user === 'user') {
       router.push('/client/dashboard')
