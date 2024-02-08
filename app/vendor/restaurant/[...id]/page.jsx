@@ -16,6 +16,13 @@ const page = ({ params }) => {
     }, [mealId])
     // console.log(details)
     const pathname = usePathname()
+    const { getMealCategories, getCategoryLoading, error } = mealsfetch()
+    const getcategory = async () => {
+        await getMealCategories(mealId) // getting the meal categories withe meal id 
+    }
+    useEffect(() => {
+        getcategory()
+    }, [])
     if (pathname.includes('edit')) {
         return <><Editmeal mealId={mealId} details={details} DetailsLoading={DetailsLoading} /></>;
     }
