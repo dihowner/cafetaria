@@ -43,13 +43,22 @@ const layout = ({ children }) => {
     }
   }
   // Check if the user role is 'user', otherwise redirect to the previous page
+  // useEffect(() => {
+  //   if (auth.user !== 'user') {
+  //     // You can customize the redirection logic based on your requirements
+  //     router.back()
+  //     return null // Prevent rendering the rest of the layout
+  //   } else {
+  //     fetchDetails()
+  //   }
+  // }, [auth])
+
   useEffect(() => {
-    if (auth.user !== 'user') {
-      // You can customize the redirection logic based on your requirements
-      router.back()
-      return null // Prevent rendering the rest of the layout
-    } else {
+    if (auth?.user === 'user') {
       fetchDetails()
+    } else {
+      // If auth.user is not 'vendor', redirect to the previous page
+      router.back()
     }
   }, [auth])
 

@@ -14,16 +14,20 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         setToken: (state, action) => {
+            // console.log('response', action)
             state.token = action.payload.token,
                 state.user = action.payload.data.role,
                 state.name = action.payload.data.name,
                 state.Id = action.payload.data.id,
-                state.vendor_id = action.payload.data.vendor_id,
+                // state.vendor_id = action.payload.data.vendor_id,
                 localStorage.setItem('token', JSON.stringify(action.payload.token)),
                 localStorage.setItem('user', JSON.stringify(action.payload.data.role)),
                 localStorage.setItem('name', JSON.stringify(action.payload.data.name)),
                 localStorage.setItem('Id', JSON.stringify(action.payload.data.id))
             { state.user === 'vendor' ? localStorage.setItem('vendor_id', JSON.stringify(action.payload.data.vendor_id)) : null }
+            // if (state?.user === 'vendor') {
+            //     localStorage.setItem('vendor_id', JSON.stringify(action.payload.data.vendor_id));
+            // }
 
         },
         logout: (state) => {

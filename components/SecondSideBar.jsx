@@ -32,7 +32,8 @@ const SecondSideBar = ({ SideBarSecondLinks, closes }) => {
     const dispatch = useDispatch();
     const handleLogoutFun = async () => {
         dispatch(logout());
-        router.push('/')
+        console.log('yes')
+        // router.push('/')
     };
 
     return (

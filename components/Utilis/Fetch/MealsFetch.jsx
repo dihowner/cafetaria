@@ -148,7 +148,7 @@ export const mealsfetch = () => {
             dispatch(create_Category(response?.data))
             toast.success(response.message)
             setIsOpenModal(false)
-            console.log(response)
+            // console.log(response)
 
         } catch (err) {
             toast.error(err?.data?.message || err.error);
