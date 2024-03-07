@@ -1,17 +1,17 @@
-'use client'
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { apiSlice } from './apiSlice'
-import authSlice from '@/user/authSlice'
-import StatisticSlice from './DashBoard/StatisticSlice'
-import withdrawSlice from './Vendor/Slices/withdrawSlice'
+"use client";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import { apiSlice } from "./apiSlice";
+import authSlice from "@/user/authSlice";
+import StatisticSlice from "./DashBoard/StatisticSlice";
+import withdrawSlice from "./Vendor/Slices/withdrawSlice";
 // import vendordetailsSlice from './Vendor/Slices/detailsSlice'
-import createMealSlice from './Vendor/Slices/createMealSlice'
-import BankDetailsSlice from './Vendor/Slices/BankDetailsSlice'
-import detailsSlice from './Vendor/Slices/detailsSlice'
-import CategorySlices from './Vendor/Slices/CategorySlices'
-import GroceriesCategorySlice from './Vendor/Slices/GroceriesCategorySlice'
-import GroceriesSlice from './Vendor/Slices/GroceriesSlice'
-import mealSlice from './User/mealSlice'
+import createMealSlice from "./Vendor/Slices/createMealSlice";
+import BankDetailsSlice from "./Vendor/Slices/BankDetailsSlice";
+import detailsSlice from "./Vendor/Slices/detailsSlice";
+import CategorySlices from "./Vendor/Slices/CategorySlices";
+import GroceriesCategorySlice from "./Vendor/Slices/GroceriesCategorySlice";
+import GroceriesSlice from "./Vendor/Slices/GroceriesSlice";
+import mealSlice from "./User/mealSlice";
 
 const rootReducers = combineReducers({
   auth: authSlice,
@@ -24,7 +24,8 @@ const rootReducers = combineReducers({
   GroceriesCategory: GroceriesCategorySlice,
   groceries: GroceriesSlice,
   usermeals: mealSlice,
-})
+});
+
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
@@ -34,4 +35,4 @@ export const store = configureStore({
     getDefaultMiddleware().concat(apiSlice.middleware),
 
   devTools: true,
-})
+});
