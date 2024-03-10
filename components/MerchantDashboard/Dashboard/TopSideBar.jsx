@@ -18,7 +18,7 @@ const TopSideBar = () => {
 
   useEffect(() => {
     try {
-      if (isLoading ?? isFetching) return;
+      if (isLoading || isFetching) return;
       setBoardata(data);
     } catch (err) {
       console.log("error", err);
