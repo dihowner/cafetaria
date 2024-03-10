@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { DashboardTableData } from "@/components/Utilis/Dummy";
 import CustomButton from "@/components/CustomButton";
 import Link from "next/link";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { FaCartShopping } from "react-icons/fa6";
+import { useSelector } from "react-redux";
+import { useGetOrderHistoryQuery } from "@/redux/Vendor/NewSlices/OrderSlice";
 // Link
 const Table = () => {
   const maxLength = 15;
@@ -13,6 +15,31 @@ const Table = () => {
     }
     return str;
   };
+
+  // const [orderHistory, setOrderHistory] = useState(null);
+  // const { auth } = useSelector((state) => state.rootReducers);
+  // const { data, isLoading, isFetching } = useGetOrderHistoryQuery({
+  //   type: "all",
+  //   page: 1,
+  //   token: auth.token,
+  // });
+
+  // useEffect(() => {
+  //   try {
+  //     if (isFetching || isLoading) return;
+  //     setOrderHistory(data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }, []);
+  // console.log("first..........", orderHistory);
+  // // The value to be use
+  // const orderHistoryPages = orderHistory?.pagination;
+  // const orderHistoryList = orderHistory?.data;
+  // // I need to configure the change in pages
+
+  // Selected Order history
+
   return (
     <div className="width flex flex-col gap-y-4">
       <div className="flex gap-x-4 items-center">

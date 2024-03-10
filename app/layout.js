@@ -7,6 +7,7 @@ import Providers from "@/app/provider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
+import { DataProvider } from "@/context/DataContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -19,10 +20,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Providers>
         <SidebarContext>
-          <body className={inter.className}>
-            <ToastContainer />
-            {children}
-          </body>
+          <DataProvider>
+            <body className={inter.className}>
+              <ToastContainer />
+              {children}
+            </body>
+          </DataProvider>
         </SidebarContext>
       </Providers>
     </html>
