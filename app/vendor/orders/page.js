@@ -5,9 +5,7 @@ import Link from "next/link";
 import { BiSortAlt2 } from "react-icons/bi";
 import { FaCartShopping } from "react-icons/fa6";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { OrdersTableData } from "@/components/Utilis/Dummy";
-import { useSelector } from "react-redux";
-import { useGetOrderHistoryQuery } from "@/redux/Vendor/NewSlices/OrderSlice";
+import { useSelector, useDispatch } from "react-redux";
 import { useData } from "@/context/DataContext";
 
 const page = () => {
@@ -18,10 +16,9 @@ const page = () => {
     }
     return str;
   };
-
-  const data = useData();
-  console.log(data, "from orders page 23");
-
+  const orderData = useData();
+  const theOrderHistory = orderData.orderHistory?.data;
+  console.log("first.... oderDate", orderData, theOrderHistory);
   const tdStyle =
     "text-sm text-white text-center px-1 py-1 font-bold text-left";
   const tdStyleB =
@@ -79,7 +76,7 @@ const page = () => {
               </thead>
 
               <tbody>
-                {OrdersTableData.map((item, index) => (
+                {theOrderHistory?.map((item, index) => (
                   <tr className="border-b capitalize my-2" key={index}>
                     <td className={tdStyleB}>{item.id}</td>
                     <td className={tdStyleB}>{item.order_id}</td>

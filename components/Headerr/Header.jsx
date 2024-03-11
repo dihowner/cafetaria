@@ -18,6 +18,8 @@ const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const { auth } = useSelector((state) => state.rootReducers);
+  const state = useSelector((state) => state);
+  console.log("state", state, auth);
   const [isAuth, setIsAuth] = useState(false);
   const router = useRouter();
   useEffect(() => {
@@ -62,7 +64,8 @@ const Header = () => {
             className="object-contain"
           />
         </Link>
-        <ul className=" gap-x-3 text-lg hidden md:flex">
+
+        {/* <ul className=" gap-x-3 text-lg hidden md:flex">
           <li>
             <Link
               href="/"
@@ -111,7 +114,8 @@ const Header = () => {
               About
             </Link>
           </li>
-        </ul>
+        </ul> */}
+
         {isAuth ? (
           <>
             {auth?.user === "user" ? (
@@ -145,7 +149,9 @@ const Header = () => {
             ) : (
               <>
                 <div className="md:flex justify-center hidden items-center gap-x-2">
-                  <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-3xl h-12 w-12  text-[#FFFFFF]">
+                  {/* Adetunji, I want to add cursor to all here and links
+                  Is auth is confirm redirection to dashbouard automatically */}
+                  <div className="bg-[#C9C9C9] rounded-[10px] py-2 px-2 text-3xl h-12 w-12 text-[#FFFFFF]">
                     <BsWechat />
                   </div>
                   <div className="bg-[#C9C9C9] rounded-[8px] text-lg h-12 w-12 text-[#FFFFFF]">
@@ -218,7 +224,7 @@ const Header = () => {
         </div>
       </div>
 
-      {toggle && (
+      {/* {toggle && (
         <div className="mediumscreen block md:hidden">
           <ul className="flex gap-y-6 flex-col text-lg">
             <ImCancelCircle
@@ -321,7 +327,7 @@ const Header = () => {
             )}
           </ul>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

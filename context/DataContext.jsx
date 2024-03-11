@@ -13,19 +13,14 @@ const DataProvider = ({ children }) => {
     page: 1,
     token: auth.token,
   });
-
   useEffect(() => {
-    console.log("hiiiiiiiiii in effect");
     try {
       if (isFetching || isLoading) return;
-
-      console.log("from state", data);
       setOrderHistory(data);
     } catch (err) {
       console.log(err);
     }
   }, [isFetching, isLoading]);
-
   return (
     <DataContext.Provider value={{ orderHistory }}>
       {children}
@@ -36,7 +31,6 @@ const DataProvider = ({ children }) => {
 const useData = () => {
   const context = useContext(DataContext);
   if (!context) throw new Error("useData must be used in a context");
-
   return context;
 };
 
