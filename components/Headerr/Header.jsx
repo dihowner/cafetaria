@@ -18,8 +18,6 @@ const Header = () => {
   const [toggle, setToggle] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const { auth } = useSelector((state) => state.rootReducers);
-  const state = useSelector((state) => state);
-  console.log("state", state, auth);
   const [isAuth, setIsAuth] = useState(false);
   const router = useRouter();
   useEffect(() => {

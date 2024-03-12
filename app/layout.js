@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Headerr/Header";
-// import Footer from '@/components/Footer'
 import { SidebarContext } from "@/context/Sidebar/SideBarContext";
 import Providers from "@/app/provider";
 import { ToastContainer } from "react-toastify";

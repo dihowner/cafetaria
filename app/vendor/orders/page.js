@@ -18,7 +18,7 @@ const page = () => {
   };
   const orderData = useData();
   const theOrderHistory = orderData.orderHistory?.data;
-  console.log("first.... oderDate", orderData, theOrderHistory);
+
   const tdStyle =
     "text-sm text-white text-center px-1 py-1 font-bold text-left";
   const tdStyleB =

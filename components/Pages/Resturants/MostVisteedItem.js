@@ -12,7 +12,6 @@ const MostVisteedItem = ({ scrollref, scroll }) => {
     status: "all",
     page: 1,
   });
-
   useEffect(() => {
     try {
       if (isLoading || isFetching) return;
