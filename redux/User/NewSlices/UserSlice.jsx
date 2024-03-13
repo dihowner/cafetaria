@@ -12,9 +12,43 @@ const getUserSlice = apiSlice.injectEndpoints({
         },
       }),
     }),
+    getUserProile: builder.query({
+      query: ({ token }) => ({
+        url: `${USER_URL}/details`,
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }),
+    }),
+    updateUserProile: builder.query({
+      query: ({ payLoad, token }) => ({
+        url: `${USER_URL}/profile/update`,
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payLoad),
+      }),
+    }),
+    changerUserPassword: builder.query({
+      query: ({ payLoad, token }) => ({
+        url: `${USER_URL}/change-password`,
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payLoad),
+      }),
+    }),
 
     // Add more
   }),
 });
 
-export const { useGetUserStatisticsQuery } = getUserSlice;
+export const {
+  useGetUserStatisticsQuery,
+  useGetUserProileQuery,
+  useUpdateUserProileQuery,
+  useChangerUserPasswordQuery,
+} = getUserSlice;
