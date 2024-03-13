@@ -13,7 +13,7 @@ import { useData } from "@/context/DataContext";
 // toast/
 const page = () => {
   const { auth, stat } = useSelector((state) => state.rootReducers);
-  console.log("the aut", auth);
+  // console.log("the aut", auth);
   const [statistic, { isLoading: staticLoading }] = useStatisticMutation();
   const dispatch = useDispatch();
   const id =
@@ -51,7 +51,7 @@ const page = () => {
 
   // user statistics
   const userStat = useData().userStatistics;
-  console.log("from user dash... present", userStat);
+  // console.log("from user dash... present", userStat);
 
   return (
     <div className="w-full justify-center items-center flex flex-col gap-y-8">

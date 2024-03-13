@@ -13,7 +13,7 @@ const getUserSlice = apiSlice.injectEndpoints({
       }),
     }),
 
-    // text one
+    // Add more
   }),
 });
 
